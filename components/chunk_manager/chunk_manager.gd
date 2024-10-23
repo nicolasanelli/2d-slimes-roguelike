@@ -16,7 +16,7 @@ var _chunk_component = preload("res://components/chunk/chunk.tscn")
 
 var player: Player
 var chunks_loaded = {}
-
+var last_pos_checked: Vector2 = Vector2(99,99)
 
 func _ready() -> void:
 	player = Player.instance
@@ -33,11 +33,13 @@ func _get_player_current_chunk() -> Vector2:
 
 func _spawn_adjacent_chunks() -> void:
 	var pos = _get_player_current_chunk()
+	if pos == last_pos_checked: return
 	var x = pos.x
 	var y = pos.y
 	for n in range(x-1, x+2):
 		for m in range(y-1, y+2):
 			_spawn_chunk(n, m)
+	last_pos_checked = pos
 
 
 func _spawn_chunk(x: int, y: int) -> void:
