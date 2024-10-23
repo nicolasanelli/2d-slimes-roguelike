@@ -24,4 +24,3 @@ func _on_replay_pressed() -> void:
 
 func game_over() -> void:
 	_game_over_screen.visible = true
-	#get_tree().paused = true

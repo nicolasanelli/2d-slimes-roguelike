@@ -53,7 +53,6 @@ func _input(event: InputEvent) -> void:
 
 func _get_random_position() -> Vector2:
 	var chunk_position = global_position;
-	print_debug(chunk_position)
 	
 	var min_x = global_position.x
 	var max_x = global_position.x + chunk_width
