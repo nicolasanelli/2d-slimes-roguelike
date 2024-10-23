@@ -25,6 +25,8 @@ func _ready() -> void:
 	chunk_y = floor(global_position.y / chunk_height)
 	label.text = "(%s, %s)" % [chunk_x, chunk_y]
 	_spawn_random_trees(randi_range(4, 5))
+	
+	label.visible = Debugger.instance.visible
 
 
 func get_global_position_for_x_y(x: int, y: int) -> Vector2:
@@ -43,6 +45,10 @@ func _on_body_entered(_body: Node2D) -> void:
 	#print_debug("Player entered in chunk [%s, %s]" % [chunk_x, chunk_y]);
 	pass
 
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("open_debug_panel"):
+		label.visible = Debugger.instance.visible
 
 
 func _get_random_position() -> Vector2:

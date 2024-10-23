@@ -18,6 +18,7 @@ shape = SubResource("RectangleShape2D_dcejg")
 [node name="Trees" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 4096
 offset_right = 40.0
 offset_bottom = 23.0
