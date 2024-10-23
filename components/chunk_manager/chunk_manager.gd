@@ -1,4 +1,4 @@
-class_name ChunkManager extends Node
+class_name ChunkManager extends Node2D
 
 
 #region Singleton

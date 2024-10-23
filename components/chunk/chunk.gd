@@ -71,5 +71,6 @@ func _spawn_random_trees(quantity: int) -> void:
 
 func _spawn_tree(_position: Vector2) -> void:
 	var tree: Node2D = _tree_component.instantiate()
+	trees.global_position = Vector2.ZERO
 	tree.global_position = _position
 	trees.add_child(tree)

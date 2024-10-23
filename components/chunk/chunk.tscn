@@ -6,6 +6,7 @@
 size = Vector2(1080, 1080)
 
 [node name="Chunk" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_fmkin")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -15,7 +16,8 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_dcejg")
 
-[node name="Trees" type="Node" parent="."]
+[node name="Trees" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Label" type="Label" parent="."]
 visible = false
