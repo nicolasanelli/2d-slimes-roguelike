@@ -6,6 +6,7 @@ var _mob_component = preload("res://components/mob/mob.tscn")
 @onready var _timer: Timer = %Timer
 @onready var _mobs: Node = %Mobs
 
+
 func _ready() -> void:
 	_timer.wait_time = 0.3
 	_timer.start()

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy4pqge5kjd4a"]
+
+[ext_resource type="Script" path="res://components/chunk/chunk.gd" id="1_fmkin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcejg"]
+size = Vector2(1080, 1080)
+
+[node name="Chunk" type="Node2D"]
+script = ExtResource("1_fmkin")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(540, 540)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_dcejg")
+
+[node name="Trees" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="."]
+z_index = 4096
+offset_right = 40.0
+offset_bottom = 23.0
+text = "(%f, %f)"

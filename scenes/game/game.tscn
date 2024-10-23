@@ -1,64 +1,41 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2odse7mabaid"]
+[gd_scene load_steps=6 format=3 uid="uid://c2odse7mabaid"]
 
 [ext_resource type="PackedScene" uid="uid://d15wvy5ol3wsu" path="res://components/game_manager/game_manager.tscn" id="1_5eujh"]
 [ext_resource type="PackedScene" uid="uid://bhmpp5o3beqph" path="res://components/player/player.tscn" id="1_hst8v"]
-[ext_resource type="PackedScene" uid="uid://chhkp0ptdo34c" path="res://components/pine_tree/pine_tree.tscn" id="2_yy6cm"]
+[ext_resource type="PackedScene" uid="uid://chjqobojluvru" path="res://components/chunk_manager/chunk_manager.tscn" id="2_dta7r"]
+[ext_resource type="PackedScene" uid="uid://bgkt0n6fd4oq4" path="res://components/mob_spawner/mob_spawner.tscn" id="3_ddodt"]
 [ext_resource type="PackedScene" uid="uid://dvrwfpndahhq1" path="res://components/debugger/debugger.tscn" id="5_lr2xe"]
-[ext_resource type="Script" path="res://scenes/game/mob_spawner.gd" id="5_wuy7s"]
-
-[sub_resource type="Curve2D" id="Curve2D_ugaer"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1599, -961, 0, 0, 0, 0, 1562, -952, 0, 0, 0, 0, 1575, 987, 0, 0, 0, 0, -1617, 938, 0, 0, 0, 0, -1604, -957)
-}
-point_count = 5
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
 [node name="GameManager" parent="." instance=ExtResource("1_5eujh")]
 
+[node name="ChunkManager" parent="." instance=ExtResource("2_dta7r")]
+
 [node name="Player" parent="." instance=ExtResource("1_hst8v")]
-position = Vector2(532, 339)
-
-[node name="MobSpawner" type="Node2D" parent="Player"]
-script = ExtResource("5_wuy7s")
-
-[node name="Path2D" type="Path2D" parent="Player/MobSpawner"]
-curve = SubResource("Curve2D_ugaer")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Player/MobSpawner/Path2D"]
-unique_name_in_owner = true
-position = Vector2(-1599, -961)
-rotation = 0.00284719
-
-[node name="Timer" type="Timer" parent="Player/MobSpawner"]
-unique_name_in_owner = true
-
-[node name="Mobs" type="Node" parent="Player/MobSpawner"]
-unique_name_in_owner = true
+position = Vector2(540, 540)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -4)
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
-[node name="PineTree" parent="." instance=ExtResource("2_yy6cm")]
-position = Vector2(256, 227)
-
-[node name="PineTree2" parent="." instance=ExtResource("2_yy6cm")]
-position = Vector2(394, 498)
-
-[node name="PineTree3" parent="." instance=ExtResource("2_yy6cm")]
-position = Vector2(807, 300)
+[node name="MobSpawner" parent="Player" instance=ExtResource("3_ddodt")]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
-offset_left = -61.0
-offset_top = -14.0
-offset_right = 1177.0
-offset_bottom = 694.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -840.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0.21974, 0.648788, 0.485114, 1)
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
@@ -108,3 +85,4 @@ text = "Replay"
 [node name="DebugLayer" type="CanvasLayer" parent="."]
 
 [node name="Debugger" parent="DebugLayer" instance=ExtResource("5_lr2xe")]
+visible = false

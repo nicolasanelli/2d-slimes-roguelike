@@ -1,4 +1,4 @@
-class_name Debugger extends Node2D
+class_name Debugger extends Control
 
 
 #region Singleton
@@ -33,6 +33,7 @@ var _mob_killed: int = 0
 @onready var _label_bs: Label = $VBoxContainer/LabelBS
 var _bullets_shooted: int = 0
 
+@onready var _label_pp : Label = $VBoxContainer/LabelPlayerPos
 
 func _ready() -> void:
 	_increase.pressed.connect(_sail_gun.increase_quantity)
@@ -43,6 +44,11 @@ func _ready() -> void:
 	_decrease_as.pressed.connect(_gun.decrease_attack_speed)
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("open_debug_panel"):
+		visible = !visible
+		
+
 func _process(_delta: float) -> void:
 	_label.text = "Sail quantity: %s" % _sail_gun.get_quantity()
 	_label_r.text = "Radius: %spx" % _sail_gun.get_radius()
@@ -51,12 +57,16 @@ func _process(_delta: float) -> void:
 	_label_mk.text = "Monster killed: %s" % _mob_killed
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
 	_label_bs.text = "Bullets shooted: %s" % _bullets_shooted
+	_label_pp.text = "Player (%.2f, %.2f)" % [Player.instance.global_position.x, Player.instance.global_position.y]
+
 
 func increaseMobSpawned() -> void:
 	_mob_spawned += 1
 
+
 func increaseMobKilled() -> void:
 	_mob_killed += 1
+
 
 func increaseBulletsShooted() -> void:
 	_bullets_shooted += 1
