@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpgmjiwreuikv"]
+
+[ext_resource type="Script" path="res://components/sail_gun/sail_gun.gd" id="1_4fjv3"]
+[ext_resource type="PackedScene" uid="uid://bt0kcrnsm6krt" path="res://components/sail/sail.tscn" id="2_g2c3s"]
+
+[node name="SailGun" type="Node2D"]
+position = Vector2(462, 284)
+script = ExtResource("1_4fjv3")
+
+[node name="RotationPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sail" parent="RotationPoint" instance=ExtResource("2_g2c3s")]
+visible = false
+position = Vector2(337.5, 0)
+
+[node name="Sail2" parent="RotationPoint" instance=ExtResource("2_g2c3s")]
+visible = false
+position = Vector2(0, 337.5)
+
+[node name="Sail3" parent="RotationPoint" instance=ExtResource("2_g2c3s")]
+visible = false
+position = Vector2(-337.5, 0)
+
+[node name="Sail4" parent="RotationPoint" instance=ExtResource("2_g2c3s")]
+visible = false
+position = Vector2(0, -337.5)
+
+[node name="ColorRect" type="ColorRect" parent="RotationPoint"]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt0kcrnsm6krt"]
+
+[ext_resource type="Script" path="res://components/sail/sail.gd" id="1_2jrcc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v7bj"]
+radius = 33.0151
+
+[node name="Sail" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_2jrcc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+rotation = 0.785398
+pivot_offset = Vector2(25, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2v7bj")

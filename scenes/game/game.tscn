@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2odse7mabaid"]
+
+[ext_resource type="PackedScene" uid="uid://d15wvy5ol3wsu" path="res://components/game_manager/game_manager.tscn" id="1_5eujh"]
+[ext_resource type="PackedScene" uid="uid://bhmpp5o3beqph" path="res://components/player/player.tscn" id="1_hst8v"]
+[ext_resource type="PackedScene" uid="uid://chhkp0ptdo34c" path="res://components/pine_tree/pine_tree.tscn" id="2_yy6cm"]
+[ext_resource type="PackedScene" uid="uid://dvrwfpndahhq1" path="res://components/debugger/debugger.tscn" id="5_lr2xe"]
+[ext_resource type="Script" path="res://scenes/game/mob_spawner.gd" id="5_wuy7s"]
+
+[sub_resource type="Curve2D" id="Curve2D_ugaer"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1599, -961, 0, 0, 0, 0, 1562, -952, 0, 0, 0, 0, 1575, 987, 0, 0, 0, 0, -1617, 938, 0, 0, 0, 0, -1604, -957)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+
+[node name="GameManager" parent="." instance=ExtResource("1_5eujh")]
+
+[node name="Player" parent="." instance=ExtResource("1_hst8v")]
+position = Vector2(532, 339)
+
+[node name="MobSpawner" type="Node2D" parent="Player"]
+script = ExtResource("5_wuy7s")
+
+[node name="Path2D" type="Path2D" parent="Player/MobSpawner"]
+curve = SubResource("Curve2D_ugaer")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/MobSpawner/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-1599, -961)
+rotation = 0.00284719
+
+[node name="Timer" type="Timer" parent="Player/MobSpawner"]
+unique_name_in_owner = true
+
+[node name="Mobs" type="Node" parent="Player/MobSpawner"]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -4)
+zoom = Vector2(0.4, 0.4)
+position_smoothing_enabled = true
+
+[node name="PineTree" parent="." instance=ExtResource("2_yy6cm")]
+position = Vector2(256, 227)
+
+[node name="PineTree2" parent="." instance=ExtResource("2_yy6cm")]
+position = Vector2(394, 498)
+
+[node name="PineTree3" parent="." instance=ExtResource("2_yy6cm")]
+position = Vector2(807, 300)
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
+offset_left = -61.0
+offset_top = -14.0
+offset_right = 1177.0
+offset_bottom = 694.0
+color = Color(0.21974, 0.648788, 0.485114, 1)
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.564706)
+
+[node name="Label" type="Label" parent="GameOverScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 140
+text = "GAME OVER"
+
+[node name="ReplayButton" type="Button" parent="GameOverScreen"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(290, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = 99.0
+offset_right = 145.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Replay"
+
+[node name="DebugLayer" type="CanvasLayer" parent="."]
+
+[node name="Debugger" parent="DebugLayer" instance=ExtResource("5_lr2xe")]
