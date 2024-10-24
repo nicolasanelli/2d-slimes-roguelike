@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2odse7mabaid"]
+[gd_scene load_steps=7 format=3 uid="uid://c2odse7mabaid"]
 
 [ext_resource type="PackedScene" uid="uid://d15wvy5ol3wsu" path="res://components/game_manager/game_manager.tscn" id="1_5eujh"]
 [ext_resource type="PackedScene" uid="uid://bhmpp5o3beqph" path="res://components/player/player.tscn" id="1_hst8v"]
 [ext_resource type="PackedScene" uid="uid://chjqobojluvru" path="res://components/chunk_manager/chunk_manager.tscn" id="2_dta7r"]
 [ext_resource type="PackedScene" uid="uid://bgkt0n6fd4oq4" path="res://components/mob_spawner/mob_spawner.tscn" id="3_ddodt"]
+[ext_resource type="PackedScene" uid="uid://bhipxqvbyxbhf" path="res://ui/mobile_game_layer/mobile_game_layer.tscn" id="5_b1ocy"]
 [ext_resource type="PackedScene" uid="uid://dvrwfpndahhq1" path="res://components/debugger/debugger.tscn" id="5_lr2xe"]
 
 [node name="Game" type="Node2D"]
@@ -22,6 +23,9 @@ zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
 [node name="MobSpawner" parent="Player" instance=ExtResource("3_ddodt")]
+
+[node name="MobileGameLayer" parent="." instance=ExtResource("5_b1ocy")]
+unique_name_in_owner = true
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1

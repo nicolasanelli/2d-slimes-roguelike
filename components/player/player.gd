@@ -32,8 +32,9 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("zoom_out"):
 		_camera.zoom = Vector2(zoom_val - 0.05, zoom_val - 0.05)
 
+
 func _physics_process(delta: float) -> void:
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction = PlayerInput.get_movement()
 	
 	if _health > 0:
 		velocity = direction * 600

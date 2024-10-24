@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhipxqvbyxbhf"]
+
+[ext_resource type="PackedScene" uid="uid://dr3kwla7uxs8c" path="res://ui/Joystick/joystick.tscn" id="1_5asog"]
+[ext_resource type="Script" path="res://ui/mobile_game_layer/mobile_game_layer.gd" id="1_mr2j0"]
+
+[node name="MobileGameLayer" type="CanvasLayer"]
+script = ExtResource("1_mr2j0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -356.0
+offset_right = 356.0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Control" type="Control" parent="MarginContainer"]
+custom_minimum_size = Vector2(356, 356)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Joystick" parent="MarginContainer/Control" instance=ExtResource("1_5asog")]
+texture_filter = 1
