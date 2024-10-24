@@ -12,6 +12,7 @@ func _init() -> void:
 @onready var _happy_boo: HappyBoo = %HappyBoo
 @onready var _hurtbox: Area2D = %HurtBox
 @onready var _health_bar: ProgressBar = %HealthBar
+@onready var _camera: Camera2D = $Camera2D
 
 var _health: float = 100.0
 
@@ -21,6 +22,15 @@ func _ready() -> void:
 	_health_bar.max_value = _health
 	_health_bar.value = _health
 
+
+func _input(event: InputEvent) -> void:
+	if !Debugger.instance.visible: return;
+	
+	var zoom_val = _camera.zoom.x
+	if Input.is_action_just_pressed("zoom_in"):
+		_camera.zoom = Vector2(zoom_val + 0.05, zoom_val + 0.05)
+	if Input.is_action_just_pressed("zoom_out"):
+		_camera.zoom = Vector2(zoom_val - 0.05, zoom_val - 0.05)
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
