@@ -7,12 +7,15 @@ var _bullet_component = preload("res://components/bullet/bullet.tscn")
 @onready var _timer: Timer = $Timer
 
 
+@export var _disabled: bool = false
+
+
 var _attack_speed: float = 0.7
 
 
 func _ready() -> void:
 	_timer.wait_time = 1 / _attack_speed
-	_timer.start()
+	if not _disabled: _timer.start()
 	_timer.timeout.connect(_on_timer_timeout)
 
 

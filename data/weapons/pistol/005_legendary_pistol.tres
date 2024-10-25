@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PistolResource" load_steps=2 format=3 uid="uid://di7we20dty6v0"]
+
+[ext_resource type="Script" path="res://data/weapons/pistol/pistol_resource.gd" id="1_bw8pp"]
+
+[resource]
+script = ExtResource("1_bw8pp")
+bullets = 4
+damage = 4
+attack_speed = 1.9
+rarity = 4

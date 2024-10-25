@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bthb600b1k3l5"]
+
+[ext_resource type="Script" path="res://components/weapons/pistol/pistol.gd" id="1_38j0m"]
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://assets/pistol/pistol.png" id="2_a6ill"]
+[ext_resource type="Resource" uid="uid://4tnk4puu6nf6" path="res://data/weapons/pistol/001_common_pistol.tres" id="2_tyeix"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ruwfj"]
+radius = 561.001
+
+[node name="Pistol" type="Area2D"]
+position = Vector2(609, 347)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_38j0m")
+_resource = ExtResource("2_tyeix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ruwfj")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+unique_name_in_owner = true
+modulate = Color(0.28485, 0.28485, 0.28485, 1)
+position = Vector2(80, 0)
+texture = ExtResource("2_a6ill")
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+unique_name_in_owner = true
+position = Vector2(25, -11)
+
+[node name="Timer" type="Timer" parent="."]

@@ -10,7 +10,7 @@ func _init() -> void:
 #endregion
 
 
-@onready var _gun: Area2D = $/root/Game/Player/Gun
+@onready var _gun: Area2D = $/root/Game/Player/Pistol
 @onready var _sail_gun: Node2D = $/root/Game/Player/SailGun
 
 @onready var _label: Label = $VBoxContainer/Label
@@ -35,13 +35,12 @@ var _bullets_shooted: int = 0
 
 @onready var _label_pp : Label = $VBoxContainer/LabelPlayerPos
 
+
 func _ready() -> void:
 	_increase.pressed.connect(_sail_gun.increase_quantity)
 	_decrease.pressed.connect(_sail_gun.decrease_quantity)
 	_increase_r.pressed.connect(_sail_gun.increase_radius)
 	_decrease_r.pressed.connect(_sail_gun.decrease_radius)
-	_increase_as.pressed.connect(_gun.increase_attack_speed)
-	_decrease_as.pressed.connect(_gun.decrease_attack_speed)
 
 
 func _input(event: InputEvent) -> void:
@@ -52,7 +51,7 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	_label.text = "Sail quantity: %s" % _sail_gun.get_quantity()
 	_label_r.text = "Radius: %spx" % _sail_gun.get_radius()
-	_label_as.text = "Attack Speed: %s" % _gun.get_attack_speed()
+	_label_as.text = "Attack Speed: %s" % _gun._attack_speed
 	_label_ms.text = "Monster spawned: %s" % _mob_spawned
 	_label_mk.text = "Monster killed: %s" % _mob_killed
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)

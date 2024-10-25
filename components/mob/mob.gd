@@ -18,11 +18,11 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func take_damage() -> void:
-	_health -= 1
+func take_damage(amount: float = 1.0) -> void:
+	_health -= amount
 	_slime.play_hurt()
 	
-	if _health == 0:
+	if _health <= 0:
 		Debugger.instance.increaseMobKilled()
 		queue_free()
 		var smoke: Node2D = _explosion_component.instantiate()

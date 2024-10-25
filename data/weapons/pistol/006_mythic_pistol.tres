@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PistolResource" load_steps=2 format=3 uid="uid://dliougg0cion6"]
+
+[ext_resource type="Script" path="res://data/weapons/pistol/pistol_resource.gd" id="1_g7xhe"]
+
+[resource]
+script = ExtResource("1_g7xhe")
+bullets = 5
+bullet_max_range = 2160
+damage = 5
+attack_speed = 2.5
+rarity = 5
+special = true

@@ -100,6 +100,19 @@ project/assembly_name="Getting started with Godot 4"
 
 enabled=PackedStringArray("res://addons/colorpicker_presets/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://_doc/": "gray",
+"res://addons/": "red",
+"res://assets/": "orange",
+"res://components/": "yellow",
+"res://data/": "green",
+"res://global_scripts/": "teal",
+"res://scenes/": "blue",
+"res://ui/": "purple"
+}
+
 [input]
 
 move_left={
@@ -152,4 +165,8 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+textures/size/initial_position_type=1
+textures/size/viewport_height=864
+textures/size/viewport_width=1536
