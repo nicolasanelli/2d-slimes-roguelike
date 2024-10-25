@@ -2,7 +2,7 @@ class_name XpOrb
 extends CharacterBody2D
 
 
-var _experience_value = 1;
+var _experience_value: int = 1;
 var _target_position: Vector2
 
 
@@ -26,6 +26,10 @@ func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(_target_position)
 	velocity = direction * 550
 	move_and_slide()
+
+
+func set_experience_value(value: int) -> void:
+	_experience_value = value
 
 
 func set_target_global_position(target: Vector2) -> void:

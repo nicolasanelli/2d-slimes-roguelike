@@ -29,7 +29,7 @@ func _input(event: InputEvent) -> void:
 			knob.position = stick_center
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	knob.global_position = get_global_mouse_position()
 	knob.position = stick_center + (knob.position - stick_center).limit_length(max_distance)
 

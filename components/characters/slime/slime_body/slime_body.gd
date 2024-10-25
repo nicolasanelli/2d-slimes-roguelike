@@ -1,4 +1,5 @@
-class_name Slime extends Node2D
+class_name SlimeBody
+extends Node2D
 
 
 func play_walk():

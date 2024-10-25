@@ -14,12 +14,12 @@ enum Rarity {
 
 func get_color() -> Color:
 	match rarity:
-		Rarity.COMMON, _: return Color.GRAY
-		Rarity.UNCOMMON: return Color.GREEN
-		Rarity.RARE: return Color.DODGER_BLUE	
-		Rarity.EPIC: return Color.PURPLE
-		Rarity.LEGENDARY: return Color.ORANGE
 		Rarity.MYTHIC: return Color.SKY_BLUE
+		Rarity.LEGENDARY: return Color.ORANGE
+		Rarity.EPIC: return Color.PURPLE
+		Rarity.RARE: return Color.DODGER_BLUE	
+		Rarity.UNCOMMON: return Color.GREEN
+		Rarity.COMMON, _: return Color.GRAY
 
 func get_level() -> int:
 	return rarity

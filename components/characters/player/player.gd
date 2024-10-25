@@ -24,7 +24,7 @@ func _ready() -> void:
 	_health_bar.value = _health
 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if !Debugger.instance.visible: return;
 	
 	var zoom_val = _camera.zoom.x

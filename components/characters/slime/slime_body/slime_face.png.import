@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btbxea1f3vwot"
-path="res://.godot/imported/slime_body_hurt.png-557e53aa5c7d99858870a14d684e4a60.ctex"
+uid="uid://c078jrp2yvc4s"
+path="res://.godot/imported/slime_face.png-79bc38c6e3326f000d4fba7392466ca6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/characters/mob/slime/slime_body_hurt.png"
-dest_files=["res://.godot/imported/slime_body_hurt.png-557e53aa5c7d99858870a14d684e4a60.ctex"]
+source_file="res://components/characters/slime/slime_body/slime_face.png"
+dest_files=["res://.godot/imported/slime_face.png-79bc38c6e3326f000d4fba7392466ca6.ctex"]
 
 [params]
 

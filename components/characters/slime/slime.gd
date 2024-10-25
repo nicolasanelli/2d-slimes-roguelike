@@ -1,29 +1,34 @@
-class_name Mob extends CharacterBody2D
+class_name Slime
+extends CharacterBody2D
 
 
-var player: Player = Player.instance;
-@onready var _slime: Slime = %Slime
 var _explosion_component = preload("res://components/efx/smoke_explosion/smoke_explosion.tscn")
 var _xp_orb_componemt = preload("res://components/drops/xp_orb/xp_orb.tscn")
 
-var _health = 3
-var _xp_value = 1
+
+var player: Player = Player.instance;
+var _current_health: float
+
+@export var _resource: SlimeResource
+@onready var _slime: SlimeBody = %SlimeBody
+
 
 func _ready() -> void:
+	_current_health = _resource.health
 	_slime.play_walk()
 
 
 func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * 300
+	velocity = direction * _resource.speed
 	move_and_slide()
 
 
 func take_damage(amount: float = 1.0) -> void:
-	_health -= amount
+	_current_health -= amount
 	_slime.play_hurt()
 	
-	if _health <= 0:
+	if _current_health <= 0:
 		Debugger.instance.increaseMobKilled()
 		spawn_explosion()
 		drop_xp()
