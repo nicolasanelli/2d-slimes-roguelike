@@ -6,7 +6,7 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
-	rotation += 6 * delta
+	rotation += 12 * delta
 
 
 func _on_body_entered(body: Node2D) -> void:
