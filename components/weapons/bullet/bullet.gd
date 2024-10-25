@@ -1,11 +1,13 @@
-class_name Bullet extends Area2D
+class_name Bullet 
+extends Area2D
 
 
 var _damage = 1
-var _speed = 1000
-var _max_range = 1080
-
 var _travelled_distance = 0
+
+
+const SPEED = 1000
+const MAX_RANGE = 1080
 
 
 func _ready() -> void:
@@ -15,17 +17,13 @@ func _ready() -> void:
 func set_damage(value: int) -> void:
 	_damage = value
 
-	
-func set_max_range(value: int) -> void:
-	_max_range = value
-	
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * _speed * delta
+	position += direction * SPEED * delta
 	
-	_travelled_distance += _speed * delta
-	if _travelled_distance > _max_range:
+	_travelled_distance += SPEED * delta
+	if _travelled_distance > MAX_RANGE:
 		queue_free()
 
 

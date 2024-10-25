@@ -6,5 +6,6 @@
 script = ExtResource("1_0sl82")
 bullets = 1
 damage = 1
-attack_speep = 0.7
+attack_speed = 0.7
 rarity = 0
+is_special = false

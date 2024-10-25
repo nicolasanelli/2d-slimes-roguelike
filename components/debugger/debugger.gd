@@ -10,16 +10,12 @@ func _init() -> void:
 #endregion
 
 
-@onready var _gun: Area2D = $/root/Game/Player/Pistol
-@onready var _sail_gun: Node2D = $/root/Game/Player/SailGun
+@onready var _gun: Area2D = $/root/Game/Player/Weapons/Pistol
+@onready var _saw: Node2D = $/root/Game/Player/Weapons/CircularSaw
 
 @onready var _label: Label = $VBoxContainer/Label
 @onready var _increase: Button = $VBoxContainer/HBoxContainer/Increase
 @onready var _decrease: Button = $VBoxContainer/HBoxContainer/Decrease
-
-@onready var _label_r: Label = $VBoxContainer/LabelR
-@onready var _increase_r: Button = $VBoxContainer/HBoxContainerR/IncreaseR
-@onready var _decrease_r: Button = $VBoxContainer/HBoxContainerR/DecreaseR
 
 @onready var _label_as: Label = $VBoxContainer/LabelAS
 @onready var _increase_as: Button = $VBoxContainer/HBoxContainerAS/IncreaseAS
@@ -37,10 +33,10 @@ var _bullets_shooted: int = 0
 
 
 func _ready() -> void:
-	_increase.pressed.connect(_sail_gun.increase_quantity)
-	_decrease.pressed.connect(_sail_gun.decrease_quantity)
-	_increase_r.pressed.connect(_sail_gun.increase_radius)
-	_decrease_r.pressed.connect(_sail_gun.decrease_radius)
+	_increase.pressed.connect(_saw.upgrade)
+	_decrease.pressed.connect(_saw.downgrade)
+	_increase_as.pressed.connect(_gun.upgrade)
+	_decrease_as.pressed.connect(_gun.downgrade)
 
 
 func _input(event: InputEvent) -> void:
@@ -49,9 +45,8 @@ func _input(event: InputEvent) -> void:
 		
 
 func _process(_delta: float) -> void:
-	_label.text = "Sail quantity: %s" % _sail_gun.get_quantity()
-	_label_r.text = "Radius: %spx" % _sail_gun.get_radius()
-	_label_as.text = "Attack Speed: %s" % _gun._attack_speed
+	_label.text = "Sail level: %s" % _saw._current_resource.rarity
+	_label_as.text = "Pistol level: %s" % _gun._current_resource.rarity
 	_label_ms.text = "Monster spawned: %s" % _mob_spawned
 	_label_mk.text = "Monster killed: %s" % _mob_killed
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)

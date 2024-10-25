@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CircularSawResource" load_steps=2 format=3 uid="uid://dkjrvp8grr67s"]
+
+[ext_resource type="Script" path="res://data/weapons/circular_saw/circular_saw_resource.gd" id="1_mv6os"]
+
+[resource]
+script = ExtResource("1_mv6os")
+quantity = 4
+damage = 2
+radius = 350.0
+cooldown = 5.0
+rarity = 2
+is_special = false

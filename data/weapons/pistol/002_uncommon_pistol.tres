@@ -8,3 +8,4 @@ bullets = 1
 damage = 2
 attack_speed = 0.9
 rarity = 1
+is_special = false

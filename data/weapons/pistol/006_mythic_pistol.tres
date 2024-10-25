@@ -5,8 +5,7 @@
 [resource]
 script = ExtResource("1_g7xhe")
 bullets = 5
-bullet_max_range = 2160
 damage = 5
 attack_speed = 2.5
 rarity = 5
-special = true
+is_special = true

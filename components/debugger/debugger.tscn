@@ -16,7 +16,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Sail quantity: %s"
+text = "Sail level: %s"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -31,23 +31,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Decrease"
 
-[node name="LabelR" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Radius: %s px"
-
-[node name="HBoxContainerR" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="IncreaseR" type="Button" parent="VBoxContainer/HBoxContainerR"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Increase"
-
-[node name="DecreaseR" type="Button" parent="VBoxContainer/HBoxContainerR"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Decrease"
-
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 8
@@ -55,7 +38,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="LabelAS" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Attack Speed: %s"
+text = "Pistol level: %s"
 
 [node name="HBoxContainerAS" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -63,12 +46,12 @@ layout_mode = 2
 [node name="IncreaseAS" type="Button" parent="VBoxContainer/HBoxContainerAS"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Increase"
+text = "Upgrade"
 
 [node name="DecreaseAS" type="Button" parent="VBoxContainer/HBoxContainerAS"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Decrease"
+text = "Downgrade"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
