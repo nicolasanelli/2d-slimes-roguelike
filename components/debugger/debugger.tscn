@@ -82,3 +82,7 @@ theme_override_constants/margin_bottom = 8
 [node name="LabelPlayerPos" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Player (%s, %s)"
+
+[node name="LabelPlayersXP" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Player XP: %s"

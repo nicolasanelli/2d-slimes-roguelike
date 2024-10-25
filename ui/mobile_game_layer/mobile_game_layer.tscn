@@ -42,6 +42,7 @@ theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
 [node name="PauseButton" type="Button" parent="MarginContainer2"]
-custom_minimum_size = Vector2(100, 50)
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Debug"

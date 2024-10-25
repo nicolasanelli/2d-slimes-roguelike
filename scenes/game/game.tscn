@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2odse7mabaid"]
+[gd_scene load_steps=8 format=3 uid="uid://c2odse7mabaid"]
 
 [ext_resource type="PackedScene" uid="uid://d15wvy5ol3wsu" path="res://components/game_manager/game_manager.tscn" id="1_5eujh"]
-[ext_resource type="PackedScene" uid="uid://bhmpp5o3beqph" path="res://components/player/player.tscn" id="1_hst8v"]
+[ext_resource type="PackedScene" uid="uid://bhmpp5o3beqph" path="res://components/characters/player/player.tscn" id="1_hst8v"]
 [ext_resource type="PackedScene" uid="uid://chjqobojluvru" path="res://components/chunk_manager/chunk_manager.tscn" id="2_dta7r"]
 [ext_resource type="PackedScene" uid="uid://bgkt0n6fd4oq4" path="res://components/mob_spawner/mob_spawner.tscn" id="3_ddodt"]
 [ext_resource type="PackedScene" uid="uid://bhipxqvbyxbhf" path="res://ui/mobile_game_layer/mobile_game_layer.tscn" id="5_b1ocy"]
 [ext_resource type="PackedScene" uid="uid://dvrwfpndahhq1" path="res://components/debugger/debugger.tscn" id="5_lr2xe"]
+[ext_resource type="PackedScene" uid="uid://gy66uxbq11u2" path="res://components/drops/xp_orb/xp_orb.tscn" id="7_e41ey"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -88,3 +89,21 @@ text = "Replay"
 
 [node name="Debugger" parent="DebugLayer" instance=ExtResource("5_lr2xe")]
 visible = false
+
+[node name="XpOrb" parent="." instance=ExtResource("7_e41ey")]
+position = Vector2(885, 538)
+
+[node name="XpOrb2" parent="." instance=ExtResource("7_e41ey")]
+position = Vector2(878, 571)
+
+[node name="XpOrb3" parent="." instance=ExtResource("7_e41ey")]
+position = Vector2(917, 563)
+
+[node name="XpOrb4" parent="." instance=ExtResource("7_e41ey")]
+position = Vector2(904, 590)
+
+[node name="XpOrb5" parent="." instance=ExtResource("7_e41ey")]
+position = Vector2(834, 554)
+
+[node name="XpOrb6" parent="." instance=ExtResource("7_e41ey")]
+position = Vector2(853, 603)

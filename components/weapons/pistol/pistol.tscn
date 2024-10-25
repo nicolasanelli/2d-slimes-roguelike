@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bthb600b1k3l5"]
 
 [ext_resource type="Script" path="res://components/weapons/pistol/pistol.gd" id="1_38j0m"]
-[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://assets/pistol/pistol.png" id="2_a6ill"]
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://components/weapons/pistol/pistol.png" id="2_a6ill"]
 [ext_resource type="Resource" uid="uid://4tnk4puu6nf6" path="res://data/weapons/pistol/001_common_pistol.tres" id="2_tyeix"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ruwfj"]

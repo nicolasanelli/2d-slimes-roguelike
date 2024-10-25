@@ -1,7 +1,7 @@
 extends Node
 
 
-var _mob_component = preload("res://components/mob/mob.tscn")
+var _mob_component = preload("res://components/characters/mob/mob.tscn")
 @onready var _path: PathFollow2D = %PathFollow2D
 @onready var _timer: Timer = %Timer
 @onready var _mobs: Node = %Mobs

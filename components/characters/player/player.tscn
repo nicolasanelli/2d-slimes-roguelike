@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhmpp5o3beqph"]
+
+[ext_resource type="Script" path="res://components/characters/player/player.gd" id="1_ouu1o"]
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://components/characters/player/happy_boo/happy_boo.tscn" id="1_rxfjr"]
+[ext_resource type="PackedScene" uid="uid://bthb600b1k3l5" path="res://components/weapons/pistol/pistol.tscn" id="4_om2ib"]
+[ext_resource type="PackedScene" uid="uid://bnvxmmn4f0hqp" path="res://components/weapons/circular_saw/circular_saw.tscn" id="5_n7s68"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ad2gd"]
+radius = 29.15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvxlf"]
+bg_color = Color(0.152941, 0.168627, 0.188235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ho2n"]
+bg_color = Color(0.388235, 0.8, 0.372549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_km61l"]
+radius = 175.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0hif"]
+radius = 40.05
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(585, 355)
+script = ExtResource("1_ouu1o")
+
+[node name="HappyBoo" parent="." instance=ExtResource("1_rxfjr")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ad2gd")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -64.0
+offset_top = -123.0
+offset_right = 64.0
+offset_bottom = -107.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xvxlf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5ho2n")
+value = 75.0
+show_percentage = false
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="Pistol" parent="Weapons" instance=ExtResource("4_om2ib")]
+position = Vector2(0, -33)
+
+[node name="CircularSaw" parent="Weapons" instance=ExtResource("5_n7s68")]
+
+[node name="XpBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="XpBox"]
+shape = SubResource("CircleShape2D_km61l")
+debug_color = Color(0, 0.649032, 0.15984, 0.42)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_d0hif")
+debug_color = Color(0.970513, 0.335918, 0.396381, 0.42)

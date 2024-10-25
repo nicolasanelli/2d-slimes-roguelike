@@ -30,6 +30,7 @@ var _mob_killed: int = 0
 var _bullets_shooted: int = 0
 
 @onready var _label_pp : Label = $VBoxContainer/LabelPlayerPos
+@onready var _label_xp : Label = $VBoxContainer/LabelPlayersXP
 
 
 func _ready() -> void:
@@ -52,7 +53,7 @@ func _process(_delta: float) -> void:
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
 	_label_bs.text = "Bullets shooted: %s" % _bullets_shooted
 	_label_pp.text = "Player (%.2f, %.2f)" % [Player.instance.global_position.x, Player.instance.global_position.y]
-
+	_label_xp.text = "Player XP: %s" % Player.instance._experiece
 
 func increaseMobSpawned() -> void:
 	_mob_spawned += 1
