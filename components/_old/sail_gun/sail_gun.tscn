@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cpgmjiwreuikv"]
 
-[ext_resource type="Script" path="res://components/sail_gun/sail_gun.gd" id="1_4fjv3"]
-[ext_resource type="PackedScene" uid="uid://bt0kcrnsm6krt" path="res://components/sail/sail.tscn" id="2_g2c3s"]
+[ext_resource type="Script" path="res://components/_old/sail_gun/sail_gun.gd" id="1_4fjv3"]
+[ext_resource type="PackedScene" uid="uid://bt0kcrnsm6krt" path="res://components/_old/sail/sail.tscn" id="2_g2c3s"]
 
 [node name="SailGun" type="Node2D"]
 script = ExtResource("1_4fjv3")
