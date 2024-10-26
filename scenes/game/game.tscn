@@ -109,4 +109,5 @@ text = "Replay"
 [node name="DebugLayer" type="CanvasLayer" parent="."]
 
 [node name="Debugger" parent="DebugLayer" node_paths=PackedStringArray("_player") instance=ExtResource("5_lr2xe")]
+visible = false
 _player = NodePath("../../Player")
