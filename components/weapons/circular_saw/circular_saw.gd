@@ -41,9 +41,11 @@ func _configure_timer() -> void:
 		_timer.stop()
 		return;
 	
-	_timer.start()
 	_timer.wait_time = _current_resource.cooldown
-	_timer.timeout.connect(_on_timer_timeout)
+	
+	if _timer.is_stopped(): 
+		_timer.start()
+		_timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout() -> void:
 	if state: _remove_all_saws()

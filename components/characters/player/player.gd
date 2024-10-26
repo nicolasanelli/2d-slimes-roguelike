@@ -10,9 +10,13 @@ func _init() -> void:
 
 
 @onready var _happy_boo: HappyBoo = %HappyBoo
+
 @onready var _health_bar: ProgressBar = %HealthBar
 @onready var _hurtbox: Area2D = %HurtBox
+
 @onready var _xpbox: Area2D = %XpBox
+var _known_drops = {}
+
 @onready var _camera: Camera2D = $Camera2D
 
 var _health: float = 100.0
@@ -58,8 +62,12 @@ func _physics_process(delta: float) -> void:
 	var overlaping_drops = _xpbox.get_overlapping_bodies()
 	if overlaping_drops.size() > 0:
 		for n in overlaping_drops.size():
-			overlaping_drops[n].xp_absorved.connect(add_experience)
-			overlaping_drops[n].set_target_global_position(global_position)
+			var drop = overlaping_drops[n];
+			drop.set_target_global_position(global_position)
+			
+			if _known_drops.has(drop.get_instance_id()): continue
+			drop.xp_absorved.connect(add_experience)
+			_known_drops[drop.get_instance_id()] = true
 
 
 func add_experience(value: float) -> void:

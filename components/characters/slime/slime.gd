@@ -37,9 +37,9 @@ func take_damage(amount: float = 1.0) -> void:
 func spawn_explosion() -> void:
 	var smoke: Node2D = _explosion_component.instantiate()
 	smoke.global_position = global_position
-	get_parent().add_child(smoke)
+	add_sibling(smoke, true)
 
 func drop_xp() -> void:
 	var xp: XpOrb = _xp_orb_componemt.instantiate()
-	xp.global_position = global_position
-	get_parent().add_child(xp)
+	xp.set_experience_value(_resource.experience_drop)
+	DropManager.instance.spawn(xp, global_position)

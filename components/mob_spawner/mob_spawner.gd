@@ -22,4 +22,4 @@ func spawn_mob() -> void:
 	_path.progress_ratio = randf()
 	mob.global_position = _path.global_position
 	Debugger.instance.increaseMobSpawned()
-	_mobs.add_child(mob)
+	_mobs.add_child(mob, true)

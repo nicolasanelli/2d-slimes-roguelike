@@ -52,9 +52,11 @@ func _configure_timer() -> void:
 	if _disabled: return
 	if not _timer: return
 	
-	_timer.start()
 	_timer.wait_time = (1 / _current_resource.attack_speed)
-	_timer.timeout.connect(_on_timer_timeout)
+	
+	if _timer.is_stopped(): 
+		_timer.start()
+		_timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout() -> void:
 	shoot()
