@@ -9,3 +9,7 @@ func play_walk():
 func play_hurt():
 	%AnimationPlayer.play("hurt")
 	%AnimationPlayer.queue("walk")
+
+
+func set_colors(body: Color) -> void:
+	%SlimeBody.self_modulate = body

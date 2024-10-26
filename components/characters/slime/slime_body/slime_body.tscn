@@ -224,6 +224,7 @@ texture = ExtResource("2_fis11")
 [node name="Anchor" type="Marker2D" parent="."]
 
 [node name="SlimeBody" type="Sprite2D" parent="Anchor"]
+unique_name_in_owner = true
 self_modulate = Color(0.0970454, 0.866588, 0.172491, 1)
 position = Vector2(1, 0)
 texture = ExtResource("3_0yu6b")

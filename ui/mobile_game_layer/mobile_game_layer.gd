@@ -10,6 +10,7 @@ func _ready() -> void:
 		for child in children:
 			child.free()
 	else:
+		visible = true
 		_pause_button.pressed.connect(_on_pause_button_pressed)
 
 

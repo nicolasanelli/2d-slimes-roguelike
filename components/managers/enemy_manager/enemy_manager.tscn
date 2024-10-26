@@ -23,5 +23,8 @@ position = Vector2(-1010, -590)
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="DificultyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true

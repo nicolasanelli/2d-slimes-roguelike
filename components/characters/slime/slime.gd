@@ -6,27 +6,38 @@ var _explosion_component = preload("res://components/efx/smoke_explosion/smoke_e
 var _xp_orb_componemt = preload("res://components/drops/xp_orb/xp_orb.tscn")
 
 
-var player: Player = Player.instance;
+var _target: Node2D
 var _current_health: float
 
 @export var _resource: SlimeResource
-@onready var _slime: SlimeBody = %SlimeBody
+@onready var _slime_body: SlimeBody = %SlimeBody
 
 
 func _ready() -> void:
+	assert(_target != null, "Target is not set in Slime")
+	assert(_resource != null, "SlimeResource is not set in Slime")
 	_current_health = _resource.health
-	_slime.play_walk()
+	_slime_body.set_colors(_resource.color)
+	_slime_body.play_walk()
 
 
 func _physics_process(_delta: float) -> void:
-	var direction = global_position.direction_to(player.global_position)
+	var direction = global_position.direction_to(_target.global_position)
 	velocity = direction * _resource.speed
 	move_and_slide()
 
 
+func set_target(target: Node2D) -> void:
+	_target = target;
+
+
+func set_resource(resource: SlimeResource) -> void:
+	_resource = resource;
+
+
 func take_damage(amount: float = 1.0) -> void:
 	_current_health -= amount
-	_slime.play_hurt()
+	_slime_body.play_hurt()
 	
 	if _current_health <= 0:
 		Debugger.instance.increaseMobKilled()

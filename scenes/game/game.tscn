@@ -39,15 +39,18 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -225.0
-offset_top = -63.0
-offset_right = 225.0
-offset_bottom = -36.0
+offset_top = -70.0
+offset_right = 0.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 _player = NodePath("../../Player")
 
 [node name="MobileGameLayer" parent="." instance=ExtResource("5_b1ocy")]
 unique_name_in_owner = true
+visible = false
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1

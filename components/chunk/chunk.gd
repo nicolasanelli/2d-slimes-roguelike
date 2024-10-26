@@ -8,7 +8,7 @@ class_name Chunk extends Node2D
 @onready var trees: Node = $Trees;
 @onready var label: Label = $Label;
 
-var _tree_component = preload("res://components/pine_tree/pine_tree.tscn")
+var _tree_component = preload("res://components/envinronment/pine_tree/pine_tree.tscn")
 
 var chunk_x: int;
 var chunk_y: int;
