@@ -38,12 +38,13 @@ func _process(delta: float) -> void:
 func _configure_timer() -> void:
 	if not _timer: return
 	if _current_resource.is_special:
+		_timer.timeout.disconnect(_on_timer_timeout)
 		_timer.stop()
 		return;
 	
 	_timer.wait_time = _current_resource.cooldown
 	
-	if _timer.is_stopped(): 
+	if _timer.is_stopped():
 		_timer.start()
 		_timer.timeout.connect(_on_timer_timeout)
 

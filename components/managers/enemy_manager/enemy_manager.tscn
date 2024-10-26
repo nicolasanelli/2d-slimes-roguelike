@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc82364ngv11v"]
+
+[ext_resource type="Script" path="res://components/managers/enemy_manager/enemy_manager.gd" id="1_c0e1v"]
+
+[sub_resource type="Curve2D" id="Curve2D_4nsai"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1010, -590, 0, 0, 0, 0, 1010, -590, 0, 0, 0, 0, 1010, 590, 0, 0, 0, 0, -1010, 590, 0, 0, 0, 0, -1010, -590)
+}
+point_count = 5
+
+[node name="EnemyManager" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_c0e1v")
+
+[node name="Path2D" type="Path2D" parent="."]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_4nsai")
+
+[node name="SpawnLocation" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-1010, -590)
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="Enemies" type="Node" parent="."]
+unique_name_in_owner = true

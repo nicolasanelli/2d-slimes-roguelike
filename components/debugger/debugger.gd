@@ -10,17 +10,17 @@ func _init() -> void:
 #endregion
 
 
+@export var _player: Player
+
+
 @onready var _gun: Area2D = $/root/Game/Player/Weapons/Pistol
 @onready var _saw: Node2D = $/root/Game/Player/Weapons/CircularSaw
-
 @onready var _label: Label = $VBoxContainer/Label
 @onready var _increase: Button = $VBoxContainer/HBoxContainer/Increase
 @onready var _decrease: Button = $VBoxContainer/HBoxContainer/Decrease
-
 @onready var _label_as: Label = $VBoxContainer/LabelAS
 @onready var _increase_as: Button = $VBoxContainer/HBoxContainerAS/IncreaseAS
 @onready var _decrease_as: Button = $VBoxContainer/HBoxContainerAS/DecreaseAS
-
 @onready var _label_ms: Label = $VBoxContainer/LabelMS
 var _mob_spawned: int = 0
 @onready var _label_mk: Label = $VBoxContainer/LabelMK
@@ -34,6 +34,7 @@ var _bullets_shooted: int = 0
 
 
 func _ready() -> void:
+	assert(_player != null, "Player is not set in Debugger")
 	_increase.pressed.connect(_saw.upgrade)
 	_decrease.pressed.connect(_saw.downgrade)
 	_increase_as.pressed.connect(_gun.upgrade)
@@ -43,7 +44,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_debug_panel"):
 		visible = !visible
-		
+
 
 func _process(_delta: float) -> void:
 	_label.text = "Sail level: %s" % _saw._current_resource.rarity
@@ -52,8 +53,9 @@ func _process(_delta: float) -> void:
 	_label_mk.text = "Monster killed: %s" % _mob_killed
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
 	_label_bs.text = "Bullets shooted: %s" % _bullets_shooted
-	_label_pp.text = "Player (%.2f, %.2f)" % [Player.instance.global_position.x, Player.instance.global_position.y]
-	_label_xp.text = "Player XP: %s" % Player.instance._experiece
+	_label_pp.text = "Player pos(%.2f, %.2f)" % [_player.global_position.x, _player.global_position.y]
+	_label_xp.text = "Player XP: %s" % _player._experiece
+
 
 func increaseMobSpawned() -> void:
 	_mob_spawned += 1

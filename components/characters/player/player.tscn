@@ -29,7 +29,6 @@ radius = 175.0
 radius = 40.05
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(585, 355)
 script = ExtResource("1_ouu1o")
 
 [node name="HappyBoo" parent="." instance=ExtResource("1_rxfjr")]

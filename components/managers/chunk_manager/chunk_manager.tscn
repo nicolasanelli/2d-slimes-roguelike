@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chjqobojluvru"]
 
-[ext_resource type="Script" path="res://components/chunk_manager/chunk_manager.gd" id="1_aqrm8"]
+[ext_resource type="Script" path="res://components/managers/chunk_manager/chunk_manager.gd" id="1_aqrm8"]
 
 [node name="ChunkManager" type="Node2D"]
 y_sort_enabled = true

@@ -34,10 +34,12 @@ func take_damage(amount: float = 1.0) -> void:
 		drop_xp()
 		queue_free()
 
+
 func spawn_explosion() -> void:
 	var smoke: Node2D = _explosion_component.instantiate()
 	smoke.global_position = global_position
 	add_sibling(smoke, true)
+
 
 func drop_xp() -> void:
 	var xp: XpOrb = _xp_orb_componemt.instantiate()

@@ -10,16 +10,21 @@ func _init() -> void:
 #endregion
 
 
+@export var _player: Player
+
+
 @onready var chunks: Node = $Chunks
+
 
 var _chunk_component = preload("res://components/chunk/chunk.tscn")
 
-var player: Player
+
 var chunks_loaded = {}
 var last_pos_checked: Vector2 = Vector2(99,99)
 
+
 func _ready() -> void:
-	player = Player.instance
+	assert(_player != null, "Player is not set in ChunkManager")
 
 
 func _process(_delta: float) -> void:
@@ -27,7 +32,7 @@ func _process(_delta: float) -> void:
 	
 
 func _get_player_current_chunk() -> Vector2:
-	var _position: Vector2 = player.get_global_position()
+	var _position: Vector2 = _player.get_global_position()
 	return Chunk.get_x_y_for_global_position(_position)
 
 

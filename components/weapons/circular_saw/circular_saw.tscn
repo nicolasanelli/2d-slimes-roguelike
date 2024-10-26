@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnvxmmn4f0hqp"]
+[gd_scene load_steps=3 format=3 uid="uid://bnvxmmn4f0hqp"]
 
 [ext_resource type="Script" path="res://components/weapons/circular_saw/circular_saw.gd" id="1_3520g"]
+[ext_resource type="PackedScene" uid="uid://dvuu3v8ti5m5p" path="res://components/weapons/saw/saw.tscn" id="2_umde3"]
 
 [node name="CircularSaw" type="Node2D"]
 script = ExtResource("1_3520g")
@@ -8,12 +9,16 @@ script = ExtResource("1_3520g")
 [node name="RotationPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
 
-[node name="ColorRect" type="ColorRect" parent="RotationPoint"]
-visible = false
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
-pivot_offset = Vector2(5, 5)
+[node name="Saw_South" parent="RotationPoint" instance=ExtResource("2_umde3")]
+position = Vector2(0, 250)
+
+[node name="Saw_East" parent="RotationPoint" instance=ExtResource("2_umde3")]
+position = Vector2(250, 0)
+
+[node name="Saw_North" parent="RotationPoint" instance=ExtResource("2_umde3")]
+position = Vector2(0, -250)
+
+[node name="Saw_West" parent="RotationPoint" instance=ExtResource("2_umde3")]
+position = Vector2(-250, 0)
 
 [node name="Timer" type="Timer" parent="."]
