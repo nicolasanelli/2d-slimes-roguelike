@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://components/characters/player/player.gd" id="1_ouu1o"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://components/characters/player/happy_boo/happy_boo.tscn" id="1_rxfjr"]
 [ext_resource type="PackedScene" uid="uid://bthb600b1k3l5" path="res://components/weapons/pistol/pistol.tscn" id="4_om2ib"]
-[ext_resource type="PackedScene" uid="uid://bnvxmmn4f0hqp" path="res://components/weapons/circular_saw/circular_saw.tscn" id="5_n7s68"]
+[ext_resource type="PackedScene" uid="uid://bnvxmmn4f0hqp" path="res://components/weapons/circular_saw/circular_saw.tscn" id="4_yulmj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ad2gd"]
 radius = 29.15
@@ -49,11 +49,12 @@ value = 75.0
 show_percentage = false
 
 [node name="Weapons" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Pistol" parent="Weapons" instance=ExtResource("4_om2ib")]
 position = Vector2(0, -33)
 
-[node name="CircularSaw" parent="Weapons" instance=ExtResource("5_n7s68")]
+[node name="CircularSaw" parent="Weapons" instance=ExtResource("4_yulmj")]
 
 [node name="XpBox" type="Area2D" parent="."]
 unique_name_in_owner = true

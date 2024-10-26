@@ -12,15 +12,18 @@ func _init() -> void:
 
 @export var _player: Player
 
-
-@onready var _gun: Area2D = $/root/Game/Player/Weapons/Pistol
 @onready var _saw: Node2D = $/root/Game/Player/Weapons/CircularSaw
-@onready var _label: Label = $VBoxContainer/Label
-@onready var _increase: Button = $VBoxContainer/HBoxContainer/Increase
-@onready var _decrease: Button = $VBoxContainer/HBoxContainer/Decrease
-@onready var _label_as: Label = $VBoxContainer/LabelAS
-@onready var _increase_as: Button = $VBoxContainer/HBoxContainerAS/IncreaseAS
-@onready var _decrease_as: Button = $VBoxContainer/HBoxContainerAS/DecreaseAS
+@onready var _saw_info: Label = $VBoxContainer/SawInfo
+@onready var _add_saw: Button = $VBoxContainer/AddSaw
+@onready var _upgrade_saw: Button = $VBoxContainer/HBoxContainer1/UpgradeSaw
+@onready var _downgrade_saw: Button = $VBoxContainer/HBoxContainer1/DowngradeSaw
+
+@onready var _pistol: Node2D = $/root/Game/Player/Weapons/Pistol
+@onready var _pistol_info: Label = $VBoxContainer/PistolInfo
+@onready var _add_pistol: Button = $VBoxContainer/AddPistol
+@onready var _upgrade_pistol: Button = $VBoxContainer/HBoxContainer2/UpgradePistol
+@onready var _downgrade_pistol: Button = $VBoxContainer/HBoxContainer2/DowngradePistol
+
 @onready var _label_ms: Label = $VBoxContainer/LabelMS
 var _mob_spawned: int = 0
 @onready var _label_mk: Label = $VBoxContainer/LabelMK
@@ -35,10 +38,14 @@ var _bullets_shooted: int = 0
 
 func _ready() -> void:
 	assert(_player != null, "Player is not set in Debugger")
-	_increase.pressed.connect(_saw.upgrade)
-	_decrease.pressed.connect(_saw.downgrade)
-	_increase_as.pressed.connect(_gun.upgrade)
-	_decrease_as.pressed.connect(_gun.downgrade)
+	if _saw:
+		_upgrade_saw.pressed.connect(_saw.upgrade)
+		_downgrade_saw.pressed.connect(_saw.downgrade)
+	_add_saw.pressed.connect(_on_add_saw)
+	if _pistol:
+		_upgrade_pistol.pressed.connect(_pistol.upgrade)
+		_downgrade_pistol.pressed.connect(_pistol.downgrade)
+	_add_pistol.pressed.connect(_on_add_pistol)
 
 
 func _input(event: InputEvent) -> void:
@@ -47,14 +54,27 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	_label.text = "Sail level: %s" % _saw._current_resource.rarity
-	_label_as.text = "Pistol level: %s" % _gun._current_resource.rarity
+	if _saw:
+		_saw_info.text = "Sail level: %s" % _saw._current_resource.rarity
+	if _pistol:
+		_pistol_info.text = "Pistol level: %s" % _pistol._current_resource.rarity
 	_label_ms.text = "Monster spawned: %s" % _mob_spawned
 	_label_mk.text = "Monster killed: %s" % _mob_killed
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
 	_label_bs.text = "Bullets shooted: %s" % _bullets_shooted
 	_label_pp.text = "Player pos(%.2f, %.2f)" % [_player.global_position.x, _player.global_position.y]
 	_label_xp.text = "Player XP: %s" % _player._experiece
+
+
+func _on_add_saw() -> void:
+	var packed = load("res://components/weapons/circular_saw/circular_saw.tscn")
+	var weapon = packed.instantiate()
+	_player.add_weapon(weapon)
+
+func _on_add_pistol() -> void:
+	var packed = load("res://components/weapons/pistol/pistol.tscn")
+	var weapon = packed.instantiate()
+	_player.add_weapon(weapon)
 
 
 func increaseMobSpawned() -> void:

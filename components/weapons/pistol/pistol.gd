@@ -1,8 +1,12 @@
-class_name Pistol extends Area2D
+class_name Pistol 
+extends Node2D
 
 
 var _bullet_component = preload("res://components/weapons/bullet/bullet.tscn")
 var _bullet_special_component = preload("res://components/weapons/bullet_special/bullet_special.tscn")
+
+
+@onready var _area: Area2D = %Area2D
 @onready var _pistol_sprite: Sprite2D = %Pistol
 @onready var _shooting_point: Marker2D = %ShootingPoint
 @onready var _timer: Timer = $Timer
@@ -40,7 +44,7 @@ func _process(_delta: float) -> void:
 		_shooting_point.position.y = -11.0
 
 func _physics_process(_delta: float) -> void:
-	var enemies_in_range: Array[Node2D] = get_overlapping_bodies()
+	var enemies_in_range: Array[Node2D] = _area.get_overlapping_bodies()
 	if enemies_in_range.size() > 0:
 		var target = enemies_in_range.front()
 		look_at(target.global_position)

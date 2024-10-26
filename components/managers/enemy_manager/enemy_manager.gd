@@ -4,6 +4,7 @@ extends Node2D
 
 @export var _player: Player
 @export var _camera: Camera2D
+@export var _enabled: bool = true
 
 
 @onready var _path: Path2D = %Path2D
@@ -49,12 +50,12 @@ func _configure_timer() -> void:
 
 
 func _on_timer_timeout() -> void:
-	spawn_enemy()
+	if _enabled:
+		spawn_enemy()
 
 
 func _on_dificulty_timer_timeout() -> void:
-	if _dificulty < _slime_resources.size()-1:
-		_dificulty += 1
+	_dificulty =  (_dificulty + 1) % _slime_resources.size()
 
 
 func spawn_enemy() -> void:

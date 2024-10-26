@@ -98,20 +98,24 @@ project/assembly_name="Getting started with Godot 4"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/colorpicker_presets/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 
 folder_colors={
-"res://_doc/": "gray",
-"res://addons/": "red",
-"res://assets/": "orange",
-"res://components/": "yellow",
-"res://data/": "green",
-"res://global_scripts/": "teal",
-"res://scenes/": "blue",
-"res://ui/": "purple"
+"res://_doc/": "red",
+"res://addons/": "orange",
+"res://assets/": "yellow",
+"res://components/": "green",
+"res://data/": "teal",
+"res://global_scripts/": "blue",
+"res://scenes/": "purple",
+"res://ui/": "pink"
 }
+
+[gui]
+
+theme/custom="res://ui/theme/game_theme.tres"
 
 [input]
 

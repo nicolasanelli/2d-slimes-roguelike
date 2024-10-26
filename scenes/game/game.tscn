@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2odse7mabaid"]
+[gd_scene load_steps=10 format=3 uid="uid://c2odse7mabaid"]
 
 [ext_resource type="PackedScene" uid="uid://d15wvy5ol3wsu" path="res://components/game_manager/game_manager.tscn" id="1_5eujh"]
 [ext_resource type="PackedScene" uid="uid://bhmpp5o3beqph" path="res://components/characters/player/player.tscn" id="1_hst8v"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bhipxqvbyxbhf" path="res://ui/mobile_game_layer/mobile_game_layer.tscn" id="5_b1ocy"]
 [ext_resource type="PackedScene" uid="uid://dvrwfpndahhq1" path="res://components/debugger/debugger.tscn" id="5_lr2xe"]
 [ext_resource type="PackedScene" uid="uid://e3g0wva5rfyt" path="res://ui/experience_bar/experience_bar.tscn" id="6_35yww"]
+[ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="7_fnii8"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -47,6 +48,62 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 _player = NodePath("../../Player")
+
+[node name="Control" type="Control" parent="GameUI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.498039)
+
+[node name="MarginContainer" type="MarginContainer" parent="GameUI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 250
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameUI/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Container" type="Container" parent="GameUI/Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(296, 419)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" parent="GameUI/Control/MarginContainer/HBoxContainer/Container" instance=ExtResource("7_fnii8")]
+
+[node name="Container2" type="Container" parent="GameUI/Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(296, 419)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" parent="GameUI/Control/MarginContainer/HBoxContainer/Container2" instance=ExtResource("7_fnii8")]
+
+[node name="Container3" type="Container" parent="GameUI/Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(296, 419)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Card" parent="GameUI/Control/MarginContainer/HBoxContainer/Container3" instance=ExtResource("7_fnii8")]
 
 [node name="MobileGameLayer" parent="." instance=ExtResource("5_b1ocy")]
 unique_name_in_owner = true
