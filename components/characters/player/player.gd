@@ -21,6 +21,7 @@ var _known_drops = {}
 
 var _health: float = 100.0
 var _experiece: float = 0
+var _target_experience: float = 5
 
 func _ready() -> void:
 	_health_bar.min_value = 0
@@ -70,5 +71,8 @@ func _physics_process(delta: float) -> void:
 			_known_drops[drop.get_instance_id()] = true
 
 
+func level_up() -> void:
+	_experiece = 0
+	_target_experience *= 2
 func add_experience(value: float) -> void:
 	_experiece += value

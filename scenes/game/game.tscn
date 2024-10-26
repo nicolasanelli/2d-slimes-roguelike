@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2odse7mabaid"]
+[gd_scene load_steps=9 format=3 uid="uid://c2odse7mabaid"]
 
 [ext_resource type="PackedScene" uid="uid://d15wvy5ol3wsu" path="res://components/game_manager/game_manager.tscn" id="1_5eujh"]
 [ext_resource type="PackedScene" uid="uid://bhmpp5o3beqph" path="res://components/characters/player/player.tscn" id="1_hst8v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cqv8cog2y5ela" path="res://components/managers/drop_manager/drop_manager.tscn" id="4_216du"]
 [ext_resource type="PackedScene" uid="uid://bhipxqvbyxbhf" path="res://ui/mobile_game_layer/mobile_game_layer.tscn" id="5_b1ocy"]
 [ext_resource type="PackedScene" uid="uid://dvrwfpndahhq1" path="res://components/debugger/debugger.tscn" id="5_lr2xe"]
+[ext_resource type="PackedScene" uid="uid://e3g0wva5rfyt" path="res://ui/experience_bar/experience_bar.tscn" id="6_35yww"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -28,6 +29,22 @@ position = Vector2(772, 442)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="ExperienceBar" parent="GameUI" node_paths=PackedStringArray("_player") instance=ExtResource("6_35yww")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.0
+offset_top = -63.0
+offset_right = 225.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+_player = NodePath("../../Player")
 
 [node name="MobileGameLayer" parent="." instance=ExtResource("5_b1ocy")]
 unique_name_in_owner = true
