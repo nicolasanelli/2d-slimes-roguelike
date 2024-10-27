@@ -114,6 +114,10 @@ folder_colors={
 "res://ui/": "pink"
 }
 
+[global_group]
+
+Weapons="Can be used in weapon inventory"
+
 [gui]
 
 theme/custom="res://ui/theme/game_theme.tres"

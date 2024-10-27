@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dvuu3v8ti5m5p" path="res://components/weapons/saw/saw.tscn" id="2_umde3"]
 [ext_resource type="Script" path="res://addons/c_timer/c_timer.gd" id="3_scdy3"]
 
-[node name="CircularSaw" type="Node2D"]
+[node name="CircularSaw" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_3520g")
+metadata/WeaponName = "circular-saw"
 
 [node name="RotationPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true

@@ -52,6 +52,13 @@ func _ready() -> void:
 	_downgrade_pistol.pressed.connect(_pistol_downgrade)
 	_add_pistol.pressed.connect(_on_add_pistol)
 	_pause_button.pressed.connect(_on_pause_button)
+	
+	_on_add_pistol()
+	_pistol_upgrade()
+	_pistol_upgrade()
+	_pistol_upgrade()
+	_pistol_upgrade()
+	_pistol_upgrade()
 
 
 func _input(event: InputEvent) -> void:
@@ -71,7 +78,7 @@ func _process(_delta: float) -> void:
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
 	_label_bs.text = "Bullets shooted: %s" % _bullets_shooted
 	_label_pp.text = "Player pos(%.2f, %.2f)" % [_player.global_position.x, _player.global_position.y]
-	_label_xp.text = "Player XP: %s" % _player.find_child("ExperienceComponent")._current_level
+	_label_xp.text = "Player Level: %s" % _player.find_child("ExperienceComponent")._current_level
 	_label_timer.text = "Timer: %s" % _timer.time_left
 	_c_label_timer.text = "CTimer: %s" % _c_timer.time_left
 
@@ -79,26 +86,26 @@ func _on_add_saw() -> void:
 	var packed = load("res://components/weapons/circular_saw/circular_saw.tscn")
 	var weapon: CircularSaw = packed.instantiate()
 	if !_saw: _saw = weapon
-	_player.find_child("WeaponInventoryComponent").add("Saw", weapon)
+	_player.find_child("WeaponInventoryComponent").add(weapon)
 
 func _saw_upgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").upgrade("Saw")
+	_player.find_child("WeaponInventoryComponent").upgrade_by_name(_saw.get_meta("WeaponName"))
 	
 func _saw_downgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").downgrade("Saw")
+	_player.find_child("WeaponInventoryComponent").downgrade_by_name(_saw.get_meta("WeaponName"))
 
 func _on_add_pistol() -> void:
 	var packed = load("res://components/weapons/pistol/pistol.tscn")
 	var weapon: Pistol = packed.instantiate()
 	if !_pistol: _pistol = weapon
 	weapon.position = Vector2(0, -33)
-	_player.find_child("WeaponInventoryComponent").add("Pistol", weapon)
+	_player.find_child("WeaponInventoryComponent").add(weapon)
 
 func _pistol_upgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").upgrade("Pistol")
+	_player.find_child("WeaponInventoryComponent").upgrade_by_name(_pistol.get_meta("WeaponName"))
 	
 func _pistol_downgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").downgrade("Pistol")
+	_player.find_child("WeaponInventoryComponent").downgrade_by_name(_pistol.get_meta("WeaponName"))
 
 
 func _on_pause_button() -> void:

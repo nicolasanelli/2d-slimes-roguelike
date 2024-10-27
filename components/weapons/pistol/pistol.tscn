@@ -7,8 +7,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ruwfj"]
 radius = 561.001
 
-[node name="Pistol" type="Node2D"]
+[node name="Pistol" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_38j0m")
+metadata/WeaponName = "pistol"
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true

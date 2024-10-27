@@ -4,28 +4,39 @@ extends Node2D
 
 var _inventory = {}
 
+const GROUP_NAME = "Weapons";
+const METADATA_TAG = "WeaponName"
 
-func add(_name: String, scene: Node2D) -> void:
-	if _inventory.has(_name):
-		push_error("Trying to add %s, but it is already in inventory" % _name)
+
+func add(scene: Node2D) -> void:
+	if !scene.is_in_group(GROUP_NAME):
+		push_error("Trying to add a non-weapon to WeaponInventory")
 		return
 	
-	_inventory[_name] = scene
-	scene.name = _name
-	add_child(scene, true)
-
-
-func upgrade(_name: String) -> void:
-	if !_inventory.has(_name):
-		push_error("Trying to upgrade %s, but there is none inventory" % _name)
+	if !scene.has_meta(METADATA_TAG):
+		push_error("Weapons should have a metadata 'WeaponName'. This should be unique for this weapon.")
 		return
 	
-	_inventory[_name].upgrade()
-
-
-func downgrade(_name: String) -> void:
-	if !_inventory.has(_name):
-		push_error("Trying to downgrade %s, but there is none inventory" % _name)
+	var weapon_name = scene.get_meta(METADATA_TAG)
+	if _inventory.has(weapon_name):
+		print_debug("Trying to add scene with WeaponName metadata='%s', but it is already in inventory", weapon_name)
 		return
 	
-	_inventory[_name].downgrade()
+	_inventory[weapon_name] = scene
+	add_child(scene)
+
+
+func upgrade_by_name(weapon_name: String) -> void:
+	if !_inventory.has(weapon_name):
+		push_error("Trying to upgrade %s, but there is none inventory" % weapon_name)
+		return
+	
+	_inventory[weapon_name].upgrade()
+
+
+func downgrade_by_name(weapon_name: String) -> void:
+	if !_inventory.has(weapon_name):
+		push_error("Trying to downgrade %s, but there is none inventory" % weapon_name)
+		return
+	
+	_inventory[weapon_name].downgrade()
