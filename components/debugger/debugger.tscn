@@ -17,11 +17,12 @@ theme_override_constants/margin_bottom = 24
 script = ExtResource("1_cemwh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 
 [node name="SawInfo" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Sail level: %s"
+text = "Sail level: -1"
 
 [node name="AddSaw" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -30,15 +31,15 @@ text = "Add Circular Saw"
 [node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="UpgradeSaw" type="Button" parent="VBoxContainer/HBoxContainer1"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Increase"
-
 [node name="DowngradeSaw" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Decrease"
+text = "-1 Level"
+
+[node name="UpgradeSaw" type="Button" parent="VBoxContainer/HBoxContainer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+1 Level"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -47,7 +48,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="PistolInfo" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Pistol level: %s"
+text = "Pistol level: -1"
 
 [node name="AddPistol" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -56,15 +57,15 @@ text = "Add Pistol"
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="UpgradePistol" type="Button" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Upgrade"
-
 [node name="DowngradePistol" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Downgrade"
+text = "-1 Level"
+
+[node name="UpgradePistol" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+1 Level"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -102,7 +103,34 @@ text = "Player XP: %s"
 
 [node name="PauseButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Pause"
+text = "Toggle Pause"
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="LabelSF" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Speed factor: %.3f"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Decrease" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="Reset" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="Increase" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0

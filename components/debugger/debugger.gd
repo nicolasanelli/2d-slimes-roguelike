@@ -37,6 +37,12 @@ var _bullets_shooted: int = 0
 
 @onready var _pause_button: Button = $VBoxContainer/PauseButton
 
+@onready var _label_sf : Label = $VBoxContainer/LabelSF
+
+@onready var _increase_sf: Button = $VBoxContainer/HBoxContainer3/Increase
+@onready var _reset_sf: Button = $VBoxContainer/HBoxContainer3/Reset
+@onready var _decrease_sf: Button = $VBoxContainer/HBoxContainer3/Decrease
+
 @onready var _timer : Timer = $Timer
 @onready var _label_timer : Label = $Timer/Label
 
@@ -52,13 +58,16 @@ func _ready() -> void:
 	_downgrade_pistol.pressed.connect(_pistol_downgrade)
 	_add_pistol.pressed.connect(_on_add_pistol)
 	_pause_button.pressed.connect(_on_pause_button)
+	_increase_sf.pressed.connect(_on_increase_sf)
+	_reset_sf.pressed.connect(_on_reset_sf)
+	_decrease_sf.pressed.connect(_on_decrease_sf)
 	
 	_on_add_pistol()
 	_pistol_upgrade()
-	_pistol_upgrade()
-	_pistol_upgrade()
-	_pistol_upgrade()
-	_pistol_upgrade()
+	#_pistol_upgrade()
+	#_pistol_upgrade()
+	#_pistol_upgrade()
+	#_pistol_upgrade()
 
 
 func _input(event: InputEvent) -> void:
@@ -81,6 +90,7 @@ func _process(_delta: float) -> void:
 	_label_xp.text = "Player Level: %s" % _player.find_child("ExperienceComponent")._current_level
 	_label_timer.text = "Timer: %s" % _timer.time_left
 	_c_label_timer.text = "CTimer: %s" % _c_timer.time_left
+	_label_sf.text = "Speed factor: %.3f" % GlobalTimer.get_factor()
 
 func _on_add_saw() -> void:
 	var packed = load("res://components/weapons/circular_saw/circular_saw.tscn")
@@ -89,10 +99,12 @@ func _on_add_saw() -> void:
 	_player.find_child("WeaponInventoryComponent").add(weapon)
 
 func _saw_upgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").upgrade_by_name(_saw.get_meta("WeaponName"))
+	if _saw:
+		_player.find_child("WeaponInventoryComponent").upgrade_by_name(_saw.get_meta("WeaponName"))
 	
 func _saw_downgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").downgrade_by_name(_saw.get_meta("WeaponName"))
+	if _saw:
+		_player.find_child("WeaponInventoryComponent").downgrade_by_name(_saw.get_meta("WeaponName"))
 
 func _on_add_pistol() -> void:
 	var packed = load("res://components/weapons/pistol/pistol.tscn")
@@ -102,15 +114,27 @@ func _on_add_pistol() -> void:
 	_player.find_child("WeaponInventoryComponent").add(weapon)
 
 func _pistol_upgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").upgrade_by_name(_pistol.get_meta("WeaponName"))
+	if _pistol:
+		_player.find_child("WeaponInventoryComponent").upgrade_by_name(_pistol.get_meta("WeaponName"))
 	
 func _pistol_downgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").downgrade_by_name(_pistol.get_meta("WeaponName"))
-
+	if _pistol:
+		_player.find_child("WeaponInventoryComponent").downgrade_by_name(_pistol.get_meta("WeaponName"))
 
 func _on_pause_button() -> void:
 	Global.toggle_pause()
-	
+
+func _on_increase_sf() -> void:
+	var factor = GlobalTimer.get_factor()
+	GlobalTimer.set_target_factor(factor + 0.25, 0.3)
+
+func _on_reset_sf() -> void:
+	var factor = GlobalTimer.get_factor()
+	GlobalTimer.set_target_factor(1, 0.3)
+
+func _on_decrease_sf() -> void:
+	var factor = GlobalTimer.get_factor()
+	GlobalTimer.set_target_factor(factor - 0.25, 0.3)
 
 func increaseMobSpawned() -> void:
 	_mob_spawned += 1
