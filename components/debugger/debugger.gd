@@ -65,7 +65,7 @@ func _process(_delta: float) -> void:
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
 	_label_bs.text = "Bullets shooted: %s" % _bullets_shooted
 	_label_pp.text = "Player pos(%.2f, %.2f)" % [_player.global_position.x, _player.global_position.y]
-	_label_xp.text = "Player XP: %s" % _player._experiece
+	_label_xp.text = "Player XP: %s" % _player.find_children("ExperienceComponent")[0]._current_level
 
 
 func _on_add_saw() -> void:

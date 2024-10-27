@@ -2,17 +2,21 @@ class_name XpOrb
 extends CharacterBody2D
 
 
-var _experience_value: int = 1;
-var _target_position: Vector2
-
-
-const DEATH_RADIUS_OFFSET: int = 50
+signal xp_absorved(instance_id: int, value: float)
 
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 
-signal xp_absorved(value: float)
+var _experience_value: int = 1;
+var _target_position: Vector2
+var _absobed: bool = false
+
+const DEATH_RADIUS_OFFSET: int = 50
+
+
+
+
 
 
 func _ready() -> void:
@@ -20,7 +24,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if not _target_position: return
+	if (not _target_position) or _absobed: return
 	if global_position.distance_to(_target_position) < DEATH_RADIUS_OFFSET: _absorv()
 	
 	var direction = global_position.direction_to(_target_position)
@@ -36,6 +40,11 @@ func set_target_global_position(target: Vector2) -> void:
 	_target_position = target
 
 
+func is_already_absorbed() -> bool:
+	return _absobed
+
+
 func _absorv() -> void:
-	xp_absorved.emit(_experience_value)
+	_absobed = true
+	xp_absorved.emit(get_instance_id(), _experience_value)
 	queue_free()

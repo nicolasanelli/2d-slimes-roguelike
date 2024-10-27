@@ -14,8 +14,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	#if !_player: return #TODO
-	var actual = _player._experiece
-	var target = _player._target_experience
+	var actual = _player.find_children("ExperienceComponent")[0]._current_experience
+	var target = _player.find_children("ExperienceComponent")[0]._target_experience
 	
 	_progress_bar.value = actual
 	_progress_bar.max_value = target

@@ -12,5 +12,5 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	var level = _player._level
+	var level = _player.find_children("ExperienceComponent")[0]._current_level
 	_label.text = "%d" % level
