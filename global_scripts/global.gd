@@ -28,9 +28,9 @@ func start_game():
 var paused: bool;
 func toggle_pause() -> void:
 	if paused:
-		GlobalTimer.set_target_factor(1, .8)
+		GlobalTimer.set_target_factor(1, .75)
 	else:
-		GlobalTimer.set_speed_factor(0)
+		GlobalTimer.set_target_factor(0)
 	paused = !paused
 
 func _deferred_goto_scene(path):

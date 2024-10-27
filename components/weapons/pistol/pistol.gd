@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 		_pistol_sprite.flip_v = false
 		_shooting_point.position.y = -11.0
 	
-	rotate(_angle * delta * ROTATION_SPEED * GlobalTimer.get_speed_factor())
+	rotate(_angle * delta * ROTATION_SPEED * GlobalTimer.get_factor())
 
 func _physics_process(_delta: float) -> void:
 	var enemies_in_range: Array[Node2D] = _area.get_overlapping_bodies()

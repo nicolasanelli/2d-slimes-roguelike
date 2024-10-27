@@ -19,4 +19,4 @@ func set_colors(body: Color) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	_animation_player.speed_scale = GlobalTimer.get_speed_factor()
+	_animation_player.speed_scale = GlobalTimer.get_factor()

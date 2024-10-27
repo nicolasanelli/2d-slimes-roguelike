@@ -13,4 +13,4 @@ func play_walk_animation():
 
 
 func _physics_process(_delta: float) -> void:
-	_animation_player.speed_scale = GlobalTimer.get_speed_factor()
+	_animation_player.speed_scale = GlobalTimer.get_factor()

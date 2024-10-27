@@ -6,28 +6,21 @@ var _target_factor: float = 1
 var _step: float = 0.4
 
 
-func get_speed_factor() -> float:
+func get_factor() -> float:
 	return _current_factor
 
-func get_target_factor() -> float:
-	return _target_factor
 
-
-func set_speed_factor(value: float) -> void:
-	_current_factor = value
-	_target_factor = value
-
-
-func set_target_factor(factor: float, step: float = 0.4) -> void:
+func set_target_factor(factor: float, step: float = 10) -> void:
 	_target_factor = factor
-	_step = step
+	if step > 0:
+		_step = clampf(step, 0, 10)
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("BB"):
 		set_target_factor(1, 0.6)
 	if event.is_action_pressed("AA"):
-		set_target_factor(0, 0.4)
+		set_target_factor(0)
 
 
 func _physics_process(delta: float) -> void:

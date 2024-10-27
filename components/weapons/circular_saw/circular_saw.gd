@@ -29,7 +29,7 @@ func _ready() -> void:
 	_configure_current_resource()
 
 func _process(delta: float) -> void:
-	rotation += 4 * delta  * GlobalTimer.get_speed_factor()
+	rotation += 4 * delta  * GlobalTimer.get_factor()
 	pass
 #endregion
 

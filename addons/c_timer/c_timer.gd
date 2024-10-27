@@ -10,7 +10,7 @@ signal timeout
 @export_range(0.001, 4096, 1, "suffix:s") var wait_time: float = 1
 @export var one_shot: bool = false
 @export var autostart: bool = false
-@export var time_scale: float = 1
+#@export var time_scale: float = 1
 
 
 func set_wait_time(value: float) -> void:
@@ -35,11 +35,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if process_callback == TimerProcessCallback.PHYSICS and _processing and !paused:
-		time_left -= (delta * time_scale)
+		time_left -= (delta * GlobalTimer.get_factor())
 
 func _process(delta: float) -> void:
 	if process_callback == TimerProcessCallback.IDLE and _processing and !paused:
-		time_left -= (delta * time_scale)
+		time_left -= (delta * GlobalTimer.get_factor())
 
 
 func start(time_sec: float = -1) -> void:

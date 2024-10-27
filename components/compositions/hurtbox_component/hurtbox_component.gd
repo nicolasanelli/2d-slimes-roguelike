@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 				push_error("Body without 'get_damage' got captured by hurtbox")
 				continue;
 				
-			damage += body.get_damage() * delta * GlobalTimer.get_speed_factor()
+			damage += body.get_damage() * delta * GlobalTimer.get_factor()
 		
 		_health_component.damage(damage)
 		hit_by_hitbox.emit()
