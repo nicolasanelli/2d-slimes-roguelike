@@ -30,7 +30,7 @@ var _resources: Array[PistolResource] = [
 ]
 
 const ROTATION_SPEED = 25
-
+var _angle = 0
 
 #region Engine
 func _ready() -> void:
@@ -38,7 +38,6 @@ func _ready() -> void:
 	_configure_timer()
 
 
-var angle = 0
 func _process(delta: float) -> void:
 	var rot = rotation_degrees
 	if (rot >= -270 and rot <= -90) or (rot >= 90 and rot <= 270): 
@@ -48,14 +47,15 @@ func _process(delta: float) -> void:
 		_pistol_sprite.flip_v = false
 		_shooting_point.position.y = -11.0
 	
-	rotate(angle * delta * ROTATION_SPEED * GlobalTimer.get_speed_factor())
+	rotate(_angle * delta * ROTATION_SPEED * GlobalTimer.get_speed_factor())
 
 func _physics_process(_delta: float) -> void:
 	var enemies_in_range: Array[Node2D] = _area.get_overlapping_bodies()
 	if enemies_in_range.size() > 0:
 		var target = enemies_in_range.front()
-		angle = get_angle_to(target.global_position)
-		
+		_angle = get_angle_to(target.global_position)
+	else:
+		_angle = 0
 #endregion
 
 
