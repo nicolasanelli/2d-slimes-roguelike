@@ -22,3 +22,4 @@ func _physics_process(delta: float) -> void:
 			damage += body.get_damage() * delta
 		
 		_health_component.damage(damage)
+		hit_by_hitbox.emit()

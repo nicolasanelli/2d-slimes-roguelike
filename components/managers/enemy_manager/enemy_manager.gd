@@ -32,7 +32,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if !_player: return #TODO
+	#if !_player: return #TODO
 	global_position = _player.global_position
 
 
@@ -60,7 +60,7 @@ func _on_dificulty_timer_timeout() -> void:
 
 
 func spawn_enemy() -> void:
-	if !_player: return #TODO
+	#if !_player: return #TODO
 	var enemy: Slime = _slime_component.instantiate()
 	_spawn_location.progress_ratio = randf()
 	enemy.global_position = _spawn_location.global_position

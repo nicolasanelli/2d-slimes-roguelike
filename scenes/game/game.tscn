@@ -105,8 +105,7 @@ size_flags_vertical = 4
 
 [node name="Card" parent="GameUI/Control/MarginContainer/HBoxContainer/Container3" instance=ExtResource("7_fnii8")]
 
-[node name="MobileGameLayer" parent="." instance=ExtResource("5_b1ocy")]
-unique_name_in_owner = true
+[node name="GameUIMobile" parent="." instance=ExtResource("5_b1ocy")]
 visible = false
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
@@ -121,47 +120,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.21974, 0.648788, 0.485114, 1)
-
-[node name="GameOverScreen" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.564706)
-
-[node name="Label" type="Label" parent="GameOverScreen/ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -401.0
-offset_top = 116.0
-offset_right = 402.0
-offset_bottom = 308.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 140
-text = "GAME OVER"
-
-[node name="ReplayButton" type="Button" parent="GameOverScreen"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(290, 70)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = 99.0
-offset_right = 145.0
-offset_bottom = 169.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Replay"
 
 [node name="DebugLayer" type="CanvasLayer" parent="."]
 

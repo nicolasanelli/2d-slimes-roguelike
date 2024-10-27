@@ -15,7 +15,7 @@ var _xp_orb_componemt = preload("res://components/drops/xp_orb/xp_orb.tscn")
 
 #region Engine
 func _ready() -> void:
-	assert(_target != null, "Target is not set in Slime")
+	#assert(_target != null, "Target is not set in Slime")
 	assert(_resource != null, "SlimeResource is not set in Slime")
 	_current_health = _resource.health
 	_slime_body.set_colors(_resource.color)

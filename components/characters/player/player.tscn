@@ -46,6 +46,7 @@ debug_color = Color(0, 0.649032, 0.15984, 0.42)
 [node name="HealthComponent" parent="." instance=ExtResource("5_wvwcu")]
 unique_name_in_owner = true
 _max_health = 50.0
+_current_health = 50.0
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("_health_component") instance=ExtResource("6_x1lci")]
 _health_component = NodePath("../HealthComponent")

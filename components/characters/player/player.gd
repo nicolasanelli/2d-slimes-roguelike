@@ -64,7 +64,6 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_health_depleted() -> void:
-	queue_free()
 	GameManager.instance.game_over()
 
 
