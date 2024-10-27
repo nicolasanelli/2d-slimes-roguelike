@@ -1,5 +1,5 @@
 @icon("icon.png")
-class_name CTimer 
+class_name CTimer
 extends Node
 
 

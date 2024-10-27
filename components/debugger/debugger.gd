@@ -129,7 +129,6 @@ func _on_increase_sf() -> void:
 	GlobalTimer.set_target_factor(factor + 0.25, 0.3)
 
 func _on_reset_sf() -> void:
-	var factor = GlobalTimer.get_factor()
 	GlobalTimer.set_target_factor(1, 0.3)
 
 func _on_decrease_sf() -> void:
