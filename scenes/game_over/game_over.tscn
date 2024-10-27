@@ -65,6 +65,22 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Replay"
 
+[node name="ExitButton" type="Button" parent="GameOverScreen"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(290, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = 208.0
+offset_right = 147.0
+offset_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="Slime1" parent="Mobs" instance=ExtResource("2_v3bn2")]
@@ -114,4 +130,5 @@ position = Vector2(1221, 609)
 [node name="PineTree6" parent="Trees" instance=ExtResource("5_0yuc8")]
 position = Vector2(1032, 169)
 
-[connection signal="pressed" from="GameOverScreen/ReplayButton" to="GameManager" method="_on_replay_pressed"]
+[connection signal="pressed" from="GameOverScreen/ReplayButton" to="GameManager" method="start_game"]
+[connection signal="pressed" from="GameOverScreen/ExitButton" to="GameManager" method="main_menu"]

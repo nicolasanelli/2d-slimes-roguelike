@@ -9,8 +9,12 @@ func _init() -> void:
 #endregion
 
 
-func _on_replay_pressed() -> void:
-	Global.reset_game()
+func main_menu() -> void:
+	Global.main_menu()
+
+
+func start_game() -> void:
+	Global.start_game()
 
 
 func game_over() -> void:

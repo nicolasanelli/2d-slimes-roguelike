@@ -15,10 +15,13 @@ func is_mobile() -> bool:
 	return OS.has_feature("web_android") or OS.has_feature("web_ios")
 
 
+func main_menu():
+	call_deferred("_deferred_goto_scene", "res://scenes/main_menu/main_menu.tscn")
+
 func game_over():
 	call_deferred("_deferred_goto_scene", "res://scenes/game_over/game_over.tscn")
 
-func reset_game():
+func start_game():
 	call_deferred("_deferred_goto_scene", "res://scenes/game/game.tscn")
 
 
