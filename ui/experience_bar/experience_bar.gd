@@ -20,6 +20,3 @@ func _process(_delta: float) -> void:
 	_progress_bar.value = actual
 	_progress_bar.max_value = target
 	_label.text = "%d / %d" % [actual, target]
-	
-	if actual >= target:
-		_player.level_up()

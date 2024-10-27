@@ -13,14 +13,7 @@ func _init() -> void:
 
 @onready var _happy_boo: HappyBoo = %HappyBoo
 @onready var _health_component: HealthComponent = %HealthComponent
-
-@onready var _xpbox: Area2D = %XpBox
 @onready var _camera: Camera2D = $Camera2D
-
-
-# Player Stats
-var _experiece: float = 0
-var _target_experience: float = 5
 
 
 # TODO remover essa lógica do player
@@ -66,14 +59,24 @@ func _physics_process(_delta: float) -> void:
 func _on_health_depleted() -> void:
 	GameManager.instance.game_over()
 
-
-
+	
+# TODO remover essa lógica do player
+var _level = 0
+var _experiece: float = 0
+var _total_experiece: float = 0
+var _target_experience: float = 5
+@onready var _xpbox: Area2D = %XpBox
 func level_up() -> void:
-	_experiece = 0
-	_target_experience *= 2
+	_level += 1
+	_target_experience = round(pow(_level, 1.8) + _level + 5)
 
 func add_experience(value: float) -> void:
 	_experiece += value
+	_total_experiece += value
+	
+	while _experiece >= _target_experience:
+		_experiece -= _target_experience
+		level_up()
 
 
 func add_weapon(_weapon: Node2D) -> void:
