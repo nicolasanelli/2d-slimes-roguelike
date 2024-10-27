@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://components/weapons/circular_saw/circular_saw.gd" id="1_3520g"]
 [ext_resource type="PackedScene" uid="uid://dvuu3v8ti5m5p" path="res://components/weapons/saw/saw.tscn" id="2_umde3"]
-[ext_resource type="Script" path="res://components/c_timer/c_timer.gd" id="3_6ebns"]
+[ext_resource type="Script" path="res://addons/c_timer/c_timer.gd" id="3_scdy3"]
 
 [node name="CircularSaw" type="Node2D"]
 script = ExtResource("1_3520g")
@@ -23,4 +23,4 @@ position = Vector2(0, -250)
 position = Vector2(-250, 0)
 
 [node name="CTimer" type="Node" parent="."]
-script = ExtResource("3_6ebns")
+script = ExtResource("3_scdy3")

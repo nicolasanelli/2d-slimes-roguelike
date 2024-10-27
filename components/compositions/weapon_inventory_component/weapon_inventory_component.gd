@@ -20,7 +20,6 @@ func upgrade(_name: String) -> void:
 		push_error("Trying to upgrade %s, but there is none inventory" % _name)
 		return
 	
-	print_debug("Should upgrade %s" % _name)
 	_inventory[_name].upgrade()
 
 
@@ -29,5 +28,4 @@ func downgrade(_name: String) -> void:
 		push_error("Trying to downgrade %s, but there is none inventory" % _name)
 		return
 	
-	print_debug("Should downgrade %s" % _name)
 	_inventory[_name].downgrade()

@@ -9,6 +9,11 @@ func _init() -> void:
 #endregion
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Pause"):
+		Global.toggle_pause()
+
+
 func main_menu() -> void:
 	Global.main_menu()
 

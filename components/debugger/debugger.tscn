@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvrwfpndahhq1"]
 
 [ext_resource type="Script" path="res://components/debugger/debugger.gd" id="1_cemwh"]
-[ext_resource type="PackedScene" uid="uid://dx70iu8w7m7h3" path="res://components/c_timer/c_timer.tscn" id="2_2wiym"]
+[ext_resource type="Script" path="res://addons/c_timer/c_timer.gd" id="2_dv1cd"]
 
 [node name="Debugger" type="MarginContainer"]
 anchors_preset = 1
@@ -117,7 +117,8 @@ offset_bottom = 29.0
 text = "Timer: %s"
 metadata/_edit_use_anchors_ = true
 
-[node name="CustomTimer" parent="." instance=ExtResource("2_2wiym")]
+[node name="CustomTimer" type="Node" parent="."]
+script = ExtResource("2_dv1cd")
 wait_time = 100.0
 autostart = true
 

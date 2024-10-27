@@ -28,7 +28,7 @@ func start_game():
 var paused: bool;
 func toggle_pause() -> void:
 	if paused:
-		GlobalTimer.set_speed_factor(1)
+		GlobalTimer.set_target_factor(1, .8)
 	else:
 		GlobalTimer.set_speed_factor(0)
 	paused = !paused
