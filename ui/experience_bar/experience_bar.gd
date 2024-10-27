@@ -13,6 +13,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if !_player: return #TODO
 	var actual = _player._experiece
 	var target = _player._target_experience
 	

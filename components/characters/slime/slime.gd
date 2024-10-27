@@ -23,6 +23,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if !_target: return #TODO
 	var direction = global_position.direction_to(_target.global_position)
 	velocity = direction * _resource.speed
 	move_and_slide()
@@ -44,6 +45,10 @@ func set_target(target: Node2D) -> void:
 
 func set_resource(resource: SlimeResource) -> void:
 	_resource = resource;
+
+
+func get_damage() -> float:
+	return _resource.damage
 
 
 func take_damage(amount: float = 1.0) -> void:

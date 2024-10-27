@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_erlvt")
 color = Color(0.0560217, 0.425325, 0.0922281, 1)
-name = ""
 health = 6
 speed = 200
+damage = 7.0
 experience_drop = 2

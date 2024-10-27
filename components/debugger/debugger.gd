@@ -54,6 +54,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
+	if !_player: return #TODO
+	
 	if _saw:
 		_saw_info.text = "Sail level: %s" % _saw._current_resource.rarity
 	if _pistol:
