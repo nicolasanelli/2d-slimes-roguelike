@@ -15,13 +15,12 @@ var _absobed: bool = false
 const DEATH_RADIUS_OFFSET: int = 50
 
 
-
-
-
-
 func _ready() -> void:
 	_animation_player.play("idle")
 
+
+func _process(_delta: float) -> void:
+	_animation_player.speed_scale = GlobalTimer.get_factor()
 
 func _physics_process(_delta: float) -> void:
 	if (not _target_position) or _absobed: return

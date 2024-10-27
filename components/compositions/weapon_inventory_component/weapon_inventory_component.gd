@@ -2,6 +2,9 @@ class_name WeaponInventoryComponent
 extends Node2D
 
 
+signal inventory_changed
+
+
 var _inventory = {}
 
 const GROUP_NAME = "Weapons";
@@ -24,6 +27,7 @@ func add(scene: Node2D) -> void:
 	
 	_inventory[weapon_name] = scene
 	add_child(scene)
+	inventory_changed.emit()
 
 
 func upgrade_by_name(weapon_name: String) -> void:
@@ -32,6 +36,7 @@ func upgrade_by_name(weapon_name: String) -> void:
 		return
 	
 	_inventory[weapon_name].upgrade()
+	inventory_changed.emit()
 
 
 func downgrade_by_name(weapon_name: String) -> void:
@@ -40,3 +45,8 @@ func downgrade_by_name(weapon_name: String) -> void:
 		return
 	
 	_inventory[weapon_name].downgrade()
+	inventory_changed.emit()
+
+
+func get_inventory():
+	return _inventory

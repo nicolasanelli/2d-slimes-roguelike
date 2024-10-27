@@ -25,7 +25,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	var diff = absf(_current_factor) - absf(_target_factor)
-	if absf(diff) < 0.05 and diff != 0:
+	if absf(diff) < 0.1 and diff != 0:
 		_current_factor = _target_factor
 	elif _target_factor < _current_factor:
 		_current_factor -= _step * delta
