@@ -100,6 +100,10 @@ text = "Player (%s, %s)"
 layout_mode = 2
 text = "Player XP: %s"
 
+[node name="PauseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pause"
+
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 100.0

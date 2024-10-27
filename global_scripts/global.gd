@@ -25,6 +25,14 @@ func start_game():
 	call_deferred("_deferred_goto_scene", "res://scenes/game/game.tscn")
 
 
+var paused: bool;
+func toggle_pause() -> void:
+	if paused:
+		GlobalTimer.set_speed_factor(1)
+	else:
+		GlobalTimer.set_speed_factor(0)
+	paused = !paused
+
 func _deferred_goto_scene(path):
 	current_scene.free()
 	var s = ResourceLoader.load(path)

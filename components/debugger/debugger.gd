@@ -35,6 +35,8 @@ var _bullets_shooted: int = 0
 @onready var _label_pp : Label = $VBoxContainer/LabelPlayerPos
 @onready var _label_xp : Label = $VBoxContainer/LabelPlayersXP
 
+@onready var _pause_button: Button = $VBoxContainer/PauseButton
+
 @onready var _timer : Timer = $Timer
 @onready var _label_timer : Label = $Timer/Label
 
@@ -49,6 +51,7 @@ func _ready() -> void:
 	_upgrade_pistol.pressed.connect(_pistol_upgrade)
 	_downgrade_pistol.pressed.connect(_pistol_downgrade)
 	_add_pistol.pressed.connect(_on_add_pistol)
+	_pause_button.pressed.connect(_on_pause_button)
 
 
 func _input(event: InputEvent) -> void:
@@ -96,6 +99,10 @@ func _pistol_upgrade() -> void:
 	
 func _pistol_downgrade() -> void:
 	_player.find_child("WeaponInventoryComponent").downgrade("Pistol")
+
+
+func _on_pause_button() -> void:
+	Global.toggle_pause()
 	
 
 func increaseMobSpawned() -> void:
