@@ -9,9 +9,10 @@ var _bullet_special_component = preload("res://components/weapons/bullet_special
 @onready var _area: Area2D = %Area2D
 @onready var _pistol_sprite: Sprite2D = %Pistol
 @onready var _shooting_point: Marker2D = %ShootingPoint
-@onready var _timer: Timer = $Timer
+@onready var _timer: CTimer = $CTimer
 
 @export var _disabled: bool = false
+
 
 var _current_resource_index: int = 0:
 	set(value):
@@ -28,13 +29,17 @@ var _resources: Array[PistolResource] = [
 	load("res://data/weapons/pistol/006_mythic_pistol.tres"),
 ]
 
+const ROTATION_SPEED = 25
+
 
 #region Engine
 func _ready() -> void:
 	_configure_current_resource()
 	_configure_timer()
-	
-func _process(_delta: float) -> void:
+
+
+var angle = 0
+func _process(delta: float) -> void:
 	var rot = rotation_degrees
 	if (rot >= -270 and rot <= -90) or (rot >= 90 and rot <= 270): 
 		_pistol_sprite.flip_v = true
@@ -42,12 +47,15 @@ func _process(_delta: float) -> void:
 	else:
 		_pistol_sprite.flip_v = false
 		_shooting_point.position.y = -11.0
+	
+	rotate(angle * delta * ROTATION_SPEED * GlobalTimer.get_speed_factor())
 
 func _physics_process(_delta: float) -> void:
 	var enemies_in_range: Array[Node2D] = _area.get_overlapping_bodies()
 	if enemies_in_range.size() > 0:
 		var target = enemies_in_range.front()
-		look_at(target.global_position)
+		angle = get_angle_to(target.global_position)
+		
 #endregion
 
 
@@ -79,7 +87,8 @@ func downgrade() -> void:
 
 func shoot() -> void:
 	for n in range(_current_resource.bullets):
-		Debugger.instance.increaseBulletsShooted()
+		if Debugger.instance:
+			Debugger.instance.increaseBulletsShooted()
 		
 		var bullet
 		if _current_resource.is_special:

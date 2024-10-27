@@ -19,9 +19,9 @@ func set_damage(value: int) -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * SPEED * delta
+	position += direction * SPEED * delta * GlobalTimer.get_speed_factor()
 	
-	_travelled_distance += SPEED * delta
+	_travelled_distance += SPEED * delta * GlobalTimer.get_speed_factor()
 	if _travelled_distance > MAX_RANGE:
 		queue_free()
 

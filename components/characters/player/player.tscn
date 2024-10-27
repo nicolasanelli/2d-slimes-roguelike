@@ -1,13 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhmpp5o3beqph"]
+[gd_scene load_steps=12 format=3 uid="uid://bhmpp5o3beqph"]
 
 [ext_resource type="Script" path="res://components/characters/player/player.gd" id="1_ouu1o"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://components/characters/player/happy_boo/happy_boo.tscn" id="1_rxfjr"]
-[ext_resource type="PackedScene" uid="uid://bthb600b1k3l5" path="res://components/weapons/pistol/pistol.tscn" id="4_om2ib"]
-[ext_resource type="PackedScene" uid="uid://bnvxmmn4f0hqp" path="res://components/weapons/circular_saw/circular_saw.tscn" id="4_yulmj"]
 [ext_resource type="PackedScene" uid="uid://dh26ec8mgg81e" path="res://components/compositions/health_component/health_component.tscn" id="5_wvwcu"]
 [ext_resource type="PackedScene" uid="uid://bp7rfbr1d86gi" path="res://components/compositions/hurtbox_component/hurtbox_component.tscn" id="6_x1lci"]
 [ext_resource type="PackedScene" uid="uid://tlfwglo0migb" path="res://components/compositions/healthbar_component/heathbar_component.tscn" id="7_t1bo6"]
 [ext_resource type="PackedScene" uid="uid://bdcrnqu1x8a5e" path="res://components/compositions/experience_component/experience_component.tscn" id="8_5lwn1"]
+[ext_resource type="PackedScene" uid="uid://cfudk0b54ai1e" path="res://components/compositions/weapon_inventory_component/weapon_inventory_component.tscn" id="8_q7nmi"]
 [ext_resource type="PackedScene" uid="uid://csauwjdnutwod" path="res://components/compositions/experience_range_component/experience_range_component.tscn" id="9_h1vpb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ad2gd"]
@@ -27,14 +26,6 @@ shape = SubResource("CircleShape2D_ad2gd")
 
 [node name="HappyBoo" parent="." instance=ExtResource("1_rxfjr")]
 unique_name_in_owner = true
-
-[node name="Weapons" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="Pistol" parent="Weapons" instance=ExtResource("4_om2ib")]
-position = Vector2(0, -33)
-
-[node name="CircularSaw" parent="Weapons" instance=ExtResource("4_yulmj")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_wvwcu")]
 unique_name_in_owner = true
@@ -59,4 +50,6 @@ _experience_component = NodePath("../ExperienceComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExperienceRangeComponent"]
 shape = SubResource("CircleShape2D_km61l")
-debug_color = Color(0, 0.649032, 0.15984, 0.42)
+debug_color = Color(1, 0.984314, 0, 0.105882)
+
+[node name="WeaponInventoryComponent" parent="." instance=ExtResource("8_q7nmi")]

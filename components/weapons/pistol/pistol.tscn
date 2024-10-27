@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bthb600b1k3l5"]
+[gd_scene load_steps=5 format=3 uid="uid://bthb600b1k3l5"]
 
 [ext_resource type="Script" path="res://components/weapons/pistol/pistol.gd" id="1_38j0m"]
 [ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://components/weapons/pistol/pistol.png" id="2_a6ill"]
+[ext_resource type="Script" path="res://components/c_timer/c_timer.gd" id="3_q13i6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ruwfj"]
 radius = 561.001
@@ -31,5 +32,5 @@ texture = ExtResource("2_a6ill")
 unique_name_in_owner = true
 position = Vector2(25, -11)
 
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
+[node name="CTimer" type="Node" parent="."]
+script = ExtResource("3_q13i6")

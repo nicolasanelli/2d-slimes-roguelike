@@ -15,7 +15,9 @@ func _init() -> void:
 @onready var _health_component: HealthComponent = %HealthComponent
 @onready var _camera: Camera2D = $Camera2D
 
-#var _weapons_dict = {}
+
+const SPEED = 600
+
 
 func _ready() -> void:
 	_health_component.health_depleted.connect(_on_health_depleted)
@@ -32,7 +34,7 @@ func _input(_event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	var direction = PlayerInput.get_movement()
 	
-	velocity = direction * 600
+	velocity = direction * SPEED * GlobalTimer.get_speed_factor()
 	move_and_slide()
 	
 	if velocity.length() > 0.0:
@@ -43,17 +45,3 @@ func _physics_process(_delta: float) -> void:
 
 func _on_health_depleted() -> void:
 	GameManager.instance.game_over()
-
-
-func add_weapon(_weapon: Node2D) -> void:
-	return;
-	#var _name = weapon.get_weapon_name()
-	#if _weapons_dict.has(_name): 
-		#push_error("Trying to add a weapons is already in")
-		#return
-	#
-	#%Weapons.add_child(weapon)
-	#_weapons_dict[_name] = weapon
-
-func get_pistol() -> Node2D:
-	return %Weapons/Pistol

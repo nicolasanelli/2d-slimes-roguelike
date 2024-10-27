@@ -12,13 +12,13 @@ func _init() -> void:
 
 @export var _player: Player
 
-@onready var _saw: Node2D = $/root/Game/Player/Weapons/CircularSaw
+var _saw: Node2D
 @onready var _saw_info: Label = $VBoxContainer/SawInfo
 @onready var _add_saw: Button = $VBoxContainer/AddSaw
 @onready var _upgrade_saw: Button = $VBoxContainer/HBoxContainer1/UpgradeSaw
 @onready var _downgrade_saw: Button = $VBoxContainer/HBoxContainer1/DowngradeSaw
 
-@onready var _pistol: Node2D = $/root/Game/Player/Weapons/Pistol
+var _pistol: Node2D
 @onready var _pistol_info: Label = $VBoxContainer/PistolInfo
 @onready var _add_pistol: Button = $VBoxContainer/AddPistol
 @onready var _upgrade_pistol: Button = $VBoxContainer/HBoxContainer2/UpgradePistol
@@ -35,16 +35,19 @@ var _bullets_shooted: int = 0
 @onready var _label_pp : Label = $VBoxContainer/LabelPlayerPos
 @onready var _label_xp : Label = $VBoxContainer/LabelPlayersXP
 
+@onready var _timer : Timer = $Timer
+@onready var _label_timer : Label = $Timer/Label
+
+@onready var _c_timer : Node = $CustomTimer
+@onready var _c_label_timer : Label = $CustomTimer/Label
 
 func _ready() -> void:
 	assert(_player != null, "Player is not set in Debugger")
-	if _saw:
-		_upgrade_saw.pressed.connect(_saw.upgrade)
-		_downgrade_saw.pressed.connect(_saw.downgrade)
+	_upgrade_saw.pressed.connect(_saw_upgrade)
+	_downgrade_saw.pressed.connect(_saw_downgrade)
 	_add_saw.pressed.connect(_on_add_saw)
-	if _pistol:
-		_upgrade_pistol.pressed.connect(_pistol.upgrade)
-		_downgrade_pistol.pressed.connect(_pistol.downgrade)
+	_upgrade_pistol.pressed.connect(_pistol_upgrade)
+	_downgrade_pistol.pressed.connect(_pistol_downgrade)
 	_add_pistol.pressed.connect(_on_add_pistol)
 
 
@@ -65,19 +68,35 @@ func _process(_delta: float) -> void:
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
 	_label_bs.text = "Bullets shooted: %s" % _bullets_shooted
 	_label_pp.text = "Player pos(%.2f, %.2f)" % [_player.global_position.x, _player.global_position.y]
-	_label_xp.text = "Player XP: %s" % _player.find_children("ExperienceComponent")[0]._current_level
-
+	_label_xp.text = "Player XP: %s" % _player.find_child("ExperienceComponent")._current_level
+	_label_timer.text = "Timer: %s" % _timer.time_left
+	_c_label_timer.text = "CTimer: %s" % _c_timer.time_left
 
 func _on_add_saw() -> void:
 	var packed = load("res://components/weapons/circular_saw/circular_saw.tscn")
-	var weapon = packed.instantiate()
-	_player.add_weapon(weapon)
+	var weapon: CircularSaw = packed.instantiate()
+	if !_saw: _saw = weapon
+	_player.find_child("WeaponInventoryComponent").add("Saw", weapon)
+
+func _saw_upgrade() -> void:
+	_player.find_child("WeaponInventoryComponent").upgrade("Saw")
+	
+func _saw_downgrade() -> void:
+	_player.find_child("WeaponInventoryComponent").downgrade("Saw")
 
 func _on_add_pistol() -> void:
 	var packed = load("res://components/weapons/pistol/pistol.tscn")
-	var weapon = packed.instantiate()
-	_player.add_weapon(weapon)
+	var weapon: Pistol = packed.instantiate()
+	if !_pistol: _pistol = weapon
+	weapon.position = Vector2(0, -33)
+	_player.find_child("WeaponInventoryComponent").add("Pistol", weapon)
 
+func _pistol_upgrade() -> void:
+	_player.find_child("WeaponInventoryComponent").upgrade("Pistol")
+	
+func _pistol_downgrade() -> void:
+	_player.find_child("WeaponInventoryComponent").downgrade("Pistol")
+	
 
 func increaseMobSpawned() -> void:
 	_mob_spawned += 1

@@ -3,7 +3,7 @@ extends Node2D
 
 
 @onready var _rotation_point: Marker2D = %RotationPoint
-@onready var _timer: Timer = $Timer
+@onready var _timer: CTimer = $CTimer
 
 var _saw_component = preload("res://components/weapons/saw/saw.tscn")
 
@@ -29,7 +29,7 @@ func _ready() -> void:
 	_configure_current_resource()
 
 func _process(delta: float) -> void:
-	rotation += 4 * delta
+	rotation += 4 * delta  * GlobalTimer.get_speed_factor()
 	pass
 #endregion
 

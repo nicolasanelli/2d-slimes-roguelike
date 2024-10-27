@@ -15,7 +15,7 @@ func set_damage(value: int) -> void:
 
 
 func _process(delta: float) -> void:
-	rotation += ROTATION_SPEED * delta
+	rotation += ROTATION_SPEED * delta * GlobalTimer.get_speed_factor()
 
 
 func _on_body_entered(body: Node2D) -> void:

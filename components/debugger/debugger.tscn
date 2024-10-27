@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvrwfpndahhq1"]
+[gd_scene load_steps=3 format=3 uid="uid://dvrwfpndahhq1"]
 
 [ext_resource type="Script" path="res://components/debugger/debugger.gd" id="1_cemwh"]
+[ext_resource type="PackedScene" uid="uid://dx70iu8w7m7h3" path="res://components/c_timer/c_timer.tscn" id="2_2wiym"]
 
 [node name="Debugger" type="MarginContainer"]
 anchors_preset = 1
@@ -98,3 +99,27 @@ text = "Player (%s, %s)"
 [node name="LabelPlayersXP" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Player XP: %s"
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 100.0
+autostart = true
+
+[node name="Label" type="Label" parent="Timer"]
+offset_left = 12.0
+offset_top = 6.0
+offset_right = 107.0
+offset_bottom = 29.0
+text = "Timer: %s"
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomTimer" parent="." instance=ExtResource("2_2wiym")]
+wait_time = 100.0
+autostart = true
+
+[node name="Label" type="Label" parent="CustomTimer"]
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 166.0
+offset_bottom = 53.0
+text = "CTimer: %s"

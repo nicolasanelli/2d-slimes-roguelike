@@ -25,7 +25,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if !_target: return #TODO
 	var direction = global_position.direction_to(_target.global_position)
-	velocity = direction * _resource.speed
+	velocity = direction * _resource.speed * GlobalTimer.get_speed_factor()
 	move_and_slide()
 
 

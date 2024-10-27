@@ -11,6 +11,7 @@ func _init() -> void:
 #endregion
 
 
+## TODO, otimizar isso usando MultiMeshInstance2D
 func spawn(scene: Node2D, _global_position: Vector2) -> void:
 	scene.global_position = _global_position
 	call_deferred("add_child", scene)

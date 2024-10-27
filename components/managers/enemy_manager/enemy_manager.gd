@@ -10,8 +10,9 @@ extends Node2D
 @onready var _path: Path2D = %Path2D
 @onready var _spawn_location: PathFollow2D = %SpawnLocation
 @onready var _enemies: Node = %Enemies
-@onready var _timer: Timer = %Timer
-@onready var _dificulty_timer: Timer = %DificultyTimer
+
+@onready var _timer: CTimer = %CTimer
+@onready var _dificulty_timer: CTimer = %DificultyCTimer
 
 
 var _dificulty = 0

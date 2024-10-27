@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc82364ngv11v"]
+[gd_scene load_steps=4 format=3 uid="uid://bc82364ngv11v"]
 
 [ext_resource type="Script" path="res://components/managers/enemy_manager/enemy_manager.gd" id="1_c0e1v"]
+[ext_resource type="PackedScene" uid="uid://dx70iu8w7m7h3" path="res://components/c_timer/c_timer.tscn" id="2_2blw5"]
 
 [sub_resource type="Curve2D" id="Curve2D_4nsai"]
 _data = {
@@ -20,11 +21,11 @@ curve = SubResource("Curve2D_4nsai")
 unique_name_in_owner = true
 position = Vector2(-1010, -590)
 
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-
-[node name="DificultyTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-
 [node name="Enemies" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="CTimer" parent="." instance=ExtResource("2_2blw5")]
+unique_name_in_owner = true
+
+[node name="DificultyCTimer" parent="." instance=ExtResource("2_2blw5")]
 unique_name_in_owner = true

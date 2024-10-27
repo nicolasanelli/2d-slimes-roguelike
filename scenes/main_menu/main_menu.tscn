@@ -85,8 +85,8 @@ offset_right = 321.0
 offset_bottom = 275.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
-text = "How much level can 
-you reach?"
+text = "What level are you 
+able to reach?"
 horizontal_alignment = 1
 
 [node name="Mobs" type="Node2D" parent="."]

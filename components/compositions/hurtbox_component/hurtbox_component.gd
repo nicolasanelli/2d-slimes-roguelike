@@ -2,7 +2,7 @@ class_name HurtboxComponent
 extends Area2D
 
 
-signal hit_by_bullet
+#signal hit_by_bullet
 signal hit_by_hitbox
 
 
@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 				push_error("Body without 'get_damage' got captured by hurtbox")
 				continue;
 				
-			damage += body.get_damage() * delta
+			damage += body.get_damage() * delta * GlobalTimer.get_speed_factor()
 		
 		_health_component.damage(damage)
 		hit_by_hitbox.emit()
