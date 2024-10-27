@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://sngabrmt6mev"]
+
+[ext_resource type="Script" path="res://components/cards/action_card/action_card.gd" id="1_uf2ox"]
+[ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="2_tkjrx"]
+[ext_resource type="Script" path="res://components/cards/upgrade_card/upgrade_action.gd" id="3_ov1q6"]
+[ext_resource type="Resource" uid="uid://xjtf82yekt7t" path="res://data/usable_card/002_upgrade_pistol_card.tres" id="3_y7iiu"]
+
+[node name="UpgradeCard" type="Control"]
+custom_minimum_size = Vector2(300, 420)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 420.0
+mouse_filter = 1
+script = ExtResource("1_uf2ox")
+
+[node name="Card" parent="." instance=ExtResource("2_tkjrx")]
+_resource = ExtResource("3_y7iiu")
+
+[node name="Action" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_ov1q6")

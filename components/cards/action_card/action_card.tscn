@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwucv24j18rng"]
+
+[ext_resource type="Script" path="res://components/cards/action_card/action_card.gd" id="1_v2i8r"]
+[ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="2_qsb0q"]
+[ext_resource type="Script" path="res://components/cards/action_card/add_action.gd" id="4_7n0bb"]
+
+[node name="ActionCard" type="Control"]
+custom_minimum_size = Vector2(300, 420)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 420.0
+mouse_filter = 1
+script = ExtResource("1_v2i8r")
+
+[node name="Card" parent="." instance=ExtResource("2_qsb0q")]
+
+[node name="Action" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_7n0bb")
