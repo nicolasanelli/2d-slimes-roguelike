@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CircularSawResource" load_steps=2 format=3 uid="uid://d10pjdcxtulx6"]
+[gd_resource type="Resource" script_class="CircularSawResource" load_steps=3 format=3 uid="uid://d10pjdcxtulx6"]
 
 [ext_resource type="Script" path="res://data/weapons/circular_saw/circular_saw_resource.gd" id="1_bmyqd"]
+[ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/saw/saw.png" id="2_at44m"]
 
 [resource]
 script = ExtResource("1_bmyqd")
@@ -10,3 +11,4 @@ radius = 250.0
 cooldown = 5.0
 rarity = 0
 is_special = false
+texture = ExtResource("2_at44m")

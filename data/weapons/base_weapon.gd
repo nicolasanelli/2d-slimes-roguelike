@@ -12,6 +12,7 @@ enum Rarity {
 	MYTHIC,
 }
 
+
 func get_color() -> Color:
 	match rarity:
 		Rarity.MYTHIC: return Color.SKY_BLUE
@@ -26,3 +27,6 @@ func get_level() -> int:
 #endregion
 
 @export var is_special: bool
+
+@export var texture: Texture
+@export var item_rotation_degree: float 
