@@ -18,6 +18,6 @@ _resource = ExtResource("2_fknp4")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -29)
 shape = SubResource("CircleShape2D_llau4")
-debug_color = Color(0, 0.6, 0.701961, 0)
