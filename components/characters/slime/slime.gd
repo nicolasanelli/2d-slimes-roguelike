@@ -1,3 +1,4 @@
+@tool
 class_name Slime
 extends CharacterBody2D
 

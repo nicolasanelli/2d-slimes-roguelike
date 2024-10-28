@@ -1,3 +1,4 @@
+@tool
 class_name SlimeBody
 extends Node2D
 
@@ -29,4 +30,5 @@ func set_visuals(color: Color,
 
 
 func _physics_process(_delta: float) -> void:
+	if Engine.is_editor_hint(): return
 	_animation_player.speed_scale = GlobalTimer.get_factor()
