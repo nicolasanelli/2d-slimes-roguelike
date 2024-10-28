@@ -17,11 +17,12 @@ var _xp_orb_componemt = preload("res://components/drops/xp_orb/xp_orb.tscn")
 func _ready() -> void:
 	assert(_resource != null, "SlimeResource is not set in Slime")
 	_current_health = _resource.health
-	_slime_body.play_idle()
+	_slime_body.play_walk()
 
 
 func _physics_process(_delta: float) -> void:
 	if !_target: return
+	
 	var direction = global_position.direction_to(_target.global_position)
 	velocity = direction * _resource.speed * GlobalTimer.get_factor()
 	move_and_slide()
@@ -29,9 +30,6 @@ func _physics_process(_delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	_update_visual()
-	
-	if velocity.length() != 0: _slime_body.play_walk()
-	
 	if _current_health > 0: return
 	
 	_spawn_explosion()
