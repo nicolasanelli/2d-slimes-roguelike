@@ -10,7 +10,7 @@ func _ready() -> void:
 	card_manager.card_picked.connect(_on_card_picked)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if game_manager._current_state == GameManager.GameState.RUNNING:
 		card_manager.visible = false
 	

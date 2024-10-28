@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfjgdvoolqd4x"]
 
 [ext_resource type="Script" path="res://components/characters/slime/slime.gd" id="1_7di56"]
-[ext_resource type="Resource" uid="uid://b4y7ccbeysomc" path="res://data/enemies/slime/001_green_slime.tres" id="2_nwcn4"]
+[ext_resource type="Resource" uid="uid://b4y7ccbeysomc" path="res://data/enemies/slime/001_green_slime.tres" id="2_fknp4"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://components/characters/slime/slime_body/slime_body.tscn" id="2_wou7s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llau4"]
@@ -12,7 +12,7 @@ position = Vector2(566, 318)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_7di56")
-_resource = ExtResource("2_nwcn4")
+_resource = ExtResource("2_fknp4")
 
 [node name="SlimeBody" parent="." instance=ExtResource("2_wou7s")]
 unique_name_in_owner = true
@@ -20,3 +20,4 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -29)
 shape = SubResource("CircleShape2D_llau4")
+debug_color = Color(0, 0.6, 0.701961, 0)

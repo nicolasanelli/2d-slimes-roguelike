@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlimeResource" load_steps=2 format=3 uid="uid://bvxub01py233w"]
+
+[ext_resource type="Script" path="res://data/enemies/slime/slime_resource.gd" id="1_obhib"]
+
+[resource]
+script = ExtResource("1_obhib")
+color = Color(0.0980392, 0.866667, 0.172549, 1)
+hurt_color = Color(0.890196, 0, 0.12549, 1)
+health = 25
+speed = 125
+damage = 10.0
+experience_drop = 25
+scale = Vector2(2, 2)

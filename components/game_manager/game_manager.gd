@@ -27,28 +27,27 @@ func _input(event: InputEvent) -> void:
 
 func _transition(next_state: GameState) -> void:
 	
-	match _current_state:
-		GameState.RUNNING:
-			pass
-		GameState.PICKING:
-			pass
-		GameState.GAMEOVER:
-			pass
-		GameState.VICTORY:
-			pass
+	#match _current_state:
+		#GameState.RUNNING:
+			#pass
+		#GameState.PICKING:
+			#pass
+		#GameState.GAMEOVER:
+			#pass
+		#GameState.VICTORY:
+			#pass
 	
 	_current_state = next_state
 	
 	match _current_state:
 		GameState.RUNNING:
-			GlobalTimer.set_target_factor(1, .3)
+			GlobalTimer.set_target_factor(1, .4)
 		GameState.PICKING:
 			GlobalTimer.set_target_factor(0, 2)
 		GameState.GAMEOVER:
 			Global.game_over()
 		GameState.VICTORY:
 			pass
-
 
 
 func _connect_signals() -> void:

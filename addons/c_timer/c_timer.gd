@@ -43,12 +43,12 @@ func _process(delta: float) -> void:
 
 
 func start(time_sec: float = -1) -> void:
+	_processing = true
 	if time_sec > 0:
 		time_left = time_sec
 		wait_time = time_sec
 	else:
 		time_left = wait_time
-	_processing = true
 
 
 func stop() -> void:

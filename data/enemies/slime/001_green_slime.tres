@@ -5,7 +5,9 @@
 [resource]
 script = ExtResource("1_mxv7i")
 color = Color(0.0970454, 0.866588, 0.172491, 1)
+hurt_color = Color(1, 0.573, 0.176, 1)
 health = 3
 speed = 300
 damage = 10.0
 experience_drop = 1
+scale = Vector2(1, 1)

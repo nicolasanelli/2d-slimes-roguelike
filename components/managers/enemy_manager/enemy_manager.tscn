@@ -28,6 +28,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 script = ExtResource("2_0rkqr")
 
-[node name="DificultyCTimer" type="Node" parent="."]
+[node name="WaveCTimer" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_0rkqr")

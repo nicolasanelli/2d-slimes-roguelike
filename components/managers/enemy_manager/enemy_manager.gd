@@ -12,10 +12,47 @@ extends Node2D
 @onready var _enemies: Node = %Enemies
 
 @onready var _timer: CTimer = %CTimer
-@onready var _dificulty_timer: CTimer = %DificultyCTimer
+@onready var _wave_timer: CTimer = %WaveCTimer
 
 
-var _dificulty = 0
+var _current_wave: int = 0
+var _current_slime_resource: int = 0
+var _waves = {
+	0 : {
+		"spawn_time": 1,
+		"resource_idx": 0,
+		"wave_time": 25,
+	},
+	1: {
+		"spawn_time": -1,
+		"resource_idx": -1,
+		"wave_time": 10,
+	},
+	2: {
+		"spawn_time": 1,
+		"resource_idx": 1,
+		"wave_time": 10,
+	},
+	3: {
+		"spawn_time": -1,
+		"resource_idx": -1,
+		"wave_time": 10,
+	},
+	4: {
+		"spawn_time": 0.3,
+		"resource_idx": 2,
+		"wave_time": 15,
+	},
+	5: {
+		"spawn_time": -1,
+		"resource_idx": -1,
+		"wave_time": 10,
+		"boss": {
+			"resource_idx": 3,
+		}
+	}
+}
+
 
 
 var _slime_component = preload("res://components/characters/slime/slime.tscn")
@@ -23,6 +60,7 @@ var _slime_resources: Array[SlimeResource] = [
 	load("res://data/enemies/slime/001_green_slime.tres"),
 	load("res://data/enemies/slime/002_darkgreen_slime.tres"),
 	load("res://data/enemies/slime/003_blue_slime.tres"),
+	load("res://data/enemies/slime/004_green_boss_slime.tres"),
 ]
 
 func _ready() -> void:
@@ -30,6 +68,7 @@ func _ready() -> void:
 	assert(_camera != null, "Camera is not set in EnemyManager")
 	_configure_scale()
 	_configure_timer()
+	_configure_wave()
 
 
 func _process(_delta: float) -> void:
@@ -42,30 +81,51 @@ func _configure_scale() -> void:
 
 
 func _configure_timer() -> void:
-	_timer.wait_time = 0.3
 	_timer.timeout.connect(_on_timer_timeout)
-	_timer.start()
-	
-	_dificulty_timer.wait_time = 30
-	_dificulty_timer.timeout.connect(_on_dificulty_timer_timeout)
-	_dificulty_timer.start()
+	_wave_timer.timeout.connect(_on_wave_timer_timeout)
 
 
 func _on_timer_timeout() -> void:
 	if _enabled:
-		spawn_enemy()
+		spawn_slime()
 
 
-func _on_dificulty_timer_timeout() -> void:
-	_dificulty =  (_dificulty + 1) % _slime_resources.size()
+func _on_wave_timer_timeout() -> void:
+	#_current_wave = (_current_wave + 1) % _waves.size()
+	_current_wave += 1
+	if _current_wave > _waves.size()-1:
+		_current_wave = randi_range(0, _waves.size()-1)
+		
+	_configure_wave()
 
 
-func spawn_enemy() -> void:
-	#if !_player: return #TODO
-	var enemy: Slime = _slime_component.instantiate()
+func _configure_wave() -> void:
+	_timer.stop()
+	_wave_timer.stop()
+	
+	var wave = _waves.get(_current_wave)
+	
+	if wave.has("boss"):
+		var boss: Slime = _slime_component.instantiate()
+		boss.set_target(_player)
+		boss.set_resource(_slime_resources[wave["boss"]["resource_idx"]])
+		spawn_enemy(boss)
+	
+	_current_slime_resource = wave["resource_idx"]
+	_timer.start(wave["spawn_time"])
+	_wave_timer.start(wave["wave_time"])
+
+
+func spawn_slime() -> void:
+	if _current_slime_resource < 0: return
+	
+	var slime: Slime = _slime_component.instantiate()
+	slime.set_target(_player)
+	slime.set_resource(_slime_resources[_current_slime_resource])
+	spawn_enemy(slime)
+
+func spawn_enemy(enemy: Slime) -> void:
 	_spawn_location.progress_ratio = randf()
 	enemy.global_position = _spawn_location.global_position
-	enemy.set_target(_player)
-	enemy.set_resource(_slime_resources[_dificulty])
 	Debugger.instance.increaseMobSpawned()
 	_enemies.add_child(enemy, true)

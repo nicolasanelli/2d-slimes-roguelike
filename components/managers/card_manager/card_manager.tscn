@@ -15,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-color = Color(0, 0.0862745, 1, 0.0901961)
+color = Color(0, 0, 0, 0.392157)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect"]
 layout_mode = 1
@@ -32,6 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
 offset_left = 29.0
 offset_top = 22.0
 offset_right = 296.0
@@ -39,6 +40,7 @@ offset_bottom = 114.0
 text = "Add Card"
 
 [node name="Button2" type="Button" parent="CanvasLayer"]
+visible = false
 offset_left = 31.0
 offset_top = 151.0
 offset_right = 298.0

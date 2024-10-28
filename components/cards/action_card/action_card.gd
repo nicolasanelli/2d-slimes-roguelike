@@ -26,9 +26,9 @@ func activate(_player: Player) -> void:
 	_action.execute(_player)
 
 
-func _on_mouse_entered(card: Card) -> void:
+func _on_mouse_entered(__card: Card) -> void:
 	my_mouse_entered.emit(self)
 
 
-func _on_mouse_exited(card: Card) -> void:
+func _on_mouse_exited(__card: Card) -> void:
 	my_mouse_exited.emit(self)

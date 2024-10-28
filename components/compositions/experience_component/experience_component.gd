@@ -14,7 +14,7 @@ var _total_experience: float
 
 var _current_experience: float:
 	set(value):
-		_current_experience = clampf(value, 0, _target_experience)
+		_current_experience = max(value, 0)
 		experience_changed.emit()
 
 var _current_level: int:

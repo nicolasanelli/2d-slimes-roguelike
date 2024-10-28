@@ -15,21 +15,23 @@ var _xp_orb_componemt = preload("res://components/drops/xp_orb/xp_orb.tscn")
 
 #region Engine
 func _ready() -> void:
-	#assert(_target != null, "Target is not set in Slime")
 	assert(_resource != null, "SlimeResource is not set in Slime")
 	_current_health = _resource.health
-	_slime_body.set_colors(_resource.color)
-	_slime_body.play_walk()
+	_slime_body.play_idle()
 
 
 func _physics_process(_delta: float) -> void:
-	if !_target: return #TODO
+	if !_target: return
 	var direction = global_position.direction_to(_target.global_position)
 	velocity = direction * _resource.speed * GlobalTimer.get_factor()
 	move_and_slide()
 
 
 func _process(_delta: float) -> void:
+	_update_visual()
+	
+	if velocity.length() != 0: _slime_body.play_walk()
+	
 	if _current_health > 0: return
 	
 	_spawn_explosion()
@@ -37,6 +39,15 @@ func _process(_delta: float) -> void:
 	queue_free()
 	Debugger.instance.increaseMobKilled()
 #endregion
+
+
+func _update_visual() -> void:
+	_slime_body.set_visuals(
+		_resource.color, 
+		_resource.hurt_color, 
+		_resource.scale
+	)
+
 
 
 func set_target(target: Node2D) -> void:
