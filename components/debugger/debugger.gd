@@ -84,6 +84,8 @@ func _process(_delta: float) -> void:
 	_label_timer.text = "Timer: %s" % _timer.time_left
 	_c_label_timer.text = "CTimer: %s" % _c_timer.time_left
 	_label_sf.text = "Speed factor: %.3f" % GlobalTimer.get_factor()
+	_label_timer.visible = visible
+	_c_label_timer.visible = visible
 
 func _on_add_saw() -> void:
 	var packed = load("res://components/weapons/circular_saw/circular_saw.tscn")

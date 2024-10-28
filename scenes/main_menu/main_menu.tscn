@@ -32,12 +32,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = 99.0
-offset_right = 145.0
-offset_bottom = 169.0
+offset_left = -353.0
+offset_top = 162.0
+offset_right = 365.0
+offset_bottom = 364.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 100
 text = "Play"
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
@@ -47,43 +48,43 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
+offset_left = -419.0
 offset_top = -252.0
-offset_right = 150.0
+offset_right = 419.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 71.0
-offset_top = 34.0
-offset_right = 239.0
-offset_bottom = 68.0
+offset_left = 88.0
+offset_top = 31.0
+offset_right = 423.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "WASD to move"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 97.0
-offset_top = 122.0
-offset_right = 209.0
-offset_bottom = 156.0
+offset_left = 572.0
+offset_top = 64.0
+offset_right = 723.0
+offset_bottom = 130.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Get XP"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = -17.0
-offset_top = 204.0
-offset_right = 321.0
-offset_bottom = 275.0
+offset_left = 177.0
+offset_top = 147.0
+offset_right = 587.0
+offset_bottom = 282.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
 text = "What level are you 
 able to reach?"
 horizontal_alignment = 1
@@ -123,7 +124,7 @@ position = Vector2(158, 780)
 position = Vector2(201, 222)
 
 [node name="PineTree2" parent="Trees" instance=ExtResource("5_1xjxm")]
-position = Vector2(692, 371)
+position = Vector2(739, 356)
 
 [node name="PineTree4" parent="Trees" instance=ExtResource("5_1xjxm")]
 position = Vector2(1079, 673)

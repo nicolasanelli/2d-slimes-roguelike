@@ -154,8 +154,10 @@ size_flags_vertical = 3
 color = Color(0.21974, 0.648788, 0.485114, 1)
 
 [node name="DebugLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Debugger" parent="DebugLayer" node_paths=PackedStringArray("_player") instance=ExtResource("5_lr2xe")]
+visible = false
 _player = NodePath("../../Player")
 
 [node name="XpOrb" parent="." instance=ExtResource("15_wmdmf")]
