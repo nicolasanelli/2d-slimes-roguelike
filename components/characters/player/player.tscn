@@ -44,6 +44,7 @@ position = Vector2(-64, -123)
 _health_component = NodePath("../HealthComponent")
 
 [node name="ExperienceComponent" parent="." instance=ExtResource("8_5lwn1")]
+unique_name_in_owner = true
 
 [node name="ExperienceRangeComponent" parent="." node_paths=PackedStringArray("_experience_component") instance=ExtResource("9_h1vpb")]
 _experience_component = NodePath("../ExperienceComponent")

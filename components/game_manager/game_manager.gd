@@ -1,12 +1,23 @@
-class_name GameManager extends Node
+class_name GameManager
+extends Node
 
-#region Singleton
-static var instance: GameManager
 
-func _init() -> void:
-	if not instance: instance = self
-	else: queue_free()
-#endregion
+@export var _player: Player
+
+
+enum GameState {
+	RUNNING,
+	PICKING,
+	GAMEOVER,
+	VICTORY
+}
+
+var _current_state: GameState = GameState.RUNNING
+
+
+func _ready() -> void:
+	assert(_player != null, "Player is not set in GameManager")
+	_connect_signals()
 
 
 func _input(event: InputEvent) -> void:
@@ -14,13 +25,40 @@ func _input(event: InputEvent) -> void:
 		Global.toggle_pause()
 
 
-func main_menu() -> void:
-	Global.main_menu()
+func _transition(next_state: GameState) -> void:
+	
+	match _current_state:
+		GameState.RUNNING:
+			pass
+		GameState.PICKING:
+			pass
+		GameState.GAMEOVER:
+			pass
+		GameState.VICTORY:
+			pass
+	
+	_current_state = next_state
+	
+	match _current_state:
+		GameState.RUNNING:
+			GlobalTimer.set_target_factor(1, .3)
+		GameState.PICKING:
+			GlobalTimer.set_target_factor(0, 2)
+		GameState.GAMEOVER:
+			Global.game_over()
+		GameState.VICTORY:
+			pass
 
 
-func start_game() -> void:
-	Global.start_game()
+
+func _connect_signals() -> void:
+	_player.player_died.connect(_on_player_died)
+	_player.player_leveled.connect(_on_player_leveled)
 
 
-func game_over() -> void:
-	Global.game_over()
+func _on_player_died() -> void:
+	_transition(GameState.GAMEOVER)
+
+
+func _on_player_leveled() -> void:
+	_transition(GameState.PICKING)

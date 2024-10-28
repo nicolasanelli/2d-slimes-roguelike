@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UsableCardResource" load_steps=3 format=3 uid="uid://j6jqt5xw2rnh"]
+
+[ext_resource type="Script" path="res://data/usable_card/usable_card_resource.gd" id="1_dg7mq"]
+[ext_resource type="Texture2D" uid="uid://cvs0lh814pk7h" path="res://components/characters/player/happy_boo/square_face.png" id="2_406n8"]
+
+[resource]
+script = ExtResource("1_dg7mq")
+name = "Ops!"
+description = "Essa carta não faz nada!"
+color = Color(0.776142, 0.784027, 0.791912, 1)
+texture = ExtResource("2_406n8")

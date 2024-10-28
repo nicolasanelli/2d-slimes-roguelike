@@ -1,11 +1,14 @@
-class_name WeaponInventoryComponent
-extends Node2D
+class_name InventoryManager
+extends Node
 
 
+signal item_added(name: String, node: Node2D)
+signal item_updated(name: String, node: Node2D)
 signal inventory_changed
 
 
 var _inventory = {}
+
 
 const GROUP_NAME = "Weapons";
 const METADATA_TAG = "WeaponName"
@@ -26,8 +29,9 @@ func add(scene: Node2D) -> void:
 		return
 	
 	_inventory[weapon_name] = scene
-	add_sibling(scene)
+	add_child(scene)
 	inventory_changed.emit()
+	item_added.emit(weapon_name, scene)
 
 
 func upgrade_by_name(weapon_name: String) -> void:
@@ -37,6 +41,7 @@ func upgrade_by_name(weapon_name: String) -> void:
 	
 	_inventory[weapon_name].upgrade()
 	inventory_changed.emit()
+	item_updated.emit(weapon_name, _inventory[weapon_name])
 
 
 func downgrade_by_name(weapon_name: String) -> void:
@@ -46,6 +51,7 @@ func downgrade_by_name(weapon_name: String) -> void:
 	
 	_inventory[weapon_name].downgrade()
 	inventory_changed.emit()
+	item_updated.emit(weapon_name, _inventory[weapon_name])
 
 
 func get_inventory():

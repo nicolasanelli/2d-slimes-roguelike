@@ -61,13 +61,6 @@ func _ready() -> void:
 	_increase_sf.pressed.connect(_on_increase_sf)
 	_reset_sf.pressed.connect(_on_reset_sf)
 	_decrease_sf.pressed.connect(_on_decrease_sf)
-	
-	_on_add_pistol()
-	_pistol_upgrade()
-	#_pistol_upgrade()
-	#_pistol_upgrade()
-	#_pistol_upgrade()
-	#_pistol_upgrade()
 
 
 func _input(event: InputEvent) -> void:
@@ -100,11 +93,11 @@ func _on_add_saw() -> void:
 
 func _saw_upgrade() -> void:
 	if _saw:
-		_player.find_child("WeaponInventoryComponent").upgrade_by_name(_saw.get_meta("WeaponName"))
+		_player.find_child("WeaponInventoryComponent").upgrade_by_name("circular-saw")
 	
 func _saw_downgrade() -> void:
 	if _saw:
-		_player.find_child("WeaponInventoryComponent").downgrade_by_name(_saw.get_meta("WeaponName"))
+		_player.find_child("WeaponInventoryComponent").downgrade_by_name("circular-saw")
 
 func _on_add_pistol() -> void:
 	var packed = load("res://components/weapons/pistol/pistol.tscn")
@@ -114,12 +107,10 @@ func _on_add_pistol() -> void:
 	_player.find_child("WeaponInventoryComponent").add(weapon)
 
 func _pistol_upgrade() -> void:
-	if _pistol:
-		_player.find_child("WeaponInventoryComponent").upgrade_by_name(_pistol.get_meta("WeaponName"))
+	_player.find_child("WeaponInventoryComponent").upgrade_by_name("pistol")
 	
 func _pistol_downgrade() -> void:
-	if _pistol:
-		_player.find_child("WeaponInventoryComponent").downgrade_by_name(_pistol.get_meta("WeaponName"))
+	_player.find_child("WeaponInventoryComponent").downgrade_by_name("pistol")
 
 func _on_pause_button() -> void:
 	Global.toggle_pause()

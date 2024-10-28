@@ -1,13 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctdmgnvdmlnlu"]
+[gd_scene load_steps=2 format=3 uid="uid://ctdmgnvdmlnlu"]
 
 [ext_resource type="Script" path="res://components/managers/card_manager/card_manager.gd" id="1_0j5lo"]
-[ext_resource type="PackedScene" uid="uid://bhmpp5o3beqph" path="res://components/characters/player/player.tscn" id="2_6cu70"]
 
-[node name="CardManager" type="Node2D" node_paths=PackedStringArray("_player")]
+[node name="CardManager" type="Node2D"]
 script = ExtResource("1_0j5lo")
-_player = NodePath("Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -16,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-color = Color(0, 0.0862745, 1, 0.470588)
+color = Color(0, 0.0862745, 1, 0.0901961)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect"]
 layout_mode = 1
@@ -45,9 +44,6 @@ offset_top = 151.0
 offset_right = 298.0
 offset_bottom = 243.0
 text = "Upgrade Card"
-
-[node name="Player" parent="." instance=ExtResource("2_6cu70")]
-position = Vector2(184, 692)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_add_card"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_add_card2"]

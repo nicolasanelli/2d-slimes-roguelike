@@ -1,14 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://kj8p7e7en42f"]
 
-[ext_resource type="PackedScene" uid="uid://d15wvy5ol3wsu" path="res://components/game_manager/game_manager.tscn" id="1_vfdru"]
+[ext_resource type="Script" path="res://scenes/game_over/game_over.gd" id="1_cga8m"]
 [ext_resource type="PackedScene" uid="uid://bfjgdvoolqd4x" path="res://components/characters/slime/slime.tscn" id="2_v3bn2"]
 [ext_resource type="Resource" uid="uid://pq4m56bs2vgx" path="res://data/enemies/slime/003_blue_slime.tres" id="3_n4pqr"]
 [ext_resource type="Resource" uid="uid://nlq251p32elr" path="res://data/enemies/slime/002_darkgreen_slime.tres" id="4_dogfv"]
 [ext_resource type="PackedScene" uid="uid://chhkp0ptdo34c" path="res://components/envinronment/pine_tree/pine_tree.tscn" id="5_0yuc8"]
 
 [node name="GameOver" type="Node2D"]
-
-[node name="GameManager" parent="." instance=ExtResource("1_vfdru")]
+script = ExtResource("1_cga8m")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -130,5 +129,5 @@ position = Vector2(1221, 609)
 [node name="PineTree6" parent="Trees" instance=ExtResource("5_0yuc8")]
 position = Vector2(1032, 169)
 
-[connection signal="pressed" from="GameOverScreen/ReplayButton" to="GameManager" method="start_game"]
-[connection signal="pressed" from="GameOverScreen/ExitButton" to="GameManager" method="main_menu"]
+[connection signal="pressed" from="GameOverScreen/ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="GameOverScreen/ExitButton" to="." method="_on_exit_button_pressed"]

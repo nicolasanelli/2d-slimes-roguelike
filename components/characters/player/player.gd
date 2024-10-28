@@ -2,18 +2,13 @@ class_name Player
 extends CharacterBody2D
 
 
-#region Singleton
-static var instance: Player
-
-func _init() -> void:
-	if not instance: instance = self
-	else: queue_free()
-#endregion
+signal player_leveled
+signal player_died
 
 
 @onready var _happy_boo: HappyBoo = %HappyBoo
 @onready var _health_component: HealthComponent = %HealthComponent
-@onready var _camera: Camera2D = $Camera2D
+@onready var _experience_component: ExperienceComponent = %ExperienceComponent
 
 
 const SPEED = 600
@@ -21,15 +16,9 @@ const SPEED = 600
 
 func _ready() -> void:
 	_health_component.health_depleted.connect(_on_health_depleted)
+	_experience_component.leveled_up.connect(_on_leveled_up)
 
-func _input(_event: InputEvent) -> void:
-	if !_camera: return;
-	
-	var zoom_val = _camera.zoom.x
-	if Input.is_action_just_pressed("zoom_in"):
-		_camera.zoom = Vector2(zoom_val + 0.05, zoom_val + 0.05)
-	if Input.is_action_just_pressed("zoom_out"):
-		_camera.zoom = Vector2(max(0.1, zoom_val - 0.05), max(0.1, zoom_val - 0.05))
+
 
 func _physics_process(_delta: float) -> void:
 	var direction = PlayerInput.get_movement()
@@ -44,4 +33,10 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_health_depleted() -> void:
-	GameManager.instance.game_over()
+	## play animation, sounds, efx
+	player_died.emit()
+
+
+func _on_leveled_up() -> void:
+	## play animation, sound, efx
+	player_leveled.emit()

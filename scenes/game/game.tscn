@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2odse7mabaid"]
+[gd_scene load_steps=16 format=3 uid="uid://c2odse7mabaid"]
 
 [ext_resource type="PackedScene" uid="uid://d15wvy5ol3wsu" path="res://components/game_manager/game_manager.tscn" id="1_5eujh"]
 [ext_resource type="PackedScene" uid="uid://bhmpp5o3beqph" path="res://components/characters/player/player.tscn" id="1_hst8v"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ww2jx"]
 [ext_resource type="PackedScene" uid="uid://chjqobojluvru" path="res://components/managers/chunk_manager/chunk_manager.tscn" id="2_dta7r"]
+[ext_resource type="PackedScene" uid="uid://ctdmgnvdmlnlu" path="res://components/managers/card_manager/card_manager.tscn" id="3_g4qbx"]
 [ext_resource type="PackedScene" uid="uid://bc82364ngv11v" path="res://components/managers/enemy_manager/enemy_manager.tscn" id="4_5sd68"]
 [ext_resource type="PackedScene" uid="uid://cqv8cog2y5ela" path="res://components/managers/drop_manager/drop_manager.tscn" id="4_216du"]
 [ext_resource type="PackedScene" uid="uid://bhipxqvbyxbhf" path="res://ui/mobile_game_layer/mobile_game_layer.tscn" id="5_b1ocy"]
@@ -11,16 +13,24 @@
 [ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="7_fnii8"]
 [ext_resource type="PackedScene" uid="uid://3ygp6c1xxh62" path="res://ui/level/level.tscn" id="7_w2hpu"]
 [ext_resource type="PackedScene" uid="uid://co4a4370gjh77" path="res://ui/stats_bar/stats_bar.tscn" id="11_1fgg6"]
+[ext_resource type="Resource" uid="uid://b7qgx1fhm2i1a" path="res://data/usable_card/003_add_circular_saw.tres" id="11_yc70v"]
+[ext_resource type="PackedScene" uid="uid://gy66uxbq11u2" path="res://components/drops/xp_orb/xp_orb.tscn" id="15_wmdmf"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_ww2jx")
 
-[node name="GameManager" parent="." instance=ExtResource("1_5eujh")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("1_5eujh")]
+unique_name_in_owner = true
+_player = NodePath("../Player")
 
 [node name="ChunkManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("2_dta7r")]
 _player = NodePath("../Player")
 
 [node name="DropManager" parent="." instance=ExtResource("4_216du")]
+
+[node name="CardManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("3_g4qbx")]
+_player = NodePath("../Player")
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("_player", "_camera") instance=ExtResource("4_5sd68")]
 _player = NodePath("../Player")
@@ -125,13 +135,7 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="Card" parent="GameUI/Control/MarginContainer/HBoxContainer/Container2" instance=ExtResource("7_fnii8")]
-
-[node name="Container3" type="Container" parent="GameUI/Control/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(296, 419)
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Card" parent="GameUI/Control/MarginContainer/HBoxContainer/Container3" instance=ExtResource("7_fnii8")]
+_resource = ExtResource("11_yc70v")
 
 [node name="GameUIMobile" parent="." instance=ExtResource("5_b1ocy")]
 visible = false
@@ -153,3 +157,18 @@ color = Color(0.21974, 0.648788, 0.485114, 1)
 
 [node name="Debugger" parent="DebugLayer" node_paths=PackedStringArray("_player") instance=ExtResource("5_lr2xe")]
 _player = NodePath("../../Player")
+
+[node name="XpOrb" parent="." instance=ExtResource("15_wmdmf")]
+position = Vector2(400, 334)
+
+[node name="XpOrb2" parent="." instance=ExtResource("15_wmdmf")]
+position = Vector2(415, 302)
+
+[node name="XpOrb3" parent="." instance=ExtResource("15_wmdmf")]
+position = Vector2(395, 371)
+
+[node name="XpOrb4" parent="." instance=ExtResource("15_wmdmf")]
+position = Vector2(358, 346)
+
+[node name="XpOrb5" parent="." instance=ExtResource("15_wmdmf")]
+position = Vector2(370, 316)
