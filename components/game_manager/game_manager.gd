@@ -3,6 +3,7 @@ extends Node
 
 
 @export var _player: Player
+@export var _card_manager: CardManager
 
 
 enum GameState {
@@ -13,7 +14,6 @@ enum GameState {
 }
 
 var _current_state: GameState = GameState.RUNNING
-
 
 func _ready() -> void:
 	assert(_player != null, "Player is not set in GameManager")
@@ -53,6 +53,7 @@ func _transition(next_state: GameState) -> void:
 func _connect_signals() -> void:
 	_player.player_died.connect(_on_player_died)
 	_player.player_leveled.connect(_on_player_leveled)
+	_card_manager.card_picked.connect(_on_card_picked)
 
 
 func _on_player_died() -> void:
@@ -61,3 +62,8 @@ func _on_player_died() -> void:
 
 func _on_player_leveled() -> void:
 	_transition(GameState.PICKING)
+	_card_manager.display_cards()
+
+
+func _on_card_picked() -> void:
+	_transition(GameState.RUNNING)

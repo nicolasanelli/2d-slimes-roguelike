@@ -13,7 +13,7 @@ _resource = ExtResource("2_s8h5w")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-self_modulate = Color(0.698039, 0.94902, 0.733333, 1)
+self_modulate = Color(0.776142, 0.784027, 0.791912, 1)
 offset_right = 296.0
 offset_bottom = 419.0
 size_flags_horizontal = 3

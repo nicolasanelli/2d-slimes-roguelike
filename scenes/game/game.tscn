@@ -20,9 +20,10 @@
 y_sort_enabled = true
 script = ExtResource("1_ww2jx")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("1_5eujh")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("_player", "_card_manager") instance=ExtResource("1_5eujh")]
 unique_name_in_owner = true
 _player = NodePath("../Player")
+_card_manager = NodePath("../CardManager")
 
 [node name="ChunkManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("2_dta7r")]
 _player = NodePath("../Player")

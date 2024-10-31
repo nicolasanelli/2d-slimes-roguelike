@@ -22,7 +22,10 @@ func get_color() -> Color:
 		Rarity.UNCOMMON: return Color.GREEN
 		Rarity.COMMON, _: return Color.GRAY
 
-func get_level() -> int:
+func get_rarity() -> int:
+	return rarity
+
+func get_next_rarity() -> int:
 	return rarity
 #endregion
 

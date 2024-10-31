@@ -27,6 +27,7 @@ func _input(event: InputEvent) -> void:
 		card_picked.emit()
 		_remove_all_cards()
 		times +=1
+		visible = false
 
 var times = 0
 func display_cards() -> void:

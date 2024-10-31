@@ -20,5 +20,5 @@ func _update_ui() -> void:
 	self_modulate = _resource.get_color()
 	_margin_container.rotation_degrees = _resource.item_rotation_degree
 	_texture.texture = _resource.texture
-	_level.text = str(_resource.get_level())
+	_level.text = str(_resource.get_rarity())
 	pass
