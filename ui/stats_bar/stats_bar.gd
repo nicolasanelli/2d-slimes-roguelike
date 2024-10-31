@@ -32,7 +32,7 @@ func _remove_all_stats() -> void:
 		list[n].queue_free()
 
 
-func _add_item_stat(_key: String, resource: BaseWeapon) -> void:
+func _add_item_stat(_key: String, resource: BaseWeaponResource) -> void:
 	var item: StatItem = _stat_item_component.instantiate()
 	item._resource = resource
 	_hbox.add_child(item)

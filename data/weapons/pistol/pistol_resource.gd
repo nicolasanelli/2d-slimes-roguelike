@@ -1,5 +1,5 @@
 class_name PistolResource 
-extends BaseWeapon
+extends BaseWeaponResource
 
 @export var bullets: int
 @export var damage: int

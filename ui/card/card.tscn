@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcuw6js5ydbmx"]
 
-[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://components/weapons/pistol/pistol.png" id="1_4v2ax"]
 [ext_resource type="Script" path="res://ui/card/card.gd" id="1_in445"]
-[ext_resource type="Resource" uid="uid://bqrwhmxixiucf" path="res://data/usable_card/001_add_pistol_card.tres" id="2_s8h5w"]
+[ext_resource type="Resource" uid="uid://cis6uxe56ldk6" path="res://data/usable_card/000_placeholder.tres" id="2_7vpkl"]
+[ext_resource type="Texture2D" uid="uid://c7vyogiyxkdpv" path="res://assets/placeholder_64.png" id="3_wqpge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5golt"]
 size = Vector2(294, 418)
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_in445")
-_resource = ExtResource("2_s8h5w")
+_resource = ExtResource("2_7vpkl")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-self_modulate = Color(0.776142, 0.784027, 0.791912, 1)
+self_modulate = Color(0.683294, 0.683294, 0.683294, 1)
 offset_right = 296.0
 offset_bottom = 419.0
 size_flags_horizontal = 3
@@ -34,7 +34,7 @@ mouse_filter = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"CardTitleLabel"
-text = "Pistol"
+text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -67,16 +67,16 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("1_4v2ax")
+texture = ExtResource("3_wqpge")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="Description" type="Label" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"CardDescriptionLabel"
-text = "Adiciona uma arma comum no seu inventário"
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -85,5 +85,6 @@ autowrap_mode = 2
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(148, 209)
 shape = SubResource("RectangleShape2D_5golt")

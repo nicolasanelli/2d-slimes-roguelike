@@ -1,4 +1,4 @@
-class_name BaseWeapon
+class_name BaseWeaponResource
 extends Resource
 
 #region Rarity

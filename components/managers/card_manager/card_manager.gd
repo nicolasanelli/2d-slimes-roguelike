@@ -9,7 +9,7 @@ signal card_picked
 @onready var _canvas_layer: CanvasLayer = %CanvasLayer
 
 
-var _highlighted_card: ActionCard
+var _highlighted_card
 
 
 func _ready() -> void:
@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_click") and _highlighted_card:
 		print_debug(_highlighted_card)
-		_highlighted_card.activate(_player)
+		_highlighted_card.activate()
 		card_picked.emit()
 		_remove_all_cards()
 		times +=1
@@ -32,46 +32,50 @@ func _input(event: InputEvent) -> void:
 var times = 0
 func display_cards() -> void:
 	visible = true
-	if times == 0:
-		if shown_cards == 0:
-			_add_card()
-		return
-	
-	if times < 6:
-		while shown_cards < 3:
-			_add_card2()
-		return
-	
-	while shown_cards < 3:
-		_add_card3()
-		
+	_add_weapon_card()
+	_add_weapon_card()
+	_add_weapon_card()
+
 
 var shown_cards = 0
-func _add_card() -> void:
-	var _scene = preload("res://components/cards/action_card/action_card.tscn")
-	var card: Control = _scene.instantiate()
+func _add_weapon_card() -> void:
+	var card: Control = pick_weapon_card()
+	card._player = _player
 	card.my_mouse_entered.connect(_on_card_touched)
 	card.my_mouse_exited.connect(_on_card_untouched)
 	$CanvasLayer/ColorRect/HBoxContainer.add_child(card)
 	shown_cards += 1
 
+func pick_weapon_card() -> WeaponCard:
+	var options = [
+		"res://data/usable_card/weapon_card/pistol_card.tres",
+		"res://data/usable_card/weapon_card/circular_saw_card.tres"
+	]
+	var chose = options.pick_random()
+	var _scene = load("res://components/cards/weapon_card/weapon_card.tscn")
+	var _card: WeaponCard = _scene.instantiate()
+	_card._weapon_resource = load(chose)
+	return _card
+	
 
 func _add_card2() -> void:
-	var _scene = preload("res://components/cards/upgrade_card/upgrade_card.tscn")
-	var card: Control = _scene.instantiate()
-	card.my_mouse_entered.connect(_on_card_touched)
-	card.my_mouse_exited.connect(_on_card_untouched)
-	$CanvasLayer/ColorRect/HBoxContainer.add_child(card)
-	shown_cards += 1
+	#var _scene = preload("res://components/cards/upgrade_card/upgrade_card.tscn")
+	#var card: Control = _scene.instantiate()
+	#card.my_mouse_entered.connect(_on_card_touched)
+	#card.my_mouse_exited.connect(_on_card_untouched)
+	#$CanvasLayer/ColorRect/HBoxContainer.add_child(card)
+	#shown_cards += 1
+	pass
 
 
 func _add_card3() -> void:
-	var _scene = preload("res://components/cards/heal_card/heal_card.tscn")
-	var card: Control = _scene.instantiate()
-	card.my_mouse_entered.connect(_on_card_touched)
-	card.my_mouse_exited.connect(_on_card_untouched)
-	$CanvasLayer/ColorRect/HBoxContainer.add_child(card)
-	shown_cards += 1
+	#var _scene = preload("res://components/cards/heal_card/heal_card.tscn")
+	#var card: Control = _scene.instantiate()
+	#card.my_mouse_entered.connect(_on_card_touched)
+	#card.my_mouse_exited.connect(_on_card_untouched)
+	#$CanvasLayer/ColorRect/HBoxContainer.add_child(card)
+	#shown_cards += 1
+	pass
 
 
 func _remove_all_cards() -> void:
@@ -80,16 +84,15 @@ func _remove_all_cards() -> void:
 	for n in range(children.size()):
 		_remove_card(children[n])
 
-func _remove_card(card: ActionCard) -> void:
+func _remove_card(card) -> void:
 	card.queue_free()
 	_highlighted_card = null
 	shown_cards -= 1
 
-
-func _on_card_touched(card: ActionCard) -> void:
+func _on_card_touched(card) -> void:
 	card.highlight()
 	_highlighted_card = card
 
-func _on_card_untouched(card: ActionCard) -> void:
+func _on_card_untouched(card) -> void:
 	card.unhighlight()
 	_highlighted_card = null

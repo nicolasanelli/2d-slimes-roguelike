@@ -7,7 +7,7 @@ extends Panel
 @onready var _level: Label = %Label
 
 
-var _resource: BaseWeapon
+var _resource: BaseWeaponResource
 
 
 func _process(_delta: float) -> void:

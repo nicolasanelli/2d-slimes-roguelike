@@ -1,5 +1,5 @@
 class_name CircularSawResource
-extends BaseWeapon
+extends BaseWeaponResource
 
 @export var quantity: int
 @export var damage: int

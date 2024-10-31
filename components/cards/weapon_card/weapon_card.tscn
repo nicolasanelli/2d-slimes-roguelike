@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwucv24j18rng"]
 
-[ext_resource type="Script" path="res://components/cards/action_card/action_card.gd" id="1_v2i8r"]
+[ext_resource type="Script" path="res://components/cards/weapon_card/weapom_card.gd" id="1_v2i8r"]
 [ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="2_qsb0q"]
-[ext_resource type="Script" path="res://components/cards/action_card/add_action.gd" id="4_7n0bb"]
+[ext_resource type="Script" path="res://components/cards/weapon_card/action.gd" id="4_7n0bb"]
 
-[node name="ActionCard" type="Control"]
+[node name="WeaponCard" type="Control"]
 custom_minimum_size = Vector2(300, 420)
 layout_mode = 3
 anchors_preset = 0
