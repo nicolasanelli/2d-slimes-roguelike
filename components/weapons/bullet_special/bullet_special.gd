@@ -1,4 +1,5 @@
-class_name BulletSpecial extends Area2D
+class_name BulletSpecial
+extends Area2D
 
 
 var _damage = 1

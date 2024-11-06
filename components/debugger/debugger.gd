@@ -1,4 +1,5 @@
-class_name Debugger extends Control
+class_name Debugger
+extends CanvasLayer
 
 
 #region Singleton
@@ -13,41 +14,42 @@ func _init() -> void:
 @export var _player: Player
 
 var _saw: Node2D
-@onready var _saw_info: Label = $VBoxContainer/SawInfo
-@onready var _add_saw: Button = $VBoxContainer/AddSaw
-@onready var _upgrade_saw: Button = $VBoxContainer/HBoxContainer1/UpgradeSaw
-@onready var _downgrade_saw: Button = $VBoxContainer/HBoxContainer1/DowngradeSaw
+@onready var _saw_info: Label = $Control/VBoxContainer/SawInfo
+@onready var _add_saw: Button = $Control/VBoxContainer/AddSaw
+@onready var _upgrade_saw: Button = $Control/VBoxContainer/HBoxContainer1/UpgradeSaw
+@onready var _downgrade_saw: Button = $Control/VBoxContainer/HBoxContainer1/DowngradeSaw
 
 var _pistol: Node2D
-@onready var _pistol_info: Label = $VBoxContainer/PistolInfo
-@onready var _add_pistol: Button = $VBoxContainer/AddPistol
-@onready var _upgrade_pistol: Button = $VBoxContainer/HBoxContainer2/UpgradePistol
-@onready var _downgrade_pistol: Button = $VBoxContainer/HBoxContainer2/DowngradePistol
+@onready var _pistol_info: Label = $Control/VBoxContainer/PistolInfo
+@onready var _add_pistol: Button = $Control/VBoxContainer/AddPistol
+@onready var _upgrade_pistol: Button = $Control/VBoxContainer/HBoxContainer2/UpgradePistol
+@onready var _downgrade_pistol: Button = $Control/VBoxContainer/HBoxContainer2/DowngradePistol
 
-@onready var _label_ms: Label = $VBoxContainer/LabelMS
+@onready var _label_ms: Label = $Control/VBoxContainer/LabelMS
 var _mob_spawned: int = 0
-@onready var _label_mk: Label = $VBoxContainer/LabelMK
+@onready var _label_mk: Label = $Control/VBoxContainer/LabelMK
 var _mob_killed: int = 0
-@onready var _label_mc: Label = $VBoxContainer/LabelMC
-@onready var _label_bs: Label = $VBoxContainer/LabelBS
+@onready var _label_mc: Label = $Control/VBoxContainer/LabelMC
+@onready var _label_bs: Label = $Control/VBoxContainer/LabelBS
 var _bullets_shooted: int = 0
 
-@onready var _label_pp : Label = $VBoxContainer/LabelPlayerPos
-@onready var _label_xp : Label = $VBoxContainer/LabelPlayersXP
+@onready var _label_pp : Label = $Control/VBoxContainer/LabelPlayerPos
+@onready var _label_xp : Label = $Control/VBoxContainer/LabelPlayersXP
 
-@onready var _pause_button: Button = $VBoxContainer/PauseButton
+@onready var _pause_button: Button = $Control/VBoxContainer/PauseButton
 
-@onready var _label_sf : Label = $VBoxContainer/LabelSF
+@onready var _label_sf : Label = $Control/VBoxContainer/LabelSF
 
-@onready var _increase_sf: Button = $VBoxContainer/HBoxContainer3/Increase
-@onready var _reset_sf: Button = $VBoxContainer/HBoxContainer3/Reset
-@onready var _decrease_sf: Button = $VBoxContainer/HBoxContainer3/Decrease
+@onready var _increase_sf: Button = $Control/VBoxContainer/HBoxContainer3/Increase
+@onready var _reset_sf: Button = $Control/VBoxContainer/HBoxContainer3/Reset
+@onready var _decrease_sf: Button = $Control/VBoxContainer/HBoxContainer3/Decrease
 
-@onready var _timer : Timer = $Timer
-@onready var _label_timer : Label = $Timer/Label
+@onready var _timer : Timer = $Control/Timer
+@onready var _label_timer : Label = $Control/Timer/Label
 
-@onready var _c_timer : Node = $CustomTimer
-@onready var _c_label_timer : Label = $CustomTimer/Label
+@onready var _c_timer : Node = $Control/CustomTimer
+@onready var _c_label_timer : Label = $Control/CustomTimer/Label
+@onready var _label_fps : Label = $FPS
 
 func _ready() -> void:
 	assert(_player != null, "Player is not set in Debugger")
@@ -69,8 +71,6 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	#if !_player: return #TODO
-	
 	if _saw:
 		_saw_info.text = "Sail level: %s" % _saw._current_resource.get_rarity()
 	if _pistol:
@@ -86,6 +86,7 @@ func _process(_delta: float) -> void:
 	_label_sf.text = "Speed factor: %.3f" % GlobalTimer.get_factor()
 	_label_timer.visible = visible
 	_c_label_timer.visible = visible
+	_label_fps.text = "FPS: %s" % Engine.get_frames_per_second()
 
 func _on_add_saw() -> void:
 	var packed = load("res://components/weapons/circular_saw/circular_saw.tscn")

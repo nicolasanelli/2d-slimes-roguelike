@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn80eu1qs371v"
-path="res://.godot/imported/circle.png-d30ec473e796e39358dd518878c49d6c.ctex"
+uid="uid://brgpjilf7s2ul"
+path="res://.godot/imported/muzzle_flash.png-ca44b540e328f2da3bd23b3171365b6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pistol/impact/circle.png"
-dest_files=["res://.godot/imported/circle.png-d30ec473e796e39358dd518878c49d6c.ctex"]
+source_file="res://components/efx/muzzle_flash/muzzle_flash.png"
+dest_files=["res://.godot/imported/muzzle_flash.png-ca44b540e328f2da3bd23b3171365b6e.ctex"]
 
 [params]
 
