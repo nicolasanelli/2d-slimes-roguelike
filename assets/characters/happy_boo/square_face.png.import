@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ng8e5ot0dtpd"
-path="res://.godot/imported/square_foot.png-bc39e697244b6f5a488d9638a147f4d8.ctex"
+uid="uid://cvs0lh814pk7h"
+path="res://.godot/imported/square_face.png-ac7fb0ded5b6eb9c29651de9034fc3aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/characters/player/happy_boo/square_foot.png"
-dest_files=["res://.godot/imported/square_foot.png-bc39e697244b6f5a488d9638a147f4d8.ctex"]
+source_file="res://assets/characters/happy_boo/square_face.png"
+dest_files=["res://.godot/imported/square_face.png-ac7fb0ded5b6eb9c29651de9034fc3aa.ctex"]
 
 [params]
 
