@@ -1,56 +1,43 @@
-@tool
 class_name Slime
 extends CharacterBody2D
 
+
 @export var _resource: SlimeResource
+@export var target: Node2D
+
+@onready var health_component: HealthComponent = %HealthComponent
 @onready var _slime_body: SlimeBody = %SlimeBody
-
-
-var _target: Node2D
-var _current_health: float
-
-
-var _explosion_component = preload("res://components/efx/smoke_explosion/smoke_explosion.tscn")
-var _xp_orb_componemt = preload("res://components/drops/xp_orb/xp_orb.tscn")
 
 
 #region Engine
 func _ready() -> void:
 	assert(_resource != null, "SlimeResource is not set in Slime")
-	_current_health = _resource.health
-	_slime_body.play_walk()
-
-
-func _physics_process(_delta: float) -> void:
-	if !_target: return
-	
-	var direction = global_position.direction_to(_target.global_position)
-	velocity = direction * _resource.speed * GlobalTimer.get_factor()
-	move_and_slide()
-
-
-func _process(_delta: float) -> void:
-	_update_visual()
-	if _current_health > 0: return
-	
-	_spawn_explosion()
-	_drop_xp()
-	queue_free()
-	Debugger.instance.increaseMobKilled()
+	health_component._max_health = _resource.health
+	_update_appearance()
 #endregion
 
 
-func _update_visual() -> void:
-	_slime_body.set_visuals(
+func _update_appearance() -> void:
+	_slime_body.set_appearance(
 		_resource.color, 
 		_resource.hurt_color, 
 		_resource.scale
 	)
 
 
+func set_target(_target: Node2D) -> void:
+	target = _target;
 
-func set_target(target: Node2D) -> void:
-	_target = target;
+
+func get_distance_to_target() -> float:
+	if target == null: return 0
+	
+	return global_position.distance_to(target.global_position)
+
+func get_direction_to_target() -> Vector2:
+	if target == null: return Vector2.ZERO
+	
+	return global_position.direction_to(target.global_position)
 
 
 func set_resource(resource: SlimeResource) -> void:
@@ -62,17 +49,5 @@ func get_damage() -> float:
 
 
 func take_damage(amount: float = 1.0) -> void:
-	_current_health -= amount
+	health_component.damage(amount)
 	_slime_body.play_hurt()
-
-
-func _spawn_explosion() -> void:
-	var smoke: Node2D = _explosion_component.instantiate()
-	smoke.global_position = global_position
-	add_sibling(smoke, true)
-
-
-func _drop_xp() -> void:
-	var xp: XpOrb = _xp_orb_componemt.instantiate()
-	xp.set_experience_value(_resource.experience_drop)
-	DropManager.instance.spawn(xp, global_position)

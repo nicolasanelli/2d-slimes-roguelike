@@ -25,10 +25,10 @@ func _process(delta : float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	#print("Current State: ", current_node_state_name)
 	if current_node_state:
 		current_node_state._on_physics_process(delta)
 		current_node_state._on_next_transitions()
-	print("Current State: ", current_node_state_name)
 
 
 func transition_to(node_state_name : String) -> void:

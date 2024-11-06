@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bk48pihmbvji0"]
+[gd_scene load_steps=15 format=3 uid="uid://bk48pihmbvji0"]
 
 [ext_resource type="Script" path="res://components/characters/player/player.gd" id="1_1vwvb"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://assets/characters/happy_boo/happy_boo.tscn" id="1_cmylc"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://tlfwglo0migb" path="res://components/compositions/healthbar_component/heathbar_component.tscn" id="7_v45c8"]
 [ext_resource type="PackedScene" uid="uid://bp7rfbr1d86gi" path="res://components/compositions/hurtbox_component/hurtbox_component.tscn" id="8_26dh3"]
 [ext_resource type="PackedScene" uid="uid://csauwjdnutwod" path="res://components/compositions/experience_range_component/experience_range_component.tscn" id="8_ih1kw"]
+[ext_resource type="PackedScene" uid="uid://cfudk0b54ai1e" path="res://components/compositions/weapon_inventory_component/weapon_inventory_component.tscn" id="8_q7nmi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6535e"]
 radius = 29.0
@@ -21,6 +22,7 @@ radius = 50.0
 radius = 200.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 9
 script = ExtResource("1_1vwvb")
 
 [node name="HappyBoo" parent="." instance=ExtResource("1_cmylc")]
@@ -28,19 +30,6 @@ script = ExtResource("1_1vwvb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_6535e")
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
-script = ExtResource("2_frbno")
-initial_node_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("happy_boo")]
-script = ExtResource("3_7j70r")
-happy_boo = NodePath("../../HappyBoo")
-
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "happy_boo")]
-script = ExtResource("4_gk6bt")
-player = NodePath("../..")
-happy_boo = NodePath("../../HappyBoo")
 
 [node name="Health" type="Node2D" parent="."]
 
@@ -51,7 +40,6 @@ _health_component = NodePath("../HealthComponent")
 [node name="HealthComponent" parent="Health" instance=ExtResource("6_oyvrj")]
 unique_name_in_owner = true
 _max_health = 100.0
-_current_health = 100.0
 
 [node name="HurtboxComponent" parent="Health" node_paths=PackedStringArray("_health_component") instance=ExtResource("8_26dh3")]
 _health_component = NodePath("../HealthComponent")
@@ -73,3 +61,18 @@ debug_color = Color(1, 0.847059, 0, 0.239216)
 
 [node name="ExperienceComponent" parent="Experience" instance=ExtResource("7_bw0q3")]
 unique_name_in_owner = true
+
+[node name="WeaponInventoryComponent" parent="." instance=ExtResource("8_q7nmi")]
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("2_frbno")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("happy_boo")]
+script = ExtResource("3_7j70r")
+happy_boo = NodePath("../../HappyBoo")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "happy_boo")]
+script = ExtResource("4_gk6bt")
+player = NodePath("../..")
+happy_boo = NodePath("../../HappyBoo")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6j3vptsmfu51"]
+
+[ext_resource type="PackedScene" uid="uid://bthb600b1k3l5" path="res://components/weapons/pistol/pistol.tscn" id="2_a7gs5"]
+[ext_resource type="PackedScene" uid="uid://bfjgdvoolqd4x" path="res://components/characters/slime/slime.tscn" id="2_mhrn7"]
+
+[node name="TestSceneSlime" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.0926134, 0.275974, 0.108119, 1)
+
+[node name="Slime" parent="." instance=ExtResource("2_mhrn7")]
+position = Vector2(1818, 552)
+
+[node name="Pistol" parent="." instance=ExtResource("2_a7gs5")]
+position = Vector2(948, 550)
+
+[node name="Target" type="Node2D" parent="."]
+position = Vector2(898, 114)

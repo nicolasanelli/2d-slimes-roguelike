@@ -4,5 +4,17 @@
 
 [node name="TestScenePlayer" type="Node2D"]
 
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.0926134, 0.275974, 0.108119, 1)
+
 [node name="Player" parent="." instance=ExtResource("1_rk48f")]
 position = Vector2(290, 292)

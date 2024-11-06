@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_bw8pp")
-bullets = 4
-damage = 4
+bullets = 3
+damage = 3
 attack_speed = 1.9
 rarity = 4
 is_special = false

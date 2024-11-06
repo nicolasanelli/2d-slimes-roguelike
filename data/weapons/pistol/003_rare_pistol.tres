@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ag3id")
 bullets = 2
-damage = 3
+damage = 2
 attack_speed = 1.2
 rarity = 2
 is_special = false

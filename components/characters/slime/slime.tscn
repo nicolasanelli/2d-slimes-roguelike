@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfjgdvoolqd4x"]
+[gd_scene load_steps=10 format=3 uid="uid://bfjgdvoolqd4x"]
 
 [ext_resource type="Script" path="res://components/characters/slime/slime.gd" id="1_7di56"]
 [ext_resource type="Resource" uid="uid://b4y7ccbeysomc" path="res://data/enemies/slime/001_green_slime.tres" id="2_b451o"]
-[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://components/characters/slime/slime_body/slime_body.tscn" id="2_wou7s"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://assets/characters/slime_body/slime_body.tscn" id="2_wou7s"]
+[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="4_dvbqh"]
+[ext_resource type="Script" path="res://components/characters/slime/idle_state.gd" id="5_30rae"]
+[ext_resource type="Script" path="res://components/characters/slime/track_state.gd" id="6_uuyxe"]
+[ext_resource type="Script" path="res://components/characters/slime/dead_state.gd" id="8_o61p3"]
+[ext_resource type="PackedScene" uid="uid://dh26ec8mgg81e" path="res://components/compositions/health_component/health_component.tscn" id="9_bwioq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llau4"]
 radius = 51.0
@@ -18,6 +23,31 @@ _resource = ExtResource("2_b451o")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -29)
 shape = SubResource("CircleShape2D_llau4")
+
+[node name="HealthComponent" parent="." instance=ExtResource("9_bwioq")]
+unique_name_in_owner = true
+_max_health = 10.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+unique_name_in_owner = true
+script = ExtResource("4_dvbqh")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("slime", "slime_body", "health_component")]
+script = ExtResource("5_30rae")
+slime = NodePath("../..")
+slime_body = NodePath("../../SlimeBody")
+health_component = NodePath("../../HealthComponent")
+
+[node name="Track" type="Node" parent="StateMachine" node_paths=PackedStringArray("slime", "slime_body", "health_component")]
+script = ExtResource("6_uuyxe")
+slime = NodePath("../..")
+slime_body = NodePath("../../SlimeBody")
+health_component = NodePath("../../HealthComponent")
+
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("slime", "slime_body")]
+script = ExtResource("8_o61p3")
+slime = NodePath("../..")
+slime_body = NodePath("../../SlimeBody")

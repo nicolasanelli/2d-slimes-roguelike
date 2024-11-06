@@ -13,7 +13,7 @@ signal health_depleted
 			_current_health = _max_health
 
 
-@export var _current_health: float:
+var _current_health: float:
 	set(value):
 		_current_health = clampf(value, 0, _max_health)
 		health_changed.emit()
