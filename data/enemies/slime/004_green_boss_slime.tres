@@ -6,7 +6,7 @@
 script = ExtResource("1_obhib")
 color = Color(0.0980392, 0.866667, 0.172549, 1)
 hurt_color = Color(0.890196, 0, 0.12549, 1)
-health = 25
+health = 250
 speed = 125
 damage = 10.0
 experience_drop = 25

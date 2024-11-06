@@ -72,9 +72,9 @@ func _process(_delta: float) -> void:
 	#if !_player: return #TODO
 	
 	if _saw:
-		_saw_info.text = "Sail level: %s" % _saw._current_resource.rarity
+		_saw_info.text = "Sail level: %s" % _saw._current_resource.get_rarity()
 	if _pistol:
-		_pistol_info.text = "Pistol level: %s" % _pistol._current_resource.rarity
+		_pistol_info.text = "Pistol level: %s" % _pistol._current_resource.get_rarity()
 	_label_ms.text = "Monster spawned: %s" % _mob_spawned
 	_label_mk.text = "Monster killed: %s" % _mob_killed
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
@@ -94,12 +94,10 @@ func _on_add_saw() -> void:
 	_player.find_child("WeaponInventoryComponent").add(weapon)
 
 func _saw_upgrade() -> void:
-	if _saw:
-		_player.find_child("WeaponInventoryComponent").upgrade_by_name("circular-saw")
+	_player.find_child("WeaponInventoryComponent").upgrade_by_name("circular-saw")
 	
 func _saw_downgrade() -> void:
-	if _saw:
-		_player.find_child("WeaponInventoryComponent").downgrade_by_name("circular-saw")
+	_player.find_child("WeaponInventoryComponent").downgrade_by_name("circular-saw")
 
 func _on_add_pistol() -> void:
 	var packed = load("res://components/weapons/pistol/pistol.tscn")

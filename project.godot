@@ -82,14 +82,16 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://global_scripts/global.gd"
-PlayerInput="*res://global_scripts/player_input.gd"
-GlobalTimer="*res://global_scripts/global_timer.gd"
+Global="*res://scripts/globals/global.gd"
+PlayerInput="*res://scripts/player_input.gd"
+GlobalTimer="*res://scripts/globals/global_timer.gd"
 
 [display]
 
-window/size/viewport_width=1536
-window/size/viewport_height=864
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -104,14 +106,10 @@ enabled=PackedStringArray("res://addons/c_timer/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://_doc/": "red",
-"res://addons/": "orange",
-"res://assets/": "yellow",
-"res://components/": "green",
-"res://data/": "teal",
-"res://global_scripts/": "blue",
-"res://scenes/": "purple",
-"res://ui/": "pink"
+"res://assets/": "orange",
+"res://scenes/": "green",
+"res://scripts/": "pink",
+"res://tilesets/": "yellow"
 }
 
 [global_group]

@@ -22,7 +22,7 @@ func game_over():
 	call_deferred("_deferred_goto_scene", "res://scenes/game_over/game_over.tscn")
 
 func start_game():
-	call_deferred("_deferred_goto_scene", "res://scenes/game/game.tscn")
+	call_deferred("_deferred_goto_scene", "res://scenes/main/main.tscn")
 
 
 var paused: bool;

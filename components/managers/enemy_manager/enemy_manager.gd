@@ -28,10 +28,10 @@ var _waves = {
 		"resource_idx": -1,
 		"wave_time": 10,
 	},
-	2: {
-		"spawn_time": 1,
-		"resource_idx": 1,
-		"wave_time": 10,
+	2 : {
+		"spawn_time": .1,
+		"resource_idx": 4,
+		"wave_time": 5,
 	},
 	3: {
 		"spawn_time": -1,
@@ -39,11 +39,21 @@ var _waves = {
 		"wave_time": 10,
 	},
 	4: {
+		"spawn_time": 1,
+		"resource_idx": 1,
+		"wave_time": 10,
+	},
+	5: {
+		"spawn_time": -1,
+		"resource_idx": -1,
+		"wave_time": 10,
+	},
+	6: {
 		"spawn_time": 0.3,
 		"resource_idx": 2,
 		"wave_time": 15,
 	},
-	5: {
+	7: {
 		"spawn_time": -1,
 		"resource_idx": -1,
 		"wave_time": 10,
@@ -61,6 +71,7 @@ var _slime_resources: Array[SlimeResource] = [
 	load("res://data/enemies/slime/002_darkgreen_slime.tres"),
 	load("res://data/enemies/slime/003_blue_slime.tres"),
 	load("res://data/enemies/slime/004_green_boss_slime.tres"),
+	load("res://data/enemies/slime/005_pink_slime.tres"),
 ]
 
 func _ready() -> void:

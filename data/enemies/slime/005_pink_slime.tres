@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlimeResource" load_steps=2 format=3 uid="uid://be0gaqwin0q8x"]
+
+[ext_resource type="Script" path="res://data/enemies/slime/slime_resource.gd" id="1_fwnva"]
+
+[resource]
+script = ExtResource("1_fwnva")
+color = Color(0.698039, 0.196078, 0.356863, 1)
+hurt_color = Color(0.890196, 0, 0.12549, 1)
+health = 5
+speed = 100
+damage = 5.0
+experience_drop = 4
+scale = Vector2(0.75, 0.75)
