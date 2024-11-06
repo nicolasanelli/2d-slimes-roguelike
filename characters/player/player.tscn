@@ -1,0 +1,73 @@
+[gd_scene load_steps=14 format=3 uid="uid://bk48pihmbvji0"]
+
+[ext_resource type="Script" path="res://characters/player/player.gd" id="1_1vwvb"]
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://components/characters/player/happy_boo/happy_boo.tscn" id="1_cmylc"]
+[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="2_frbno"]
+[ext_resource type="Script" path="res://characters/player/idle_state.gd" id="3_7j70r"]
+[ext_resource type="Script" path="res://characters/player/walk_state.gd" id="4_gk6bt"]
+[ext_resource type="PackedScene" uid="uid://dh26ec8mgg81e" path="res://components/compositions/health_component/health_component.tscn" id="6_oyvrj"]
+[ext_resource type="PackedScene" uid="uid://bdcrnqu1x8a5e" path="res://components/compositions/experience_component/experience_component.tscn" id="7_bw0q3"]
+[ext_resource type="PackedScene" uid="uid://tlfwglo0migb" path="res://components/compositions/healthbar_component/heathbar_component.tscn" id="7_v45c8"]
+[ext_resource type="PackedScene" uid="uid://bp7rfbr1d86gi" path="res://components/compositions/hurtbox_component/hurtbox_component.tscn" id="8_26dh3"]
+[ext_resource type="PackedScene" uid="uid://csauwjdnutwod" path="res://components/compositions/experience_range_component/experience_range_component.tscn" id="8_ih1kw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6535e"]
+radius = 29.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lchpa"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4cla"]
+radius = 200.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_1vwvb")
+
+[node name="HappyBoo" parent="." instance=ExtResource("1_cmylc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_6535e")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("2_frbno")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("happy_boo")]
+script = ExtResource("3_7j70r")
+happy_boo = NodePath("../../HappyBoo")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "happy_boo")]
+script = ExtResource("4_gk6bt")
+player = NodePath("../..")
+happy_boo = NodePath("../../HappyBoo")
+
+[node name="Health" type="Node2D" parent="."]
+
+[node name="HeathbarComponent" parent="Health" node_paths=PackedStringArray("_health_component") instance=ExtResource("7_v45c8")]
+position = Vector2(-64, -128)
+_health_component = NodePath("../HealthComponent")
+
+[node name="HealthComponent" parent="Health" instance=ExtResource("6_oyvrj")]
+unique_name_in_owner = true
+
+[node name="HurtboxComponent" parent="Health" node_paths=PackedStringArray("_health_component") instance=ExtResource("8_26dh3")]
+_health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Health/HurtboxComponent"]
+visible = false
+shape = SubResource("CircleShape2D_lchpa")
+debug_color = Color(0.7, 0, 0.0660766, 0.42)
+
+[node name="Experience" type="Node2D" parent="."]
+
+[node name="ExperienceRangeComponent" parent="Experience" node_paths=PackedStringArray("_experience_component") instance=ExtResource("8_ih1kw")]
+_experience_component = NodePath("../ExperienceComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Experience/ExperienceRangeComponent"]
+visible = false
+shape = SubResource("CircleShape2D_m4cla")
+debug_color = Color(1, 0.847059, 0, 0.239216)
+
+[node name="ExperienceComponent" parent="Experience" instance=ExtResource("7_bw0q3")]
+unique_name_in_owner = true
