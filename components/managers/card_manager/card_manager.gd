@@ -22,7 +22,6 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_click") and _highlighted_card:
-		print_debug(_highlighted_card)
 		_highlighted_card.activate()
 		card_picked.emit()
 		_remove_all_cards()
@@ -56,26 +55,6 @@ func pick_weapon_card() -> WeaponCard:
 	var _card: WeaponCard = _scene.instantiate()
 	_card._weapon_resource = load(chose)
 	return _card
-	
-
-func _add_card2() -> void:
-	#var _scene = preload("res://components/cards/upgrade_card/upgrade_card.tscn")
-	#var card: Control = _scene.instantiate()
-	#card.my_mouse_entered.connect(_on_card_touched)
-	#card.my_mouse_exited.connect(_on_card_untouched)
-	#$CanvasLayer/ColorRect/HBoxContainer.add_child(card)
-	#shown_cards += 1
-	pass
-
-
-func _add_card3() -> void:
-	#var _scene = preload("res://components/cards/heal_card/heal_card.tscn")
-	#var card: Control = _scene.instantiate()
-	#card.my_mouse_entered.connect(_on_card_touched)
-	#card.my_mouse_exited.connect(_on_card_untouched)
-	#$CanvasLayer/ColorRect/HBoxContainer.add_child(card)
-	#shown_cards += 1
-	pass
 
 
 func _remove_all_cards() -> void:

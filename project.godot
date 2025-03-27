@@ -75,6 +75,7 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="2d-slime-roguelike"
+config/version="0.0.2-prototype"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
@@ -82,9 +83,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://scripts/globals/global.gd"
+Util="*res://scripts/globals/util.gd"
 PlayerInput="*res://scripts/player_input.gd"
 GlobalTimer="*res://scripts/globals/global_timer.gd"
+Loader="*res://scripts/globals/loader.gd"
 
 [display]
 
