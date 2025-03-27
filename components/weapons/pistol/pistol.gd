@@ -37,6 +37,10 @@ func _ready() -> void:
 	_configure_current_resource()
 	_configure_timer()
 
+var autoaim = true
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("U_key"):
+		autoaim = !autoaim
 
 func _process(delta: float) -> void:
 	var rot = rotation_degrees
@@ -50,12 +54,16 @@ func _process(delta: float) -> void:
 	rotate(_angle * delta * ROTATION_SPEED * GlobalTimer.get_factor())
 
 func _physics_process(_delta: float) -> void:
-	var enemies_in_range: Array[Node2D] = _area.get_overlapping_bodies()
-	if enemies_in_range.size() > 0:
-		var target = enemies_in_range.front()
-		_angle = get_angle_to(target.global_position)
+	if (autoaim):
+		var enemies_in_range: Array[Node2D] = _area.get_overlapping_bodies()
+		if enemies_in_range.size() > 0:
+			var target = enemies_in_range.front()
+			_angle = get_angle_to(target.global_position)
+		else:
+			_angle = 0
 	else:
-		_angle = 0
+		var target = get_global_mouse_position()
+		_angle = get_angle_to(target)
 #endregion
 
 
