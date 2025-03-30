@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhipxqvbyxbhf"]
 
-[ext_resource type="PackedScene" uid="uid://dr3kwla7uxs8c" path="res://ui/Joystick/joystick.tscn" id="1_5asog"]
+[ext_resource type="PackedScene" uid="uid://dr3kwla7uxs8c" path="res://ui/joystick/joystick.tscn" id="1_5asog"]
 [ext_resource type="Script" path="res://ui/mobile_game_layer/mobile_game_layer.gd" id="1_mr2j0"]
+
 
 [node name="MobileGameLayer" type="CanvasLayer"]
 script = ExtResource("1_mr2j0")
