@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://gy66uxbq11u2"]
 
 [ext_resource type="Texture2D" uid="uid://bx3o35va7cwjx" path="res://components/drops/xp_orb/xp_orb.png" id="1_3ta47"]
-[ext_resource type="Script" path="res://components/drops/xp_orb/xp_orb.gd" id="1_e7jea"]
+[ext_resource type="Script" uid="uid://1wdsidd64ha7" path="res://components/drops/xp_orb/xp_orb.gd" id="1_e7jea"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://assets/ground_shadow.png" id="1_qe0of"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6w4m4"]
@@ -88,8 +88,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7gbor"]
 _data = {
-"RESET": SubResource("Animation_okjxc"),
-"idle": SubResource("Animation_jpeny")
+&"RESET": SubResource("Animation_okjxc"),
+&"idle": SubResource("Animation_jpeny")
 }
 
 [node name="XpOrb" type="CharacterBody2D"]

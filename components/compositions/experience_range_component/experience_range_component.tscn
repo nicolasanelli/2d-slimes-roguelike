@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://csauwjdnutwod"]
 
-[ext_resource type="Script" path="res://components/compositions/experience_range_component/experience_range_component.gd" id="1_mphmq"]
+[ext_resource type="Script" uid="uid://bpc5jx2an4eng" path="res://components/compositions/experience_range_component/experience_range_component.gd" id="1_mphmq"]
 
 [node name="ExperienceRangeComponent" type="Area2D"]
 collision_layer = 0

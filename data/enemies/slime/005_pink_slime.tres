@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SlimeResource" load_steps=2 format=3 uid="uid://be0gaqwin0q8x"]
 
-[ext_resource type="Script" path="res://data/enemies/slime/slime_resource.gd" id="1_fwnva"]
+[ext_resource type="Script" uid="uid://dmfvy3m5imwb6" path="res://data/enemies/slime/slime_resource.gd" id="1_fwnva"]
 
 [resource]
 script = ExtResource("1_fwnva")

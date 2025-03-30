@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UsableCardResource" load_steps=3 format=3 uid="uid://xjtf82yekt7t"]
 
-[ext_resource type="Script" path="res://data/usable_card/usable_card_resource.gd" id="1_maw0t"]
+[ext_resource type="Script" uid="uid://c1mfew6tkxp01" path="res://data/usable_card/usable_card_resource.gd" id="1_maw0t"]
 [ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://components/weapons/pistol/pistol.png" id="2_v0ngu"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://co4a4370gjh77"]
 
-[ext_resource type="Script" path="res://ui/stats_bar/stats_bar.gd" id="1_btagr"]
+[ext_resource type="Script" uid="uid://t6a5unge2q2o" path="res://ui/stats_bar/stats_bar.gd" id="1_btagr"]
 [ext_resource type="PackedScene" uid="uid://ctalcx31t63w" path="res://ui/stat_item/stat_item.tscn" id="2_chej0"]
 
 [node name="StatsBar" type="Control"]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UsableCardResource" load_steps=3 format=3 uid="uid://j6jqt5xw2rnh"]
 
-[ext_resource type="Script" path="res://data/usable_card/usable_card_resource.gd" id="1_dg7mq"]
+[ext_resource type="Script" uid="uid://c1mfew6tkxp01" path="res://data/usable_card/usable_card_resource.gd" id="1_dg7mq"]
 [ext_resource type="Texture2D" uid="uid://cvs0lh814pk7h" path="res://assets/characters/happy_boo/square_face.png" id="2_406n8"]
 
 [resource]

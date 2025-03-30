@@ -2,8 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cppig6m1h1nx0" path="res://ui/joystick/JoystickSplitted.png" id="1_80c8m"]
 [ext_resource type="Texture2D" uid="uid://y4gdhd6wpdd8" path="res://ui/joystick/SmallHandle.png" id="2_42hti"]
-[ext_resource type="Script" path="res://ui/joystick/joystick.gd" id="2_pe3jw"]
-
+[ext_resource type="Script" uid="uid://c87u1nvw2yeeh" path="res://ui/joystick/joystick.gd" id="2_pe3jw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jhhs8"]
 radius = 150.0
