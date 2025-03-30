@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3ygp6c1xxh62"]
 
 [ext_resource type="Texture2D" uid="uid://7ughleeg5y14" path="res://components/drops/xp_orb/xp_orb_gray.png" id="1_dmgaa"]
-[ext_resource type="Script" path="res://ui/level/level.gd" id="1_hguby"]
+[ext_resource type="Script" uid="uid://bpcj7bk072moq" path="res://ui/level/level.gd" id="1_hguby"]
 
 [node name="Level" type="Control"]
 layout_mode = 3

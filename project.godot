@@ -77,7 +77,7 @@ Settings/Show_Tooltips=true
 config/name="2d-slime-roguelike"
 config/version="0.0.2-prototype"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.png"
 

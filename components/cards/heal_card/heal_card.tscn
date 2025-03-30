@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1wgejvmacyiv"]
 
 [ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="2_uicwx"]
-[ext_resource type="Script" path="res://components/cards/heal_card/heal_action.gd" id="4_u5gge"]
+[ext_resource type="Script" uid="uid://c72t5lq7row2g" path="res://components/cards/heal_card/heal_action.gd" id="4_u5gge"]
 
 [node name="HealCard" type="Control"]
 custom_minimum_size = Vector2(300, 420)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvrwfpndahhq1"]
 
-[ext_resource type="Script" path="res://components/debugger/debugger.gd" id="1_cemwh"]
-[ext_resource type="Script" path="res://addons/c_timer/c_timer.gd" id="2_dv1cd"]
+[ext_resource type="Script" uid="uid://b8kqewc0c7u72" path="res://components/debugger/debugger.gd" id="1_cemwh"]
+[ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="2_dv1cd"]
 
 [node name="Debugger" type="CanvasLayer"]
 script = ExtResource("1_cemwh")
