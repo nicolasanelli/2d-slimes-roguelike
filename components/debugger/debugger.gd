@@ -36,8 +36,6 @@ var _bullets_shooted: int = 0
 @onready var _label_pp : Label = $Control/VBoxContainer/LabelPlayerPos
 @onready var _label_xp : Label = $Control/VBoxContainer/LabelPlayersXP
 
-@onready var _pause_button: Button = $Control/VBoxContainer/PauseButton
-
 @onready var _label_sf : Label = $Control/VBoxContainer/LabelSF
 
 @onready var _increase_sf: Button = $Control/VBoxContainer/HBoxContainer3/Increase
@@ -59,7 +57,6 @@ func _ready() -> void:
 	_upgrade_pistol.pressed.connect(_pistol_upgrade)
 	_downgrade_pistol.pressed.connect(_pistol_downgrade)
 	_add_pistol.pressed.connect(_on_add_pistol)
-	_pause_button.pressed.connect(_on_pause_button)
 	_increase_sf.pressed.connect(_on_increase_sf)
 	_reset_sf.pressed.connect(_on_reset_sf)
 	_decrease_sf.pressed.connect(_on_decrease_sf)
@@ -112,9 +109,6 @@ func _pistol_upgrade() -> void:
 	
 func _pistol_downgrade() -> void:
 	_player.find_child("WeaponInventoryComponent").downgrade_by_name("pistol")
-
-func _on_pause_button() -> void:
-	Global.toggle_pause()
 
 func _on_increase_sf() -> void:
 	var factor = GlobalTimer.get_factor()

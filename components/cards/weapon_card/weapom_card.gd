@@ -21,7 +21,7 @@ func _ready() -> void:
 	_card.mouse_exited.connect(_on_mouse_exited)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _weapon_resource:
 		_card._resource = _weapon_resource
 
@@ -33,8 +33,8 @@ func unhighlight() -> void:
 	_card.unhighlight()
 
 
-func set_player(_player: Player) -> void:
-	self._player = _player
+func set_player(player: Player) -> void:
+	self._player = player
 
 
 func activate() -> void:

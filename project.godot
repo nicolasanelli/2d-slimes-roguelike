@@ -75,6 +75,7 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="2d-slime-roguelike"
+config/version="0.0.2-prototype"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
@@ -82,16 +83,15 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://scripts/globals/global.gd"
+Util="*res://scripts/globals/util.gd"
 PlayerInput="*res://scripts/player_input.gd"
 GlobalTimer="*res://scripts/globals/global_timer.gd"
+Loader="*res://scripts/globals/loader.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/window_width_override=1280
-window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -175,6 +175,11 @@ AA={
 BB={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"key_label":0,"unicode":50,"location":0,"echo":false,"script":null)
+]
+}
+U_key={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":85,"key_label":0,"unicode":117,"location":0,"echo":false,"script":null)
 ]
 }
 
