@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var _card_manager: CardManager = $CardManager
 @onready var _camera: Camera2D = $Player/Camera2D
-@onready var _player: Player = $Player
 
 enum GameState {
 	RUNNING,
@@ -14,7 +13,6 @@ enum GameState {
 var _current_state: GameState = GameState.RUNNING
 
 func _ready() -> void:
-	assert(_player != null, "Player is not set in GameManager")
 	_connect_signals()
 
 func _process(_delta: float) -> void:
@@ -68,9 +66,9 @@ func _toggle_pause() -> void:
 
 
 func _connect_signals() -> void:
-	_player.player_died.connect(_on_player_died)
-	_player.player_leveled.connect(_on_player_leveled)
-	_card_manager.card_picked.connect(_on_card_picked)
+	CommandDispatcher.player_died.connect(_on_player_died)
+	CommandDispatcher.player_leveled.connect(_on_player_leveled)
+	CommandDispatcher.card_executed.connect(_on_card_executed)
 
 
 func _on_player_died() -> void:
@@ -82,5 +80,5 @@ func _on_player_leveled() -> void:
 	_card_manager.display_cards()
 
 
-func _on_card_picked() -> void:
+func _on_card_executed() -> void:
 	_transition(GameState.RUNNING)

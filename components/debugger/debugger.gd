@@ -15,15 +15,9 @@ func _init() -> void:
 
 var _saw: Node2D
 @onready var _saw_info: Label = $Control/VBoxContainer/SawInfo
-@onready var _add_saw: Button = $Control/VBoxContainer/AddSaw
-@onready var _upgrade_saw: Button = $Control/VBoxContainer/HBoxContainer1/UpgradeSaw
-@onready var _downgrade_saw: Button = $Control/VBoxContainer/HBoxContainer1/DowngradeSaw
 
 var _pistol: Node2D
 @onready var _pistol_info: Label = $Control/VBoxContainer/PistolInfo
-@onready var _add_pistol: Button = $Control/VBoxContainer/AddPistol
-@onready var _upgrade_pistol: Button = $Control/VBoxContainer/HBoxContainer2/UpgradePistol
-@onready var _downgrade_pistol: Button = $Control/VBoxContainer/HBoxContainer2/DowngradePistol
 
 @onready var _label_ms: Label = $Control/VBoxContainer/LabelMS
 var _mob_spawned: int = 0
@@ -51,12 +45,6 @@ var _bullets_shooted: int = 0
 
 func _ready() -> void:
 	assert(_player != null, "Player is not set in Debugger")
-	_upgrade_saw.pressed.connect(_saw_upgrade)
-	_downgrade_saw.pressed.connect(_saw_downgrade)
-	_add_saw.pressed.connect(_on_add_saw)
-	_upgrade_pistol.pressed.connect(_pistol_upgrade)
-	_downgrade_pistol.pressed.connect(_pistol_downgrade)
-	_add_pistol.pressed.connect(_on_add_pistol)
 	_increase_sf.pressed.connect(_on_increase_sf)
 	_reset_sf.pressed.connect(_on_reset_sf)
 	_decrease_sf.pressed.connect(_on_decrease_sf)
@@ -85,30 +73,6 @@ func _process(_delta: float) -> void:
 	_c_label_timer.visible = visible
 	_label_fps.text = "FPS: %s" % Engine.get_frames_per_second()
 
-func _on_add_saw() -> void:
-	var packed = load("res://components/weapons/circular_saw/circular_saw.tscn")
-	var weapon: CircularSaw = packed.instantiate()
-	if !_saw: _saw = weapon
-	_player.find_child("WeaponInventoryComponent").add(weapon)
-
-func _saw_upgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").upgrade_by_name("circular-saw")
-	
-func _saw_downgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").downgrade_by_name("circular-saw")
-
-func _on_add_pistol() -> void:
-	var packed = load("res://components/weapons/pistol/pistol.tscn")
-	var weapon: Pistol = packed.instantiate()
-	if !_pistol: _pistol = weapon
-	weapon.position = Vector2(0, -33)
-	_player.find_child("WeaponInventoryComponent").add(weapon)
-
-func _pistol_upgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").upgrade_by_name("pistol")
-	
-func _pistol_downgrade() -> void:
-	_player.find_child("WeaponInventoryComponent").downgrade_by_name("pistol")
 
 func _on_increase_sf() -> void:
 	var factor = GlobalTimer.get_factor()

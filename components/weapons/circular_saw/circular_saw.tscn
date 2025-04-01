@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnvxmmn4f0hqp"]
 
 [ext_resource type="Script" uid="uid://ckk28gbva7f2b" path="res://components/weapons/circular_saw/circular_saw.gd" id="1_3520g"]
-[ext_resource type="PackedScene" uid="uid://dvuu3v8ti5m5p" path="res://components/weapons/saw/saw.tscn" id="2_umde3"]
+[ext_resource type="PackedScene" uid="uid://dvuu3v8ti5m5p" path="res://components/weapons/circular_saw/saw/saw.tscn" id="2_umde3"]
 [ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="3_scdy3"]
 
 [node name="CircularSaw" type="Node2D" groups=["Weapons"]]

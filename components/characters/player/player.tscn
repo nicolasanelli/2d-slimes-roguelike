@@ -5,11 +5,11 @@
 [ext_resource type="Script" uid="uid://dsh77xj6kyka5" path="res://scripts/state_machine/node_state_machine.gd" id="2_frbno"]
 [ext_resource type="Script" uid="uid://65l2hhk78txf" path="res://components/characters/player/idle_state.gd" id="3_7j70r"]
 [ext_resource type="Script" uid="uid://cmm7ix1u2u8u5" path="res://components/characters/player/walk_state.gd" id="4_gk6bt"]
-[ext_resource type="PackedScene" uid="uid://dh26ec8mgg81e" path="res://components/compositions/health_component/health_component.tscn" id="6_oyvrj"]
-[ext_resource type="PackedScene" uid="uid://bdcrnqu1x8a5e" path="res://components/compositions/experience_component/experience_component.tscn" id="7_bw0q3"]
-[ext_resource type="PackedScene" uid="uid://tlfwglo0migb" path="res://components/compositions/healthbar_component/heathbar_component.tscn" id="7_v45c8"]
-[ext_resource type="PackedScene" uid="uid://bp7rfbr1d86gi" path="res://components/compositions/hurtbox_component/hurtbox_component.tscn" id="8_26dh3"]
-[ext_resource type="PackedScene" uid="uid://csauwjdnutwod" path="res://components/compositions/experience_range_component/experience_range_component.tscn" id="8_ih1kw"]
+[ext_resource type="PackedScene" uid="uid://dh26ec8mgg81e" path="res://components/compositions/health/health_component/health_component.tscn" id="6_oyvrj"]
+[ext_resource type="PackedScene" uid="uid://bdcrnqu1x8a5e" path="res://components/compositions/experience/experience_component/experience_component.tscn" id="7_bw0q3"]
+[ext_resource type="PackedScene" uid="uid://tlfwglo0migb" path="res://components/compositions/health/healthbar_component/heathbar_component.tscn" id="7_v45c8"]
+[ext_resource type="PackedScene" uid="uid://bp7rfbr1d86gi" path="res://components/compositions/health/hurtbox_component/hurtbox_component.tscn" id="8_26dh3"]
+[ext_resource type="PackedScene" uid="uid://csauwjdnutwod" path="res://components/compositions/experience/experience_range_component/experience_range_component.tscn" id="8_ih1kw"]
 [ext_resource type="PackedScene" uid="uid://cfudk0b54ai1e" path="res://components/compositions/weapon_inventory_component/weapon_inventory_component.tscn" id="8_q7nmi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6535e"]
@@ -25,11 +25,11 @@ radius = 200.0
 collision_layer = 9
 script = ExtResource("1_1vwvb")
 
-[node name="HappyBoo" parent="." instance=ExtResource("1_cmylc")]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_6535e")
+
+[node name="HappyBoo" parent="." instance=ExtResource("1_cmylc")]
 
 [node name="Health" type="Node2D" parent="."]
 

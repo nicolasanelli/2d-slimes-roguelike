@@ -1,21 +1,69 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcuw6js5ydbmx"]
+[gd_scene load_steps=15 format=3 uid="uid://bcuw6js5ydbmx"]
 
 [ext_resource type="Script" uid="uid://cseamtgq0cq3g" path="res://ui/card/card.gd" id="1_in445"]
-[ext_resource type="Resource" uid="uid://cis6uxe56ldk6" path="res://data/usable_card/000_placeholder.tres" id="2_7vpkl"]
+[ext_resource type="Resource" uid="uid://bkoc7wxdf7me2" path="res://data/usable_card/add_weapon_cards/add_pistol_card.tres" id="2_f16lr"]
 [ext_resource type="Texture2D" uid="uid://c7vyogiyxkdpv" path="res://assets/placeholder_64.png" id="3_wqpge"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5golt"]
-size = Vector2(294, 418)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f16lr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="Card" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvkjp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16bs5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_br3k1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yas6e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3sge"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5bk3"]
+bg_color = Color(0.305882, 0.698039, 0.380392, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kknj8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy7fo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23pih"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lsnc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Card" type="Button"]
+offset_right = 296.0
+offset_bottom = 419.0
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_f16lr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_wvkjp")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_16bs5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_br3k1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_yas6e")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_f3sge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f5bk3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_kknj8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iy7fo")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_23pih")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0lsnc")
 script = ExtResource("1_in445")
-_resource = ExtResource("2_7vpkl")
+_resource = ExtResource("2_f16lr")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 self_modulate = Color(0.683294, 0.683294, 0.683294, 1)
-offset_right = 296.0
-offset_bottom = 419.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_type_variation = &"CardPanelContainer"
@@ -80,11 +128,3 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="Area2D" type="Area2D" parent="."]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(148, 209)
-shape = SubResource("RectangleShape2D_5golt")

@@ -7,7 +7,8 @@
 [ext_resource type="Script" uid="uid://1sgsphecaumr" path="res://components/characters/slime/idle_state.gd" id="5_30rae"]
 [ext_resource type="Script" uid="uid://dceqmfgrwcud7" path="res://components/characters/slime/track_state.gd" id="6_uuyxe"]
 [ext_resource type="Script" uid="uid://x1dvgqbkaybs" path="res://components/characters/slime/dead_state.gd" id="8_o61p3"]
-[ext_resource type="PackedScene" uid="uid://dh26ec8mgg81e" path="res://components/compositions/health_component/health_component.tscn" id="9_bwioq"]
+[ext_resource type="PackedScene" uid="uid://dh26ec8mgg81e" path="res://components/compositions/health/health_component/health_component.tscn" id="9_bwioq"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llau4"]
 radius = 51.0

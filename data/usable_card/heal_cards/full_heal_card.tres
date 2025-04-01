@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HealCardResource" load_steps=3 format=3 uid="uid://ibufdpcn81k2"]
+
+[ext_resource type="Script" uid="uid://374oaswrro75" path="res://data/usable_card/heal_cards/heal_card_resource.gd" id="1_v61fj"]
+[ext_resource type="Texture2D" uid="uid://cvs0lh814pk7h" path="res://assets/characters/happy_boo/square_face.png" id="2_poaik"]
+
+[resource]
+script = ExtResource("1_v61fj")
+amount = 100
+name = "We-oh! "
+description = "Cura completamente o player"
+color = Color(0.0838679, 0.39817, 0.131629, 1)
+texture = ExtResource("2_poaik")

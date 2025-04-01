@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1wgejvmacyiv"]
+[gd_scene load_steps=4 format=3 uid="uid://c1wgejvmacyiv"]
 
 [ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="2_uicwx"]
-[ext_resource type="Script" uid="uid://c72t5lq7row2g" path="res://components/cards/heal_card/heal_action.gd" id="4_u5gge"]
+[ext_resource type="Resource" uid="uid://ibufdpcn81k2" path="res://data/usable_card/heal_cards/full_heal_card.tres" id="3_8cleh"]
+[ext_resource type="Script" uid="uid://c72t5lq7row2g" path="res://components/cards/heal_card/heal_card.gd" id="4_u5gge"]
 
 [node name="HealCard" type="Control"]
 custom_minimum_size = Vector2(300, 420)
@@ -10,9 +11,8 @@ anchors_preset = 0
 offset_right = 300.0
 offset_bottom = 420.0
 mouse_filter = 1
+script = ExtResource("4_u5gge")
 
 [node name="Card" parent="." instance=ExtResource("2_uicwx")]
-
-[node name="Action" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("4_u5gge")
+layout_mode = 0
+_resource = ExtResource("3_8cleh")

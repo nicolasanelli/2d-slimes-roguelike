@@ -26,23 +26,6 @@ layout_mode = 2
 layout_mode = 2
 text = "Sail level: -1"
 
-[node name="AddSaw" type="Button" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "Add Circular Saw"
-
-[node name="HBoxContainer1" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="DowngradeSaw" type="Button" parent="Control/VBoxContainer/HBoxContainer1"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "-1 Level"
-
-[node name="UpgradeSaw" type="Button" parent="Control/VBoxContainer/HBoxContainer1"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "+1 Level"
-
 [node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 8
@@ -51,23 +34,6 @@ theme_override_constants/margin_bottom = 8
 [node name="PistolInfo" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "Pistol level: -1"
-
-[node name="AddPistol" type="Button" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "Add Pistol"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="DowngradePistol" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "-1 Level"
-
-[node name="UpgradePistol" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "+1 Level"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/VBoxContainer"]
 layout_mode = 2

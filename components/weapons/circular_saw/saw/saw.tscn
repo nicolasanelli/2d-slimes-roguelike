@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvuu3v8ti5m5p"]
+
+[ext_resource type="Script" uid="uid://snantktufgvn" path="res://components/weapons/circular_saw/saw/saw.gd" id="1_h75k3"]
+[ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/circular_saw/saw/saw.png" id="2_q2kc1"]
+
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v7bj"]
+radius = 33.0151
+
+[node name="Saw" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_h75k3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_q2kc1")
+flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+rotation = 0.785398
+pivot_offset = Vector2(25, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2v7bj")
