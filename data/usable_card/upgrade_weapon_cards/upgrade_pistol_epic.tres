@@ -10,6 +10,6 @@ weapon_name = "pistol"
 resource = ExtResource("1_usie3")
 name = "Pistol"
 description = "Evolui sua arma para épico"
-color = Color(0.933333, 0.745098, 0.980392, 1)
+color = Color(0.627451, 0.12549, 0.941176, 1)
 texture = ExtResource("3_mle8v")
 metadata/_custom_type_script = "uid://cyqhmso2mbxyb"
