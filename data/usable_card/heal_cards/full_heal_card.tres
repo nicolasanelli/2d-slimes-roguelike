@@ -8,5 +8,5 @@ script = ExtResource("1_v61fj")
 amount = 100
 name = "We-oh! "
 description = "Cura completamente o player"
-color = Color(0.0838679, 0.39817, 0.131629, 1)
+color = Color(0, 1, 0, 1)
 texture = ExtResource("2_poaik")

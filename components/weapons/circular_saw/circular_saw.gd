@@ -5,7 +5,7 @@ extends Node2D
 @onready var _rotation_point: Marker2D = %RotationPoint
 @onready var _timer: CTimer = $CTimer
 
-var _saw_component = preload("res://components/weapons/saw/saw.tscn")
+var _saw_component = preload("res://components/weapons/circular_saw/saw/saw.tscn")
 
 
 var _current_resource: CircularSawResource:

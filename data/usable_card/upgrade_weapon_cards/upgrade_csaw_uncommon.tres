@@ -10,6 +10,6 @@ weapon_name = "circular-saw"
 resource = ExtResource("1_2ud2o")
 name = "Circular Saw"
 description = "Evolui sua serra giratória para incomum"
-color = Color(0.698039, 0.94902, 0.733333, 1)
+color = Color(0, 1, 0, 1)
 texture = ExtResource("3_2ud2o")
 metadata/_custom_type_script = "uid://cyqhmso2mbxyb"
