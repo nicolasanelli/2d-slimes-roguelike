@@ -30,7 +30,7 @@ func display_cards() -> void:
 
 
 func _add_cards() -> void:
-	var cards = deck_manager.pick_cards()
+	var cards = deck_manager.pick_cards(2)
 	
 	for card in cards:
 		displayed_cards.push_front(card)
