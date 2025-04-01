@@ -85,13 +85,12 @@ func _on_decrease_sf() -> void:
 	var factor = GlobalTimer.get_factor()
 	GlobalTimer.set_target_factor(factor - 0.25, 0.3)
 
+
 func increaseMobSpawned() -> void:
 	_mob_spawned += 1
 
-
 func increaseMobKilled() -> void:
 	_mob_killed += 1
-
 
 func increaseBulletsShooted() -> void:
 	_bullets_shooted += 1
