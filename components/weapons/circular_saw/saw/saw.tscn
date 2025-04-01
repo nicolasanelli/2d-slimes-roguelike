@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvuu3v8ti5m5p"]
 
-[ext_resource type="Script" uid="uid://snantktufgvn" path="res://components/weapons/saw/saw.gd" id="1_h75k3"]
-[ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/saw/saw.png" id="2_q2kc1"]
+[ext_resource type="Script" uid="uid://snantktufgvn" path="res://components/weapons/circular_saw/saw/saw.gd" id="1_h75k3"]
+[ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/circular_saw/saw/saw.png" id="2_q2kc1"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2v7bj"]
 radius = 33.0151

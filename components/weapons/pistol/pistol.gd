@@ -2,8 +2,8 @@ class_name Pistol
 extends Node2D
 
 
-var _bullet_component = preload("res://components/weapons/bullet/bullet.tscn")
-var _bullet_special_component = preload("res://components/weapons/bullet_special/bullet_special.tscn")
+var _bullet_component = preload("res://components/weapons/pistol/bullet/bullet.tscn")
+var _bullet_special_component = preload("res://components/weapons/pistol/bullet_special/bullet_special.tscn")
 
 
 @onready var _area: Area2D = %Area2D

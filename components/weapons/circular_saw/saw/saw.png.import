@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6dixkbxu7n0q"
-path="res://.godot/imported/bullet_special.png-674032c74517221a9d3181b0732731a1.ctex"
+uid="uid://bfmkpxha82rlr"
+path="res://.godot/imported/saw.png-510ec731d40c324d0cd095a3835dc62b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/weapons/bullet_special/bullet_special.png"
-dest_files=["res://.godot/imported/bullet_special.png-674032c74517221a9d3181b0732731a1.ctex"]
+source_file="res://components/weapons/circular_saw/saw/saw.png"
+dest_files=["res://.godot/imported/saw.png-510ec731d40c324d0cd095a3835dc62b.ctex"]
 
 [params]
 

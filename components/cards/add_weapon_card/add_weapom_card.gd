@@ -5,7 +5,7 @@ extends ActionCard
 @onready var _card: Card = $Card
 
 
-var _weapon_resource: AddWeaponCardResource
+var _resource: AddWeaponCardResource
 
 
 func _ready() -> void:
@@ -13,8 +13,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if _weapon_resource:
-		_card._resource = _weapon_resource
+	if _resource:
+		_card._resource = _resource
 
 
 func _on_card_pressed() -> void:
@@ -22,7 +22,7 @@ func _on_card_pressed() -> void:
 
 
 func execute(_player: Player) -> void:
-	var packed = load(_weapon_resource.weapon_component)
+	var packed = load(_resource.weapon_component)
 	var wic: WeaponInventoryComponent = _player.find_child("WeaponInventoryComponent")
 	var weapon = packed.instantiate()
 	
@@ -30,6 +30,6 @@ func execute(_player: Player) -> void:
 		weapon.queue_free()
 		return
 	
-	weapon.position = _weapon_resource.position
-	weapon._current_resource = _weapon_resource.resource
+	weapon.position = _resource.position
+	weapon._current_resource = _resource.resource
 	wic.add(weapon)

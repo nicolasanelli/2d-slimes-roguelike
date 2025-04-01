@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bruijopq5qiqx" path="res://data/usable_card/add_weapon_cards/add_weapon_card_resource.gd" id="1_3st24"]
 [ext_resource type="Resource" uid="uid://d10pjdcxtulx6" path="res://data/weapons/circular_saw/001_common_circular_saw.tres" id="1_t7t0c"]
-[ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/saw/saw.png" id="2_k40bq"]
+[ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/circular_saw/saw/saw.png" id="2_k40bq"]
 
 [resource]
 script = ExtResource("1_3st24")

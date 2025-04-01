@@ -25,8 +25,8 @@ func _on_card_picked(card: ActionCard) -> void:
 func display_cards() -> void:
 	visible = true
 	_add_weapon_card()
-	_add_weapon_card()
 	_upgrade_weapon_card()
+	_heal_card()
 
 
 func _add_weapon_card() -> void:
@@ -38,6 +38,11 @@ func _upgrade_weapon_card() -> void:
 	$CanvasLayer/ColorRect/HBoxContainer.add_child(card)
 
 
+func _heal_card() -> void:
+	var card: Control = pick_heal_card()
+	$CanvasLayer/ColorRect/HBoxContainer.add_child(card)
+
+
 func pick_weapon_card() -> AddWeaponCard:
 	var options = [
 		"res://data/usable_card/add_weapon_cards/add_pistol_card.tres",
@@ -46,7 +51,7 @@ func pick_weapon_card() -> AddWeaponCard:
 	var chose = options.pick_random()
 	var _scene = load("res://components/cards/add_weapon_card/add_weapon_card.tscn")
 	var _card: AddWeaponCard = _scene.instantiate()
-	_card._weapon_resource = load(chose)
+	_card._resource = load(chose)
 	return _card
 
 
@@ -66,9 +71,18 @@ func pick_upgrade_card() -> UpgradeWeaponCard:
 	var chose = options.pick_random()
 	var _scene = load("res://components/cards/upgrade_weapon_card/upgrade_weapon_card.tscn")
 	var _card: UpgradeWeaponCard = _scene.instantiate()
-	_card._weapon_resource = load(chose)
+	_card._resource = load(chose)
 	return _card
 
+func pick_heal_card() -> HealCard:
+	var options = [
+		"res://data/usable_card/heal_cards/full_heal_card.tres",
+	]
+	var chose = options.pick_random()
+	var _scene = load("res://components/cards/heal_card/heal_card.tscn")
+	var _card: HealCard = _scene.instantiate()
+	_card._resource = load(chose)
+	return _card
 
 func _remove_all_cards() -> void:
 	var children = $CanvasLayer/ColorRect/HBoxContainer.get_children()

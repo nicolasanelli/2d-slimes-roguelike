@@ -2,4 +2,4 @@ class_name ActionCard
 extends Control
 
 func execute(_player: Player) -> void:
-	assert(1 != 2, "execute not implemented")
+	assert(false, "Execute should be implemented by it's inheritance classes")

@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="CircularSawResource" load_steps=3 format=3 uid="uid://csy452ilc5lg3"]
 
 [ext_resource type="Script" uid="uid://c73lc3ioxbgh4" path="res://data/weapons/circular_saw/circular_saw_resource.gd" id="1_d8pj2"]
-[ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/saw/saw.png" id="2_vuvfe"]
+[ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/circular_saw/saw/saw.png" id="2_vuvfe"]
+
 
 [resource]
 script = ExtResource("1_d8pj2")
