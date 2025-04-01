@@ -8,19 +8,11 @@ extends Node2D
 var _saw_component = preload("res://components/weapons/saw/saw.tscn")
 
 
-var _current_resource_index: int = 0:
+var _current_resource: CircularSawResource:
 	set(value):
-		_current_resource_index = value
+		_current_resource = value
 		_configure_current_resource()
-var _current_resource: CircularSawResource
-var _resources: Array[CircularSawResource] = [
-	load("res://data/weapons/circular_saw/001_common_circular_saw.tres"),
-	load("res://data/weapons/circular_saw/002_uncommon_circular_saw.tres"),
-	load("res://data/weapons/circular_saw/003_rare_circular_saw.tres"),
-	load("res://data/weapons/circular_saw/004_epic_circular_saw.tres"),
-	load("res://data/weapons/circular_saw/005_legendary_circular_saw.tres"),
-	load("res://data/weapons/circular_saw/006_mythic_circular_saw.tres"),
-]
+
 
 var state: bool = false;
 
@@ -56,19 +48,13 @@ func _on_timer_timeout() -> void:
 
 
 func _configure_current_resource() -> void:
-	_current_resource = _resources[_current_resource_index]
+	if !_rotation_point: return
 	_draw_saws()
 	_configure_timer()
 
 
-func upgrade() -> void:
-	if _current_resource_index < _resources.size()-1:
-		_current_resource_index += 1
-
-
-func downgrade() -> void:
-	if _current_resource_index > 0:
-		_current_resource_index -= 1
+func upgrade(resouce: CircularSawResource) -> void:
+	_current_resource = resouce
 
 
 func _remove_all_saws() -> void:

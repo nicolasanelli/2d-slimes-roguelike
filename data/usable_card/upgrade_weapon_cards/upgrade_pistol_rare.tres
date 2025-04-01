@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeWeaponCardResource" load_steps=4 format=3 uid="uid://bn5evq73hp0eh"]
+
+[ext_resource type="Resource" uid="uid://dumujk18f4xsk" path="res://data/weapons/pistol/003_rare_pistol.tres" id="1_sewor"]
+[ext_resource type="Script" uid="uid://cyqhmso2mbxyb" path="res://data/usable_card/upgrade_weapon_cards/upgrade_weapon_card_resource.gd" id="2_5v6s5"]
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://components/weapons/pistol/pistol.png" id="3_hjpcg"]
+
+[resource]
+script = ExtResource("2_5v6s5")
+weapon_name = "pistol"
+resource = ExtResource("1_sewor")
+name = "Pistol"
+description = "Evolui sua arma para raro"
+color = Color(0.647059, 0.847059, 1, 1)
+texture = ExtResource("3_hjpcg")
+metadata/_custom_type_script = "uid://cyqhmso2mbxyb"

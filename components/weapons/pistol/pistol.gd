@@ -14,27 +14,16 @@ var _bullet_special_component = preload("res://components/weapons/bullet_special
 @export var _disabled: bool = false
 
 
-var _current_resource_index: int = 0:
+var _current_resource: PistolResource:
 	set(value):
-		_current_resource_index = value
-		_configure_current_resource()
+		_current_resource = value
 		_configure_timer()
-var _current_resource: PistolResource
-var _resources: Array[PistolResource] = [
-	load("res://data/weapons/pistol/001_common_pistol.tres"),
-	load("res://data/weapons/pistol/002_uncommon_pistol.tres"),
-	load("res://data/weapons/pistol/003_rare_pistol.tres"),
-	load("res://data/weapons/pistol/004_epic_pistol.tres"),
-	load("res://data/weapons/pistol/005_legendary_pistol.tres"),
-	load("res://data/weapons/pistol/006_mythic_pistol.tres"),
-]
 
 const ROTATION_SPEED = 25
 var _angle = 0
 
 #region Engine
 func _ready() -> void:
-	_configure_current_resource()
 	_configure_timer()
 
 var autoaim = true
@@ -82,16 +71,9 @@ func _on_timer_timeout() -> void:
 	shoot()
 #endregion
 
-func _configure_current_resource() -> void:
-	_current_resource = _resources[_current_resource_index]
 
-func upgrade() -> void:
-	if _current_resource_index < _resources.size()-1:
-		_current_resource_index += 1
-
-func downgrade() -> void:
-	if _current_resource_index > 0:
-		_current_resource_index -= 1
+func upgrade(resource: BaseWeaponResource) -> void:
+	_current_resource = resource
 
 func shoot() -> void:
 	for n in range(_current_resource.bullets):

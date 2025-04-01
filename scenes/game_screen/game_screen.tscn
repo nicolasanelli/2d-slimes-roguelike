@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2odse7mabaid"]
+[gd_scene load_steps=13 format=3 uid="uid://c2odse7mabaid"]
 
 [ext_resource type="Script" uid="uid://bshdc04pc71lm" path="res://scenes/game_screen/game_screen.gd" id="1_ump46"]
 [ext_resource type="PackedScene" uid="uid://chjqobojluvru" path="res://components/managers/chunk_manager/chunk_manager.tscn" id="2_or40j"]
@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://e3g0wva5rfyt" path="res://ui/experience_bar/experience_bar.tscn" id="7_pyesm"]
 [ext_resource type="PackedScene" uid="uid://3ygp6c1xxh62" path="res://ui/level/level.tscn" id="8_480ef"]
 [ext_resource type="PackedScene" uid="uid://co4a4370gjh77" path="res://ui/stats_bar/stats_bar.tscn" id="9_dxirr"]
-[ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="10_esj37"]
-[ext_resource type="Resource" uid="uid://b7qgx1fhm2i1a" path="res://data/usable_card/003_add_circular_saw.tres" id="11_y12ic"]
 [ext_resource type="PackedScene" uid="uid://bhipxqvbyxbhf" path="res://ui/mobile_game_layer/mobile_game_layer.tscn" id="12_36sd6"]
 [ext_resource type="PackedScene" uid="uid://dvrwfpndahhq1" path="res://components/debugger/debugger.tscn" id="13_w51sc"]
 [ext_resource type="PackedScene" uid="uid://gy66uxbq11u2" path="res://components/drops/xp_orb/xp_orb.tscn" id="14_dodro"]
@@ -116,21 +114,6 @@ theme_override_constants/margin_bottom = 250
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
-
-[node name="Container" type="Container" parent="GameUI/Control/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(296, 419)
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Card" parent="GameUI/Control/MarginContainer/HBoxContainer/Container" instance=ExtResource("10_esj37")]
-
-[node name="Container2" type="Container" parent="GameUI/Control/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(296, 419)
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Card" parent="GameUI/Control/MarginContainer/HBoxContainer/Container2" instance=ExtResource("10_esj37")]
-_resource = ExtResource("11_y12ic")
 
 [node name="GameUIMobile" parent="." instance=ExtResource("12_36sd6")]
 visible = false

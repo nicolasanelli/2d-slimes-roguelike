@@ -30,12 +30,12 @@ func add(scene: Node2D) -> void:
 	inventory_changed.emit()
 
 
-func upgrade_by_name(weapon_name: String) -> void:
+func upgrade_by_name(weapon_name: String, resource: BaseWeaponResource) -> void:
 	if !_inventory.has(weapon_name):
 		push_error("Trying to upgrade %s, but there is none inventory" % weapon_name)
 		return
 	
-	_inventory[weapon_name].upgrade()
+	_inventory[weapon_name].upgrade(resource)
 	inventory_changed.emit()
 
 

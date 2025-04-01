@@ -87,6 +87,7 @@ Util="*res://scripts/globals/util.gd"
 PlayerInput="*res://scripts/player_input.gd"
 GlobalTimer="*res://scripts/globals/global_timer.gd"
 Loader="*res://scripts/globals/loader.gd"
+CommandDispatcher="*res://scripts/globals/command_dispatcher.gd"
 
 [display]
 
