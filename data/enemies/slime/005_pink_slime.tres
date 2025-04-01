@@ -9,5 +9,5 @@ hurt_color = Color(0.890196, 0, 0.12549, 1)
 health = 5
 speed = 100
 damage = 5.0
-experience_drop = 4
+experience_drop = 3
 scale = Vector2(0.75, 0.75)

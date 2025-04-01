@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfjgdvoolqd4x"]
+[gd_scene load_steps=11 format=3 uid="uid://bfjgdvoolqd4x"]
 
 [ext_resource type="Script" uid="uid://50ittkua5td" path="res://components/characters/slime/slime.gd" id="1_7di56"]
 [ext_resource type="Resource" uid="uid://b4y7ccbeysomc" path="res://data/enemies/slime/001_green_slime.tres" id="2_b451o"]
@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://1sgsphecaumr" path="res://components/characters/slime/idle_state.gd" id="5_30rae"]
 [ext_resource type="Script" uid="uid://dceqmfgrwcud7" path="res://components/characters/slime/track_state.gd" id="6_uuyxe"]
 [ext_resource type="Script" uid="uid://x1dvgqbkaybs" path="res://components/characters/slime/dead_state.gd" id="8_o61p3"]
+[ext_resource type="FontFile" uid="uid://dou1mq1a2um30" path="res://assets/fonts/monogram/monogram-extended.ttf" id="9_757bf"]
 [ext_resource type="PackedScene" uid="uid://dh26ec8mgg81e" path="res://components/compositions/health/health_component/health_component.tscn" id="9_bwioq"]
-
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llau4"]
 radius = 51.0
@@ -52,3 +52,17 @@ health_component = NodePath("../../HealthComponent")
 script = ExtResource("8_o61p3")
 slime = NodePath("../..")
 slime_body = NodePath("../../SlimeBody")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -53.0
+offset_top = 16.0
+offset_right = 62.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_757bf")
+theme_override_font_sizes/font_size = 32
+text = "1000|1000"
+horizontal_alignment = 1
+vertical_alignment = 1

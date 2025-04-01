@@ -12,8 +12,16 @@ extends CharacterBody2D
 #region Engine
 func _ready() -> void:
 	assert(_resource != null, "SlimeResource is not set in Slime")
-	health_component._max_health = _resource.health
+	var player_lvl = 0;
+	if (target):
+		player_lvl = (target as Player)._experience_component.get_current_level()
+	health_component._max_health = roundi(_resource.health + (player_lvl * 1.1))
+	health_component._current_health = health_component._max_health
 	_update_appearance()
+
+
+func _process(delta: float) -> void:
+	$Label.text = "%s|%s" % [health_component.get_current_health(), health_component.get_max_health()]
 #endregion
 
 
