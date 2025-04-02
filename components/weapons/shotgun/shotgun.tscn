@@ -25,12 +25,11 @@ position = Vector2(40, 0)
 
 [node name="Shotgun" type="Sprite2D" parent="WeaponPivot"]
 unique_name_in_owner = true
-scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_pslnx")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Shotgun"]
 unique_name_in_owner = true
-position = Vector2(270, -58)
+position = Vector2(66, -18)
 
 [node name="CTimer" type="Node" parent="."]
 unique_name_in_owner = true

@@ -30,10 +30,10 @@ func _process(delta: float) -> void:
 	var abs_rot = abs(int(rotation_degrees) % 360)
 	if (abs_rot >= 90 and abs_rot <= 270): 
 		_pistol_sprite.flip_v = true
-		_shooting_point.position.y = 58.0
+		_shooting_point.position.y = 18.0
 	else:
 		_pistol_sprite.flip_v = false
-		_shooting_point.position.y = -58.0
+		_shooting_point.position.y = -18.0
 	
 	rotate(_angle * delta * ROTATION_SPEED * GlobalTimer.get_factor())
 
