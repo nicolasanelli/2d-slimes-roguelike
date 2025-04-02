@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ShotgunResource" load_steps=3 format=3 uid="uid://do4aet1p2ynd7"]
+
+[ext_resource type="Script" uid="uid://c16c65mkpq1gt" path="res://data/weapons/shotgun/shotgun_resource.gd" id="1_ravp5"]
+[ext_resource type="Texture2D" uid="uid://doy3enyqs71dr" path="res://components/weapons/shotgun/shotgun.png" id="2_toafq"]
+
+[resource]
+script = ExtResource("1_ravp5")
+bullets = 11
+distance = 750
+damage = 3
+attack_speed = 1.2
+positions = Array[float]([-30.0, -24.0, -18.0, -12.0, -6.0, 0.0, 6.0, 12.0, 18.0, 24.0, 30.0])
+rarity = 5
+is_special = true
+texture = ExtResource("2_toafq")
+item_rotation_degree = 0.0
+metadata/_custom_type_script = "uid://c16c65mkpq1gt"

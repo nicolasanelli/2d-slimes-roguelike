@@ -5,16 +5,26 @@ extends Node2D
 @export var _player: Player
 @onready var deck_manager: DeckManager = $DeckManager
 @onready var _canvas_layer: CanvasLayer = %CanvasLayer
+@onready var _skip_button: Button = $CanvasLayer/ColorRect/SkipButton
+
 
 var displayed_cards: Array[DeckCard];
 
 func _ready() -> void:
 	assert(_player != null, "Player must be set in CardManager")
+	_skip_button.pressed.connect(_on_skip_button)
 	CommandDispatcher.card_picked.connect(_on_card_picked)
 
 
 func _process(_delta: float) -> void:
 	_canvas_layer.visible = visible
+
+
+func _on_skip_button() -> void:
+	_remove_all_cards()
+	visible = false
+	CommandDispatcher.card_executed.emit()
+	
 
 func _on_card_picked(card: ActionCard) -> void:
 	card.execute(_player)
@@ -40,7 +50,6 @@ func _add_cards() -> void:
 func _remove_selected_card(card: ActionCard) -> void:
 	var result = displayed_cards.filter(func(el): return el.card == card)
 	displayed_cards.erase(result[0])
-	#card.queue_free()
 
 func _remove_all_cards() -> void:
 	for n in displayed_cards:

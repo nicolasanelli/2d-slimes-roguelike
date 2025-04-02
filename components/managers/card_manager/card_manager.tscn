@@ -32,24 +32,21 @@ offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-visible = false
-offset_left = 29.0
-offset_top = 22.0
-offset_right = 296.0
-offset_bottom = 114.0
-text = "Add Card"
-
-[node name="Button2" type="Button" parent="CanvasLayer"]
-visible = false
-offset_left = 31.0
-offset_top = 151.0
-offset_right = 298.0
-offset_bottom = 243.0
-text = "Upgrade Card"
+[node name="SkipButton" type="Button" parent="CanvasLayer/ColorRect"]
+custom_minimum_size = Vector2(290, 70)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -281.0
+offset_right = 145.0
+offset_bottom = -211.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SKIP"
 
 [node name="DeckManager" type="Node" parent="."]
 script = ExtResource("2_bnsw7")
-
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_add_card"]
-[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_add_card2"]

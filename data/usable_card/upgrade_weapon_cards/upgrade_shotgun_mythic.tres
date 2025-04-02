@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeWeaponCardResource" load_steps=4 format=3 uid="uid://cevetsbu1hctq"]
+
+[ext_resource type="Resource" uid="uid://do4aet1p2ynd7" path="res://data/weapons/shotgun/006_mythic_shotgun.tres" id="1_mwbys"]
+[ext_resource type="Script" uid="uid://cyqhmso2mbxyb" path="res://data/usable_card/upgrade_weapon_cards/upgrade_weapon_card_resource.gd" id="2_2lvme"]
+[ext_resource type="Texture2D" uid="uid://doy3enyqs71dr" path="res://components/weapons/shotgun/shotgun.png" id="3_2lvme"]
+
+[resource]
+script = ExtResource("2_2lvme")
+weapon_name = "shotgun"
+resource = ExtResource("1_mwbys")
+name = "Shotgun"
+description = "Evolui sua shotgun para mítico"
+color = Color(0.529412, 0.807843, 0.921569, 1)
+texture = ExtResource("3_2lvme")
+metadata/_custom_type_script = "uid://cyqhmso2mbxyb"

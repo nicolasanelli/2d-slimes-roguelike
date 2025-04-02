@@ -20,7 +20,7 @@ func _ready() -> void:
 	_update_appearance()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Label.text = "%s|%s" % [health_component.get_current_health(), health_component.get_max_health()]
 #endregion
 

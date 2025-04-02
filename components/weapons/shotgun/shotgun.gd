@@ -1,23 +1,23 @@
-class_name Pistol 
+class_name Shotgun 
 extends Node2D
 
 
-var _bullet_component = preload("res://components/weapons/pistol/bullet/bullet.tscn")
-var _bullet_special_component = preload("res://components/weapons/pistol/bullet_special/bullet_special.tscn")
+var _bullet_component = preload("res://components/weapons/shotgun/shotgun_bullet/shotgun_bullet.tscn")
 
 
 @onready var _area: Area2D = %Area2D
-@onready var _pistol_sprite: Sprite2D = %Pistol
+@onready var _pistol_sprite: Sprite2D = %Shotgun
 @onready var _shooting_point: Marker2D = %ShootingPoint
 @onready var _timer: CTimer = $CTimer
 
 @export var _disabled: bool = false
 
 
-var _current_resource: PistolResource:
+var _current_resource: ShotgunResource:
 	set(value):
 		_current_resource = value
 		_configure_timer()
+
 
 const ROTATION_SPEED = 25
 var _angle = 0
@@ -35,10 +35,10 @@ func _process(delta: float) -> void:
 	var abs_rot = abs(int(rotation_degrees) % 360)
 	if (abs_rot >= 90 and abs_rot <= 270): 
 		_pistol_sprite.flip_v = true
-		_shooting_point.position.y = 11.0
+		_shooting_point.position.y = 58.0
 	else:
 		_pistol_sprite.flip_v = false
-		_shooting_point.position.y = -11.0
+		_shooting_point.position.y = -58.0
 	
 	rotate(_angle * delta * ROTATION_SPEED * GlobalTimer.get_factor())
 
@@ -54,6 +54,10 @@ func _physics_process(_delta: float) -> void:
 		var target = get_global_mouse_position()
 		_angle = get_angle_to(target)
 #endregion
+
+
+func upgrade(resource: BaseWeaponResource) -> void:
+	_current_resource = resource
 
 
 #region Timer
@@ -72,24 +76,25 @@ func _on_timer_timeout() -> void:
 #endregion
 
 
-func upgrade(resource: BaseWeaponResource) -> void:
-	_current_resource = resource
-
 func shoot() -> void:
+	var bullets: Array = []
+	
 	for n in range(_current_resource.bullets):
 		if Debugger.instance:
 			Debugger.instance.increaseBulletsShooted()
 		
-		var bullet
-		if _current_resource.is_special:
-			bullet = _bullet_special_component.instantiate()
-		else:
-			bullet = _bullet_component.instantiate()
-		
+		var bullet = (_bullet_component.instantiate() as ShotgunBullet)
 		bullet.global_position = _shooting_point.global_position
-		bullet.global_rotation = _shooting_point.global_rotation
-		
 		bullet.set_damage(_current_resource.damage)
+		bullet.set_max_range(_current_resource.distance)
+		if _current_resource.is_special:
+			bullet.set_as_special()
 		
-		_shooting_point.add_child(bullet)
-		await get_tree().create_timer(0.03).timeout
+		bullets.push_back(bullet)
+	
+	for n in range(_current_resource.positions.size()):
+		var degree = _current_resource.positions[n]
+		bullets[n].global_rotation = _shooting_point.global_rotation + deg_to_rad(degree)
+	
+	for n in bullets:
+		_shooting_point.add_child(n)

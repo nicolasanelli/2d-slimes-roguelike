@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeWeaponCardResource" load_steps=4 format=3 uid="uid://rl81c85nvbpe"]
+
+[ext_resource type="Resource" uid="uid://conwrg4mxf4hy" path="res://data/weapons/shotgun/003_rare_shotgun.tres" id="1_tjxca"]
+[ext_resource type="Script" uid="uid://cyqhmso2mbxyb" path="res://data/usable_card/upgrade_weapon_cards/upgrade_weapon_card_resource.gd" id="2_2pl4a"]
+[ext_resource type="Texture2D" uid="uid://doy3enyqs71dr" path="res://components/weapons/shotgun/shotgun.png" id="3_2pl4a"]
+
+[resource]
+script = ExtResource("2_2pl4a")
+weapon_name = "shotgun"
+resource = ExtResource("1_tjxca")
+name = "Shotgun"
+description = "Evolui sua shotgun para raro"
+color = Color(0.117647, 0.564706, 1, 1)
+texture = ExtResource("3_2pl4a")
+metadata/_custom_type_script = "uid://cyqhmso2mbxyb"

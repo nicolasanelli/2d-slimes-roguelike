@@ -16,6 +16,14 @@ var options = {
 		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_pistol_legendary.tres"),
 		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_pistol_mythic.tres"),
 	],
+	"shotgun": [
+		preload("res://data/usable_card/add_weapon_cards/add_shotgun_card.tres"),
+		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_shotgun_uncommon.tres"),
+		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_shotgun_rare.tres"),
+		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_shotgun_epic.tres"),
+		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_shotgun_legendary.tres"),
+		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_shotgun_mythic.tres"),
+	],
 	"csaw": [
 		preload("res://data/usable_card/add_weapon_cards/add_csaw_card.tres"),
 		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_csaw_uncommon.tres"),
@@ -30,7 +38,7 @@ var options = {
 }
 
 
-var consumable_keys = ["gun", "csaw"]
+var consumable_keys = ["gun", "shotgun", "csaw"]
 
 
 func pick_cards(quantity: int) -> Array[DeckCard]:

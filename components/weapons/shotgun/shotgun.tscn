@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmluedidyva3"]
+
+[ext_resource type="Script" uid="uid://djg88mxsixles" path="res://components/weapons/shotgun/shotgun.gd" id="1_mrma2"]
+[ext_resource type="Texture2D" uid="uid://doy3enyqs71dr" path="res://components/weapons/shotgun/shotgun.png" id="1_pslnx"]
+[ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="2_mrma2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0k0c"]
+radius = 561.001
+
+[node name="Shotgun" type="Node2D" groups=["Weapons"]]
+script = ExtResource("1_mrma2")
+metadata/WeaponName = "shotgun"
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_u0k0c")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+position = Vector2(40, 0)
+
+[node name="Shotgun" type="Sprite2D" parent="WeaponPivot"]
+unique_name_in_owner = true
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_pslnx")
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Shotgun"]
+unique_name_in_owner = true
+position = Vector2(270, -58)
+
+[node name="CTimer" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_mrma2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
