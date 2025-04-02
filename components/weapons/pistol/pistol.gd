@@ -26,11 +26,6 @@ var _angle = 0
 func _ready() -> void:
 	_configure_timer()
 
-var autoaim = Util.auto_aim()
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("U_key"):
-		autoaim = !autoaim
-
 func _process(delta: float) -> void:
 	var abs_rot = abs(int(rotation_degrees) % 360)
 	if (abs_rot >= 90 and abs_rot <= 270): 
@@ -43,7 +38,7 @@ func _process(delta: float) -> void:
 	rotate(_angle * delta * ROTATION_SPEED * GlobalTimer.get_factor())
 
 func _physics_process(_delta: float) -> void:
-	if (autoaim):
+	if (Util.auto_aim()):
 		var enemies_in_range: Array[Node2D] = _area.get_overlapping_bodies()
 		if enemies_in_range.size() > 0:
 			var target = enemies_in_range.front()

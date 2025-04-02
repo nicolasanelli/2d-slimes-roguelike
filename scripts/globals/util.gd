@@ -1,12 +1,12 @@
 extends Node
 
 
-var force_mobile = false
-var auto_aim = false
+var _force_mobile = false
+var _auto_aim = false
 
 func is_mobile() -> bool:
-	if force_mobile: return true
+	if _force_mobile: return true
 	return OS.has_feature("web_android") or OS.has_feature("web_ios")
 
-func auto_aim() -> bool
-	return auto_aim
+func auto_aim() -> bool:
+	return _auto_aim || is_mobile()
