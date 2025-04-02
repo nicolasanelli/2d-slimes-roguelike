@@ -8,4 +8,7 @@ func get_movement() -> Vector2:
 
 
 func is_movement() -> bool:
+	if Util.is_mobile():
+		return Joystick.instance.get_vector() != Vector2.ZERO
+		
 	return Input.get_vector("move_left", "move_right", "move_up", "move_down") != Vector2.ZERO

@@ -13,10 +13,10 @@ anchor_bottom = 1.0
 offset_top = -356.0
 offset_right = 356.0
 grow_vertical = 0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
 [node name="Control" type="Control" parent="MarginContainer"]
 custom_minimum_size = Vector2(356, 356)
