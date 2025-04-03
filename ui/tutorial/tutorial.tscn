@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccawvsvbkpl7g"]
+
+[ext_resource type="Script" uid="uid://lkit5icrqvis" path="res://ui/tutorial/tutorial.gd" id="1_3nh40"]
+[ext_resource type="Texture2D" uid="uid://y02ypl1ppcvw" path="res://assets/images/keyboard_w.png" id="1_sqcm7"]
+[ext_resource type="Texture2D" uid="uid://b8nugftuipsji" path="res://assets/images/keyboard_a.png" id="2_3nh40"]
+[ext_resource type="Texture2D" uid="uid://dxd7hmrl5xn3h" path="res://assets/images/keyboard_s.png" id="3_xpy58"]
+[ext_resource type="Texture2D" uid="uid://dl1lll100m4at" path="res://assets/images/keyboard_d.png" id="4_aw2cu"]
+[ext_resource type="Texture2D" uid="uid://dgyntsk6u3tiq" path="res://assets/images/mouse_move.png" id="5_leiwb"]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_3nh40")
+
+[node name="KeyboardW" type="Sprite2D" parent="."]
+position = Vector2(176, 65)
+texture = ExtResource("1_sqcm7")
+metadata/_edit_group_ = true
+
+[node name="KeyboardA" type="Sprite2D" parent="."]
+position = Vector2(64, 177)
+texture = ExtResource("2_3nh40")
+metadata/_edit_group_ = true
+
+[node name="KeyboardS" type="Sprite2D" parent="."]
+position = Vector2(176, 177)
+texture = ExtResource("3_xpy58")
+metadata/_edit_group_ = true
+
+[node name="KeyboardD" type="Sprite2D" parent="."]
+position = Vector2(288, 177)
+texture = ExtResource("4_aw2cu")
+metadata/_edit_group_ = true
+
+[node name="MouseMove" type="Sprite2D" parent="."]
+position = Vector2(524, 177)
+texture = ExtResource("5_leiwb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 116.0
+offset_top = 249.0
+offset_right = 242.0
+offset_bottom = 287.0
+text = "TO MOVE"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 477.0
+offset_top = 249.0
+offset_right = 603.0
+offset_bottom = 287.0
+text = "TO AIM"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -347.0
+offset_top = -186.0
+offset_right = -149.0
+offset_bottom = -107.0
+text = "TAKE XP
+TO LEVEL UP"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
