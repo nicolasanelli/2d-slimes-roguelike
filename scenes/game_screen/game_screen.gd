@@ -11,13 +11,18 @@ enum GameState {
 }
 
 var _current_state: GameState = GameState.RUNNING
+var _should_pick_card_times = 0
 
 func _ready() -> void:
+	GlobalTimer.set_target_factor(1)
 	_connect_signals()
 
 func _process(_delta: float) -> void:
 	if _current_state == GameState.RUNNING:
 		_card_manager.visible = false
+		
+		if _should_pick_card_times > 0:
+			_pick_card()
 
 func _input(_event: InputEvent) -> void:
 	if _event.is_action_pressed("Pause"):
@@ -76,9 +81,15 @@ func _on_player_died() -> void:
 
 
 func _on_player_leveled() -> void:
+	_should_pick_card_times += 1
+
+
+func _pick_card() -> void:
+	_should_pick_card_times = max(0, _should_pick_card_times-1)
+	
 	_transition(GameState.PICKING)
 	_card_manager.display_cards()
-
+	
 
 func _on_card_executed() -> void:
 	_transition(GameState.RUNNING)
