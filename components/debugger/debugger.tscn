@@ -22,19 +22,6 @@ theme_override_constants/margin_bottom = 24
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 
-[node name="SawInfo" type="Label" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "Sail level: -1"
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="PistolInfo" type="Label" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "Pistol level: -1"
-
 [node name="MarginContainer2" type="MarginContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 8
@@ -69,6 +56,19 @@ text = "Player (%s, %s)"
 layout_mode = 2
 text = "Player XP: %s"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Add100XPButton" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+100 XP"
+
+[node name="Add1000XPButton" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+1000 XP"
+
 [node name="MarginContainer4" type="MarginContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 8
@@ -95,6 +95,14 @@ text = "1"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="GameOver" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "GameOver"
 
 [node name="Timer" type="Timer" parent="Control"]
 process_callback = 0

@@ -13,12 +13,6 @@ func _init() -> void:
 
 @export var _player: Player
 
-var _saw: Node2D
-@onready var _saw_info: Label = $Control/VBoxContainer/SawInfo
-
-var _pistol: Node2D
-@onready var _pistol_info: Label = $Control/VBoxContainer/PistolInfo
-
 @onready var _label_ms: Label = $Control/VBoxContainer/LabelMS
 var _mob_spawned: int = 0
 @onready var _label_mk: Label = $Control/VBoxContainer/LabelMK
@@ -30,11 +24,16 @@ var _bullets_shooted: int = 0
 @onready var _label_pp : Label = $Control/VBoxContainer/LabelPlayerPos
 @onready var _label_xp : Label = $Control/VBoxContainer/LabelPlayersXP
 
+@onready var _add_100_xp: Button = $Control/VBoxContainer/HBoxContainer/Add100XPButton
+@onready var _add_1000_xp: Button = $Control/VBoxContainer/HBoxContainer/Add1000XPButton
+
 @onready var _label_sf : Label = $Control/VBoxContainer/LabelSF
 
 @onready var _increase_sf: Button = $Control/VBoxContainer/HBoxContainer3/Increase
 @onready var _reset_sf: Button = $Control/VBoxContainer/HBoxContainer3/Reset
 @onready var _decrease_sf: Button = $Control/VBoxContainer/HBoxContainer3/Decrease
+
+@onready var _game_over: Button = $Control/VBoxContainer/GameOver
 
 @onready var _timer : Timer = $Control/Timer
 @onready var _label_timer : Label = $Control/Timer/Label
@@ -43,11 +42,17 @@ var _bullets_shooted: int = 0
 @onready var _c_label_timer : Label = $Control/CustomTimer/Label
 @onready var _label_fps : Label = $FPS
 
+var factor = 1;
+
 func _ready() -> void:
 	assert(_player != null, "Player is not set in Debugger")
+	factor = GlobalTimer.get_factor()
 	_increase_sf.pressed.connect(_on_increase_sf)
 	_reset_sf.pressed.connect(_on_reset_sf)
 	_decrease_sf.pressed.connect(_on_decrease_sf)
+	_add_100_xp.pressed.connect(_on_add_100_xp)
+	_add_1000_xp.pressed.connect(_on_add_1000_xp)
+	_game_over.pressed.connect(_on_game_over)
 
 
 func _input(event: InputEvent) -> void:
@@ -56,10 +61,6 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	if _saw:
-		_saw_info.text = "Sail level: %s" % _saw._current_resource.get_rarity()
-	if _pistol:
-		_pistol_info.text = "Pistol level: %s" % _pistol._current_resource.get_rarity()
 	_label_ms.text = "Monster spawned: %s" % _mob_spawned
 	_label_mk.text = "Monster killed: %s" % _mob_killed
 	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
@@ -75,16 +76,24 @@ func _process(_delta: float) -> void:
 
 
 func _on_increase_sf() -> void:
-	var factor = GlobalTimer.get_factor()
-	GlobalTimer.set_target_factor(factor + 0.25, 0.3)
+	factor += + 0.25
+	GlobalTimer.set_target_factor(factor, 0.3)
 
 func _on_reset_sf() -> void:
 	GlobalTimer.set_target_factor(1, 0.3)
 
 func _on_decrease_sf() -> void:
-	var factor = GlobalTimer.get_factor()
-	GlobalTimer.set_target_factor(factor - 0.25, 0.3)
+	factor -= + 0.25
+	GlobalTimer.set_target_factor(factor, 0.3)
 
+func _on_add_100_xp() -> void:
+	_player._experience_component.add_experience(100)
+	
+func _on_add_1000_xp() -> void:
+	_player._experience_component.add_experience(1000)
+	
+func _on_game_over() -> void:
+	_player._health_component.damage(1000)
 
 func increaseMobSpawned() -> void:
 	_mob_spawned += 1
