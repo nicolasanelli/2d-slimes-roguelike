@@ -7,7 +7,7 @@ var modulate_a = 1
 func _ready() -> void:
 	timer.timeout.connect(_on_timeout)
 
-func _process(delta):
+func _process(_delta):
 	if Engine.get_frames_drawn() % 30 == 0:
 		self.modulate.a = modulate_a
 		if (modulate_a == 1):

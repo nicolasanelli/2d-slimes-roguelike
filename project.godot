@@ -75,7 +75,7 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="2d-slime-roguelike"
-config/version="0.0.7-prototype"
+config/version="0.0.8-prototype"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60

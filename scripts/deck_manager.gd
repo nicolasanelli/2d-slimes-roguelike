@@ -7,6 +7,7 @@ var upgrade_weapon_ps = preload("res://components/cards/upgrade_weapon_card/upgr
 var heal_ps = preload("res://components/cards/heal_card/heal_card.tscn")
 var do_nothing_ps = preload("res://components/cards/do_nothing_card/do_nothing_card.tscn")
 
+
 var options = {
 	"gun": [
 		preload("res://data/usable_card/add_weapon_cards/add_pistol_card.tres"),
@@ -37,7 +38,6 @@ var options = {
 	]
 }
 
-
 var consumable_keys = ["gun", "shotgun", "csaw"]
 
 
@@ -57,12 +57,17 @@ func pick_cards(quantity: int) -> Array[DeckCard]:
 	
 	return deck_cards
 
-
+var first_pickup = true
 func _pick_unique_random_keys(quantity: int) -> Array:
+	if first_pickup: 
+		first_pickup = false;
+		return ["gun", "shotgun", "csaw"]
+	
 	var keys_available = options.keys()
 	keys_available.shuffle()
 	var keys = keys_available.slice(0, quantity)
 	return keys
+
 
 func pick_card(key: String) -> DeckCard:
 	
