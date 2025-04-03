@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://y4gdhd6wpdd8"
-path="res://.godot/imported/SmallHandle.png-b38b5abf62a4447541cd29ff9285161c.ctex"
+path="res://.godot/imported/SmallHandle.png-4b6e0f6586fdf033f20c0e9334df7270.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/joystick/SmallHandle.png"
-dest_files=["res://.godot/imported/SmallHandle.png-b38b5abf62a4447541cd29ff9285161c.ctex"]
+source_file="res://ui/mobile_game_layer/joystick/SmallHandle.png"
+dest_files=["res://.godot/imported/SmallHandle.png-4b6e0f6586fdf033f20c0e9334df7270.ctex"]
 
 [params]
 

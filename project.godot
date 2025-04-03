@@ -119,7 +119,7 @@ Weapons="Can be used in weapon inventory"
 
 [gui]
 
-theme/custom="res://ui/theme/game_theme.tres"
+theme/custom="res://ui/theme/default.tres"
 
 [input]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dpw340v5y6ffp"
-path="res://.godot/imported/Nunito-Bold.ttf-ea577bde88054e7171946aa00bea39db.fontdata"
+uid="uid://dou1mq1a2um30"
+path="res://.godot/imported/monogram-extended.ttf-d0e25f0152286e72083f4de361724351.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/nunito/Nunito-Bold.ttf"
-dest_files=["res://.godot/imported/Nunito-Bold.ttf-ea577bde88054e7171946aa00bea39db.fontdata"]
+source_file="res://assets/fonts/monogram-extended.ttf"
+dest_files=["res://.godot/imported/monogram-extended.ttf-d0e25f0152286e72083f4de361724351.fontdata"]
 
 [params]
 
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
-subpixel_positioning=0
+subpixel_positioning=1
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

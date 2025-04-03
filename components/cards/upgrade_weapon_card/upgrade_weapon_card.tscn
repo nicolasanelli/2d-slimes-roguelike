@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="2_tkjrx"]
 [ext_resource type="Script" uid="uid://d50ghj8p312f" path="res://components/cards/upgrade_weapon_card/upgrade_weapon_card.gd" id="3_ov1q6"]
 
+
 [node name="UpgradeCard" type="Control"]
 custom_minimum_size = Vector2(300, 420)
 layout_mode = 3

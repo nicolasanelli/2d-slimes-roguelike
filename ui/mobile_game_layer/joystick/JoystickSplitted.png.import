@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cppig6m1h1nx0"
-path="res://.godot/imported/JoystickSplitted.png-e60027021810917090bc8433fde2a3ea.ctex"
+path="res://.godot/imported/JoystickSplitted.png-5dbf449f65610b8fe486de818fa6b533.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/joystick/JoystickSplitted.png"
-dest_files=["res://.godot/imported/JoystickSplitted.png-e60027021810917090bc8433fde2a3ea.ctex"]
+source_file="res://ui/mobile_game_layer/joystick/JoystickSplitted.png"
+dest_files=["res://.godot/imported/JoystickSplitted.png-5dbf449f65610b8fe486de818fa6b533.ctex"]
 
 [params]
 

@@ -43,10 +43,10 @@ offset_top = 127.0
 offset_right = 523.0
 offset_bottom = 373.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.975206, 0.975206, 0.975206, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 180
+theme_override_font_sizes/font_size = 240
 text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ReplayButton" type="Button" parent="GameOverScreen"]
 unique_name_in_owner = true
@@ -62,7 +62,7 @@ offset_right = 690.0
 offset_bottom = 345.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 96
 text = "Replay"
 
 [node name="ExitButton" type="Button" parent="GameOverScreen"]
@@ -79,7 +79,7 @@ offset_right = -139.0
 offset_bottom = 349.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 96
 text = "Menu"
 
 [node name="Mobs" type="Node2D" parent="."]

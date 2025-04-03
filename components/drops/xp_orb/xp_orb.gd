@@ -33,6 +33,8 @@ func _physics_process(_delta: float) -> void:
 
 func set_experience_value(value: int) -> void:
 	_experience_value = value
+	if (_experience_value > 20):
+		$Sprite2D.modulate = Color(0.044, 0.0, 1.0)
 
 
 func set_target_global_position(target: Vector2) -> void:

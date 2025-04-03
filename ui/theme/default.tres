@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://w8p0of2trgs4"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://w8p0of2trgs4"]
 
-[ext_resource type="FontFile" uid="uid://8fixr5nruedc" path="res://assets/fonts/nunito/Nunito-Regular.ttf" id="1_e4cfx"]
+[ext_resource type="FontFile" uid="uid://dou1mq1a2um30" path="res://assets/fonts/monogram-extended.ttf" id="1_v71op"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40em3"]
 bg_color = Color(1, 1, 1, 1)
@@ -13,6 +13,20 @@ corner_radius_top_left = 33
 corner_radius_top_right = 33
 corner_radius_bottom_right = 33
 corner_radius_bottom_left = 33
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v71op"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f70x8"]
+bg_color = Color(1, 0.831373, 0.231373, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jblu2"]
 bg_color = Color(1, 1, 1, 1)
@@ -28,13 +42,18 @@ corner_radius_bottom_left = 1
 corner_detail = 7
 
 [resource]
+default_font = ExtResource("1_v71op")
+default_font_size = 48
 CardDescriptionLabel/base_type = &"Label"
+CardDescriptionLabel/colors/font_color = Color(0, 0, 0, 1)
 CardDescriptionLabel/font_sizes/font_size = 25
 CardPanelContainer/base_type = &"PanelContainer"
 CardPanelContainer/styles/panel = SubResource("StyleBoxFlat_40em3")
 CardTitleLabel/base_type = &"Label"
+CardTitleLabel/colors/font_color = Color(0, 0, 0, 1)
 CardTitleLabel/font_sizes/font_size = 44
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/fonts/font = ExtResource("1_e4cfx")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_v71op")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_f70x8")
 ThumbnailPanel/base_type = &"Panel"
 ThumbnailPanel/styles/panel = SubResource("StyleBoxFlat_jblu2")

@@ -3,10 +3,10 @@ class_name Card extends Button
 @export var _resource: UsableCardResource
 
 
-@onready var _panel_container: PanelContainer = %PanelContainer
-@onready var _name: Label = %Name
-@onready var _texture_rect: TextureRect = %TextureRect
-@onready var _description: Label = %Description
+@onready var _panel_container: PanelContainer = %CardPanelContainer
+@onready var _title: Label = %CardTitleLabel
+@onready var _sprite: TextureRect = %Sprite
+@onready var _description: Label = %CardDescriptionLabel
 
 
 func _ready() -> void:
@@ -17,8 +17,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	assert(_resource != null, "Card has no resource")
 	_panel_container.self_modulate = _resource.color
-	_name.text = _resource.name
-	_texture_rect.texture = _resource.texture
+	_title.text = _resource.name
+	_sprite.texture = _resource.texture
 	_description.text = _resource.description
 
 
