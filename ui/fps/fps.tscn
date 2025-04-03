@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://vuveqlahfvc1"]
+
+[ext_resource type="Script" uid="uid://c757vcnyylb7i" path="res://ui/fps/fps.gd" id="1_1euy8"]
+
+[node name="FPS" type="Label"]
+offset_right = 200.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 36
+text = "FPS: %s"
+vertical_alignment = 1
+script = ExtResource("1_1euy8")

@@ -138,5 +138,5 @@ func spawn_slime() -> void:
 func spawn_enemy(enemy: Slime) -> void:
 	_spawn_location.progress_ratio = randf()
 	enemy.global_position = _spawn_location.global_position
-	Debugger.instance.increaseMobSpawned()
+	Statistics.add_spawned_mob()
 	_enemies.add_child(enemy, true)

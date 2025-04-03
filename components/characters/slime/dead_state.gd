@@ -24,8 +24,7 @@ func _on_physics_process(_delta : float) -> void:
 	slime.add_sibling(xp)
 	
 	slime.queue_free()
-	if Debugger != null and Debugger.instance != null:
-		Debugger.instance.increaseMobKilled()
+	Statistics.add_mob_killed()
 
 
 func _on_next_transitions() -> void:

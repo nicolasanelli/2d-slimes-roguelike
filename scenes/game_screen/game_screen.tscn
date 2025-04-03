@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2odse7mabaid"]
+[gd_scene load_steps=16 format=3 uid="uid://c2odse7mabaid"]
 
 [ext_resource type="Script" uid="uid://bshdc04pc71lm" path="res://scenes/game_screen/game_screen.gd" id="1_ump46"]
 [ext_resource type="PackedScene" uid="uid://chjqobojluvru" path="res://components/managers/chunk_manager/chunk_manager.tscn" id="2_or40j"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://e3g0wva5rfyt" path="res://ui/experience_bar/experience_bar.tscn" id="7_pyesm"]
 [ext_resource type="PackedScene" uid="uid://3ygp6c1xxh62" path="res://ui/level/level.tscn" id="8_480ef"]
 [ext_resource type="PackedScene" uid="uid://co4a4370gjh77" path="res://ui/stats_bar/stats_bar.tscn" id="9_dxirr"]
+[ext_resource type="PackedScene" uid="uid://bf2jvoilt8d0m" path="res://ui/timer/timer.tscn" id="10_cdy4g"]
+[ext_resource type="PackedScene" uid="uid://vuveqlahfvc1" path="res://ui/fps/fps.tscn" id="11_owv5r"]
 [ext_resource type="PackedScene" uid="uid://bhipxqvbyxbhf" path="res://ui/mobile_game_layer/mobile_game_layer.tscn" id="12_36sd6"]
 [ext_resource type="PackedScene" uid="uid://ccawvsvbkpl7g" path="res://ui/tutorial/tutorial.tscn" id="13_im307"]
 [ext_resource type="PackedScene" uid="uid://dvrwfpndahhq1" path="res://components/debugger/debugger.tscn" id="13_w51sc"]
@@ -82,40 +84,17 @@ offset_bottom = -122.0
 grow_vertical = 0
 _player = NodePath("../../Player")
 
-[node name="Control" type="Control" parent="GameUI"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Timer" parent="GameUI" instance=ExtResource("10_cdy4g")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
 grow_horizontal = 2
-grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="GameUI/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.498039)
-
-[node name="MarginContainer" type="MarginContainer" parent="GameUI/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 250
-theme_override_constants/margin_top = 200
-theme_override_constants/margin_right = 250
-theme_override_constants/margin_bottom = 250
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GameUI/Control/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 1
+[node name="FPS" parent="GameUI" instance=ExtResource("11_owv5r")]
+offset_left = 5.0
+offset_right = 205.0
 
 [node name="GameUIMobile" parent="." instance=ExtResource("12_36sd6")]
 visible = false

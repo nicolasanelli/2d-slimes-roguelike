@@ -72,8 +72,7 @@ func upgrade(resource: BaseWeaponResource) -> void:
 
 func shoot() -> void:
 	for n in range(_current_resource.bullets):
-		if Debugger.instance:
-			Debugger.instance.increaseBulletsShooted()
+		Statistics.add_bullet_shooted()
 		
 		var bullet
 		if _current_resource.is_special:

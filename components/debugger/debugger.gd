@@ -14,12 +14,9 @@ func _init() -> void:
 @export var _player: Player
 
 @onready var _label_ms: Label = $Control/VBoxContainer/LabelMS
-var _mob_spawned: int = 0
 @onready var _label_mk: Label = $Control/VBoxContainer/LabelMK
-var _mob_killed: int = 0
 @onready var _label_mc: Label = $Control/VBoxContainer/LabelMC
 @onready var _label_bs: Label = $Control/VBoxContainer/LabelBS
-var _bullets_shooted: int = 0
 
 @onready var _label_pp : Label = $Control/VBoxContainer/LabelPlayerPos
 @onready var _label_xp : Label = $Control/VBoxContainer/LabelPlayersXP
@@ -33,14 +30,14 @@ var _bullets_shooted: int = 0
 @onready var _reset_sf: Button = $Control/VBoxContainer/HBoxContainer3/Reset
 @onready var _decrease_sf: Button = $Control/VBoxContainer/HBoxContainer3/Decrease
 
+@onready var _label_te : Label = $Control/VBoxContainer/LabelTE
 @onready var _game_over: Button = $Control/VBoxContainer/GameOver
 
 @onready var _timer : Timer = $Control/Timer
-@onready var _label_timer : Label = $Control/Timer/Label
+@onready var _label_timer : Label = $Control/VBoxContainer/Timer
 
 @onready var _c_timer : Node = $Control/CustomTimer
-@onready var _c_label_timer : Label = $Control/CustomTimer/Label
-@onready var _label_fps : Label = $FPS
+@onready var _c_label_timer : Label = $Control/VBoxContainer/CTimer
 
 var factor = 1;
 
@@ -61,10 +58,10 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	_label_ms.text = "Monster spawned: %s" % _mob_spawned
-	_label_mk.text = "Monster killed: %s" % _mob_killed
-	_label_mc.text = "Monster count: %s" % (_mob_spawned - _mob_killed)
-	_label_bs.text = "Bullets shooted: %s" % _bullets_shooted
+	_label_ms.text = "Monster spawned: %s" % Statistics.get_spawned_mob()
+	_label_mk.text = "Monster killed: %s" % Statistics.get_mob_killed()
+	_label_mc.text = "Monster count: %s" % (Statistics.get_spawned_mob() - Statistics.get_mob_killed())
+	_label_bs.text = "Bullets shooted: %s" % Statistics.get_bullet_shooted()
 	_label_pp.text = "Player pos(%.2f, %.2f)" % [_player.global_position.x, _player.global_position.y]
 	_label_xp.text = "Player Level: %s" % _player.find_child("ExperienceComponent")._current_level
 	_label_timer.text = "Timer: %s" % _timer.time_left
@@ -72,34 +69,22 @@ func _process(_delta: float) -> void:
 	_label_sf.text = "Speed factor: %.3f" % GlobalTimer.get_factor()
 	_label_timer.visible = visible
 	_c_label_timer.visible = visible
-	_label_fps.text = "FPS: %s" % Engine.get_frames_per_second()
+	_label_te.text = "Time elapsed: %s" % Statistics.get_time_elapsed_as_string()
 
 
 func _on_increase_sf() -> void:
 	factor += + 0.25
 	GlobalTimer.set_target_factor(factor, 0.3)
-
 func _on_reset_sf() -> void:
-	GlobalTimer.set_target_factor(1, 0.3)
-
+	factor = 1
+	GlobalTimer.set_target_factor(1)
 func _on_decrease_sf() -> void:
 	factor -= + 0.25
 	GlobalTimer.set_target_factor(factor, 0.3)
 
 func _on_add_100_xp() -> void:
 	_player._experience_component.add_experience(100)
-	
 func _on_add_1000_xp() -> void:
 	_player._experience_component.add_experience(1000)
-	
 func _on_game_over() -> void:
 	_player._health_component.damage(1000)
-
-func increaseMobSpawned() -> void:
-	_mob_spawned += 1
-
-func increaseMobKilled() -> void:
-	_mob_killed += 1
-
-func increaseBulletsShooted() -> void:
-	_bullets_shooted += 1

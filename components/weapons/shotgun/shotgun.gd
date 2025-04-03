@@ -75,8 +75,7 @@ func shoot() -> void:
 	var bullets: Array = []
 	
 	for n in range(_current_resource.bullets):
-		if Debugger.instance:
-			Debugger.instance.increaseBulletsShooted()
+		Statistics.add_bullet_shooted()
 		
 		var bullet = (_bullet_component.instantiate() as ShotgunBullet)
 		bullet.global_position = _shooting_point.global_position

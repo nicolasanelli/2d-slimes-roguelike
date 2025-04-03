@@ -100,40 +100,29 @@ text = "+"
 layout_mode = 2
 theme_override_constants/margin_top = 15
 
+[node name="LabelTE" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Time elapsed: %.2fs"
+
 [node name="GameOver" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "GameOver"
+
+[node name="Timer" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Timer: %s"
+metadata/_edit_use_anchors_ = true
+
+[node name="CTimer" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "CTimer: %s"
 
 [node name="Timer" type="Timer" parent="Control"]
 process_callback = 0
 wait_time = 100.0
 autostart = true
 
-[node name="Label" type="Label" parent="Control/Timer"]
-offset_left = 12.0
-offset_top = 6.0
-offset_right = 107.0
-offset_bottom = 29.0
-text = "Timer: %s"
-metadata/_edit_use_anchors_ = true
-
 [node name="CustomTimer" type="Node" parent="Control"]
 script = ExtResource("2_dv1cd")
 wait_time = 100.0
 autostart = true
-
-[node name="Label" type="Label" parent="Control/CustomTimer"]
-offset_left = 10.0
-offset_top = 30.0
-offset_right = 166.0
-offset_bottom = 53.0
-text = "CTimer: %s"
-
-[node name="FPS" type="Label" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 1.0
-grow_vertical = 0
-text = "FPS: %s"
