@@ -10,4 +10,4 @@ health = 6
 speed = 200
 damage = 7.0
 experience_drop = 2
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1, 1)
