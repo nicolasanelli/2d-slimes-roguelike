@@ -41,3 +41,40 @@ Create a data directory to the new weapon at **data/weapons/new_weapon** contain
 ````
 func upgrade(resource: BaseWeaponResource) -> void:
 ````
+
+
+#### Planned Structure
+Maybe something does not match, as this is the concept idea
+````
+UsableCardResource
+    - name
+    - description
+    - color
+    - texture
+
+    AddWeaponCard
+        - weapon_component // path_to_scene
+        - position // vector2
+
+        IMPLEMENTATIONs
+        add_gun_card:
+            name: pistol
+            description: adiciona uma arma comum
+            color: grey
+            texture: pistol.png
+            weapon_component: gun.tscn
+            position Vector2(0, 34)
+
+    UpgradeWeaponCard
+        - weapon_name
+        - resource: BaseWeapon
+
+        IMPLEMENTATIONs
+        upgrade_gun_uncommon:
+            name: pistol
+            description: atualiza sua arma para incomum
+            color: light green
+            texture: pistol.png
+            weapon_name: pistol
+            resource: 002_uncommon_pistol
+````
