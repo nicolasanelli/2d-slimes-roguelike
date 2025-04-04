@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 func _configure_timer() -> void:
 	if not _timer: return
 	if _current_resource.is_special:
+		AudioManager.play_saw()
 		_timer.timeout.disconnect(_on_timer_timeout)
 		_timer.stop()
 		return;
@@ -38,11 +39,16 @@ func _configure_timer() -> void:
 	
 	if _timer.is_stopped():
 		_timer.start()
+		AudioManager.play_saw()
 		_timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout() -> void:
-	if state: _remove_all_saws()
-	else: _draw_saws()
+	if state:
+		AudioManager.stop_saw()
+		_remove_all_saws()
+	else: 
+		_draw_saws()
+		AudioManager.play_saw()
 	state = !state
 #endregion
 

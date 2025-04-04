@@ -12,6 +12,7 @@ class_name Card extends Button
 func _ready() -> void:
 	button_down.connect(highlight)
 	button_up.connect(unhighlight)
+	pressed.connect(_sfx)
 
 
 func _process(_delta: float) -> void:
@@ -21,6 +22,10 @@ func _process(_delta: float) -> void:
 	_sprite.texture = _resource.texture
 	_description.text = _resource.description
 
+
+func _sfx() -> void:
+	AudioManager.play_click()
+	
 
 func highlight() -> void:
 	modulate = Color(0.351, 0.351, 0.351)

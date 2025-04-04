@@ -16,6 +16,7 @@ var _should_pick_card_times = 0
 func _ready() -> void:
 	GlobalTimer.set_target_factor(1)
 	Statistics.reset_statistics()
+	AudioManager.stick_to(_camera)
 	_connect_signals()
 
 func _process(_delta: float) -> void:
@@ -58,6 +59,7 @@ func _transition(next_state: GameState) -> void:
 			GlobalTimer.set_target_factor(0, 2)
 		GameState.GAMEOVER:
 			Statistics.stop_timer()
+			AudioManager.stop_all_sfx()
 			Loader.load_scene(self, "res://scenes/game_over/game_over.tscn")
 		GameState.VICTORY:
 			pass

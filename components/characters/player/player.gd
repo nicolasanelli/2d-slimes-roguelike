@@ -8,14 +8,21 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	_health_component.health_depleted.connect(_on_health_depleted)
+	_health_component.damaged.connect(_on_damaged)
+	_health_component.healed.connect(_on_healed)
 	_experience_component.leveled_up.connect(_on_leveled_up)
 
 
 func _on_health_depleted() -> void:
-	## play animation, sounds, efx
+	AudioManager.play_gameover()
 	CommandDispatcher.player_died.emit()
 
+func _on_damaged() -> void:
+	AudioManager.play_hurt()
+
+func _on_healed() -> void:
+	AudioManager.play_heal()
 
 func _on_leveled_up() -> void:
-	## play animation, sound, efx
+	AudioManager.play_levelup()
 	CommandDispatcher.player_leveled.emit()

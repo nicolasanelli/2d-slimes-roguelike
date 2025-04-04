@@ -48,4 +48,5 @@ func is_already_absorbed() -> bool:
 func _absorv() -> void:
 	_absobed = true
 	xp_absorved.emit(get_instance_id(), _experience_value)
+	AudioManager.play_pickup()
 	queue_free()

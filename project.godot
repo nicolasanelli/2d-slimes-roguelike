@@ -74,7 +74,7 @@ Settings/Show_Tooltips=true
 
 [application]
 
-config/name="2d-slime-roguelike"
+config/name="Slime Roguelike"
 config/version="1.0.1"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
@@ -89,6 +89,7 @@ GlobalTimer="*res://scripts/globals/global_timer.gd"
 Loader="*res://scripts/globals/loader.gd"
 CommandDispatcher="*res://scripts/globals/command_dispatcher.gd"
 Statistics="*res://scripts/globals/statistics.gd"
+AudioManager="*res://components/managers/audio_manager/audio_manager.tscn"
 
 [display]
 

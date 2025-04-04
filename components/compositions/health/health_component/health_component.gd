@@ -2,6 +2,8 @@ class_name HealthComponent
 extends Node
 
 
+signal healed
+signal damaged
 signal health_changed
 signal health_depleted
 
@@ -34,8 +36,10 @@ func get_current_health() -> float:
 
 
 func damage(value: float) -> void:
+	damaged.emit()
 	_current_health -= value
 
 
 func heal(value: float) -> void:
+	healed.emit()
 	_current_health += value

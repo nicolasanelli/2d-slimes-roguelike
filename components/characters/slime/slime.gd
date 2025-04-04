@@ -59,3 +59,4 @@ func get_damage() -> float:
 func take_damage(amount: float = 1.0) -> void:
 	health_component.damage(amount)
 	_slime_body.play_hurt()
+	AudioManager.play_slime_squish()

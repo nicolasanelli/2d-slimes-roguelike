@@ -92,3 +92,5 @@ func shoot() -> void:
 	
 	for n in bullets:
 		_shooting_point.add_child(n)
+		
+	AudioManager.play_shotgun()

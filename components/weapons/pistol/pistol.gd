@@ -86,4 +86,6 @@ func shoot() -> void:
 		bullet.set_damage(_current_resource.damage)
 		
 		_shooting_point.add_child(bullet)
+		AudioManager.play_pistol()
+		
 		await get_tree().create_timer(0.03).timeout

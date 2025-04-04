@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://chlk0xuhs4nya"]
+[gd_scene load_steps=3 format=3 uid="uid://chlk0xuhs4nya"]
 
 [ext_resource type="PackedScene" uid="uid://bk48pihmbvji0" path="res://components/characters/player/player.tscn" id="1_rk48f"]
+[ext_resource type="PackedScene" uid="uid://gy66uxbq11u2" path="res://components/drops/xp_orb/xp_orb.tscn" id="2_q17pk"]
 
 [node name="TestScenePlayer" type="Node2D"]
 
@@ -18,3 +19,453 @@ color = Color(0.0926134, 0.275974, 0.108119, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_rk48f")]
 position = Vector2(290, 292)
+
+[node name="XpOrb" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(565, 575)
+
+[node name="XpOrb2" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(590, 588)
+
+[node name="XpOrb3" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(636, 612)
+rotation = -2.87979
+
+[node name="XpOrb4" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(682, 627)
+rotation = -2.87979
+
+[node name="XpOrb5" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(674, 562)
+rotation = -2.87979
+
+[node name="XpOrb6" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(734, 576)
+rotation = -2.87979
+
+[node name="XpOrb7" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(752, 632)
+rotation = -2.87979
+
+[node name="XpOrb8" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(703, 676)
+rotation = -2.87979
+
+[node name="XpOrb9" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(626, 669)
+rotation = -2.87979
+
+[node name="XpOrb10" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(619, 720)
+rotation = -2.87979
+
+[node name="XpOrb11" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(684, 748)
+rotation = -2.87979
+
+[node name="XpOrb12" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(751, 753)
+rotation = -2.87979
+
+[node name="XpOrb13" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(821, 714)
+rotation = -2.87979
+
+[node name="XpOrb14" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(844, 677)
+rotation = -2.87979
+
+[node name="XpOrb15" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(844, 677)
+rotation = -2.87979
+
+[node name="XpOrb16" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(829, 637)
+rotation = -2.87979
+
+[node name="XpOrb17" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(776, 676)
+rotation = -2.87979
+
+[node name="XpOrb18" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(781, 610)
+rotation = -2.87979
+
+[node name="XpOrb19" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(782, 563)
+rotation = -2.87979
+
+[node name="XpOrb20" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(734, 532)
+rotation = -2.87979
+
+[node name="XpOrb21" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(665, 516)
+rotation = -2.87979
+
+[node name="XpOrb22" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(607, 514)
+rotation = -2.87979
+
+[node name="XpOrb23" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(551, 613)
+rotation = -2.87979
+
+[node name="XpOrb24" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(502, 617)
+rotation = -2.87979
+
+[node name="XpOrb25" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(555, 667)
+rotation = -2.87979
+
+[node name="XpOrb26" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(555, 667)
+rotation = -2.87979
+
+[node name="XpOrb27" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(522, 692)
+rotation = -2.87979
+
+[node name="XpOrb28" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(522, 692)
+rotation = -2.87979
+
+[node name="XpOrb29" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(802, 785)
+rotation = -2.87979
+
+[node name="XpOrb30" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(840, 765)
+rotation = -2.87979
+
+[node name="XpOrb31" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(898, 744)
+rotation = -2.87979
+
+[node name="XpOrb32" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(903, 700)
+rotation = -2.87979
+
+[node name="XpOrb33" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(889, 665)
+rotation = -2.87979
+
+[node name="XpOrb34" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(917, 631)
+rotation = -2.87979
+
+[node name="XpOrb35" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(876, 607)
+rotation = -2.87979
+
+[node name="XpOrb36" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(933, 420)
+
+[node name="XpOrb37" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(958, 433)
+
+[node name="XpOrb38" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1004, 457)
+rotation = -2.87979
+
+[node name="XpOrb39" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1050, 472)
+rotation = -2.87979
+
+[node name="XpOrb40" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1042, 407)
+rotation = -2.87979
+
+[node name="XpOrb41" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1102, 421)
+rotation = -2.87979
+
+[node name="XpOrb42" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1120, 477)
+rotation = -2.87979
+
+[node name="XpOrb43" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1071, 521)
+rotation = -2.87979
+
+[node name="XpOrb44" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(994, 514)
+rotation = -2.87979
+
+[node name="XpOrb45" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(987, 565)
+rotation = -2.87979
+
+[node name="XpOrb46" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1052, 593)
+rotation = -2.87979
+
+[node name="XpOrb47" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1119, 598)
+rotation = -2.87979
+
+[node name="XpOrb48" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1189, 559)
+rotation = -2.87979
+
+[node name="XpOrb49" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1212, 522)
+rotation = -2.87979
+
+[node name="XpOrb50" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1212, 522)
+rotation = -2.87979
+
+[node name="XpOrb51" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1197, 482)
+rotation = -2.87979
+
+[node name="XpOrb52" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1144, 521)
+rotation = -2.87979
+
+[node name="XpOrb53" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1149, 455)
+rotation = -2.87979
+
+[node name="XpOrb54" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1150, 408)
+rotation = -2.87979
+
+[node name="XpOrb55" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1102, 377)
+rotation = -2.87979
+
+[node name="XpOrb56" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1033, 361)
+rotation = -2.87979
+
+[node name="XpOrb57" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(975, 359)
+rotation = -2.87979
+
+[node name="XpOrb58" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(919, 458)
+rotation = -2.87979
+
+[node name="XpOrb59" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(870, 462)
+rotation = -2.87979
+
+[node name="XpOrb60" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(923, 512)
+rotation = -2.87979
+
+[node name="XpOrb61" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(923, 512)
+rotation = -2.87979
+
+[node name="XpOrb62" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(890, 537)
+rotation = -2.87979
+
+[node name="XpOrb63" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(890, 537)
+rotation = -2.87979
+
+[node name="XpOrb64" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1170, 630)
+rotation = -2.87979
+
+[node name="XpOrb65" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1208, 610)
+rotation = -2.87979
+
+[node name="XpOrb66" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1266, 589)
+rotation = -2.87979
+
+[node name="XpOrb67" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1271, 545)
+rotation = -2.87979
+
+[node name="XpOrb68" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1257, 510)
+rotation = -2.87979
+
+[node name="XpOrb69" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1285, 476)
+rotation = -2.87979
+
+[node name="XpOrb70" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1244, 452)
+rotation = -2.87979
+
+[node name="XpOrb71" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1047, 763)
+
+[node name="XpOrb72" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1072, 776)
+
+[node name="XpOrb73" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1118, 800)
+rotation = -2.87979
+
+[node name="XpOrb74" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1164, 815)
+rotation = -2.87979
+
+[node name="XpOrb75" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1156, 750)
+rotation = -2.87979
+
+[node name="XpOrb76" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1216, 764)
+rotation = -2.87979
+
+[node name="XpOrb77" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1234, 820)
+rotation = -2.87979
+
+[node name="XpOrb78" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1185, 864)
+rotation = -2.87979
+
+[node name="XpOrb79" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1108, 857)
+rotation = -2.87979
+
+[node name="XpOrb80" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1101, 908)
+rotation = -2.87979
+
+[node name="XpOrb81" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1166, 936)
+rotation = -2.87979
+
+[node name="XpOrb82" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1233, 941)
+rotation = -2.87979
+
+[node name="XpOrb83" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1303, 902)
+rotation = -2.87979
+
+[node name="XpOrb84" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1326, 865)
+rotation = -2.87979
+
+[node name="XpOrb85" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1326, 865)
+rotation = -2.87979
+
+[node name="XpOrb86" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1311, 825)
+rotation = -2.87979
+
+[node name="XpOrb87" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1258, 864)
+rotation = -2.87979
+
+[node name="XpOrb88" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1263, 798)
+rotation = -2.87979
+
+[node name="XpOrb89" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1264, 751)
+rotation = -2.87979
+
+[node name="XpOrb90" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1216, 720)
+rotation = -2.87979
+
+[node name="XpOrb91" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1147, 704)
+rotation = -2.87979
+
+[node name="XpOrb92" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1089, 702)
+rotation = -2.87979
+
+[node name="XpOrb93" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1033, 801)
+rotation = -2.87979
+
+[node name="XpOrb94" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(984, 805)
+rotation = -2.87979
+
+[node name="XpOrb95" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1037, 855)
+rotation = -2.87979
+
+[node name="XpOrb96" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1037, 855)
+rotation = -2.87979
+
+[node name="XpOrb97" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1004, 880)
+rotation = -2.87979
+
+[node name="XpOrb98" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1004, 880)
+rotation = -2.87979
+
+[node name="XpOrb99" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1284, 973)
+rotation = -2.87979
+
+[node name="XpOrb100" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1322, 953)
+rotation = -2.87979
+
+[node name="XpOrb101" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1380, 932)
+rotation = -2.87979
+
+[node name="XpOrb102" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1385, 888)
+rotation = -2.87979
+
+[node name="XpOrb103" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1371, 853)
+rotation = -2.87979
+
+[node name="XpOrb104" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1399, 819)
+rotation = -2.87979
+
+[node name="XpOrb105" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1358, 795)
+rotation = -2.87979
+
+[node name="XpOrb106" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(613, 699)
+rotation = -2.87979
+
+[node name="XpOrb107" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(613, 699)
+rotation = -2.87979
+
+[node name="XpOrb108" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(893, 792)
+rotation = -2.87979
+
+[node name="XpOrb109" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(931, 772)
+rotation = -2.87979
+
+[node name="XpOrb110" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(989, 751)
+rotation = -2.87979
+
+[node name="XpOrb111" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(994, 707)
+rotation = -2.87979
+
+[node name="XpOrb112" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(980, 672)
+rotation = -2.87979
+
+[node name="XpOrb113" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(1008, 638)
+rotation = -2.87979
+
+[node name="XpOrb114" parent="." instance=ExtResource("2_q17pk")]
+position = Vector2(967, 614)
+rotation = -2.87979
