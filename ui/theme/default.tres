@@ -1,6 +1,39 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://w8p0of2trgs4"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://w8p0of2trgs4"]
 
+[ext_resource type="Texture2D" uid="uid://ca8xspj5yykd" path="res://assets/button_square_depth_line.png" id="1_h6go3"]
 [ext_resource type="FontFile" uid="uid://dou1mq1a2um30" path="res://assets/fonts/monogram-extended.ttf" id="1_v71op"]
+[ext_resource type="Texture2D" uid="uid://dyoy6lgaenfb" path="res://assets/button_square_line.png" id="2_o1gij"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_grp8e"]
+texture = ExtResource("1_h6go3")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h6go3"]
+texture = ExtResource("1_h6go3")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o1gij"]
+texture = ExtResource("1_h6go3")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dwoki"]
+texture = ExtResource("2_o1gij")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40em3"]
 bg_color = Color(1, 1, 1, 1)
@@ -51,6 +84,16 @@ corner_detail = 7
 [resource]
 default_font = ExtResource("1_v71op")
 default_font_size = 48
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.72549)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_grp8e")
+Button/styles/hover = SubResource("StyleBoxTexture_h6go3")
+Button/styles/normal = SubResource("StyleBoxTexture_o1gij")
+Button/styles/pressed = SubResource("StyleBoxTexture_dwoki")
 CardDescriptionLabel/base_type = &"Label"
 CardDescriptionLabel/colors/font_color = Color(0, 0, 0, 1)
 CardDescriptionLabel/font_sizes/font_size = 25
