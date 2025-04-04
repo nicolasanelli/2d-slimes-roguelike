@@ -10,6 +10,6 @@ weapon_component = "res://components/weapons/circular_saw/circular_saw.tscn"
 resource = ExtResource("1_t7t0c")
 position = Vector2(0, 0)
 name = "Circular Saw"
-description = "Adiciona uma serra giratória no seu inventário"
+description = "Add a rotating weapon to your inventory"
 color = Color(0.745098, 0.745098, 0.745098, 1)
 texture = ExtResource("2_k40bq")

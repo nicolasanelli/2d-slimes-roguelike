@@ -10,6 +10,6 @@ weapon_component = "res://components/weapons/pistol/pistol.tscn"
 resource = ExtResource("1_5m86f")
 position = Vector2(0, -33)
 name = "Pistol"
-description = "Adiciona uma arma comum no seu inventário"
+description = "Add a pistol to your inventory"
 color = Color(0.745098, 0.745098, 0.745098, 1)
 texture = ExtResource("2_y2w2o")

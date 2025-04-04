@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_dg7mq")
-name = "Ops!"
-description = "Essa carta não faz nada!"
+name = "Ooops!"
+description = "Unlucky! This card does nothing!"
 color = Color(0.776142, 0.784027, 0.791912, 1)
 texture = ExtResource("2_406n8")
