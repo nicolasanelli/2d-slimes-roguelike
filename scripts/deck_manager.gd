@@ -5,6 +5,7 @@ extends Node
 var add_weapon_ps = preload("res://components/cards/add_weapon_card/add_weapon_card.tscn")
 var upgrade_weapon_ps = preload("res://components/cards/upgrade_weapon_card/upgrade_weapon_card.tscn")
 var heal_ps = preload("res://components/cards/heal_card/heal_card.tscn")
+var magnet_ps = preload("res://components/cards/xp_magnet_card/xp_magnet_card.tscn")
 var do_nothing_ps = preload("res://components/cards/do_nothing_card/do_nothing_card.tscn")
 
 
@@ -35,6 +36,9 @@ var options = {
 	],
 	"heal": [
 		preload("res://data/usable_card/heal_cards/full_heal_card.tres"),
+	],
+	"xpmagnet": [
+		preload("res://data/usable_card/xp_magnet_card/xp_magnet_card.tres"),
 	]
 }
 
@@ -89,6 +93,10 @@ func pick_card(key: String) -> DeckCard:
 	
 	elif (resource is HealCardResource):
 		card = (heal_ps.instantiate() as HealCard)
+		card._resource = resource
+	
+	elif (resource is XpMagnetCardResource):
+		card = (magnet_ps.instantiate() as XpMagnetCard)
 		card._resource = resource
 	
 	return DeckCard.new(key, resource, card)

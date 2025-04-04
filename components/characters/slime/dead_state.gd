@@ -21,7 +21,7 @@ func _on_physics_process(_delta : float) -> void:
 	var xp: XpOrb = _xp_orb_componemt.instantiate()
 	xp.set_experience_value(slime._resource.experience_drop)
 	xp.global_position = slime.global_position
-	slime.add_sibling(xp)
+	DropManager.instance.spawn(xp, slime.global_position)
 	
 	slime.queue_free()
 	Statistics.add_mob_killed()

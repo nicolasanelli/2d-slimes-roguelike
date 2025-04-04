@@ -75,7 +75,7 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="Slime Roguelike"
-config/version="1.0.1"
+config/version="1.0.2"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60

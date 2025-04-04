@@ -25,6 +25,21 @@ _player = NodePath("../Player")
 
 [node name="DropManager" parent="." instance=ExtResource("3_tx48l")]
 
+[node name="XpOrb" parent="DropManager" instance=ExtResource("14_dodro")]
+position = Vector2(400, 334)
+
+[node name="XpOrb2" parent="DropManager" instance=ExtResource("14_dodro")]
+position = Vector2(415, 302)
+
+[node name="XpOrb3" parent="DropManager" instance=ExtResource("14_dodro")]
+position = Vector2(395, 371)
+
+[node name="XpOrb4" parent="DropManager" instance=ExtResource("14_dodro")]
+position = Vector2(358, 346)
+
+[node name="XpOrb5" parent="DropManager" instance=ExtResource("14_dodro")]
+position = Vector2(370, 316)
+
 [node name="CardManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("4_clbv6")]
 _player = NodePath("../Player")
 
@@ -115,23 +130,6 @@ color = Color(0.21974, 0.648788, 0.485114, 1)
 [node name="Debugger" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("13_w51sc")]
 visible = false
 _player = NodePath("../Player")
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="XpOrb" parent="Node2D" instance=ExtResource("14_dodro")]
-position = Vector2(400, 334)
-
-[node name="XpOrb2" parent="Node2D" instance=ExtResource("14_dodro")]
-position = Vector2(415, 302)
-
-[node name="XpOrb3" parent="Node2D" instance=ExtResource("14_dodro")]
-position = Vector2(395, 371)
-
-[node name="XpOrb4" parent="Node2D" instance=ExtResource("14_dodro")]
-position = Vector2(358, 346)
-
-[node name="XpOrb5" parent="Node2D" instance=ExtResource("14_dodro")]
-position = Vector2(370, 316)
 
 [node name="Tutorial" parent="." instance=ExtResource("13_im307")]
 z_index = 10

@@ -17,7 +17,9 @@ A roguelike game using free assets and Godot Engine 4.4.
 - [x] Infinite waves
 - [x] Dificulty Scale
 - [x] 60 FPS
-- [ ] Sound efx
+- [x] Sound efx
+- [ ] Pause screen
+- [ ] Music/SFX volume adjust
 - [ ] Mobile aim (currently using auto-aim)
 
 

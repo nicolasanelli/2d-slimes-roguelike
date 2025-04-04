@@ -80,17 +80,24 @@ func play_saw() -> void:
 func stop_saw() -> void:
 	saw_player.stop()
 
+var slime_squishs = 0
 func play_slime_squish() -> void:
+	if slime_squishs >= 6: return
+	
+	slime_squishs += 1
 	var audio_player := AudioStreamPlayer2D.new()
 	sfx_group.add_child(audio_player)
 	
 	audio_player.stream = slime_squish_sfx
 	audio_player.finished.connect(audio_player.queue_free)
+	audio_player.finished.connect(_on_slime_squish_end)
 	audio_player.bus = "SFX"
-	audio_player.volume_db = -5
-	audio_player.pitch_scale += randf_range(-0.15, 0.15)
+	audio_player.volume_db = -15
+	audio_player.pitch_scale += randf_range(-0.3, 0.3)
 	audio_player.play()
-	
+
+func _on_slime_squish_end() -> void:
+	slime_squishs -= 1
 
 func play_hurt() -> void:
 	hurt_player.pitch_scale += randf_range(-0.15, 0.15)

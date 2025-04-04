@@ -17,7 +17,7 @@ func _physics_process(_delta: float) -> void:
 	if drops.size() > 0:
 		for n in drops.size():
 			var drop: XpOrb = drops[n];
-			drop.set_target_global_position(global_position)
+			drop.set_target(self)
 			
 			if _mapped_drops.has(drop.get_instance_id()) or drop.is_already_absorbed(): 
 				continue

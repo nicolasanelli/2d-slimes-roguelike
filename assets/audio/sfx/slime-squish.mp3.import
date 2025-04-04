@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/slime-squish.mp3-7dfe0dc6e6204be5ba55871876e9
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
