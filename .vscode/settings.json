@@ -1,0 +1,6 @@
+{
+    "files.exclude": {
+        ".godot": true,
+        "**/*.uid": true,
+    }
+}
