@@ -13,9 +13,9 @@
 radius = 51.0
 
 [node name="Slime" type="CharacterBody2D"]
-position = Vector2(566, 318)
 collision_layer = 2
 collision_mask = 3
+platform_floor_layers = 0
 script = ExtResource("1_7di56")
 _resource = ExtResource("2_b451o")
 
