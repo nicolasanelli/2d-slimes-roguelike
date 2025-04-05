@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://21r0axu05w1"]
+[gd_scene load_steps=29 format=3 uid="uid://21r0axu05w1"]
 
 [ext_resource type="Script" uid="uid://sf2dc1w3psee" path="res://ui/in_game_ui/fps.gd" id="1_xi3sq"]
 [ext_resource type="Script" uid="uid://dxfu2hmjkf6tg" path="res://ui/in_game_ui/debugger.gd" id="2_4axlx"]
 [ext_resource type="Script" uid="uid://bjfpbdglyxg4l" path="res://ui/in_game_ui/timer.gd" id="2_cyjxy"]
 [ext_resource type="Script" uid="uid://b4lgv6n4alwf1" path="res://ui/in_game_ui/debugger/label_mk.gd" id="3_1wkew"]
 [ext_resource type="PackedScene" uid="uid://ctalcx31t63w" path="res://ui/stat_item/stat_item.tscn" id="3_bvo32"]
+[ext_resource type="Script" uid="uid://xlvp5jbbbrx3" path="res://ui/in_game_ui/pause_label.gd" id="3_wlei0"]
 [ext_resource type="Script" uid="uid://cpxm0k3unn4rq" path="res://ui/in_game_ui/debugger/label_mc.gd" id="4_733bd"]
 [ext_resource type="Texture2D" uid="uid://7ughleeg5y14" path="res://components/drops/xp_orb/xp_orb_gray.png" id="4_sbbku"]
 [ext_resource type="Script" uid="uid://dnr1c5cn1aepp" path="res://ui/in_game_ui/stats_bar.gd" id="4_xvvhu"]
@@ -58,15 +59,20 @@ script = ExtResource("1_xi3sq")
 [node name="Timer" type="Label" parent="GameplayUI/VBoxContainer/TopView"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_type_variation = &"HeaderLarge"
 text = "99:99"
 horizontal_alignment = 1
 script = ExtResource("2_cyjxy")
 
-[node name="EmptySpace" type="Control" parent="GameplayUI/VBoxContainer/TopView"]
+[node name="PauseLabel" type="Label" parent="GameplayUI/VBoxContainer/TopView"]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 2
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "Press ESC to pause"
+horizontal_alignment = 2
+script = ExtResource("3_wlei0")
 
 [node name="BottomView" type="VBoxContainer" parent="GameplayUI/VBoxContainer"]
 layout_mode = 2
