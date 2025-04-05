@@ -12,6 +12,7 @@ enum GameState {
 
 var _current_state: GameState = GameState.RUNNING
 var _should_pick_card_times = 0
+var _paused := false
 
 func _ready() -> void:
 	GlobalTimer.set_target_factor(1)
@@ -65,13 +66,16 @@ func _transition(next_state: GameState) -> void:
 			pass
 
 
-var paused: bool;
+
 func _toggle_pause() -> void:
-	if paused:
-		GlobalTimer.set_target_factor(1, .75)
+	if _paused:
+		GlobalTimer.unpause()
+		CommandDispatcher.game_unpaused.emit()
 	else:
-		GlobalTimer.set_target_factor(0)
-	paused = !paused
+		GlobalTimer.pause()
+		CommandDispatcher.game_paused.emit()
+		
+	_paused = !_paused
 
 
 func _connect_signals() -> void:

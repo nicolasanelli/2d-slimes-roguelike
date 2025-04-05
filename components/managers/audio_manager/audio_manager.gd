@@ -58,7 +58,7 @@ func play_pistol() -> void:
 	audio_player.finished.connect(audio_player.queue_free)
 	audio_player.bus = "SFX"
 	audio_player.volume_db = -5
-	audio_player.pitch_scale += randf_range(-0.15, 0.15)
+	audio_player.pitch_scale += randf_range(0, 0.15)
 	audio_player.play()
 
 
@@ -70,7 +70,7 @@ func play_shotgun() -> void:
 	audio_player.finished.connect(audio_player.queue_free)
 	audio_player.bus = "SFX"
 	audio_player.volume_db = 0
-	audio_player.pitch_scale += randf_range(-0.3, 0.3)
+	audio_player.pitch_scale += randf_range(0, 0.3)
 	audio_player.play()
 
 
@@ -93,14 +93,13 @@ func play_slime_squish() -> void:
 	audio_player.finished.connect(_on_slime_squish_end)
 	audio_player.bus = "SFX"
 	audio_player.volume_db = -15
-	audio_player.pitch_scale += randf_range(-0.3, 0.3)
+	audio_player.pitch_scale += randf_range(0, 0.3)
 	audio_player.play()
 
 func _on_slime_squish_end() -> void:
 	slime_squishs -= 1
 
 func play_hurt() -> void:
-	hurt_player.pitch_scale += randf_range(-0.15, 0.15)
 	if hurt_player.is_playing(): return
 	
 	hurt_player.stream = hurt_sfx
@@ -149,12 +148,12 @@ func play_pickup() -> void:
 	audio_player.bus = "SFX"
 	audio_player.pitch_scale += pickup_pitch
 	audio_player.play()
-	pickup_pitch += 0.01
+	pickup_pitch += 0.02
 
 
-var pickup_pitch := -0.3
+var pickup_pitch := 0.0
 func _on_pìckup_timer_timeout() -> void:
-	pickup_pitch = -0.3
+	pickup_pitch = 0.0
 	
 
 func play_click() -> void:
@@ -165,6 +164,6 @@ func play_click() -> void:
 	audio_player.finished.connect(audio_player.queue_free)
 	audio_player.bus = "SFX"
 	audio_player.volume_db = 15
-	audio_player.pitch_scale += randf_range(-0.15, 0.15)
+	audio_player.pitch_scale += randf_range(0, 0.15)
 	audio_player.play()
 	

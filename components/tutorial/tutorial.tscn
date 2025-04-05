@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccawvsvbkpl7g"]
 
-[ext_resource type="Script" uid="uid://lkit5icrqvis" path="res://ui/tutorial/tutorial.gd" id="1_3nh40"]
+[ext_resource type="Script" uid="uid://lkit5icrqvis" path="res://components/tutorial/tutorial.gd" id="1_3nh40"]
 [ext_resource type="Texture2D" uid="uid://y02ypl1ppcvw" path="res://assets/images/keyboard_w.png" id="1_sqcm7"]
 [ext_resource type="Texture2D" uid="uid://b8nugftuipsji" path="res://assets/images/keyboard_a.png" id="2_3nh40"]
 [ext_resource type="Texture2D" uid="uid://dxd7hmrl5xn3h" path="res://assets/images/keyboard_s.png" id="3_xpy58"]

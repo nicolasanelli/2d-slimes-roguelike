@@ -1,17 +1,34 @@
-[gd_scene load_steps=10 format=3 uid="uid://21r0axu05w1"]
+[gd_scene load_steps=28 format=3 uid="uid://21r0axu05w1"]
 
-[ext_resource type="Script" uid="uid://b28ffiw8drrch" path="res://ui/in_game_ui/in_game_ui.gd" id="1_sbbku"]
 [ext_resource type="Script" uid="uid://sf2dc1w3psee" path="res://ui/in_game_ui/fps.gd" id="1_xi3sq"]
+[ext_resource type="Script" uid="uid://dxfu2hmjkf6tg" path="res://ui/in_game_ui/debugger.gd" id="2_4axlx"]
 [ext_resource type="Script" uid="uid://bjfpbdglyxg4l" path="res://ui/in_game_ui/timer.gd" id="2_cyjxy"]
+[ext_resource type="Script" uid="uid://b4lgv6n4alwf1" path="res://ui/in_game_ui/debugger/label_mk.gd" id="3_1wkew"]
 [ext_resource type="PackedScene" uid="uid://ctalcx31t63w" path="res://ui/stat_item/stat_item.tscn" id="3_bvo32"]
+[ext_resource type="Script" uid="uid://cpxm0k3unn4rq" path="res://ui/in_game_ui/debugger/label_mc.gd" id="4_733bd"]
 [ext_resource type="Texture2D" uid="uid://7ughleeg5y14" path="res://components/drops/xp_orb/xp_orb_gray.png" id="4_sbbku"]
 [ext_resource type="Script" uid="uid://dnr1c5cn1aepp" path="res://ui/in_game_ui/stats_bar.gd" id="4_xvvhu"]
+[ext_resource type="Script" uid="uid://dj3kjnp12xljh" path="res://ui/in_game_ui/debugger/label_bs.gd" id="5_4gui6"]
+[ext_resource type="Script" uid="uid://cmnurdd3fhrgo" path="res://ui/in_game_ui/debugger/add_xp_button.gd" id="6_55mql"]
 [ext_resource type="Script" uid="uid://2pe34vwenmwc" path="res://ui/in_game_ui/level_label.gd" id="7_g27so"]
+[ext_resource type="Script" uid="uid://c34iea4t0dcrp" path="res://ui/in_game_ui/debugger/label_sf.gd" id="7_juxw1"]
+[ext_resource type="Script" uid="uid://ck3m48mqu4512" path="res://ui/in_game_ui/debugger/timer.gd" id="8_5kmr6"]
 [ext_resource type="Script" uid="uid://4yom1r4ck3tj" path="res://ui/in_game_ui/experience_bar.gd" id="8_cwf31"]
+[ext_resource type="Script" uid="uid://hnqln10nq0yj" path="res://ui/in_game_ui/mobile_pads.gd" id="9_0wqi4"]
+[ext_resource type="Script" uid="uid://bgxmcdllw7jl5" path="res://ui/in_game_ui/debugger/custom_timer.gd" id="9_fwjpc"]
 [ext_resource type="PackedScene" uid="uid://dr3kwla7uxs8c" path="res://ui/joystick/joystick.tscn" id="9_pdvqd"]
+[ext_resource type="PackedScene" uid="uid://couh1lf25niie" path="res://components/cards/do_nothing_card/do_nothing_card.tscn" id="10_f0kfl"]
+[ext_resource type="Script" uid="uid://bg36suxh56mdl" path="res://ui/in_game_ui/card_selector_ui.gd" id="10_ieksd"]
+[ext_resource type="Script" uid="uid://d2dh8deha201b" path="res://ui/in_game_ui/debugger/label_ms.gd" id="11_qp2xs"]
+[ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="12_iw8ba"]
+[ext_resource type="Script" uid="uid://is5yhto7cxk5" path="res://ui/in_game_ui/debugger/label_player_pos.gd" id="14_ho704"]
+[ext_resource type="Script" uid="uid://bvx4cullprqul" path="res://ui/in_game_ui/debugger/label_players_xp.gd" id="15_t8nab"]
+[ext_resource type="Script" uid="uid://dla2dx38mvy7g" path="res://ui/in_game_ui/debugger/change_factor.gd" id="18_4tbpe"]
+[ext_resource type="Script" uid="uid://bxef7pjf7gen4" path="res://ui/in_game_ui/debugger/game_over.gd" id="18_pgi80"]
+[ext_resource type="Script" uid="uid://dlw5alrn0kxvk" path="res://ui/in_game_ui/debugger/label_te.gd" id="18_uba84"]
+[ext_resource type="Script" uid="uid://nifvkdbwvob0" path="res://ui/in_game_ui/pause_menu.gd" id="26_0wqi4"]
 
 [node name="InGameUI" type="CanvasLayer"]
-script = ExtResource("1_sbbku")
 
 [node name="GameplayUI" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -135,7 +152,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MobilePads" type="MarginContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -145,6 +161,7 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
+script = ExtResource("9_0wqi4")
 
 [node name="LeftPad" type="Control" parent="MobilePads"]
 custom_minimum_size = Vector2(356, 356)
@@ -154,3 +171,231 @@ size_flags_vertical = 8
 
 [node name="Joystick" parent="MobilePads/LeftPad" instance=ExtResource("9_pdvqd")]
 texture_filter = 1
+
+[node name="Debugger" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+script = ExtResource("2_4axlx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Debugger"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MarginContainer2" type="MarginContainer" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="LabelMS" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Monster spawned: %s"
+script = ExtResource("11_qp2xs")
+
+[node name="LabelMK" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Monster killed: %s"
+script = ExtResource("3_1wkew")
+
+[node name="LabelMC" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Monster count: %s"
+script = ExtResource("4_733bd")
+
+[node name="LabelBS" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Bullets shooted: %s"
+script = ExtResource("5_4gui6")
+
+[node name="MarginContainer3" type="MarginContainer" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="LabelPlayerPos" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Player (%s, %s)"
+script = ExtResource("14_ho704")
+
+[node name="LabelPlayersXP" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Player XP: %s"
+script = ExtResource("15_t8nab")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+
+[node name="Add100XPButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+100 XP"
+script = ExtResource("6_55mql")
+
+[node name="Add1000XPButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+1000 XP"
+script = ExtResource("6_55mql")
+amount = 1000
+
+[node name="MarginContainer4" type="MarginContainer" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="LabelSF" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Speed factor: %.3f"
+script = ExtResource("7_juxw1")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+
+[node name="Decrease" type="Button" parent="Debugger/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+script = ExtResource("18_4tbpe")
+value = -0.25
+step = 0.3
+
+[node name="Reset" type="Button" parent="Debugger/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+script = ExtResource("18_4tbpe")
+
+[node name="Increase" type="Button" parent="Debugger/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+script = ExtResource("18_4tbpe")
+value = 0.25
+step = 0.3
+
+[node name="MarginContainer" type="MarginContainer" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="LabelTE" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Time elapsed: %.2fs"
+script = ExtResource("18_uba84")
+
+[node name="GameOver" type="Button" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "GameOver"
+script = ExtResource("18_pgi80")
+
+[node name="Timer" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "Timer: %s"
+script = ExtResource("8_5kmr6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="Debugger/VBoxContainer/Timer"]
+process_callback = 0
+wait_time = 100.0
+autostart = true
+
+[node name="CustomTimer" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+text = "CTimer: %s"
+script = ExtResource("9_fwjpc")
+
+[node name="CustomTimer" type="Node" parent="Debugger/VBoxContainer/CustomTimer"]
+script = ExtResource("12_iw8ba")
+wait_time = 100.0
+autostart = true
+
+[node name="CardSelectorUI" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_ieksd")
+
+[node name="Overlay" type="ColorRect" parent="CardSelectorUI"]
+layout_mode = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.392157)
+
+[node name="CardRow" type="HBoxContainer" parent="CardSelectorUI/Overlay"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -210.0
+offset_right = 150.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DummyCard1" parent="CardSelectorUI/Overlay/CardRow" instance=ExtResource("10_f0kfl")]
+layout_mode = 2
+
+[node name="DummyCard2" parent="CardSelectorUI/Overlay/CardRow" instance=ExtResource("10_f0kfl")]
+layout_mode = 2
+
+[node name="DummyCard3" parent="CardSelectorUI/Overlay/CardRow" instance=ExtResource("10_f0kfl")]
+layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="CardSelectorUI/Overlay"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(290, 70)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -281.0
+offset_right = 145.0
+offset_bottom = -211.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SKIP"
+
+[node name="PauseMenu" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("26_0wqi4")
+
+[node name="Overlay" type="ColorRect" parent="PauseMenu"]
+layout_mode = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Label" type="Label" parent="PauseMenu/Overlay"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -38.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+text = "GAME PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1

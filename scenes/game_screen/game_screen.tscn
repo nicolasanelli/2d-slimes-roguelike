@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2odse7mabaid"]
+[gd_scene load_steps=10 format=3 uid="uid://c2odse7mabaid"]
 
 [ext_resource type="Script" uid="uid://bshdc04pc71lm" path="res://scenes/game_screen/game_screen.gd" id="1_ump46"]
 [ext_resource type="PackedScene" uid="uid://chjqobojluvru" path="res://components/managers/chunk_manager/chunk_manager.tscn" id="2_or40j"]
@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bc82364ngv11v" path="res://components/managers/enemy_manager/enemy_manager.tscn" id="5_6bxij"]
 [ext_resource type="PackedScene" uid="uid://bk48pihmbvji0" path="res://components/characters/player/player.tscn" id="6_orkjk"]
 [ext_resource type="PackedScene" uid="uid://21r0axu05w1" path="res://ui/in_game_ui/in_game_ui.tscn" id="8_vhb74"]
-[ext_resource type="PackedScene" uid="uid://ccawvsvbkpl7g" path="res://ui/tutorial/tutorial.tscn" id="13_im307"]
-[ext_resource type="PackedScene" uid="uid://dvrwfpndahhq1" path="res://components/debugger/debugger.tscn" id="13_w51sc"]
+[ext_resource type="PackedScene" uid="uid://ccawvsvbkpl7g" path="res://components/tutorial/tutorial.tscn" id="13_im307"]
 [ext_resource type="PackedScene" uid="uid://gy66uxbq11u2" path="res://components/drops/xp_orb/xp_orb.tscn" id="14_dodro"]
 
 [node name="GameScreen" type="Node2D"]
@@ -27,6 +26,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.21974, 0.648788, 0.485114, 1)
+
+[node name="InGameUI" parent="." instance=ExtResource("8_vhb74")]
 
 [node name="ChunkManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("2_or40j")]
 _player = NodePath("../Player")
@@ -62,12 +63,6 @@ position = Vector2(960, 540)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
-
-[node name="InGameUI" parent="." instance=ExtResource("8_vhb74")]
-
-[node name="Debugger" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("13_w51sc")]
-visible = false
-_player = NodePath("../Player")
 
 [node name="Tutorial" parent="." instance=ExtResource("13_im307")]
 z_index = 10

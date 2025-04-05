@@ -1,12 +1,25 @@
 extends Node
 
-
+var _is_paused := false
 var _current_factor: float = 1
 var _target_factor: float = 1
 var _step: float = 0.4
 
 
+func pause() -> void:
+	_is_paused = true
+
+func unpause() -> void:
+	_is_paused = false
+	var current = _current_factor
+	_current_factor = 0
+	set_target_factor(current, .75)
+	
+
+
 func get_factor() -> float:
+	if (_is_paused): return 0.0
+	
 	return _current_factor
 
 
