@@ -83,7 +83,6 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	#if !_player: return #TODO
 	global_position = _player.global_position
 
 

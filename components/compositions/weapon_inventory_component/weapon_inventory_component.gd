@@ -2,7 +2,7 @@ class_name WeaponInventoryComponent
 extends Node2D
 
 
-var _inventory = {}
+var _inventory: Dictionary[String, Node2D] = {}
 
 const GROUP_NAME = "Weapons";
 const METADATA_TAG = "WeaponName"

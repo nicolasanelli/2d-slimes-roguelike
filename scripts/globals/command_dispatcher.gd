@@ -11,8 +11,7 @@ signal card_picked(card: ActionCard)
 signal card_executed
 
 
-# TODO add type
-signal inventory_updated(dict)
+signal inventory_updated(inventary: Dictionary[String, Node2D])
 
 
 signal game_paused

@@ -21,4 +21,3 @@ func _update_ui() -> void:
 	_margin_container.rotation_degrees = _resource.item_rotation_degree
 	_texture.texture = _resource.texture
 	_level.text = str(_resource.get_rarity())
-	pass

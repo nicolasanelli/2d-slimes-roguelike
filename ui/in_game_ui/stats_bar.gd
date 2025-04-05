@@ -15,11 +15,11 @@ func _clear() -> void:
 		list[n].queue_free()
 
 
-func _on_inventory_updated(dict) -> void:
+func _on_inventory_updated(inventary: Dictionary[String, Node2D]) -> void:
 	_clear()
-	var keys = dict.keys()
-	for n in range(dict.size()):
-		_add_item_stat(keys[n], dict.get(keys[n])._current_resource)
+	var keys = inventary.keys()
+	for n in range(inventary.size()):
+		_add_item_stat(keys[n], inventary.get(keys[n])._current_resource)
 
 
 func _add_item_stat(_key: String, resource: BaseWeaponResource) -> void:

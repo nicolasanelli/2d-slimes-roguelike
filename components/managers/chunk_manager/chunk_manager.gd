@@ -37,8 +37,6 @@ func _get_player_current_chunk() -> Vector2:
 
 
 func _spawn_adjacent_chunks() -> void:
-	#if !_player: return #TODO
-	
 	var pos = _get_player_current_chunk()
 	if pos == last_pos_checked: return
 	var x = pos.x
