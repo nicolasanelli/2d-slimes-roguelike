@@ -57,6 +57,7 @@ func _transition(next_state: GameState) -> void:
 		GameState.RUNNING:
 			GlobalTimer.set_target_factor(1, .4)
 		GameState.PICKING:
+			AudioManager.play_levelup()
 			GlobalTimer.set_target_factor(0, 2)
 		GameState.GAMEOVER:
 			Statistics.stop_timer()

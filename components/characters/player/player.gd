@@ -18,13 +18,13 @@ func _on_health_depleted() -> void:
 	CommandDispatcher.player_died.emit()
 
 func _on_damaged() -> void:
-	AudioManager.play_hurt()
+	if GlobalTimer.get_factor() > 0:
+		AudioManager.play_hurt()
 
 func _on_healed() -> void:
 	AudioManager.play_heal()
 
 func _on_leveled_up() -> void:
-	AudioManager.play_levelup()
 	CommandDispatcher.player_leveled.emit(
 		_experience_component.get_current_level()
 	)

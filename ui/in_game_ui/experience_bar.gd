@@ -5,7 +5,7 @@ extends ProgressBar
 
 
 func _process(_delta: float) -> void:
-	# TODO procurar forma melhor de fazer
+	# TODO search for a better/reliable way to do this
 	var player = $/root/GameScreen/Player
 	if not player: return
 	

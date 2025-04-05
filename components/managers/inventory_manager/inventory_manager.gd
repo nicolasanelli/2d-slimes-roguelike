@@ -52,7 +52,3 @@ func downgrade_by_name(weapon_name: String) -> void:
 	_inventory[weapon_name].downgrade()
 	inventory_changed.emit()
 	item_updated.emit(weapon_name, _inventory[weapon_name])
-
-# TODO unused?
-func get_inventory():
-	return _inventory

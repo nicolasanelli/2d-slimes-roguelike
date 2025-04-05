@@ -47,7 +47,3 @@ func downgrade_by_name(weapon_name: String) -> void:
 
 func has_weapon(weapon_name: String) -> bool:
 	return _inventory.has(weapon_name)
-
-# TODO unused?
-func get_inventory():
-	return _inventory

@@ -18,9 +18,10 @@ A roguelike game using free assets and Godot Engine 4.4.
 - [x] Dificulty Scale
 - [x] 60 FPS
 - [x] Sound efx
-- [ ] Pause screen
+- [x] Pause screen
 - [ ] Music/SFX volume adjust
 - [ ] Mobile aim (currently using auto-aim)
+- [ ] EventListener for SoundEffecs
 
 
 ## How to add a new weapon
