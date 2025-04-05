@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctdmgnvdmlnlu"]
+[gd_scene load_steps=6 format=3 uid="uid://ctdmgnvdmlnlu"]
 
 [ext_resource type="Script" uid="uid://co77ejlcgt7s7" path="res://components/managers/card_manager/card_manager.gd" id="1_0j5lo"]
 [ext_resource type="Script" uid="uid://dbkkup0adle1n" path="res://scripts/deck_manager.gd" id="2_bnsw7"]
+[ext_resource type="PackedScene" uid="uid://c1wgejvmacyiv" path="res://components/cards/heal_card/heal_card.tscn" id="2_gaxvn"]
+[ext_resource type="PackedScene" uid="uid://bgxh6dbjptvgm" path="res://components/cards/xp_magnet_card/xp_magnet_card.tscn" id="3_v7ax0"]
+[ext_resource type="PackedScene" uid="uid://sngabrmt6mev" path="res://components/cards/upgrade_weapon_card/upgrade_weapon_card.tscn" id="4_c68mp"]
 
 [node name="CardManager" type="Node2D"]
 script = ExtResource("1_0j5lo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+layer = 2
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -32,6 +36,15 @@ offset_right = 150.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HealCard" parent="CanvasLayer/ColorRect/HBoxContainer" instance=ExtResource("2_gaxvn")]
+layout_mode = 2
+
+[node name="XpMagnetCard" parent="CanvasLayer/ColorRect/HBoxContainer" instance=ExtResource("3_v7ax0")]
+layout_mode = 2
+
+[node name="UpgradeCard" parent="CanvasLayer/ColorRect/HBoxContainer" instance=ExtResource("4_c68mp")]
+layout_mode = 2
 
 [node name="SkipButton" type="Button" parent="CanvasLayer/ColorRect"]
 custom_minimum_size = Vector2(290, 70)

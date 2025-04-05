@@ -1,0 +1,156 @@
+[gd_scene load_steps=10 format=3 uid="uid://21r0axu05w1"]
+
+[ext_resource type="Script" uid="uid://b28ffiw8drrch" path="res://ui/in_game_ui/in_game_ui.gd" id="1_sbbku"]
+[ext_resource type="Script" uid="uid://sf2dc1w3psee" path="res://ui/in_game_ui/fps.gd" id="1_xi3sq"]
+[ext_resource type="Script" uid="uid://bjfpbdglyxg4l" path="res://ui/in_game_ui/timer.gd" id="2_cyjxy"]
+[ext_resource type="PackedScene" uid="uid://ctalcx31t63w" path="res://ui/stat_item/stat_item.tscn" id="3_bvo32"]
+[ext_resource type="Texture2D" uid="uid://7ughleeg5y14" path="res://components/drops/xp_orb/xp_orb_gray.png" id="4_sbbku"]
+[ext_resource type="Script" uid="uid://dnr1c5cn1aepp" path="res://ui/in_game_ui/stats_bar.gd" id="4_xvvhu"]
+[ext_resource type="Script" uid="uid://2pe34vwenmwc" path="res://ui/in_game_ui/level_label.gd" id="7_g27so"]
+[ext_resource type="Script" uid="uid://4yom1r4ck3tj" path="res://ui/in_game_ui/experience_bar.gd" id="8_cwf31"]
+[ext_resource type="PackedScene" uid="uid://dr3kwla7uxs8c" path="res://ui/joystick/joystick.tscn" id="9_pdvqd"]
+
+[node name="InGameUI" type="CanvasLayer"]
+script = ExtResource("1_sbbku")
+
+[node name="GameplayUI" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameplayUI"]
+layout_mode = 2
+
+[node name="TopView" type="HBoxContainer" parent="GameplayUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="FPS" type="Label" parent="GameplayUI/VBoxContainer/TopView"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "FPS: 60"
+script = ExtResource("1_xi3sq")
+
+[node name="Timer" type="Label" parent="GameplayUI/VBoxContainer/TopView"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderLarge"
+text = "99:99"
+horizontal_alignment = 1
+script = ExtResource("2_cyjxy")
+
+[node name="EmptySpace" type="Control" parent="GameplayUI/VBoxContainer/TopView"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="BottomView" type="VBoxContainer" parent="GameplayUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 10
+
+[node name="StatsBar" type="HBoxContainer" parent="GameplayUI/VBoxContainer/BottomView"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 8
+script = ExtResource("4_xvvhu")
+
+[node name="DummyItem1" parent="GameplayUI/VBoxContainer/BottomView/StatsBar" instance=ExtResource("3_bvo32")]
+layout_mode = 2
+
+[node name="DummyItem2" parent="GameplayUI/VBoxContainer/BottomView/StatsBar" instance=ExtResource("3_bvo32")]
+layout_mode = 2
+
+[node name="ExperienceView" type="HBoxContainer" parent="GameplayUI/VBoxContainer/BottomView"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level" type="Control" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView"]
+custom_minimum_size = Vector2(58, 58)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Overline" type="TextureRect" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView/Level"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 60.0
+offset_bottom = 60.0
+texture = ExtResource("4_sbbku")
+
+[node name="Background" type="TextureRect" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView/Level"]
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("4_sbbku")
+
+[node name="LevelLabel" type="Label" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView/Level/Background"]
+custom_minimum_size = Vector2(58, 58)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -16.0
+offset_right = 15.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_g27so")
+
+[node name="ExperienceBar" type="ProgressBar" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView"]
+custom_minimum_size = Vector2(450, 45)
+layout_mode = 2
+size_flags_vertical = 4
+value = 63.0
+show_percentage = false
+script = ExtResource("8_cwf31")
+
+[node name="ExperienceLabel" type="Label" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView/ExperienceBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "63 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MobilePads" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="LeftPad" type="Control" parent="MobilePads"]
+custom_minimum_size = Vector2(356, 356)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Joystick" parent="MobilePads/LeftPad" instance=ExtResource("9_pdvqd")]
+texture_filter = 1

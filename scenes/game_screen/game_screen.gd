@@ -84,7 +84,7 @@ func _on_player_died() -> void:
 	_transition(GameState.GAMEOVER)
 
 
-func _on_player_leveled() -> void:
+func _on_player_leveled(_level: int) -> void:
 	_should_pick_card_times += 1
 
 

@@ -14,6 +14,7 @@ func _ready() -> void:
 	assert(_player != null, "Player must be set in CardManager")
 	_skip_button.pressed.connect(_on_skip_button)
 	CommandDispatcher.card_picked.connect(_on_card_picked)
+	_clear_children()
 
 
 func _process(_delta: float) -> void:
@@ -56,6 +57,9 @@ func _remove_all_cards() -> void:
 		deck_manager.requeue(n)
 	displayed_cards = []
 		
+	_clear_children()
+
+func _clear_children() -> void:
 	var children = $CanvasLayer/ColorRect/HBoxContainer.get_children()
 	for n in range(children.size()):
 		children[n].queue_free()

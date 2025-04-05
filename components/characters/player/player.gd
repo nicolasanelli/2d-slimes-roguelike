@@ -25,4 +25,6 @@ func _on_healed() -> void:
 
 func _on_leveled_up() -> void:
 	AudioManager.play_levelup()
-	CommandDispatcher.player_leveled.emit()
+	CommandDispatcher.player_leveled.emit(
+		_experience_component.get_current_level()
+	)
