@@ -19,9 +19,25 @@ A roguelike game using free assets and Godot Engine 4.4.
 - [x] 60 FPS
 - [x] Sound efx
 - [x] Pause screen
-- [ ] Music/SFX volume adjust
+- [ ] Options Menu wih Music/SFX volume adjust on main menu
+- [ ] Exit button for windows on main menu
+- [ ] Pause button for mobile
+- [ ] Pause menu
+    - [ ] Exit
+    - [ ] Options
 - [ ] Mobile aim (currently using auto-aim)
-- [ ] EventListener for SoundEffecs
+- [ ] EventListener for SoundEffecs7
+- [ ] Alternate between Pistol and Shotgun [can't use at same time]
+- [ ] Reroll cards
+- [ ] Achievements
+    - [ ] Finish with only Shotgun
+    - [ ] Finish with only Pistol
+    - [ ] Finish with only Saw
+    - [ ] Finish without pickup any heal
+    - [ ] Evolve Shotgun to Mythic
+    - [ ] Evolve Pistol to Mythic
+    - [ ] Evolve Saw to Mythic
+    - [ ] Finish under 11 minutes
 
 
 ## How to add a new weapon
