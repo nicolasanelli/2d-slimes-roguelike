@@ -64,7 +64,9 @@ func _transition(next_state: GameState) -> void:
 			AudioManager.stop_all_sfx()
 			Loader.load_scene(self, "res://scenes/game_over/game_over.tscn")
 		GameState.VICTORY:
-			pass
+			Statistics.stop_timer()
+			AudioManager.stop_all_sfx()
+			Loader.load_scene(self, "res://scenes/victory/victory.tscn")
 
 
 
@@ -83,6 +85,7 @@ func _connect_signals() -> void:
 	CommandDispatcher.player_died.connect(_on_player_died)
 	CommandDispatcher.player_leveled.connect(_on_player_leveled)
 	CommandDispatcher.card_executed.connect(_on_card_executed)
+	CommandDispatcher.victory.connect(_on_victory)
 
 
 func _on_player_died() -> void:
@@ -102,3 +105,7 @@ func _pick_card() -> void:
 
 func _on_card_executed() -> void:
 	_transition(GameState.RUNNING)
+
+
+func _on_victory() -> void:
+	_transition(GameState.VICTORY)

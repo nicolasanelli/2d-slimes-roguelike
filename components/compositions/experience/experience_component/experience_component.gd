@@ -43,6 +43,9 @@ func get_total_experience() -> float:
 	return _total_experience
 
 
+func get_missing_to_next() -> float:
+	return _target_experience - _current_experience
+
 func add_experience(value: float) -> void:
 	_current_experience += value
 	_total_experience += value

@@ -7,6 +7,8 @@ signal damaged
 signal health_changed
 signal health_depleted
 
+var health_depleted_emited := false
+
 
 @export var _max_health: float:
 	set(value):
@@ -19,7 +21,8 @@ var _current_health: float:
 	set(value):
 		_current_health = clampf(value, 0, _max_health)
 		health_changed.emit()
-		if is_equal_approx(_current_health, 0):
+		if !health_depleted_emited && is_equal_approx(_current_health, 0):
+			health_depleted_emited = true
 			health_depleted.emit()
 
 

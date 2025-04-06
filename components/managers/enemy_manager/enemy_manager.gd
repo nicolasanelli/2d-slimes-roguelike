@@ -4,82 +4,83 @@ extends Node2D
 
 @export var _player: Player
 @export var _camera: Camera2D
-@export var _enabled: bool = true
+@export var _wave_timer_enabled: bool = true
 
 
 @onready var _path: Path2D = %Path2D
 @onready var _spawn_location: PathFollow2D = %SpawnLocation
 @onready var _enemies: Node = %Enemies
 
-@onready var _timer: CTimer = %CTimer
+@onready var _spawn_timer: CTimer = %SpawnCTimer
 @onready var _wave_timer: CTimer = %WaveCTimer
 
-
-var _current_wave: int = 0
-var _current_slime_resource: int = 0
-var _waves = {
-	0 : {
+var _stage := 1
+var _stage_multiplier := [
+	0, 1, 2, 3, 5, 7
+]
+var _wave := 1
+var _waves := [
+	{},
+	{ # XP: 15
+		"spawn_time": 2,
+		"resource": preload("res://data/enemies/slime/001_green_slime.tres"),
+		"wave_time": 31,
+	},
+	{
+		"spawn_time": null,
+		"resource": null,
+		"wave_time": 4,
+	},
+	{ # XP: 30
 		"spawn_time": 1,
-		"resource_idx": 0,
-		"wave_time": 25,
+		"resource": preload("res://data/enemies/slime/002_darkgreen_slime.tres"),
+		"wave_time": 16,
 	},
-	1: {
-		"spawn_time": -1,
-		"resource_idx": -1,
-		"wave_time": 10,
+	{
+		"spawn_time": null,
+		"resource": null,
+		"wave_time": 9,
 	},
-	2 : {
-		"spawn_time": .1,
-		"resource_idx": 4,
-		"wave_time": 5,
-	},
-	3: {
-		"spawn_time": -1,
-		"resource_idx": -1,
-		"wave_time": 10,
-	},
-	4: {
+	{ # XP: 15
 		"spawn_time": 1,
-		"resource_idx": 1,
+		"resource": preload("res://data/enemies/slime/003_blue_slime.tres"),
+		"wave_time": 16,
+	},
+	{
+		"spawn_time": null,
+		"resource": null,
+		"wave_time": 9,
+	},
+	{ # XP: 60
+		"spawn_time": 0.5,
+		"resource": preload("res://data/enemies/slime/004_pink_slime.tres"),
 		"wave_time": 10,
 	},
-	5: {
-		"spawn_time": -1,
-		"resource_idx": -1,
+	{
+		"spawn_time": null,
+		"resource": null,
 		"wave_time": 10,
 	},
-	6: {
-		"spawn_time": 0.3,
-		"resource_idx": 2,
-		"wave_time": 15,
-	},
-	7: {
-		"spawn_time": -1,
-		"resource_idx": -1,
-		"wave_time": 10,
+	{ #XP: 25
+		"spawn_time": null,
+		"resource": null,
+		"wave_time": null,
 		"boss": {
-			"resource_idx": 3,
+			"resource": preload("res://data/enemies/slime/005_green_boss_slime.tres"),
 		}
 	}
-}
-
+]
 
 
 var _slime_component = preload("res://components/characters/slime/slime.tscn")
-var _slime_resources: Array[SlimeResource] = [
-	load("res://data/enemies/slime/001_green_slime.tres"),
-	load("res://data/enemies/slime/002_darkgreen_slime.tres"),
-	load("res://data/enemies/slime/003_blue_slime.tres"),
-	load("res://data/enemies/slime/004_green_boss_slime.tres"),
-	load("res://data/enemies/slime/005_pink_slime.tres"),
-]
+
 
 func _ready() -> void:
 	assert(_player != null, "Player is not set in EnemyManager")
 	assert(_camera != null, "Camera is not set in EnemyManager")
 	_configure_scale()
 	_configure_timer()
-	_configure_wave()
+	_play_wave(_stage, _wave)
 
 
 func _process(_delta: float) -> void:
@@ -91,51 +92,62 @@ func _configure_scale() -> void:
 
 
 func _configure_timer() -> void:
-	_timer.timeout.connect(_on_timer_timeout)
-	_wave_timer.timeout.connect(_on_wave_timer_timeout)
+	_spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	_wave_timer.timeout.connect(_to_next_wave)
 
 
-func _on_timer_timeout() -> void:
-	if _enabled:
-		spawn_slime()
+func _on_spawn_timer_timeout() -> void:
+	if _wave_timer_enabled && _wave <= _waves.size() && _stage <= _stage_multiplier.size():
+		var slime := _create_slime(_stage, _wave)
+		if slime: _spawn_enemy(slime)
 
 
-func _on_wave_timer_timeout() -> void:
-	#_current_wave = (_current_wave + 1) % _waves.size()
-	_current_wave += 1
-	if _current_wave > _waves.size()-1:
-		_current_wave = randi_range(0, _waves.size()-1)
-		
-	_configure_wave()
+func _to_next_wave() -> void:
+	_wave += 1
+	if _wave >= _waves.size():
+		_wave = 1
+		_stage +=1
+	
+	if _stage >= _stage_multiplier.size():
+		CommandDispatcher.victory.emit()
+	
+	_play_wave(_stage, _wave)
 
 
-func _configure_wave() -> void:
-	_timer.stop()
+func _play_wave(stage: int, wave: int) -> void:
+	CommandDispatcher.level_info_updated.emit("Stage: %d/%d\nWave:  %d/%d" % [stage, _stage_multiplier.size() - 1, wave, _waves.size() - 1])
+	
+	_spawn_timer.stop()
 	_wave_timer.stop()
 	
-	var wave = _waves.get(_current_wave)
+	var wave_config = _waves.get(wave)
 	
-	if wave.has("boss"):
+	if wave_config.has("boss"):
 		var boss: Slime = _slime_component.instantiate()
 		boss.set_target(_player)
-		boss.set_resource(_slime_resources[wave["boss"]["resource_idx"]])
-		spawn_enemy(boss)
+		boss.set_resource(wave_config["boss"]["resource"], _stage_multiplier[_stage])
+		boss.health_depleted.connect(_to_next_wave)
+		_spawn_enemy(boss)
 	
-	_current_slime_resource = wave["resource_idx"]
-	_timer.start(wave["spawn_time"])
-	_wave_timer.start(wave["wave_time"])
+	if wave_config.has("wave_time") and wave_config.get("wave_time"):
+		_wave_timer.start(wave_config["wave_time"])
+	
+	if wave_config.has("spawn_time") and wave_config.get("spawn_time"):
+		_spawn_timer.start(wave_config["spawn_time"])
 
 
-func spawn_slime() -> void:
-	if _current_slime_resource < 0: return
+func _create_slime(stage: int, wave: int) -> Slime:
+	var resource = _waves.get(wave)["resource"]
+	if not resource : return null
 	
 	var slime: Slime = _slime_component.instantiate()
 	slime.set_target(_player)
-	slime.set_resource(_slime_resources[_current_slime_resource])
-	spawn_enemy(slime)
+	slime.set_resource(resource, _stage_multiplier[stage])
+	
+	return slime
 
-func spawn_enemy(enemy: Slime) -> void:
+
+func _spawn_enemy(enemy: Slime) -> void:
 	_spawn_location.progress_ratio = randf()
 	enemy.global_position = _spawn_location.global_position
-	Statistics.add_spawned_mob()
 	_enemies.add_child(enemy, true)

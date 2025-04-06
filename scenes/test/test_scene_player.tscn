@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://chlk0xuhs4nya"]
+[gd_scene load_steps=4 format=3 uid="uid://chlk0xuhs4nya"]
 
 [ext_resource type="PackedScene" uid="uid://bk48pihmbvji0" path="res://components/characters/player/player.tscn" id="1_rk48f"]
 [ext_resource type="PackedScene" uid="uid://gy66uxbq11u2" path="res://components/drops/xp_orb/xp_orb.tscn" id="2_q17pk"]
+[ext_resource type="PackedScene" uid="uid://bfjgdvoolqd4x" path="res://components/characters/slime/slime.tscn" id="3_vcgnq"]
 
 [node name="TestScenePlayer" type="Node2D"]
 
@@ -1703,3 +1704,6 @@ rotation = -2.87979
 [node name="XpOrb214" parent="." instance=ExtResource("2_q17pk")]
 position = Vector2(218, 899)
 rotation = -2.87979
+
+[node name="Slime" parent="." instance=ExtResource("3_vcgnq")]
+position = Vector2(639, 219)

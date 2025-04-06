@@ -19,7 +19,7 @@ func _on_physics_process(_delta : float) -> void:
 	slime.add_sibling(smoke)
 	
 	var xp: XpOrb = _xp_orb_componemt.instantiate()
-	xp.set_experience_value(slime._resource.experience_drop)
+	xp.set_experience_value(int(slime.get_experience_drop()))
 	xp.global_position = slime.global_position
 	DropManager.instance.spawn(xp, slime.global_position)
 	

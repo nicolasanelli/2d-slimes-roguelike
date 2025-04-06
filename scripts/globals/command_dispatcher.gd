@@ -16,3 +16,7 @@ signal inventory_updated(inventary: Dictionary[String, Node2D])
 
 signal game_paused
 signal game_unpaused
+
+signal level_info_updated(info: String)
+
+signal victory

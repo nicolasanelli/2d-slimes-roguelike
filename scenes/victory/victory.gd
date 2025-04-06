@@ -10,6 +10,7 @@ func _process(_delta: float) -> void:
 	monster_killed.text = "Monster killed: %s" % Statistics.get_mob_killed()
 	bullets_shooted.text = "Bullets shooted: %s" % Statistics.get_bullet_shooted()
 
+
 func _on_replay_button_pressed() -> void:
 	AudioManager.play_click()
 	Loader.load_scene(self, "res://scenes/game_screen/game_screen.tscn")

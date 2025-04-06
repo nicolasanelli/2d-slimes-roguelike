@@ -1,27 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnvxmmn4f0hqp"]
 
 [ext_resource type="Script" uid="uid://ckk28gbva7f2b" path="res://components/weapons/circular_saw/circular_saw.gd" id="1_3520g"]
-[ext_resource type="PackedScene" uid="uid://dvuu3v8ti5m5p" path="res://components/weapons/circular_saw/saw/saw.tscn" id="2_umde3"]
+[ext_resource type="Resource" uid="uid://d10pjdcxtulx6" path="res://data/weapons/circular_saw/001_common_circular_saw.tres" id="2_t5fxk"]
 [ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="3_scdy3"]
 
 [node name="CircularSaw" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_3520g")
+_current_resource = ExtResource("2_t5fxk")
 metadata/WeaponName = "circular-saw"
 
 [node name="RotationPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Saw_South" parent="RotationPoint" instance=ExtResource("2_umde3")]
-position = Vector2(0, 250)
+[node name="UptimeTimer" type="Node" parent="."]
+script = ExtResource("3_scdy3")
 
-[node name="Saw_East" parent="RotationPoint" instance=ExtResource("2_umde3")]
-position = Vector2(250, 0)
-
-[node name="Saw_North" parent="RotationPoint" instance=ExtResource("2_umde3")]
-position = Vector2(0, -250)
-
-[node name="Saw_West" parent="RotationPoint" instance=ExtResource("2_umde3")]
-position = Vector2(-250, 0)
-
-[node name="CTimer" type="Node" parent="."]
+[node name="DowntimeTimer" type="Node" parent="."]
 script = ExtResource("3_scdy3")

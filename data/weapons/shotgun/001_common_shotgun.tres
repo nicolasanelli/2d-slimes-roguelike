@@ -7,7 +7,7 @@
 script = ExtResource("1_06r34")
 bullets = 3
 distance = 500
-damage = 2
+damage = 1
 attack_speed = 0.5
 positions = Array[float]([-15.0, 0.0, 15.0])
 rarity = 0

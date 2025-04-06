@@ -5,7 +5,7 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	var player = $/root/GameScreen/Player
+	var player : Player = get_node_or_null("/root/GameScreen/Player")
 	if not player: return
 	
 	player._health_component.damage(1000)

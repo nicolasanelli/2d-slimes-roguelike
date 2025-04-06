@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://c73lc3ioxbgh4" path="res://data/weapons/circular_saw/circular_saw_resource.gd" id="1_d8pj2"]
 [ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/circular_saw/saw/saw.png" id="2_vuvfe"]
 
-
 [resource]
 script = ExtResource("1_d8pj2")
-quantity = 9
-damage = 4
-radius = 550.0
-cooldown = 0.0
+quantity = 7
+damage = 3
+radius = 375.0
+uptime = -1.0
+downtime = -1.0
 rarity = 5
 is_special = true
 texture = ExtResource("2_vuvfe")

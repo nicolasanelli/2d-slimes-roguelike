@@ -7,7 +7,7 @@
 script = ExtResource("1_xd6y8")
 bullets = 1
 damage = 3
-attack_speed = 0.9
+attack_speed = 0.8
 rarity = 1
 is_special = false
 texture = ExtResource("2_oqqay")

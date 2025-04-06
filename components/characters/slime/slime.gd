@@ -1,22 +1,25 @@
 class_name Slime
 extends CharacterBody2D
 
+signal health_depleted
 
 @export var _resource: SlimeResource
 @export var target: Node2D
 
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var _slime_body: SlimeBody = %SlimeBody
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+
+var _multiplier := 1
 
 #region Engine
 func _ready() -> void:
 	assert(_resource != null, "SlimeResource is not set in Slime")
-	var player_lvl = 0;
-	if (target):
-		player_lvl = (target as Player)._experience_component.get_current_level()
-	health_component._max_health = roundi(_resource.health + (player_lvl * 1.1))
-	health_component._current_health = health_component._max_health
+	Statistics.add_spawned_mob()
+	health_component._max_health = (_resource.health * _multiplier)
+	health_component._current_health = (_resource.health * _multiplier)
+	health_component.health_depleted.connect(health_depleted.emit)
 	_update_appearance()
 
 
@@ -31,6 +34,7 @@ func _update_appearance() -> void:
 		_resource.hurt_color, 
 		_resource.scale
 	)
+	collision_shape_2d.scale = _resource.scale 
 
 
 func set_target(_target: Node2D) -> void:
@@ -48,12 +52,17 @@ func get_direction_to_target() -> Vector2:
 	return global_position.direction_to(target.global_position)
 
 
-func set_resource(resource: SlimeResource) -> void:
+func set_resource(resource: SlimeResource, multiplier := 1) -> void:
 	_resource = resource;
+	_multiplier = multiplier
 
 
 func get_damage() -> float:
-	return _resource.damage
+	return (_resource.damage * _multiplier)
+
+
+func get_experience_drop() -> float:
+	return (_resource.experience_drop * _multiplier)
 
 
 func take_damage(amount: float = 1.0) -> void:

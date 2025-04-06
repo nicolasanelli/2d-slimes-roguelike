@@ -5,8 +5,7 @@ extends ProgressBar
 
 
 func _process(_delta: float) -> void:
-	# TODO search for a better/reliable way to do this
-	var player = $/root/GameScreen/Player
+	var player : Player = get_node_or_null("/root/GameScreen/Player")
 	if not player: return
 	
 	var actual = player.find_child("ExperienceComponent")._current_experience

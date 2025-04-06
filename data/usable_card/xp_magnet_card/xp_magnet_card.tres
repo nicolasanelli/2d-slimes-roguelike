@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_qubdt")
-name = "Experience Gravity"
+name = "XP Gravity"
 description = "Atracts all the xp orbs dropped in the world"
 color = Color(1, 0.647059, 0, 1)
 texture = ExtResource("2_ylsbj")

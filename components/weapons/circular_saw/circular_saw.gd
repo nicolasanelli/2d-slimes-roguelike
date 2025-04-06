@@ -3,74 +3,62 @@ extends Node2D
 
 
 @onready var _rotation_point: Marker2D = %RotationPoint
-@onready var _timer: CTimer = $CTimer
+@onready var _uptime_timer: CTimer = $UptimeTimer
+@onready var _downtime_timer: CTimer = $DowntimeTimer
+
+enum Status {
+	UPTIME, DOWNTIME
+}
+var status : Status
+
 
 var _saw_component = preload("res://components/weapons/circular_saw/saw/saw.tscn")
 
-
-var _current_resource: CircularSawResource:
-	set(value):
-		_current_resource = value
-		_configure_current_resource()
-
+@export var _current_resource: CircularSawResource
 
 var state: bool = false;
 
 #region Engine
 func _ready() -> void:
-	_configure_current_resource()
+	_uptime_timer.timeout.connect(_play_downtime)
+	_downtime_timer.timeout.connect(_play_uptime)
+	_play_uptime()
 
 func _process(delta: float) -> void:
 	rotation += 4 * delta  * GlobalTimer.get_factor()
-	pass
 #endregion
 
 
-#region Timer
-func _configure_timer() -> void:
-	if not _timer: return
-	if _current_resource.is_special:
-		AudioManager.play_saw()
-		_timer.timeout.disconnect(_on_timer_timeout)
-		_timer.stop()
-		return;
-	
-	_timer.wait_time = _current_resource.cooldown
-	
-	if _timer.is_stopped():
-		_timer.start()
-		AudioManager.play_saw()
-		_timer.timeout.connect(_on_timer_timeout)
-
-func _on_timer_timeout() -> void:
-	if state:
-		AudioManager.stop_saw()
-		_remove_all_saws()
-	else: 
-		_draw_saws()
-		AudioManager.play_saw()
-	state = !state
-#endregion
-
-
-func _configure_current_resource() -> void:
-	if !_rotation_point: return
+func _play_uptime() ->void:
+	_remove_all_saws()
 	_draw_saws()
-	_configure_timer()
+	AudioManager.play_saw()
+	
+	if _current_resource.is_special: return
+	
+	_uptime_timer.start(_current_resource.uptime)
+	_downtime_timer.stop()
+	
+	
+func _play_downtime() ->void:
+	if _current_resource.is_special: return
+	
+	_remove_all_saws()
+	AudioManager.stop_saw()
+	
+	_downtime_timer.start(_current_resource.downtime)
 
 
 func upgrade(resouce: CircularSawResource) -> void:
 	_current_resource = resouce
+	_play_uptime()
 
 
 func _remove_all_saws() -> void:
 	for n in _rotation_point.get_children():
 		n.free()
 
-
 func _draw_saws() -> void:
-	_remove_all_saws()
-	
 	var quantity = _current_resource.quantity
 	var radius = _current_resource.radius
 	

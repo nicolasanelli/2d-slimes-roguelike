@@ -24,7 +24,7 @@ position = Vector2(-1010, -590)
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="CTimer" type="Node" parent="."]
+[node name="SpawnCTimer" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_0rkqr")
 

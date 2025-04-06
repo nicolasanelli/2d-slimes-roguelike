@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_cni5m")
-bullets = 3
-damage = 2
-attack_speed = 1.5
+bullets = 1
+damage = 5
+attack_speed = 0.8
 rarity = 3
 is_special = false
 texture = ExtResource("2_36f3s")

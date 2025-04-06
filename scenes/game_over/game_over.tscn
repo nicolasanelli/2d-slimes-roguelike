@@ -23,7 +23,6 @@ size_flags_vertical = 3
 color = Color(0.21974, 0.648788, 0.485114, 1)
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
 
 [node name="Overlay" type="ColorRect" parent="GameOverScreen"]
 anchors_preset = 15
@@ -43,12 +42,16 @@ offset_top = 127.0
 offset_right = 523.0
 offset_bottom = 373.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 240
 text = "YOU DIED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TimeElapsed" type="Label" parent="GameOverScreen/Overlay"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,6 +68,7 @@ text = "Time elapsed: %s"
 vertical_alignment = 1
 
 [node name="MonsterKilled" type="Label" parent="GameOverScreen/Overlay"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,6 +85,7 @@ text = "Monster killed: %s"
 vertical_alignment = 1
 
 [node name="BulletsShooted" type="Label" parent="GameOverScreen/Overlay"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -97,7 +102,6 @@ text = "Bullets shooted: %s"
 vertical_alignment = 1
 
 [node name="ReplayButton" type="Button" parent="GameOverScreen"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(290, 70)
 anchors_preset = 8
 anchor_left = 0.5
@@ -115,7 +119,6 @@ theme_override_font_sizes/font_size = 96
 text = "Try again"
 
 [node name="ExitButton" type="Button" parent="GameOverScreen"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(290, 70)
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://21r0axu05w1"]
+[gd_scene load_steps=33 format=3 uid="uid://21r0axu05w1"]
 
 [ext_resource type="Script" uid="uid://sf2dc1w3psee" path="res://ui/in_game_ui/fps.gd" id="1_xi3sq"]
 [ext_resource type="Script" uid="uid://dxfu2hmjkf6tg" path="res://ui/in_game_ui/debugger.gd" id="2_4axlx"]
 [ext_resource type="Script" uid="uid://bjfpbdglyxg4l" path="res://ui/in_game_ui/timer.gd" id="2_cyjxy"]
 [ext_resource type="Script" uid="uid://b4lgv6n4alwf1" path="res://ui/in_game_ui/debugger/label_mk.gd" id="3_1wkew"]
+[ext_resource type="Script" uid="uid://ju1ofp42ed6w" path="res://ui/in_game_ui/level_info.gd" id="3_7g84b"]
 [ext_resource type="PackedScene" uid="uid://ctalcx31t63w" path="res://ui/stat_item/stat_item.tscn" id="3_bvo32"]
 [ext_resource type="Script" uid="uid://xlvp5jbbbrx3" path="res://ui/in_game_ui/pause_label.gd" id="3_wlei0"]
 [ext_resource type="Script" uid="uid://cpxm0k3unn4rq" path="res://ui/in_game_ui/debugger/label_mc.gd" id="4_733bd"]
@@ -15,7 +16,7 @@
 [ext_resource type="Script" uid="uid://c34iea4t0dcrp" path="res://ui/in_game_ui/debugger/label_sf.gd" id="7_juxw1"]
 [ext_resource type="Script" uid="uid://ck3m48mqu4512" path="res://ui/in_game_ui/debugger/timer.gd" id="8_5kmr6"]
 [ext_resource type="Script" uid="uid://4yom1r4ck3tj" path="res://ui/in_game_ui/experience_bar.gd" id="8_cwf31"]
-[ext_resource type="Script" uid="uid://hnqln10nq0yj" path="res://ui/in_game_ui/mobile_pads.gd" id="9_0wqi4"]
+[ext_resource type="Script" uid="uid://baighdieie5o" path="res://ui/in_game_ui/left_pad.gd" id="9_au4t0"]
 [ext_resource type="Script" uid="uid://bgxmcdllw7jl5" path="res://ui/in_game_ui/debugger/custom_timer.gd" id="9_fwjpc"]
 [ext_resource type="PackedScene" uid="uid://dr3kwla7uxs8c" path="res://ui/joystick/joystick.tscn" id="9_pdvqd"]
 [ext_resource type="PackedScene" uid="uid://couh1lf25niie" path="res://components/cards/do_nothing_card/do_nothing_card.tscn" id="10_f0kfl"]
@@ -23,11 +24,14 @@
 [ext_resource type="Script" uid="uid://d2dh8deha201b" path="res://ui/in_game_ui/debugger/label_ms.gd" id="11_qp2xs"]
 [ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="12_iw8ba"]
 [ext_resource type="Script" uid="uid://is5yhto7cxk5" path="res://ui/in_game_ui/debugger/label_player_pos.gd" id="14_ho704"]
-[ext_resource type="Script" uid="uid://bvx4cullprqul" path="res://ui/in_game_ui/debugger/label_players_xp.gd" id="15_t8nab"]
+[ext_resource type="Script" uid="uid://bvx4cullprqul" path="res://ui/in_game_ui/debugger/label_player_xp.gd" id="15_t8nab"]
 [ext_resource type="Script" uid="uid://dla2dx38mvy7g" path="res://ui/in_game_ui/debugger/change_factor.gd" id="18_4tbpe"]
 [ext_resource type="Script" uid="uid://bxef7pjf7gen4" path="res://ui/in_game_ui/debugger/game_over.gd" id="18_pgi80"]
 [ext_resource type="Script" uid="uid://dlw5alrn0kxvk" path="res://ui/in_game_ui/debugger/label_te.gd" id="18_uba84"]
+[ext_resource type="Script" uid="uid://cg74cbqwgepoy" path="res://ui/in_game_ui/debugger/label_players_lvl.gd" id="19_fx8rr"]
 [ext_resource type="Script" uid="uid://nifvkdbwvob0" path="res://ui/in_game_ui/pause_menu.gd" id="26_0wqi4"]
+[ext_resource type="Script" uid="uid://bbw2ubua76fci" path="res://ui/in_game_ui/debugger/stage.gd" id="26_au4t0"]
+[ext_resource type="Script" uid="uid://d2u76v8xoodnj" path="res://ui/in_game_ui/debugger/wave.gd" id="27_6itfw"]
 
 [node name="InGameUI" type="CanvasLayer"]
 
@@ -56,7 +60,11 @@ theme_type_variation = &"HeaderSmall"
 text = "FPS: 60"
 script = ExtResource("1_xi3sq")
 
-[node name="Timer" type="Label" parent="GameplayUI/VBoxContainer/TopView"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameplayUI/VBoxContainer/TopView"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Timer" type="Label" parent="GameplayUI/VBoxContainer/TopView/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -64,6 +72,16 @@ theme_type_variation = &"HeaderLarge"
 text = "99:99"
 horizontal_alignment = 1
 script = ExtResource("2_cyjxy")
+
+[node name="LevelInfo" type="Label" parent="GameplayUI/VBoxContainer/TopView/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "Stage: x/n
+Wave:  y/m"
+horizontal_alignment = 1
+script = ExtResource("3_7g84b")
 
 [node name="PauseLabel" type="Label" parent="GameplayUI/VBoxContainer/TopView"]
 layout_mode = 2
@@ -157,25 +175,14 @@ text = "63 / 100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MobilePads" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-script = ExtResource("9_0wqi4")
-
-[node name="LeftPad" type="Control" parent="MobilePads"]
+[node name="LeftPad" type="Control" parent="GameplayUI"]
 custom_minimum_size = Vector2(356, 356)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+script = ExtResource("9_au4t0")
 
-[node name="Joystick" parent="MobilePads/LeftPad" instance=ExtResource("9_pdvqd")]
+[node name="Joystick" parent="GameplayUI/LeftPad" instance=ExtResource("9_pdvqd")]
 texture_filter = 1
 
 [node name="Debugger" type="MarginContainer" parent="."]
@@ -196,9 +203,9 @@ custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="MarginContainer2" type="MarginContainer" parent="Debugger/VBoxContainer"]
+[node name="Separator1" type="MarginContainer" parent="Debugger/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 32
 theme_override_constants/margin_bottom = 8
 
 [node name="LabelMS" type="Label" parent="Debugger/VBoxContainer"]
@@ -221,14 +228,14 @@ layout_mode = 2
 text = "Bullets shooted: %s"
 script = ExtResource("5_4gui6")
 
-[node name="MarginContainer3" type="MarginContainer" parent="Debugger/VBoxContainer"]
+[node name="Separator2" type="MarginContainer" parent="Debugger/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="LabelPlayerPos" type="Label" parent="Debugger/VBoxContainer"]
 layout_mode = 2
-text = "Player (%s, %s)"
+text = "Pos(%.1f, %.1f)"
 script = ExtResource("14_ho704")
 
 [node name="LabelPlayersXP" type="Label" parent="Debugger/VBoxContainer"]
@@ -236,23 +243,36 @@ layout_mode = 2
 text = "Player XP: %s"
 script = ExtResource("15_t8nab")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Debugger/VBoxContainer"]
+[node name="LabelPlayersLVL" type="Label" parent="Debugger/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Player XP: %s"
+script = ExtResource("19_fx8rr")
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="Debugger/VBoxContainer"]
 layout_mode = 2
 
-[node name="Add100XPButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer"]
+[node name="Add1LvLButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+1 LvL"
+script = ExtResource("6_55mql")
+amount = -1
+
+[node name="Add100XPButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+100 XP"
 script = ExtResource("6_55mql")
 
-[node name="Add1000XPButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer"]
+[node name="Add1000XPButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+1000 XP"
 script = ExtResource("6_55mql")
 amount = 1000
 
-[node name="MarginContainer4" type="MarginContainer" parent="Debugger/VBoxContainer"]
+[node name="Separator3" type="MarginContainer" parent="Debugger/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_bottom = 8
@@ -262,10 +282,10 @@ layout_mode = 2
 text = "Speed factor: %.3f"
 script = ExtResource("7_juxw1")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Debugger/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Debugger/VBoxContainer"]
 layout_mode = 2
 
-[node name="Decrease" type="Button" parent="Debugger/VBoxContainer/HBoxContainer3"]
+[node name="Decrease" type="Button" parent="Debugger/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "-"
@@ -273,13 +293,13 @@ script = ExtResource("18_4tbpe")
 value = -0.25
 step = 0.3
 
-[node name="Reset" type="Button" parent="Debugger/VBoxContainer/HBoxContainer3"]
+[node name="Reset" type="Button" parent="Debugger/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
 script = ExtResource("18_4tbpe")
 
-[node name="Increase" type="Button" parent="Debugger/VBoxContainer/HBoxContainer3"]
+[node name="Increase" type="Button" parent="Debugger/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+"
@@ -287,7 +307,7 @@ script = ExtResource("18_4tbpe")
 value = 0.25
 step = 0.3
 
-[node name="MarginContainer" type="MarginContainer" parent="Debugger/VBoxContainer"]
+[node name="Separator4" type="MarginContainer" parent="Debugger/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 15
 
@@ -321,6 +341,25 @@ script = ExtResource("9_fwjpc")
 script = ExtResource("12_iw8ba")
 wait_time = 100.0
 autostart = true
+
+[node name="Separator5" type="MarginContainer" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+
+[node name="Stage" type="Label" parent="Debugger/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stage: %s"
+script = ExtResource("26_au4t0")
+
+[node name="Wave" type="Label" parent="Debugger/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Wave: %s"
+script = ExtResource("27_6itfw")
 
 [node name="CardSelectorUI" type="MarginContainer" parent="."]
 visible = false

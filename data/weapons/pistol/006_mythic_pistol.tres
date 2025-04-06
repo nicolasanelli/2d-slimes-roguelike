@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_g7xhe")
 bullets = 5
-damage = 3
-attack_speed = 2.5
+damage = 7
+attack_speed = 1.0
 rarity = 5
 is_special = true
 texture = ExtResource("2_vsryi")
