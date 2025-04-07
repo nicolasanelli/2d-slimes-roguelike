@@ -23,7 +23,7 @@ func add(scene: Node2D) -> void:
 		return
 	
 	_inventory[weapon_name] = scene
-	add_sibling(scene)
+	add_child(scene)
 	CommandDispatcher.inventory_updated.emit(_inventory)
 
 
