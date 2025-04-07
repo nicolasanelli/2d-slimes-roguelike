@@ -1,19 +1,6 @@
-class_name ChunkManager extends Node2D
-
-
-#region Singleton
-static var instance: ChunkManager
-
-func _init() -> void:
-	if not instance: instance = self
-	else: queue_free()
-#endregion
-
+extends Node
 
 @export var _player: Player
-
-
-@onready var chunks: Node = $Chunks
 
 
 var _chunk_component = preload("res://components/chunk/chunk.tscn")
@@ -51,8 +38,9 @@ func _spawn_chunk(x: int, y: int) -> void:
 	var key = "chunk[%s,%s]" % [x, y]
 	if chunks_loaded.has(key): return
 	
-	var chunk: Chunk = _chunk_component.instantiate()
-	chunk.global_position = chunk.get_global_position_for_x_y(x, y)
-	chunks.add_child(chunk)
 	chunks_loaded[key] = true
+	var chunk: Chunk = _chunk_component.instantiate()
+	chunk.name = key
+	chunk.global_position = chunk.get_global_position_for_x_y(x, y)
+	add_child(chunk)
 	

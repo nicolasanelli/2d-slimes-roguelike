@@ -1,10 +1,10 @@
 class_name EnemyManager
-extends Node2D
+extends Node
 
 
 @export var _player: Player
 @export var _camera: Camera2D
-@export var _wave_timer_enabled: bool = true
+var _wave_timer_enabled: bool = true
 
 
 @onready var _path: Path2D = %Path2D
@@ -84,7 +84,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	global_position = _player.global_position
+	_path.global_position = _player.global_position
 
 
 func _configure_scale() -> void:
