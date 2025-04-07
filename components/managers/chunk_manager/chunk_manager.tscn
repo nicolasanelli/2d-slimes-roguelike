@@ -2,9 +2,5 @@
 
 [ext_resource type="Script" uid="uid://yb52blnmytcx" path="res://components/managers/chunk_manager/chunk_manager.gd" id="1_aqrm8"]
 
-[node name="ChunkManager" type="Node2D"]
-y_sort_enabled = true
+[node name="ChunkManager" type="Node"]
 script = ExtResource("1_aqrm8")
-
-[node name="Chunks" type="Node2D" parent="."]
-y_sort_enabled = true

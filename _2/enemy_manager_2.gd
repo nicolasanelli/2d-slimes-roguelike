@@ -4,7 +4,8 @@ extends Node
 
 @export var _player: Player
 @export var _camera: Camera2D
-var _wave_timer_enabled: bool = true
+@export var _wave_timer_enabled: bool = true
+@export var _tilemap : TileMapLayer
 
 
 @onready var _path: Path2D = %Path2D
@@ -18,9 +19,13 @@ var _stage := 1
 var _stage_multiplier := [
 	0, 1, 2, 3, 5, 7
 ]
-var _wave := 1
+var _wave := 0
 var _waves := [
-	{},
+	{
+		"spawn_time": null,
+		"resource": null,
+		"wave_time": 3,
+	},
 	{ # XP: 15
 		"spawn_time": 2,
 		"resource": preload("res://data/enemies/slime/001_green_slime.tres"),
@@ -146,8 +151,18 @@ func _create_slime(stage: int, wave: int) -> Slime:
 	
 	return slime
 
+func _get_safe_random_position() -> Vector2:
+	_spawn_location.progress_ratio = randf()
+	var pos = _spawn_location.global_position;
+	var tilemap_position = _tilemap.local_to_map(pos)
+	var data := _tilemap.get_cell_tile_data(tilemap_position)
+	if data && data.get_collision_polygons_count(0) == 0:
+		return pos
+	
+	return _get_safe_random_position()
 
 func _spawn_enemy(enemy: Slime) -> void:
-	_spawn_location.progress_ratio = randf()
-	enemy.global_position = _spawn_location.global_position
+	var pos = _get_safe_random_position()
+	
+	enemy.global_position = pos
 	_enemies.add_child(enemy, true)

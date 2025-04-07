@@ -41,15 +41,15 @@ func set_target(_target: Node2D) -> void:
 	target = _target;
 
 
+func get_target_global_position() -> Vector2:
+	if target == null: return Vector2.ZERO
+	return target.global_position
+	
+	
 func get_distance_to_target() -> float:
 	if target == null: return 0
 	
 	return global_position.distance_to(target.global_position)
-
-func get_direction_to_target() -> Vector2:
-	if target == null: return Vector2.ZERO
-	
-	return global_position.direction_to(target.global_position)
 
 
 func set_resource(resource: SlimeResource, multiplier := 1) -> void:

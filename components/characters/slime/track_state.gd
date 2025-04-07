@@ -4,15 +4,18 @@ extends NodeState
 @export var slime: Slime
 @export var slime_body: SlimeBody
 @export var health_component: HealthComponent
+@export var navigation_agent: NavigationAgent2D
 
 func _on_process(_delta : float) -> void:
 	pass
 
 
-func _on_physics_process(_delta : float) -> void:
+func _on_physics_process(_delta: float) -> void:
 	slime_body.play_walk()
 	
-	var direction = slime.get_direction_to_target()
+	navigation_agent.target_position = slime.get_target_global_position()
+	var direction = (navigation_agent.get_next_path_position() - slime.global_position).normalized()
+	
 	slime.velocity = direction * slime._resource.speed * GlobalTimer.get_factor()
 	slime.move_and_slide()
 

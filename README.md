@@ -29,6 +29,7 @@ A roguelike game using free assets and Godot Engine 4.4.
 - [ ] EventListener for SoundEffecs7
 - [ ] Alternate between Pistol and Shotgun [can't use at same time]
 - [ ] Reroll cards
+- [ ] Use Path2D to slime find Player 
 - [ ] Achievements
     - [ ] Finish with only Shotgun
     - [ ] Finish with only Pistol
@@ -37,7 +38,7 @@ A roguelike game using free assets and Godot Engine 4.4.
     - [ ] Evolve Shotgun to Mythic
     - [ ] Evolve Pistol to Mythic
     - [ ] Evolve Saw to Mythic
-    - [ ] Finish under 11 minutes
+    - [ ] Finish under 10 minutes
 
 
 ## How to add a new weapon

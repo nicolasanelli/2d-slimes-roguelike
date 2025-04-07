@@ -1,5 +1,5 @@
 class_name DropManager
-extends Node2D
+extends Node
 
 
 #region Singleton

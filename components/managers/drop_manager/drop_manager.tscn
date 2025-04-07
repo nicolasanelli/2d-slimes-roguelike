@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://dh4sjo50yqnqw" path="res://components/managers/drop_manager/drop_manager.gd" id="1_83g1j"]
 
-[node name="DropManager" type="Node2D"]
+[node name="DropManager" type="Node"]
 script = ExtResource("1_83g1j")

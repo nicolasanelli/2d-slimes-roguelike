@@ -1,20 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy4pqge5kjd4a"]
+[gd_scene load_steps=4 format=3 uid="uid://dy4pqge5kjd4a"]
 
 [ext_resource type="Script" uid="uid://lllto72avlry" path="res://components/chunk/chunk.gd" id="1_fmkin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcejg"]
-size = Vector2(1080, 1080)
+size = Vector2(1920, 1080)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bc7f7"]
+vertices = PackedVector2Array(1934.01, 1094.01, -18.9531, 1096.98, -14.0391, -13, 1935.98, -13)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-24, -23, -29, 1107, 1944, 1104, 1946, -23)])
 
 [node name="Chunk" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_fmkin")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(540, 540)
+position = Vector2(960, 540)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_dcejg")
+debug_color = Color(0.7, 0, 0.0481553, 0.42)
 
 [node name="Trees" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -25,3 +32,7 @@ z_index = 4096
 offset_right = 40.0
 offset_bottom = 23.0
 text = "(%f, %f)"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_bc7f7")
+travel_cost = 0.0

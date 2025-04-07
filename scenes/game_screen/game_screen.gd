@@ -22,8 +22,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if _current_state == GameState.RUNNING:
-		_card_manager.visible = false
-		
 		if _should_pick_card_times > 0:
 			_pick_card()
 

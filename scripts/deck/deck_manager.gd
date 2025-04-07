@@ -1,5 +1,4 @@
 class_name DeckManager
-extends Node
 
 
 var add_weapon_ps = preload("res://components/cards/add_weapon_card/add_weapon_card.tscn")
