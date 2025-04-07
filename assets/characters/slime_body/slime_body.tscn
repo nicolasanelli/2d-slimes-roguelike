@@ -211,6 +211,7 @@ _data = {
 }
 
 [node name="SlimeBody" type="Node2D"]
+position = Vector2(0, 25)
 script = ExtResource("1_r83s6")
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
