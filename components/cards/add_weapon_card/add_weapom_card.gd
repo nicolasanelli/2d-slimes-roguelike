@@ -24,12 +24,12 @@ func _on_card_pressed() -> void:
 func execute(_player: Player) -> void:
 	var packed = load(_resource.weapon_component)
 	var wic: WeaponInventoryComponent = _player.find_child("WeaponInventoryComponent")
-	var weapon = packed.instantiate()
+	var weapon: BaseWeapon = packed.instantiate()
 	
-	if wic.has_weapon(weapon.get_meta("WeaponName")):
+	if wic.has_weapon(weapon.get_name()):
 		weapon.queue_free()
 		return
 	
 	weapon.position = _resource.position
-	weapon._current_resource = _resource.resource
+	weapon.set_resource(_resource.resource) 
 	wic.add(weapon)

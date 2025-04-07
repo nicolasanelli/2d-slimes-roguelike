@@ -115,10 +115,6 @@ folder_colors={
 "res://tilesets/": "yellow"
 }
 
-[global_group]
-
-Weapons="Can be used in weapon inventory"
-
 [gui]
 
 theme/custom="res://ui/theme/default.tres"
