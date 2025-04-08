@@ -14,23 +14,14 @@
 y_sort_enabled = true
 script = ExtResource("1_ump46")
 
-[node name="BackgroundLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0.21974, 0.648788, 0.485114, 1)
-
 [node name="InGameUI" parent="." instance=ExtResource("8_vhb74")]
 
-[node name="ChunkManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("2_or40j")]
+[node name="CardManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("4_clbv6")]
 _player = NodePath("../Player")
+
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("_player", "_camera") instance=ExtResource("5_6bxij")]
+_player = NodePath("../Player")
+_camera = NodePath("../Player/Camera2D")
 
 [node name="DropManager" parent="." instance=ExtResource("3_tx48l")]
 
@@ -49,13 +40,9 @@ position = Vector2(358, 346)
 [node name="XpOrb5" parent="DropManager" instance=ExtResource("14_dodro")]
 position = Vector2(370, 316)
 
-[node name="CardManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("4_clbv6")]
+[node name="ChunkManager" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("2_or40j")]
+y_sort_enabled = true
 _player = NodePath("../Player")
-
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("_player", "_camera") instance=ExtResource("5_6bxij")]
-visible = false
-_player = NodePath("../Player")
-_camera = NodePath("../Player/Camera2D")
 
 [node name="Player" parent="." instance=ExtResource("6_orkjk")]
 position = Vector2(960, 540)

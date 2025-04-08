@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="XpMagnetCardResource" load_steps=3 format=3 uid="uid://y1q0eksdnm8k"]
+
+[ext_resource type="Script" uid="uid://caoewe3v7pqpn" path="res://data/cards/xp_magnet_card/xp_magnet_card_resource.gd" id="1_geq5r"]
+[ext_resource type="Texture2D" uid="uid://mf5t5ysd4j4x" path="res://assets/magnet.png" id="2_hequ5"]
+
+[resource]
+script = ExtResource("1_geq5r")
+name = "XP Gravity"
+texture = ExtResource("2_hequ5")
+description = "Atracts all the xp orbs dropped in the world"
+color = Color(0.117647, 0.564706, 1, 1)
+metadata/_custom_type_script = "uid://c1mfew6tkxp01"

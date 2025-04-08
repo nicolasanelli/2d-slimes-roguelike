@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponCard" load_steps=5 format=3 uid="uid://b0hf23525klfr"]
+
+[ext_resource type="Resource" uid="uid://conwrg4mxf4hy" path="res://data/weapons/shotgun/003_rare_shotgun.tres" id="1_eh3w6"]
+[ext_resource type="Script" uid="uid://b0aek54j4ucl0" path="res://data/cards/weapon_cards/weapon_card.gd" id="2_jhngy"]
+[ext_resource type="Texture2D" uid="uid://doy3enyqs71dr" path="res://components/weapons/shotgun/shotgun.png" id="3_qam5q"]
+[ext_resource type="PackedScene" uid="uid://cmluedidyva3" path="res://components/weapons/shotgun/shotgun.tscn" id="4_50t40"]
+
+[resource]
+script = ExtResource("2_jhngy")
+weapon = ExtResource("4_50t40")
+resource = ExtResource("1_eh3w6")
+position = Vector2(0, 0)
+name = "Shotgun"
+texture = ExtResource("3_qam5q")
+description = "Upgrade your shotgun to UNCOMMON"
+color = Color(0.827451, 0.827451, 0.827451, 1)
+metadata/_custom_type_script = "uid://b0aek54j4ucl0"

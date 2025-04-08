@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponCard" load_steps=5 format=3 uid="uid://bvvc4cc6dgg3f"]
+
+[ext_resource type="Resource" uid="uid://cploahtos43a1" path="res://data/weapons/circular_saw/005_legendary_circular_saw.tres" id="1_pikyx"]
+[ext_resource type="Script" uid="uid://b0aek54j4ucl0" path="res://data/cards/weapon_cards/weapon_card.gd" id="2_n2vdt"]
+[ext_resource type="Texture2D" uid="uid://bfmkpxha82rlr" path="res://components/weapons/circular_saw/saw/saw.png" id="3_pcilt"]
+[ext_resource type="PackedScene" uid="uid://bnvxmmn4f0hqp" path="res://components/weapons/circular_saw/circular_saw.tscn" id="4_fcrnr"]
+
+[resource]
+script = ExtResource("2_n2vdt")
+weapon = ExtResource("4_fcrnr")
+resource = ExtResource("1_pikyx")
+position = Vector2(0, 0)
+name = "Circular Saw"
+texture = ExtResource("3_pcilt")
+description = "Upgrade your rotating weapon to LEGENDARY"
+color = Color(0.827451, 0.827451, 0.827451, 1)
+metadata/_custom_type_script = "uid://b0aek54j4ucl0"

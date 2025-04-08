@@ -9,8 +9,7 @@ _data = {
 }
 point_count = 5
 
-[node name="EnemyManager" type="Node2D"]
-y_sort_enabled = true
+[node name="EnemyManager" type="Node"]
 script = ExtResource("1_c0e1v")
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -19,7 +18,6 @@ curve = SubResource("Curve2D_4nsai")
 
 [node name="SpawnLocation" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
-position = Vector2(-1010, -590)
 
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true
