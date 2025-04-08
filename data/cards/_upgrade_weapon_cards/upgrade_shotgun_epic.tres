@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeWeaponCardResource" load_steps=4 format=3 uid="uid://crf4gf5oywrp4"]
+
+[ext_resource type="Resource" uid="uid://bp50u7wlinhof" path="res://data/weapons/shotgun/004_epic_shotgun.tres" id="1_4ecch"]
+[ext_resource type="Script" uid="uid://cyqhmso2mbxyb" path="res://data/cards/_upgrade_weapon_cards/upgrade_weapon_card_resource.gd" id="2_xytmo"]
+[ext_resource type="Texture2D" uid="uid://doy3enyqs71dr" path="res://components/weapons/shotgun/shotgun.png" id="3_xytmo"]
+
+[resource]
+script = ExtResource("2_xytmo")
+weapon_name = "shotgun"
+resource = ExtResource("1_4ecch")
+name = "Shotgun"
+description = "Upgrade your shotgun to EPIC"
+color = Color(0.627451, 0.12549, 0.941176, 1)
+texture = ExtResource("3_xytmo")
+metadata/_custom_type_script = "uid://cyqhmso2mbxyb"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcuw6js5ydbmx"]
 
 [ext_resource type="Script" uid="uid://cseamtgq0cq3g" path="res://ui/card/card.gd" id="1_in445"]
-[ext_resource type="Resource" uid="uid://bkoc7wxdf7me2" path="res://data/usable_card/add_weapon_cards/add_pistol_card.tres" id="2_f16lr"]
+[ext_resource type="Resource" uid="uid://b7hiux714slls" path="res://data/cards/dummy_card.tres" id="2_f16lr"]
 [ext_resource type="Texture2D" uid="uid://c7vyogiyxkdpv" path="res://assets/placeholder_64.png" id="3_wqpge"]
 
 [node name="Card" type="Button"]
@@ -10,7 +10,7 @@ offset_bottom = 419.0
 mouse_default_cursor_shape = 2
 theme_type_variation = &"InvisibleButton"
 script = ExtResource("1_in445")
-_resource = ExtResource("2_f16lr")
+resource = ExtResource("2_f16lr")
 
 [node name="CardPanelContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -28,11 +28,11 @@ theme_type_variation = &"CardPanelContainer"
 [node name="VBoxContainer" type="VBoxContainer" parent="CardPanelContainer"]
 layout_mode = 2
 
-[node name="Control" type="MarginContainer" parent="CardPanelContainer/VBoxContainer"]
+[node name="Spacer" type="MarginContainer" parent="CardPanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="CardTitleLabel" type="Label" parent="CardPanelContainer/VBoxContainer"]
+[node name="NamePlate" type="Label" parent="CardPanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"CardTitleLabel"
@@ -53,7 +53,7 @@ layout_mode = 2
 mouse_filter = 2
 theme_type_variation = &"ThumbnailPanel"
 
-[node name="Sprite" type="TextureRect" parent="CardPanelContainer/VBoxContainer/ThumbnailContainer/Background"]
+[node name="Texture" type="TextureRect" parent="CardPanelContainer/VBoxContainer/ThumbnailContainer/Background"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -78,7 +78,7 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="CardDescriptionLabel" type="Label" parent="CardPanelContainer/VBoxContainer/DescriptionContainer"]
+[node name="Description" type="Label" parent="CardPanelContainer/VBoxContainer/DescriptionContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2

@@ -8,7 +8,6 @@ func set_resource(base_weapon_data: BaseWeaponData) -> void:
 	setup()
 
 func get_resource() -> BaseWeaponData:
-	print("BaseWeapon.get_resource")
 	return resource 
 
 func setup():

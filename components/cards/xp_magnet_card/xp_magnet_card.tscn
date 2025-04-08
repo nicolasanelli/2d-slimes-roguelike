@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgxh6dbjptvgm"]
 
 [ext_resource type="Script" uid="uid://b4r7bn44y1lpy" path="res://components/cards/xp_magnet_card/xp_magnet_card.gd" id="1_ci11l"]
-[ext_resource type="Resource" uid="uid://y1q0eksdnm8k" path="res://data/usable_card/xp_magnet_card/xp_magnet_card.tres" id="2_a8c4s"]
+[ext_resource type="Resource" uid="uid://y1q0eksdnm8k" path="res://data/cards/_xp_magnet_card/xp_magnet_card.tres" id="2_a8c4s"]
 [ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="2_nh7hn"]
 
 [node name="XpMagnetCard" type="Control"]

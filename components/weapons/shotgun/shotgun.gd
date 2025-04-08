@@ -51,7 +51,7 @@ func _physics_process(_delta: float) -> void:
 #endregion
 
 
-func upgrade(resource: BaseWeaponResource) -> void:
+func upgrade(resource: BaseWeaponData) -> void:
 	_current_resource = resource
 
 

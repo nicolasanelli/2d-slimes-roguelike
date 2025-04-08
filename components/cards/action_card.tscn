@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqqdnrats34f5"]
+
+[ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="1_3mqjp"]
+[ext_resource type="Script" uid="uid://bgimdfmm4l5uu" path="res://components/cards/action_card.gd" id="1_n528c"]
+[ext_resource type="Resource" uid="uid://cijmt04mcxcli" path="res://data/cards/consumable_cards/heal_25hp.tres" id="2_n050i"]
+
+[node name="ActionCard" type="Control"]
+custom_minimum_size = Vector2(300, 420)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_n528c")
+resource = ExtResource("2_n050i")
+
+[node name="Card" parent="." instance=ExtResource("1_3mqjp")]
+layout_mode = 0
+mouse_filter = 1

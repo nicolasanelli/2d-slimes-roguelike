@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://d10pjdcxtulx6" path="res://data/weapons/circular_saw/001_common_circular_saw.tres" id="2_t5fxk"]
 [ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="3_scdy3"]
 
-[node name="CircularSaw" type="Node2D" groups=["Weapons"]]
+[node name="CircularSaw" type="Node2D"]
 script = ExtResource("1_3520g")
 _current_resource = ExtResource("2_t5fxk")
 metadata/WeaponName = "circular-saw"

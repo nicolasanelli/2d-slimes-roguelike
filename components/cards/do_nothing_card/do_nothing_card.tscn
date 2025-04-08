@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bghndxw3400a7" path="res://components/cards/do_nothing_card/do_nothing_card.gd" id="1_rvnkt"]
 [ext_resource type="PackedScene" uid="uid://bcuw6js5ydbmx" path="res://ui/card/card.tscn" id="1_wiu86"]
-[ext_resource type="Resource" uid="uid://ibufdpcn81k2" path="res://data/usable_card/heal_cards/full_heal_card.tres" id="2_rvnkt"]
+[ext_resource type="Resource" uid="uid://ibufdpcn81k2" path="res://data/cards/_heal_cards/full_heal_card.tres" id="2_rvnkt"]
 
 [node name="DoNothingCard" type="Control"]
 custom_minimum_size = Vector2(300, 420)

@@ -5,7 +5,7 @@ extends ActionCard
 @onready var _card: Card = $Card
 
 
-var _resource: UsableCardResource
+var _resource: CardData
 
 
 func _ready() -> void:

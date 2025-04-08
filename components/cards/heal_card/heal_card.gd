@@ -1,4 +1,4 @@
-class_name HealCard
+#class_name HealCard
 extends ActionCard
 
 
