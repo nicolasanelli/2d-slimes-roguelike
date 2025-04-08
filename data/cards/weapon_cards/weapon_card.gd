@@ -2,7 +2,7 @@ class_name WeaponCard
 extends CardData
 
 @export var weapon: PackedScene
-@export var resource: PistolData
+@export var resource: BaseWeaponData
 # TODO: validate if it is really necessary, this could may be inside the weapon scene
 @export var position: Vector2 = Vector2.ZERO
 
@@ -16,10 +16,10 @@ func use(dict: Dictionary) -> void:
 		push_error("dict.player is not defined in %s" % get_name())
 		return
 		
-	var weapon := weapon.instantiate()
-	weapon.position = position
-	weapon.set_resource(resource)
+	var _weapon := weapon.instantiate()
+	_weapon.position = position
+	_weapon.set_resource(resource)
 	
 	# TODO still thinking about optimize optimize this, maybe Autoload PlayerManager
 	var wic: WeaponInventoryComponent = player.find_child("WeaponInventoryComponent")
-	wic.add(weapon)
+	wic.add(_weapon)

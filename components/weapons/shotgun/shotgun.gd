@@ -1,23 +1,13 @@
 class_name Shotgun 
-extends Node2D
+extends BaseWeapon
 
-
-var _bullet_component = preload("res://components/weapons/shotgun/shotgun_bullet/shotgun_bullet.tscn")
-
+const _bullet_component = preload("res://components/weapons/shotgun/shotgun_bullet/shotgun_bullet.tscn")
 
 @onready var _area: Area2D = %Area2D
 @onready var _pistol_sprite: Sprite2D = %Shotgun
 @onready var _shooting_point: Marker2D = %ShootingPoint
 @onready var _timer: CTimer = $CTimer
-
 @export var _disabled: bool = false
-
-
-var _current_resource: ShotgunResource:
-	set(value):
-		_current_resource = value
-		_configure_timer()
-
 
 const ROTATION_SPEED = 25
 var _angle = 0
@@ -50,17 +40,12 @@ func _physics_process(_delta: float) -> void:
 		_angle = get_angle_to(target)
 #endregion
 
-
-func upgrade(resource: BaseWeaponData) -> void:
-	_current_resource = resource
-
-
 #region Timer
 func _configure_timer() -> void:
 	if _disabled: return
 	if not _timer: return
 	
-	_timer.wait_time = (1 / _current_resource.attack_speed)
+	_timer.wait_time = (1 / get_resource().attack_speed)
 	
 	if _timer.is_stopped(): 
 		_timer.start()
@@ -70,24 +55,28 @@ func _on_timer_timeout() -> void:
 	shoot()
 #endregion
 
+#region Override
+func get_resource() -> ShotgunData:
+	return super.get_resource()
+#endregion
 
 func shoot() -> void:
 	var bullets: Array = []
 	
-	for n in range(_current_resource.bullets):
+	for n in range(get_resource().bullets):
 		Statistics.add_bullet_shooted()
 		
 		var bullet = (_bullet_component.instantiate() as ShotgunBullet)
 		bullet.global_position = _shooting_point.global_position
-		bullet.set_damage(_current_resource.damage)
-		bullet.set_max_range(_current_resource.distance)
-		if _current_resource.is_special:
+		bullet.set_damage(get_resource().damage)
+		bullet.set_max_range(get_resource().distance)
+		if get_resource().is_special:
 			bullet.set_as_special()
 		
 		bullets.push_back(bullet)
 	
-	for n in range(_current_resource.positions.size()):
-		var degree = _current_resource.positions[n]
+	for n in range(get_resource().positions.size()):
+		var degree = get_resource().positions[n]
 		bullets[n].global_rotation = _shooting_point.global_rotation + deg_to_rad(degree)
 	
 	for n in bullets:

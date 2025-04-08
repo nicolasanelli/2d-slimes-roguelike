@@ -20,12 +20,12 @@ var options = {
 		preload("res://data/cards/weapon_cards/pistol/mythic_pistol_card.tres"),
 	],
 	"shotgun": [
-		#preload("res://data/cards/add_weapon_cards/add_shotgun_card.tres"),
-		#preload("res://data/cards/upgrade_weapon_cards/upgrade_shotgun_uncommon.tres"),
-		#preload("res://data/cards/upgrade_weapon_cards/upgrade_shotgun_rare.tres"),
-		#preload("res://data/cards/upgrade_weapon_cards/upgrade_shotgun_epic.tres"),
-		#preload("res://data/cards/upgrade_weapon_cards/upgrade_shotgun_legendary.tres"),
-		#preload("res://data/cards/upgrade_weapon_cards/upgrade_shotgun_mythic.tres"),
+		preload("res://data/cards/weapon_cards/shotgun/common_shotgun_card.tres"),
+		preload("res://data/cards/weapon_cards/shotgun/uncommon_shotgun_card.tres"),
+		preload("res://data/cards/weapon_cards/shotgun/rare_shotgun_card.tres"),
+		preload("res://data/cards/weapon_cards/shotgun/epic_shotgun_card.tres"),
+		preload("res://data/cards/weapon_cards/shotgun/legendary_shotgun_card.tres"),
+		preload("res://data/cards/weapon_cards/shotgun/mythic_shotgun_card.tres"),
 	],
 	"csaw": [
 		#preload("res://data/cards/add_weapon_cards/add_csaw_card.tres"),

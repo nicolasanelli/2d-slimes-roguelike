@@ -1,5 +1,5 @@
-class_name ShotgunResource
-extends BaseWeaponResource
+class_name ShotgunData
+extends BaseWeaponData
 
 @export var bullets: int
 @export var distance: int
