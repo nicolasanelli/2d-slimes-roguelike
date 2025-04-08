@@ -64,7 +64,6 @@ func get_resource() -> PistolData:
 	return super.get_resource()
 #endregion
 
-
 func shoot() -> void:
 	for n in range(get_resource().bullets):
 		Statistics.add_bullet_shooted()

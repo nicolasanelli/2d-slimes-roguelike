@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://21r0axu05w1"]
+[gd_scene load_steps=32 format=3 uid="uid://21r0axu05w1"]
 
 [ext_resource type="Script" uid="uid://sf2dc1w3psee" path="res://ui/in_game_ui/fps.gd" id="1_xi3sq"]
 [ext_resource type="Script" uid="uid://dxfu2hmjkf6tg" path="res://ui/in_game_ui/debugger.gd" id="2_4axlx"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://baighdieie5o" path="res://ui/in_game_ui/left_pad.gd" id="9_au4t0"]
 [ext_resource type="Script" uid="uid://bgxmcdllw7jl5" path="res://ui/in_game_ui/debugger/custom_timer.gd" id="9_fwjpc"]
 [ext_resource type="PackedScene" uid="uid://dr3kwla7uxs8c" path="res://ui/joystick/joystick.tscn" id="9_pdvqd"]
-[ext_resource type="PackedScene" uid="uid://couh1lf25niie" path="res://components/cards/do_nothing_card/do_nothing_card.tscn" id="10_f0kfl"]
 [ext_resource type="Script" uid="uid://bg36suxh56mdl" path="res://ui/in_game_ui/card_selector_ui.gd" id="10_ieksd"]
 [ext_resource type="Script" uid="uid://d2dh8deha201b" path="res://ui/in_game_ui/debugger/label_ms.gd" id="11_qp2xs"]
 [ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="12_iw8ba"]
@@ -389,15 +388,6 @@ offset_right = 150.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="DummyCard1" parent="CardSelectorUI/Overlay/CardRow" instance=ExtResource("10_f0kfl")]
-layout_mode = 2
-
-[node name="DummyCard2" parent="CardSelectorUI/Overlay/CardRow" instance=ExtResource("10_f0kfl")]
-layout_mode = 2
-
-[node name="DummyCard3" parent="CardSelectorUI/Overlay/CardRow" instance=ExtResource("10_f0kfl")]
-layout_mode = 2
 
 [node name="SkipButton" type="Button" parent="CardSelectorUI/Overlay"]
 unique_name_in_owner = true

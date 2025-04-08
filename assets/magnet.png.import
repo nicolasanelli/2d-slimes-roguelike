@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mf5t5ysd4j4x"
-path="res://.godot/imported/magnet.png-a8802ea114fa6313ac0a796f5c7f1138.ctex"
+path="res://.godot/imported/magnet.png-4430563963eeb7c78db06f45818edd6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/cards/_xp_magnet_card/magnet.png"
-dest_files=["res://.godot/imported/magnet.png-a8802ea114fa6313ac0a796f5c7f1138.ctex"]
+source_file="res://assets/magnet.png"
+dest_files=["res://.godot/imported/magnet.png-4430563963eeb7c78db06f45818edd6d.ctex"]
 
 [params]
 
