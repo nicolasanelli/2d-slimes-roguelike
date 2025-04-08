@@ -14,7 +14,6 @@ func _ready() -> void:
 func connect_signals() -> void:
 	button_down.connect(highlight)
 	button_up.connect(unhighlight)
-	pressed.connect(sfx)
 
 func update_visual(_resource: CardData) -> void:
 	if !_resource: return;
@@ -22,9 +21,6 @@ func update_visual(_resource: CardData) -> void:
 	texture.texture = _resource.texture
 	description.text = _resource.description
 	card_panel_container.self_modulate = _resource.get_background_color()
-
-func sfx() -> void:
-	AudioManager.play_click()
 
 func highlight() -> void:
 	modulate = Color(0.351, 0.351, 0.351)

@@ -13,6 +13,7 @@ func set_resource(_resource: CardData) -> void:
 	resource = _resource
 
 func on_card_pressed() -> void:
+	AudioManager.play_click()
 	CommandDispatcher.card_picked.emit(self)
 
 func execute(player: Player) -> void:
