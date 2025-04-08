@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctalcx31t63w"]
+
+[ext_resource type="Script" uid="uid://cydto8lwmsijr" path="res://ui/in_game_ui/stat_item/stat_item.gd" id="1_8elfb"]
+[ext_resource type="Texture2D" uid="uid://eq2lgejxdqd8" path="res://assets/placeholder_32.png" id="2_ebote"]
+
+[node name="StatItem" type="Panel"]
+custom_minimum_size = Vector2(40, 40)
+theme_type_variation = &"ThumbnailPanel"
+script = ExtResource("1_8elfb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_ebote")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 7.0
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"ThumbnailPanel"
+
+[node name="Label" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="ShotgunResource" load_steps=3 format=3 uid="uid://bvhpyk856qkqh"]
+[gd_resource type="Resource" script_class="ShotgunData" load_steps=3 format=3 uid="uid://bvhpyk856qkqh"]
 
-[ext_resource type="Script" uid="uid://c16c65mkpq1gt" path="res://data/weapons/shotgun/shotgun_resource.gd" id="1_v0m6v"]
+[ext_resource type="Script" uid="uid://c16c65mkpq1gt" path="res://data/weapons/shotgun/shotgun_data.gd" id="1_v0m6v"]
 [ext_resource type="Texture2D" uid="uid://doy3enyqs71dr" path="res://components/weapons/shotgun/shotgun.png" id="2_w6sol"]
 
 [resource]
@@ -13,5 +13,5 @@ positions = Array[float]([-21.0, -14.0, -7.0, 0.0, 7.0, 14.0, 21.0])
 rarity = 4
 is_special = false
 texture = ExtResource("2_w6sol")
-item_rotation_degree = 0.0
+item_rotation_degree = -30.0
 metadata/_custom_type_script = "uid://c16c65mkpq1gt"

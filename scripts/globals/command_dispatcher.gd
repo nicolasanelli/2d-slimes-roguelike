@@ -11,7 +11,7 @@ signal card_picked(card: ActionCard)
 signal card_executed
 
 
-signal inventory_updated(inventary: Dictionary[String, Node2D])
+signal inventory_updated(inventary: Dictionary[String, BaseWeapon])
 
 
 signal game_paused

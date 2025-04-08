@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://b7hiux714slls"]
+
+[ext_resource type="Script" uid="uid://c1mfew6tkxp01" path="res://data/cards/card_data.gd" id="1_qqjvu"]
+[ext_resource type="Texture2D" uid="uid://i4cjdwy1kcoj" path="res://icon.png" id="2_hr3g5"]
+
+[resource]
+script = ExtResource("1_qqjvu")
+name = "Dummy Card"
+texture = ExtResource("2_hr3g5")
+description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et lorem quis dolor vulputate condimentum."
+color = Color(0.529412, 0.807843, 0.921569, 1)
+metadata/_custom_type_script = "uid://c1mfew6tkxp01"

@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqqdnrats34f5"]
+
+[ext_resource type="Script" uid="uid://bgimdfmm4l5uu" path="res://components/cards/action_card.gd" id="1_n528c"]
+[ext_resource type="Resource" uid="uid://cijmt04mcxcli" path="res://data/cards/consumable_cards/heal_25hp.tres" id="2_n050i"]
+[ext_resource type="Script" uid="uid://chgxrwn7hpur7" path="res://components/cards/card.gd" id="4_cgdgw"]
+[ext_resource type="Texture2D" uid="uid://c7vyogiyxkdpv" path="res://assets/placeholder_64.png" id="4_kcknq"]
+
+[node name="ActionCard" type="Control"]
+custom_minimum_size = Vector2(300, 420)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_n528c")
+resource = ExtResource("2_n050i")
+
+[node name="Card" type="Button" parent="."]
+custom_minimum_size = Vector2(296, 419)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 40.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_type_variation = &"InvisibleButton"
+script = ExtResource("4_cgdgw")
+
+[node name="CardPanelContainer" type="PanelContainer" parent="Card"]
+unique_name_in_owner = true
+self_modulate = Color(0.683294, 0.683294, 0.683294, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_type_variation = &"CardPanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Card/CardPanelContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="MarginContainer" parent="Card/CardPanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="NamePlate" type="Label" parent="Card/CardPanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"CardTitleLabel"
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThumbnailContainer" type="MarginContainer" parent="Card/CardPanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 225)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Background" type="Panel" parent="Card/CardPanelContainer/VBoxContainer/ThumbnailContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"ThumbnailPanel"
+
+[node name="Texture" type="TextureRect" parent="Card/CardPanelContainer/VBoxContainer/ThumbnailContainer/Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -50.0
+offset_right = 70.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kcknq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DescriptionContainer" type="MarginContainer" parent="Card/CardPanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Description" type="Label" parent="Card/CardPanelContainer/VBoxContainer/DescriptionContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"CardDescriptionLabel"
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+horizontal_alignment = 1
+autowrap_mode = 2

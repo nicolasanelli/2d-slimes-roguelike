@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="HealCard" load_steps=3 format=3 uid="uid://bt4ipeaa1fxyg"]
+
+[ext_resource type="Script" uid="uid://cxqj1bprysu60" path="res://data/cards/consumable_cards/heal_card.gd" id="1_7ketl"]
+[ext_resource type="Texture2D" uid="uid://i4cjdwy1kcoj" path="res://icon.png" id="2_17jhi"]
+
+[resource]
+script = ExtResource("1_7ketl")
+heal_amount = 50
+name = "Small Herb"
+texture = ExtResource("2_17jhi")
+description = "A small herb smells like is refreshing. Heal 25 HP"
+color = Color(0.117647, 0.564706, 1, 1)
+metadata/_custom_type_script = "uid://cxqj1bprysu60"

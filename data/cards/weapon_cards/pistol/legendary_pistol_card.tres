@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponCard" load_steps=5 format=3 uid="uid://bpsm54noowddr"]
+
+[ext_resource type="Resource" uid="uid://di7we20dty6v0" path="res://data/weapons/pistol/005_legendary_pistol.tres" id="1_e60po"]
+[ext_resource type="Script" uid="uid://b0aek54j4ucl0" path="res://data/cards/weapon_cards/weapon_card.gd" id="2_6qy4a"]
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://components/weapons/pistol/pistol.png" id="3_ljx1w"]
+[ext_resource type="PackedScene" uid="uid://bthb600b1k3l5" path="res://components/weapons/pistol/pistol.tscn" id="4_xt6v5"]
+
+[resource]
+script = ExtResource("2_6qy4a")
+weapon = ExtResource("4_xt6v5")
+resource = ExtResource("1_e60po")
+position = Vector2(0, -33)
+name = "Legendary Pistol"
+texture = ExtResource("3_ljx1w")
+description = "Upgrade your pistol to LEGENDARY"
+color = Color(0.827451, 0.827451, 0.827451, 1)
+metadata/_custom_type_script = "uid://b0aek54j4ucl0"
