@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dy4pqge5kjd4a"]
 
-[ext_resource type="Script" uid="uid://lllto72avlry" path="res://components/chunk/chunk.gd" id="1_fmkin"]
+[ext_resource type="Script" uid="uid://lllto72avlry" path="res://components/managers/chunk_manager/chunk/chunk.gd" id="1_fmkin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcejg"]
 size = Vector2(1920, 1080)

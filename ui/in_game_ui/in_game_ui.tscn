@@ -31,7 +31,7 @@
 [ext_resource type="Script" uid="uid://nifvkdbwvob0" path="res://ui/in_game_ui/pause_menu.gd" id="26_0wqi4"]
 [ext_resource type="Script" uid="uid://bbw2ubua76fci" path="res://ui/in_game_ui/debugger/stage.gd" id="26_au4t0"]
 [ext_resource type="Script" uid="uid://d2u76v8xoodnj" path="res://ui/in_game_ui/debugger/wave.gd" id="27_6itfw"]
-[ext_resource type="PackedScene" uid="uid://bqqdnrats34f5" path="res://components/cards/action_card.tscn" id="31_fx8rr"]
+[ext_resource type="PackedScene" uid="uid://bqqdnrats34f5" path="res://components/action_card/action_card.tscn" id="31_fx8rr"]
 [ext_resource type="Resource" uid="uid://b7hiux714slls" path="res://data/cards/dummy_card.tres" id="32_2ilj7"]
 
 [node name="InGameUI" type="CanvasLayer"]

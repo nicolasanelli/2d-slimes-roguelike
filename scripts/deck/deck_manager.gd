@@ -1,6 +1,6 @@
 class_name DeckManager
 
-const action_card = preload("res://components/cards/action_card.tscn")
+const action_card = preload("res://components/action_card/action_card.tscn")
 
 var options = {
 	"gun": [

@@ -3,7 +3,7 @@ extends Node
 @export var _player: Player
 
 
-var _chunk_component = preload("res://components/chunk/chunk.tscn")
+var _chunk_component = preload("res://components/managers/chunk_manager/chunk/chunk.tscn")
 
 
 var chunks_loaded = {}

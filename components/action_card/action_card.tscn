@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqqdnrats34f5"]
 
-[ext_resource type="Script" uid="uid://bgimdfmm4l5uu" path="res://components/cards/action_card.gd" id="1_n528c"]
+[ext_resource type="Script" uid="uid://bgimdfmm4l5uu" path="res://components/action_card/action_card.gd" id="1_n528c"]
 [ext_resource type="Resource" uid="uid://cijmt04mcxcli" path="res://data/cards/consumable_cards/heal_25hp.tres" id="2_n050i"]
-[ext_resource type="Script" uid="uid://chgxrwn7hpur7" path="res://components/cards/card.gd" id="4_cgdgw"]
+[ext_resource type="Script" uid="uid://chgxrwn7hpur7" path="res://components/action_card/card.gd" id="4_cgdgw"]
 [ext_resource type="Texture2D" uid="uid://c7vyogiyxkdpv" path="res://assets/placeholder_64.png" id="4_kcknq"]
 
 [node name="ActionCard" type="Control"]
