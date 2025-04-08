@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctalcx31t63w"]
 
-[ext_resource type="Script" uid="uid://cydto8lwmsijr" path="res://ui/stat_item/stat_item.gd" id="1_8elfb"]
+[ext_resource type="Script" uid="uid://cydto8lwmsijr" path="res://ui/in_game_ui/stat_item/stat_item.gd" id="1_8elfb"]
 [ext_resource type="Texture2D" uid="uid://eq2lgejxdqd8" path="res://assets/placeholder_32.png" id="2_ebote"]
 
 [node name="StatItem" type="Panel"]

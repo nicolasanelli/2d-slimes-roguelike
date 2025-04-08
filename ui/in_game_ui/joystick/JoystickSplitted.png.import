@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y4gdhd6wpdd8"
-path="res://.godot/imported/SmallHandle.png-b38b5abf62a4447541cd29ff9285161c.ctex"
+uid="uid://cppig6m1h1nx0"
+path="res://.godot/imported/JoystickSplitted.png-86ddf20cb57744637ad34d37aefa1d0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/joystick/SmallHandle.png"
-dest_files=["res://.godot/imported/SmallHandle.png-b38b5abf62a4447541cd29ff9285161c.ctex"]
+source_file="res://ui/in_game_ui/joystick/JoystickSplitted.png"
+dest_files=["res://.godot/imported/JoystickSplitted.png-86ddf20cb57744637ad34d37aefa1d0e.ctex"]
 
 [params]
 
