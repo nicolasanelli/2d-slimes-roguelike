@@ -29,7 +29,7 @@ A roguelike game using free assets and Godot Engine 4.4.
 - [ ] EventListener for SoundEffecs7
 - [ ] Alternate between Pistol and Shotgun [can't use at same time]
 - [ ] Reroll cards
-- [ ] Use Path2D to slime find Player 
+- [x] Use Path2D to slime find Player 
 - [ ] Achievements
     - [ ] Finish with only Shotgun
     - [ ] Finish with only Pistol
@@ -43,58 +43,47 @@ A roguelike game using free assets and Godot Engine 4.4.
 
 ## How to add a new weapon
 
-1. Create a new Resource Type to new weapon
-This resource type is used to create diferent upgrades.
-Create a data directory to the new weapon at **data/weapons/new_weapon** containing new_weapon_resource.gd (should extends BaseWeaponResource), and 001_common_newweapon.tres, etc
-
-2. Create a new `add_weapon_card´ resource type at **data/usable_card/add_weapon_card**, this should extends AddWeaponCardResource
-
-3. Create the ´upgrade_weapon_cards` to the new weapon at **data/usable_card/upgrade_weapon_card**, this should extends UpgradeWeaponCardResource
-
-4. Create a new scene to the new weapon at **components/weapons/new_weapon**
-
-5. The weapon root scene should have a MetaData names *WeaponName* with value equals to the weapon_name used in upgrade weapon cards. You can add a MetaData at the end of the Inspector.
-
-6. The weapon root scene should belong to GlobalGroup "weapons". You can select a group in the Tab Node, right to Inspector tab.
-
-7. The weapon script should have a upgrade function with following signature:
+1. Create a new scene containing your weapon in **components/weapons**. It's a good idea to create a folder with your weapon's name. Your weapon's script must extends BaseWeapon like following example.
+````godot
+class_name Pistol
+extends BaseWeapon
 ````
-func upgrade(resource: BaseWeaponResource) -> void:
+2. You can use Resources to manage diferente evolutions (or tiers) of your weapon. To create a resource for your weapon, create your weapon's name folder at **data/weapons** and you can create your own custom
+resource type containing any data you need. Take a look at the following example:
 ````
+class_name PistolData
+extends BaseWeaponData
 
-
-#### Planned Structure
-Maybe something does not match, as this is the concept idea
+@export var bullets: int
+@export var damage: int
+@export var attack_speed: float
 ````
-UsableCardResource
-    - name
-    - description
-    - color
-    - texture
-
-    AddWeaponCard
-        - weapon_component // path_to_scene
-        - position // vector2
-
-        IMPLEMENTATIONs
-        add_gun_card:
-            name: pistol
-            description: adiciona uma arma comum
-            color: grey
-            texture: pistol.png
-            weapon_component: gun.tscn
-            position Vector2(0, 34)
-
-    UpgradeWeaponCard
-        - weapon_name
-        - resource: BaseWeapon
-
-        IMPLEMENTATIONs
-        upgrade_gun_uncommon:
-            name: pistol
-            description: atualiza sua arma para incomum
-            color: light green
-            texture: pistol.png
-            weapon_name: pistol
-            resource: 002_uncommon_pistol
+3. Now you can create resources using your custom type and name and populate them as your needs. They usually stay in the same folder where the custom type is.
+4. To reference your resource in your weapon script, you need to use get_resource() method as shown below:
 ````
+    func shoot() -> void:
+        for n in range(get_resource().bullets):
+````
+5. If you are missing autocomplete, you can override the get_resource() method in your weapon script. You can also override a setup() method, that is called everytime the resource is replaced.
+````
+#region Override
+    func setup() -> void:
+        configure_timer()
+
+    func get_resource() -> PistolData:
+        return super.get_resource()
+#endregion 
+````
+6. Now, yout weapon should be ready, you need to create Cards to allow player to use them during the game.
+7. Go to **data/cards/weapon_cards** and create a folder with your weapon's name.
+8. Now you can create card resource of type WeaponCard (i.e. common_pistol_card.tres). This resource is really straightforward.
+    - Weapon: should be you weapon scene
+    - Resource: should be the variation of your weapon that this card references (i.e. 001_common_pistol.tres)
+    - Name: Card name
+    - Texture: Card Texture
+    - Description: Card Description
+    - Color: Don't need to be defined here, since your WeaponResource should have a Rarity level.
+9. Last, but not least, you need to add your card in the DeckManager (for now) manually. Open deck_manager.gd, and add you weapon in the options dictionary. The key should be unique, and the order of the elements
+are the order that the cards should be picked by the player.
+10. Also, add your key from the dictionary to the ``var consumable_keys``, to "consume" the card on use, and requeue if not picked.
+
