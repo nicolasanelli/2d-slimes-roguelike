@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjwmrjhc3ixow"]
+
+[ext_resource type="Script" uid="uid://c13lyphqmd72r" path="res://scenes/game_screen_v2/enemy_manager_v2/enemy_manager_v2.gd" id="1_y8wdf"]
+[ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="2_33hvl"]
+
+[sub_resource type="Curve2D" id="Curve2D_4nsai"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1010, -590, 0, 0, 0, 0, 1010, -590, 0, 0, 0, 0, 1010, 590, 0, 0, 0, 0, -1010, 590, 0, 0, 0, 0, -1010, -590)
+}
+point_count = 5
+
+[node name="EnemyManager" type="Node"]
+script = ExtResource("1_y8wdf")
+
+[node name="Path2D" type="Path2D" parent="."]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_4nsai")
+
+[node name="SpawnLocation" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-1010, -590)
+
+[node name="Enemies" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="SpawnCTimer" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_33hvl")
+
+[node name="WaveCTimer" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_33hvl")

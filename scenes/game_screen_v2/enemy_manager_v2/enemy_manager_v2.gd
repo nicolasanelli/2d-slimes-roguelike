@@ -1,4 +1,4 @@
-#class_name EnemyManager
+class_name EnemyManagerV2
 extends Node
 
 
