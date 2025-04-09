@@ -28,12 +28,12 @@ var options = {
 		preload("res://data/cards/weapon_cards/circularsaw/mythic_circularsaw_card.tres"),
 	],
 	"sword": [
-		preload("res://data/usable_card/add_weapon_cards/add_sword_card.tres"),
-		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_sword_uncommon.tres"),
-		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_sword_rare.tres"),
-		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_sword_epic.tres"),
-		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_sword_legendary.tres"),
-		preload("res://data/usable_card/upgrade_weapon_cards/upgrade_sword_mythic.tres"),
+		preload("res://data/cards/weapon_cards/sword/common_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/uncommon_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/rare_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/epic_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/legendary_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/mythic_sword_card.tres"),
 	],
 	"heal": [
 		preload("res://data/cards/consumable_cards/heal_25hp.tres")

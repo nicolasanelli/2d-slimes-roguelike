@@ -1,5 +1,5 @@
 class_name SwordResource
-extends BaseWeaponResource
+extends BaseWeaponData
 
 @export var damage: int
 @export var attack_speed: float
