@@ -1,7 +1,6 @@
 class_name HealthComponent
 extends Node
 
-
 signal healed
 signal damaged
 signal health_changed
@@ -9,13 +8,11 @@ signal health_depleted
 
 var health_depleted_emited := false
 
-
-@export var _max_health: float:
+var _max_health: float:
 	set(value):
 		_max_health = value
-		if _current_health > _max_health:
-			_current_health = _max_health
-
+		# if decrease max_health, should update current_health
+		if _current_health > _max_health: _current_health = _max_health
 
 var _current_health: float:
 	set(value):
@@ -25,23 +22,19 @@ var _current_health: float:
 			health_depleted_emited = true
 			health_depleted.emit()
 
-
-func _ready() -> void:
-	_current_health = _max_health
-
-
+func init(initial_health: float) -> void:
+	_max_health = initial_health
+	_current_health = initial_health
+	
 func get_max_health() -> float:
 	return _max_health;
-
 
 func get_current_health() -> float:
 	return _current_health;
 
-
 func damage(value: float) -> void:
 	damaged.emit()
 	_current_health -= value
-
 
 func heal(value: float) -> void:
 	healed.emit()

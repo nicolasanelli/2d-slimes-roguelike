@@ -10,4 +10,4 @@ func use(dict: Dictionary) -> void:
 		push_error("dict.player is not defined in %s" % get_name())
 		return
 		
-	player._health_component.heal(heal_amount)
+	player.health_component.heal(heal_amount)

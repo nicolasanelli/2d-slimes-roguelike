@@ -2,15 +2,16 @@ class_name Player
 extends CharacterBody2D
 
 
-@onready var _health_component: HealthComponent = %HealthComponent
-@onready var _experience_component: ExperienceComponent = %ExperienceComponent
+@onready var health_component: HealthComponent = %HealthComponent
+@onready var experience_component: ExperienceComponent = %ExperienceComponent
 
 
 func _ready() -> void:
-	_health_component.health_depleted.connect(_on_health_depleted)
-	_health_component.damaged.connect(_on_damaged)
-	_health_component.healed.connect(_on_healed)
-	_experience_component.leveled_up.connect(_on_leveled_up)
+	health_component.init(100)
+	health_component.health_depleted.connect(_on_health_depleted)
+	health_component.damaged.connect(_on_damaged)
+	health_component.healed.connect(_on_healed)
+	experience_component.leveled_up.connect(_on_leveled_up)
 
 
 func _on_health_depleted() -> void:
@@ -26,5 +27,5 @@ func _on_healed() -> void:
 
 func _on_leveled_up() -> void:
 	CommandDispatcher.player_leveled.emit(
-		_experience_component.get_current_level()
+		experience_component.get_current_level()
 	)

@@ -40,7 +40,6 @@ _health_component = NodePath("../HealthComponent")
 
 [node name="HealthComponent" parent="Health" instance=ExtResource("6_oyvrj")]
 unique_name_in_owner = true
-_max_health = 100.0
 
 [node name="HurtboxComponent" parent="Health" node_paths=PackedStringArray("_health_component") instance=ExtResource("8_26dh3")]
 _health_component = NodePath("../HealthComponent")

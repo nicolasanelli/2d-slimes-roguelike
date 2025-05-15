@@ -9,18 +9,21 @@ extends Node2D
 
 
 func play_idle():
-	if _animation_player.current_animation == "hurt": return
-	_animation_player.play("idle")
+	if _animation_player.current_animation == "hurt":
+		_animation_player.queue("idle")
+	else:
+		_animation_player.play("idle")
 
 
 func play_walk():
-	if _animation_player.current_animation == "hurt": return
-	_animation_player.play("walk")
+	if _animation_player.current_animation == "hurt":
+		_animation_player.queue("walk")
+	else:
+		_animation_player.play("walk")
 
 
 func play_hurt():
 	_animation_player.play("hurt")
-	_animation_player.queue("walk")
 
 
 func set_appearance(color: Color, 
