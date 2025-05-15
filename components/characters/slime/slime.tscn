@@ -47,6 +47,10 @@ slime_body = NodePath("../../SlimeBody")
 health_component = NodePath("../../HealthComponent")
 navigation_agent = NodePath("../../NavigationAgent2D")
 
+[node name="Timer" type="Timer" parent="StateMachine/Track"]
+wait_time = 0.5
+autostart = true
+
 [node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("slime", "slime_body")]
 script = ExtResource("8_o61p3")
 slime = NodePath("../..")
@@ -63,3 +67,5 @@ vertical_alignment = 1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
+
+[connection signal="timeout" from="StateMachine/Track/Timer" to="StateMachine/Track" method="_update_direction"]

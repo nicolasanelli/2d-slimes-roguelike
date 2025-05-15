@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponCard" load_steps=5 format=3 uid="uid://dc3cdddsew38y"]
+
+[ext_resource type="Resource" uid="uid://cd3hc2cfjibxl" path="res://data/weapons/sword/001_common_sword.tres" id="1_oi7up"]
+[ext_resource type="Script" uid="uid://b0aek54j4ucl0" path="res://data/cards/weapon_cards/weapon_card.gd" id="2_75f4c"]
+[ext_resource type="PackedScene" path="res://components/weapons/sword/sword.tscn" id="3_f2ctc"]
+[ext_resource type="Texture2D" uid="uid://dr27plp1wfcxe" path="res://components/weapons/sword/sword.png" id="3_oi7up"]
+
+[resource]
+script = ExtResource("2_75f4c")
+weapon = ExtResource("3_f2ctc")
+resource = ExtResource("1_oi7up")
+position = Vector2(0, 0)
+name = "Sword"
+texture = ExtResource("3_oi7up")
+description = "Add a sword to your inventory"
+color = Color(0.827451, 0.827451, 0.827451, 1)
+metadata/_custom_type_script = "uid://b0aek54j4ucl0"

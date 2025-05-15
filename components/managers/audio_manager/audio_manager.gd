@@ -16,6 +16,7 @@ var pickup_sfx = preload("res://assets/audio/sfx/pickup.wav")
 var levelup_sfx = preload("res://assets/audio/sfx/levelup.mp3")
 var click_sfx = preload("res://assets/audio/sfx/click.ogg")
 var gameover_sfx = preload("res://assets/audio/sfx/gameover.mp3")
+var swing_sfx = preload("res://assets/audio/sfx/swing.mp3")
 
 
 @onready var saw_player: AudioStreamPlayer2D = $SFXFixed/SawPlayer
@@ -166,4 +167,14 @@ func play_click() -> void:
 	audio_player.volume_db = 15
 	audio_player.pitch_scale += randf_range(0, 0.15)
 	audio_player.play()
+
+func play_swing() -> void:
+	var audio_player := AudioStreamPlayer2D.new()
+	sfx_group.add_child(audio_player)
 	
+	audio_player.stream = swing_sfx
+	audio_player.finished.connect(audio_player.queue_free)
+	audio_player.bus = "SFX"
+	audio_player.volume_db = -5
+	audio_player.pitch_scale += randf_range(0, 0.15)
+	audio_player.play()

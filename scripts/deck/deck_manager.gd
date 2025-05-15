@@ -27,6 +27,14 @@ var options = {
 		preload("res://data/cards/weapon_cards/circularsaw/legendary_circularsaw_card.tres"),
 		preload("res://data/cards/weapon_cards/circularsaw/mythic_circularsaw_card.tres"),
 	],
+	"sword": [
+		preload("res://data/cards/weapon_cards/sword/common_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/uncommon_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/rare_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/epic_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/legendary_sword_card.tres"),
+		preload("res://data/cards/weapon_cards/sword/mythic_sword_card.tres"),
+	],
 	"heal": [
 		preload("res://data/cards/consumable_cards/heal_25hp.tres")
 	],
@@ -35,7 +43,7 @@ var options = {
 	]
 }
 
-var consumable_keys = ["gun", "shotgun", "csaw"]
+var consumable_keys = ["gun", "shotgun", "csaw", "sword"]
 
 
 func pick_cards(quantity: int) -> Array[DeckCard]:
@@ -56,9 +64,9 @@ func pick_cards(quantity: int) -> Array[DeckCard]:
 
 var first_pickup = true
 func _pick_unique_random_keys(quantity: int) -> Array:
-	if first_pickup: 
+	if first_pickup:
 		first_pickup = false;
-		return ["gun", "shotgun", "csaw"]
+		return ["gun", "shotgun", "csaw", "sword"]
 	
 	var keys_available = options.keys()
 	keys_available.shuffle()
@@ -67,7 +75,6 @@ func _pick_unique_random_keys(quantity: int) -> Array:
 
 
 func pick_card(key: String) -> DeckCard:
-	
 	if ((options.get(key) as Array).size() == 0):
 		return null
 	

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SwordResource" load_steps=3 format=3 uid="uid://ctynyasun0el6"]
+
+[ext_resource type="Script" uid="uid://70yjkmbtyxmj" path="res://data/weapons/sword/sword_resource.gd" id="1_0sl82"]
+[ext_resource type="Texture2D" uid="uid://dr27plp1wfcxe" path="res://components/weapons/sword/sword.png" id="2_k3xmb"]
+
+[resource]
+script = ExtResource("1_0sl82")
+damage = 4
+attack_speed = 0.9
+slash_angle = 75.0
+rarity = 1
+is_special = false
+texture = ExtResource("2_k3xmb")
+item_rotation_degree = -45.0
