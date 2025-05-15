@@ -6,15 +6,20 @@ extends NodeState
 @export var health_component: HealthComponent
 @export var navigation_agent: NavigationAgent2D
 
+@onready var timer: Timer = $Timer
+
+
 func _on_process(_delta : float) -> void:
 	pass
 
+var direction: Vector2;
+func _update_direction() -> void:
+	navigation_agent.target_position = slime.get_target_global_position()
+	direction = (navigation_agent.get_next_path_position() - slime.global_position).normalized()
+	
 
 func _on_physics_process(_delta: float) -> void:
 	slime_body.play_walk()
-	
-	navigation_agent.target_position = slime.get_target_global_position()
-	var direction = (navigation_agent.get_next_path_position() - slime.global_position).normalized()
 	
 	slime.velocity = direction * slime._resource.speed * GlobalTimer.get_factor()
 	slime.move_and_slide()
@@ -29,7 +34,7 @@ func _on_next_transitions() -> void:
 
 
 func _on_enter() -> void:
-	pass
+	_update_direction()
 
 
 func _on_exit() -> void:
