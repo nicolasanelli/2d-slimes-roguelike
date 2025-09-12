@@ -80,7 +80,7 @@ jobs:
       - name: Push To Itch
         run: |
           ./butler push ./exports/$PROJECT_NAME-html.zip $ITCHIO_USERNAME/$PROJECT_NAME:html
-          ./butler push ./exports/$PROJECT_NAME-windows.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
+          ./butler push ./exports/$PROJECT_NAME_x86-64.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
 
   # Release:
   #   needs: Publish
