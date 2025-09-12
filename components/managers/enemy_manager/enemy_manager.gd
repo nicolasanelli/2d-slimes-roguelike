@@ -107,7 +107,7 @@ func _to_next_wave() -> void:
 
 
 func _play_wave(stage: int, wave: int) -> void:
-	CommandDispatcher.level_info_updated.emit("Stage: %d/%d\nWave:  %d/%d" % [stage, _stage_multiplier.size() - 1, wave, _waves.size() - 1])
+	CommandDispatcher.level_info_updated.emit("Stage: %d/%d\nWave:  %d/%d" % [stage, _stage_multiplier.size() - 1, wave + 1, _waves.size()])
 	
 	_spawn_timer.stop()
 	_wave_timer.stop()

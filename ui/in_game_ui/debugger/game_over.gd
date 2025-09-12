@@ -5,7 +5,7 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	var player : Player = get_node_or_null("/root/GameScreen/Player")
+	var player : Player = get_tree().get_first_node_in_group("Player")
 	if not player: return
 	
 	player.health_component.damage(1000)

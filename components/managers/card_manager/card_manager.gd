@@ -11,10 +11,15 @@ func _ready() -> void:
 	assert(_player != null, "Player must be set in CardManager")
 	CommandDispatcher.card_picked.connect(_on_card_picked)
 	CommandDispatcher.skip_cards.connect(_on_skip_cards)
+	CommandDispatcher.reroll_cards.connect(_on_reroll_cards)
 
 func _on_skip_cards() -> void:
 	_requeue_remaining_cards()
 	CommandDispatcher.card_executed.emit()
+
+func _on_reroll_cards() -> void:
+	_requeue_remaining_cards()
+	display_cards()
 
 func _on_card_picked(card: ActionCard) -> void:
 	card.execute(_player)
@@ -31,7 +36,7 @@ func display_cards() -> void:
 	)
 	
 	displaying_cards = deck_cards
-	CommandDispatcher.display_cards.emit(action_cards)
+	CommandDispatcher.display_cards.emit(action_cards, true, true)
 
 func _remove_selected_card(card: ActionCard) -> void:
 	var result = displaying_cards.filter(func(el): return el.card == card)

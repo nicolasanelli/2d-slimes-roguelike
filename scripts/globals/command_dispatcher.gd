@@ -8,6 +8,7 @@ signal player_died
 
 signal display_cards(cards: Array[ActionCard])
 signal skip_cards
+signal reroll_cards
 signal card_picked(card: ActionCard)
 signal card_executed
 

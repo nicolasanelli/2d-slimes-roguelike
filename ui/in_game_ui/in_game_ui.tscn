@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://21r0axu05w1"]
+[gd_scene load_steps=35 format=3 uid="uid://21r0axu05w1"]
 
 [ext_resource type="Script" uid="uid://sf2dc1w3psee" path="res://ui/in_game_ui/fps.gd" id="1_xi3sq"]
 [ext_resource type="Script" uid="uid://dxfu2hmjkf6tg" path="res://ui/in_game_ui/debugger.gd" id="2_4axlx"]
@@ -33,6 +33,8 @@
 [ext_resource type="Script" uid="uid://d2u76v8xoodnj" path="res://ui/in_game_ui/debugger/wave.gd" id="27_6itfw"]
 [ext_resource type="PackedScene" uid="uid://bqqdnrats34f5" path="res://components/action_card/action_card.tscn" id="31_fx8rr"]
 [ext_resource type="Resource" uid="uid://b7hiux714slls" path="res://data/cards/dummy_card.tres" id="32_2ilj7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ilj7"]
 
 [node name="InGameUI" type="CanvasLayer"]
 
@@ -376,49 +378,53 @@ layout_mode = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0.392157)
 
-[node name="CardRow" type="HBoxContainer" parent="CardSelectorUI/Overlay"]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="CardSelectorUI/Overlay"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -210.0
-offset_right = 150.0
-offset_bottom = 210.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="DummyCard1" parent="CardSelectorUI/Overlay/CardRow" instance=ExtResource("31_fx8rr")]
+[node name="CardRow" type="HBoxContainer" parent="CardSelectorUI/Overlay/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="DummyCard1" parent="CardSelectorUI/Overlay/VBoxContainer/CardRow" instance=ExtResource("31_fx8rr")]
 layout_mode = 2
 resource = ExtResource("32_2ilj7")
 
-[node name="DummyCard2" parent="CardSelectorUI/Overlay/CardRow" instance=ExtResource("31_fx8rr")]
+[node name="DummyCard2" parent="CardSelectorUI/Overlay/VBoxContainer/CardRow" instance=ExtResource("31_fx8rr")]
 layout_mode = 2
 resource = ExtResource("32_2ilj7")
 
-[node name="DummyCard3" parent="CardSelectorUI/Overlay/CardRow" instance=ExtResource("31_fx8rr")]
+[node name="DummyCard3" parent="CardSelectorUI/Overlay/VBoxContainer/CardRow" instance=ExtResource("31_fx8rr")]
 layout_mode = 2
 resource = ExtResource("32_2ilj7")
 
-[node name="SkipButton" type="Button" parent="CardSelectorUI/Overlay"]
+[node name="HSeparator" type="HSeparator" parent="CardSelectorUI/Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2ilj7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardSelectorUI/Overlay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="RerollButton" type="Button" parent="CardSelectorUI/Overlay/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(290, 70)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -145.0
-offset_top = -281.0
-offset_right = 145.0
-offset_bottom = -211.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "SKIP"
+layout_mode = 2
+text = "Reroll"
+
+[node name="SkipButton" type="Button" parent="CardSelectorUI/Overlay/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(290, 70)
+layout_mode = 2
+text = "Skip"
 
 [node name="PauseMenu" type="MarginContainer" parent="."]
 visible = false

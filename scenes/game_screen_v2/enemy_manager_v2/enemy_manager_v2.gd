@@ -22,7 +22,7 @@ var _stage_multiplier := [
 var _current_wave := 0
 var _waves := [
 	{ # XP: 15
-		"initial_wait": 5,
+		"initial_wait": 3,
 		"final_wait": 10,
 		"spawn_time": 2,
 		"resource": preload("res://data/enemies/slime/001_green_slime.tres"),
@@ -51,7 +51,7 @@ var _waves := [
 	},
 	{ #XP: 25
 		"initial_wait": 0,
-		"final_wait": 0,
+		"final_wait": 2,
 		"spawn_time": null,
 		"resource": null,
 		"wave_time": null,
@@ -108,7 +108,7 @@ func _to_next_wave() -> void:
 
 
 func _play_wave(stage: int, wave: int) -> void:
-	CommandDispatcher.level_info_updated.emit("Stage: %d/%d\nWave:  %d/%d" % [stage, _stage_multiplier.size() - 1, wave, _waves.size() - 1])
+	CommandDispatcher.level_info_updated.emit("Stage: %d/%d\nWave:  %d/%d" % [stage, _stage_multiplier.size() - 1, wave + 1, _waves.size()])
 	
 	_spawn_timer.stop()
 	_wave_timer.stop()
