@@ -70,7 +70,7 @@ func _transition(next_state: GameState) -> void:
 
 func _toggle_pause() -> void:
 	if _paused:
-		GlobalTimer.unpause()
+		GlobalTimer.resume()
 		CommandDispatcher.game_unpaused.emit()
 	else:
 		GlobalTimer.pause()

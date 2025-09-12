@@ -16,4 +16,5 @@ func _on_game_unpaused() -> void:
 
 func _on_exit_to_menu() -> void:
 	AudioManager.play_click()
+	GlobalTimer.resume()
 	CommandDispatcher.on_exit_game.emit()

@@ -9,7 +9,7 @@ var _step: float = 0.4
 func pause() -> void:
 	_is_paused = true
 
-func unpause() -> void:
+func resume() -> void:
 	_is_paused = false
 	var current = _current_factor
 	_current_factor = 0
