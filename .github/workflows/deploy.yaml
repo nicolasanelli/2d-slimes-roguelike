@@ -8,7 +8,7 @@ on: workflow_dispatch
 
 env:
   BUTLER_API_KEY: ${{secrets.ITCHIO_API_KEY}}
-  ITCHIO_USERNAME: "nicolas-anelli"
+  ITCHIO_USERNAME: ${{secrets.ITCHIO_USERNAME}}
   PROJECT_NAME: "2d-slimes-roguelike"
 
 jobs:
@@ -47,8 +47,8 @@ jobs:
       - name: Zip HTML Export
         run: |
           cd exports/html
-          zip $PROJECT_NAME-html.zip -r -m *
-          mv $PROJECT_NAME-html.zip ..
+          zip $PROJECT_NAME.zip -r -m *
+          mv $PROJECT_NAME.zip ..
           cd -
 
       - name: Save Artifacts for Next Job
@@ -79,7 +79,7 @@ jobs:
 
       - name: Push To Itch
         run: |
-          ./butler push ./exports/$PROJECT_NAME-html.zip $ITCHIO_USERNAME/$PROJECT_NAME:html
+          ./butler push ./exports/$PROJECT_NAME.zip $ITCHIO_USERNAME/$PROJECT_NAME:html
           ./butler push ./exports/$PROJECT_NAME_x86-64.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
 
   # Release:
