@@ -84,6 +84,7 @@ func _connect_signals() -> void:
 	CommandDispatcher.player_leveled.connect(_on_player_leveled)
 	CommandDispatcher.card_executed.connect(_on_card_executed)
 	CommandDispatcher.victory.connect(_on_victory)
+	CommandDispatcher.on_exit_game.connect(_on_exit_game)
 
 
 func _on_player_died() -> void:
@@ -107,3 +108,6 @@ func _on_card_executed() -> void:
 
 func _on_victory() -> void:
 	_transition(GameState.VICTORY)
+
+func _on_exit_game() -> void:
+	Loader.load_scene(self, "res://scenes/main_menu/main_menu.tscn")

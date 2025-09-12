@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://21r0axu05w1"]
+[gd_scene load_steps=36 format=3 uid="uid://21r0axu05w1"]
 
 [ext_resource type="Script" uid="uid://sf2dc1w3psee" path="res://ui/in_game_ui/fps.gd" id="1_xi3sq"]
 [ext_resource type="Script" uid="uid://dxfu2hmjkf6tg" path="res://ui/in_game_ui/debugger.gd" id="2_4axlx"]
@@ -35,6 +35,8 @@
 [ext_resource type="Resource" uid="uid://b7hiux714slls" path="res://data/cards/dummy_card.tres" id="32_2ilj7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ilj7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07yu1"]
 
 [node name="InGameUI" type="CanvasLayer"]
 
@@ -440,17 +442,40 @@ layout_mode = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0.784314)
 
-[node name="Label" type="Label" parent="PauseMenu/Overlay"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Overlay"]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -38.0
-offset_bottom = 38.0
+offset_left = -198.0
+offset_top = -225.0
+offset_right = 198.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="Label" parent="PauseMenu/Overlay/VBoxContainer"]
+layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "GAME PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PauseMenu/Overlay/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+theme_override_styles/separator = SubResource("StyleBoxEmpty_07yu1")
+
+[node name="Options" type="Button" parent="PauseMenu/Overlay/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Options"
+
+[node name="ExitToMenu" type="Button" parent="PauseMenu/Overlay/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit to Menu"

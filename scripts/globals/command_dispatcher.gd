@@ -18,6 +18,8 @@ signal inventory_updated(inventary: Dictionary[String, BaseWeapon])
 
 signal game_paused
 signal game_unpaused
+signal on_exit_game
+
 
 signal level_info_updated(info: String)
 
