@@ -50,6 +50,11 @@ jobs:
           mv $GITHUB_REF_NAME.zip ..
           cd -
 
+      - name: LSing
+        run: |
+          ls exports
+          ls
+
       - name: Save Artifacts for Next Job
         uses: actions/upload-artifact@v4
         with:
