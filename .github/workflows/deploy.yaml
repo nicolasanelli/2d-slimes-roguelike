@@ -41,19 +41,14 @@ jobs:
         run: |
           mkdir -p exports/html
           ./godot --headless --export-release "Web" exports/html/index.html
-          ./godot --headless --export-release "Windows Desktop" exports/${PROJECT_NAME}-${GITHUB_REF_NAME}-x86-64.exe
+          ./godot --headless --export-release "Windows Desktop" exports/${PROJECT_NAME}_${GITHUB_REF_NAME}_x86-64.exe
 
       - name: Zip HTML Export
         run: |
           cd exports/html
-          zip ${GITHUB_REF_NAME}.zip -r -m *
-          mv ${GITHUB_REF_NAME}.zip ..
+          zip ${PROJECT_NAME}_${GITHUB_REF_NAME}.zip -r -m *
+          mv ${PROJECT_NAME}_${GITHUB_REF_NAME}.zip ..
           cd -
-
-      - name: LSing
-        run: |
-          ls exports
-          ls
 
       - name: Save Artifacts for Next Job
         uses: actions/upload-artifact@v4
@@ -83,8 +78,8 @@ jobs:
 
       - name: Push To Itch
         run: |
-          ./butler push ./exports/${GITHUB_REF_NAME}.zip $ITCHIO_USERNAME/$PROJECT_NAME:html
-          ./butler push ./exports/${PROJECT_NAME}-${GITHUB_REF_NAME}-x86-64.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
+          ./butler push ./exports/${PROJECT_NAME}_${GITHUB_REF_NAME}.zip $ITCHIO_USERNAME/$PROJECT_NAME:html
+          ./butler push ./exports/${PROJECT_NAME}_${GITHUB_REF_NAME}_x86-64.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
 
   # Release:
   #   needs: Publish
