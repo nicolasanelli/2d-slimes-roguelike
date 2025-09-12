@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://chlk0xuhs4nya"]
+[gd_scene load_steps=5 format=3 uid="uid://chlk0xuhs4nya"]
 
 [ext_resource type="PackedScene" uid="uid://bk48pihmbvji0" path="res://components/characters/player/player.tscn" id="1_rk48f"]
 [ext_resource type="PackedScene" uid="uid://gy66uxbq11u2" path="res://components/drops/xp_orb/xp_orb.tscn" id="2_q17pk"]
 [ext_resource type="PackedScene" uid="uid://bfjgdvoolqd4x" path="res://components/characters/slime/slime.tscn" id="3_vcgnq"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vcgnq"]
+vertices = PackedVector2Array(1934.01, 1094.01, -18.9531, 1096.98, -14.0391, -13, 1935.98, -13)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-24, -23, -29, 1107, 1944, 1104, 1946, -23)])
 
 [node name="TestScenePlayer" type="Node2D"]
 
@@ -21,1689 +26,1696 @@ color = Color(0.0926134, 0.275974, 0.108119, 1)
 [node name="Player" parent="." instance=ExtResource("1_rk48f")]
 position = Vector2(290, 292)
 
-[node name="XpOrb" parent="." instance=ExtResource("2_q17pk")]
+[node name="Slime" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_vcgnq")]
+position = Vector2(639, 219)
+target = NodePath("../Player")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_vcgnq")
+travel_cost = 0.0
+
+[node name="Orbs" type="Node2D" parent="."]
+
+[node name="XpOrb" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(565, 575)
 
-[node name="XpOrb2" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb2" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(590, 588)
 
-[node name="XpOrb3" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb3" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(636, 612)
 rotation = -2.87979
 
-[node name="XpOrb4" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb4" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(682, 627)
 rotation = -2.87979
 
-[node name="XpOrb5" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb5" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(674, 562)
 rotation = -2.87979
 
-[node name="XpOrb6" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb6" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(734, 576)
 rotation = -2.87979
 
-[node name="XpOrb7" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb7" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(752, 632)
 rotation = -2.87979
 
-[node name="XpOrb8" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb8" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(703, 676)
 rotation = -2.87979
 
-[node name="XpOrb9" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb9" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(626, 669)
 rotation = -2.87979
 
-[node name="XpOrb10" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb10" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(619, 720)
 rotation = -2.87979
 
-[node name="XpOrb11" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb11" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(684, 748)
 rotation = -2.87979
 
-[node name="XpOrb12" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb12" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(751, 753)
 rotation = -2.87979
 
-[node name="XpOrb13" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb13" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(821, 714)
 rotation = -2.87979
 
-[node name="XpOrb14" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb14" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(844, 677)
 rotation = -2.87979
 
-[node name="XpOrb15" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb15" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(844, 677)
 rotation = -2.87979
 
-[node name="XpOrb16" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb16" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(829, 637)
 rotation = -2.87979
 
-[node name="XpOrb17" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb17" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(776, 676)
 rotation = -2.87979
 
-[node name="XpOrb18" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb18" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(781, 610)
 rotation = -2.87979
 
-[node name="XpOrb19" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb19" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(782, 563)
 rotation = -2.87979
 
-[node name="XpOrb20" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb20" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(734, 532)
 rotation = -2.87979
 
-[node name="XpOrb21" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb21" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(665, 516)
 rotation = -2.87979
 
-[node name="XpOrb22" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb22" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(607, 514)
 rotation = -2.87979
 
-[node name="XpOrb23" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb23" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(551, 613)
 rotation = -2.87979
 
-[node name="XpOrb24" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb24" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(502, 617)
 rotation = -2.87979
 
-[node name="XpOrb25" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb25" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(555, 667)
 rotation = -2.87979
 
-[node name="XpOrb26" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb26" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(555, 667)
 rotation = -2.87979
 
-[node name="XpOrb27" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb27" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(522, 692)
 rotation = -2.87979
 
-[node name="XpOrb28" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb28" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(522, 692)
 rotation = -2.87979
 
-[node name="XpOrb29" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb29" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(802, 785)
 rotation = -2.87979
 
-[node name="XpOrb30" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb30" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(840, 765)
 rotation = -2.87979
 
-[node name="XpOrb31" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb31" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(898, 744)
 rotation = -2.87979
 
-[node name="XpOrb32" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb32" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(903, 700)
 rotation = -2.87979
 
-[node name="XpOrb33" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb33" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(889, 665)
 rotation = -2.87979
 
-[node name="XpOrb34" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb34" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(917, 631)
 rotation = -2.87979
 
-[node name="XpOrb35" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb35" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(876, 607)
 rotation = -2.87979
 
-[node name="XpOrb36" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb36" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(933, 420)
 
-[node name="XpOrb37" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb37" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(958, 433)
 
-[node name="XpOrb38" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb38" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1004, 457)
 rotation = -2.87979
 
-[node name="XpOrb39" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb39" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1050, 472)
 rotation = -2.87979
 
-[node name="XpOrb40" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb40" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1042, 407)
 rotation = -2.87979
 
-[node name="XpOrb41" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb41" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1102, 421)
 rotation = -2.87979
 
-[node name="XpOrb42" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb42" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1120, 477)
 rotation = -2.87979
 
-[node name="XpOrb43" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb43" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1071, 521)
 rotation = -2.87979
 
-[node name="XpOrb44" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb44" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(994, 514)
 rotation = -2.87979
 
-[node name="XpOrb45" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb45" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(987, 565)
 rotation = -2.87979
 
-[node name="XpOrb46" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb46" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1052, 593)
 rotation = -2.87979
 
-[node name="XpOrb47" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb47" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1119, 598)
 rotation = -2.87979
 
-[node name="XpOrb48" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb48" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1189, 559)
 rotation = -2.87979
 
-[node name="XpOrb49" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb49" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1212, 522)
 rotation = -2.87979
 
-[node name="XpOrb50" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb50" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1212, 522)
 rotation = -2.87979
 
-[node name="XpOrb51" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb51" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1197, 482)
 rotation = -2.87979
 
-[node name="XpOrb52" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb52" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1144, 521)
 rotation = -2.87979
 
-[node name="XpOrb53" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb53" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1149, 455)
 rotation = -2.87979
 
-[node name="XpOrb54" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb54" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1150, 408)
 rotation = -2.87979
 
-[node name="XpOrb55" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb55" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1102, 377)
 rotation = -2.87979
 
-[node name="XpOrb56" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb56" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1033, 361)
 rotation = -2.87979
 
-[node name="XpOrb57" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb57" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(975, 359)
 rotation = -2.87979
 
-[node name="XpOrb58" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb58" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(919, 458)
 rotation = -2.87979
 
-[node name="XpOrb59" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb59" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(870, 462)
 rotation = -2.87979
 
-[node name="XpOrb60" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb60" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(923, 512)
 rotation = -2.87979
 
-[node name="XpOrb61" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb61" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(923, 512)
 rotation = -2.87979
 
-[node name="XpOrb62" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb62" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(890, 537)
 rotation = -2.87979
 
-[node name="XpOrb63" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb63" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(890, 537)
 rotation = -2.87979
 
-[node name="XpOrb64" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb64" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1170, 630)
 rotation = -2.87979
 
-[node name="XpOrb65" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb65" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1208, 610)
 rotation = -2.87979
 
-[node name="XpOrb66" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb66" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1266, 589)
 rotation = -2.87979
 
-[node name="XpOrb67" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb67" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1271, 545)
 rotation = -2.87979
 
-[node name="XpOrb68" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb68" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1257, 510)
 rotation = -2.87979
 
-[node name="XpOrb69" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb69" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1285, 476)
 rotation = -2.87979
 
-[node name="XpOrb70" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb70" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1244, 452)
 rotation = -2.87979
 
-[node name="XpOrb71" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb71" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1047, 763)
 
-[node name="XpOrb72" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb72" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1072, 776)
 
-[node name="XpOrb73" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb73" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1118, 800)
 rotation = -2.87979
 
-[node name="XpOrb74" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb74" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1164, 815)
 rotation = -2.87979
 
-[node name="XpOrb75" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb75" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1156, 750)
 rotation = -2.87979
 
-[node name="XpOrb76" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb76" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1216, 764)
 rotation = -2.87979
 
-[node name="XpOrb77" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb77" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1234, 820)
 rotation = -2.87979
 
-[node name="XpOrb78" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb78" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1185, 864)
 rotation = -2.87979
 
-[node name="XpOrb79" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb79" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1108, 857)
 rotation = -2.87979
 
-[node name="XpOrb80" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb80" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1101, 908)
 rotation = -2.87979
 
-[node name="XpOrb81" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb81" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1166, 936)
 rotation = -2.87979
 
-[node name="XpOrb82" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb82" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1233, 941)
 rotation = -2.87979
 
-[node name="XpOrb83" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb83" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1303, 902)
 rotation = -2.87979
 
-[node name="XpOrb84" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb84" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1326, 865)
 rotation = -2.87979
 
-[node name="XpOrb85" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb85" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1326, 865)
 rotation = -2.87979
 
-[node name="XpOrb86" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb86" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1311, 825)
 rotation = -2.87979
 
-[node name="XpOrb87" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb87" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1258, 864)
 rotation = -2.87979
 
-[node name="XpOrb88" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb88" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1263, 798)
 rotation = -2.87979
 
-[node name="XpOrb89" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb89" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1264, 751)
 rotation = -2.87979
 
-[node name="XpOrb90" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb90" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1216, 720)
 rotation = -2.87979
 
-[node name="XpOrb91" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb91" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1147, 704)
 rotation = -2.87979
 
-[node name="XpOrb92" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb92" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1089, 702)
 rotation = -2.87979
 
-[node name="XpOrb93" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb93" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1033, 801)
 rotation = -2.87979
 
-[node name="XpOrb94" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb94" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(984, 805)
 rotation = -2.87979
 
-[node name="XpOrb95" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb95" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1037, 855)
 rotation = -2.87979
 
-[node name="XpOrb96" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb96" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1037, 855)
 rotation = -2.87979
 
-[node name="XpOrb97" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb97" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1004, 880)
 rotation = -2.87979
 
-[node name="XpOrb98" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb98" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1004, 880)
 rotation = -2.87979
 
-[node name="XpOrb99" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb99" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1284, 973)
 rotation = -2.87979
 
-[node name="XpOrb100" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb100" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1322, 953)
 rotation = -2.87979
 
-[node name="XpOrb101" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb101" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1380, 932)
 rotation = -2.87979
 
-[node name="XpOrb102" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb102" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1385, 888)
 rotation = -2.87979
 
-[node name="XpOrb103" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb103" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1371, 853)
 rotation = -2.87979
 
-[node name="XpOrb104" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb104" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1399, 819)
 rotation = -2.87979
 
-[node name="XpOrb105" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb105" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1358, 795)
 rotation = -2.87979
 
-[node name="XpOrb106" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb106" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(613, 699)
 rotation = -2.87979
 
-[node name="XpOrb107" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb107" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(613, 699)
 rotation = -2.87979
 
-[node name="XpOrb108" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb108" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(893, 792)
 rotation = -2.87979
 
-[node name="XpOrb109" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb109" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(931, 772)
 rotation = -2.87979
 
-[node name="XpOrb110" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb110" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(989, 751)
 rotation = -2.87979
 
-[node name="XpOrb111" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb111" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(994, 707)
 rotation = -2.87979
 
-[node name="XpOrb112" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb112" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(980, 672)
 rotation = -2.87979
 
-[node name="XpOrb113" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb113" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1008, 638)
 rotation = -2.87979
 
-[node name="XpOrb114" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb114" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(967, 614)
 rotation = -2.87979
 
-[node name="XpOrb115" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb115" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(591, 885)
 
-[node name="XpOrb116" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb116" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(616, 898)
 
-[node name="XpOrb117" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb117" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(662, 922)
 rotation = -2.87979
 
-[node name="XpOrb118" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb118" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(708, 937)
 rotation = -2.87979
 
-[node name="XpOrb119" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb119" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(700, 872)
 rotation = -2.87979
 
-[node name="XpOrb120" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb120" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(760, 886)
 rotation = -2.87979
 
-[node name="XpOrb121" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb121" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(778, 942)
 rotation = -2.87979
 
-[node name="XpOrb122" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb122" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(729, 986)
 rotation = -2.87979
 
-[node name="XpOrb123" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb123" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(652, 979)
 rotation = -2.87979
 
-[node name="XpOrb124" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb124" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(645, 1030)
 rotation = -2.87979
 
-[node name="XpOrb125" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb125" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(710, 1058)
 rotation = -2.87979
 
-[node name="XpOrb126" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb126" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(777, 1063)
 rotation = -2.87979
 
-[node name="XpOrb127" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb127" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(71.9999, 999)
 rotation = -2.87979
 
-[node name="XpOrb128" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb128" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(94.9999, 962)
 rotation = -2.87979
 
-[node name="XpOrb129" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb129" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(94.9999, 962)
 rotation = -2.87979
 
-[node name="XpOrb130" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb130" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(79.9999, 922)
 rotation = -2.87979
 
-[node name="XpOrb131" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb131" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(26.9999, 961)
 rotation = -2.87979
 
-[node name="XpOrb132" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb132" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(31.9999, 895)
 rotation = -2.87979
 
-[node name="XpOrb133" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb133" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(32.9999, 848)
 rotation = -2.87979
 
-[node name="XpOrb134" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb134" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(760, 842)
 rotation = -2.87979
 
-[node name="XpOrb135" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb135" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(691, 826)
 rotation = -2.87979
 
-[node name="XpOrb136" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb136" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(633, 824)
 rotation = -2.87979
 
-[node name="XpOrb137" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb137" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(605, 890)
 rotation = -2.87979
 
-[node name="XpOrb138" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb138" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(643, 870)
 rotation = -2.87979
 
-[node name="XpOrb139" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb139" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(149, 1029)
 rotation = -2.87979
 
-[node name="XpOrb140" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb140" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(154, 985)
 rotation = -2.87979
 
-[node name="XpOrb141" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb141" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(140, 950)
 rotation = -2.87979
 
-[node name="XpOrb142" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb142" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(168, 916)
 rotation = -2.87979
 
-[node name="XpOrb143" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb143" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(127, 892)
 rotation = -2.87979
 
-[node name="XpOrb144" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb144" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(184, 705)
 
-[node name="XpOrb145" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb145" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(209, 718)
 
-[node name="XpOrb146" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb146" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(255, 742)
 rotation = -2.87979
 
-[node name="XpOrb147" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb147" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(301, 757)
 rotation = -2.87979
 
-[node name="XpOrb148" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb148" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(293, 692)
 rotation = -2.87979
 
-[node name="XpOrb149" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb149" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(353, 706)
 rotation = -2.87979
 
-[node name="XpOrb150" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb150" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(371, 762)
 rotation = -2.87979
 
-[node name="XpOrb151" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb151" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(322, 806)
 rotation = -2.87979
 
-[node name="XpOrb152" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb152" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(245, 799)
 rotation = -2.87979
 
-[node name="XpOrb153" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb153" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(238, 850)
 rotation = -2.87979
 
-[node name="XpOrb154" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb154" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(303, 878)
 rotation = -2.87979
 
-[node name="XpOrb155" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb155" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(370, 883)
 rotation = -2.87979
 
-[node name="XpOrb156" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb156" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(440, 844)
 rotation = -2.87979
 
-[node name="XpOrb157" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb157" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(463, 807)
 rotation = -2.87979
 
-[node name="XpOrb158" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb158" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(463, 807)
 rotation = -2.87979
 
-[node name="XpOrb159" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb159" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(448, 767)
 rotation = -2.87979
 
-[node name="XpOrb160" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb160" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(395, 806)
 rotation = -2.87979
 
-[node name="XpOrb161" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb161" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(400, 740)
 rotation = -2.87979
 
-[node name="XpOrb162" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb162" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(401, 693)
 rotation = -2.87979
 
-[node name="XpOrb163" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb163" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(353, 662)
 rotation = -2.87979
 
-[node name="XpOrb164" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb164" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(284, 646)
 rotation = -2.87979
 
-[node name="XpOrb165" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb165" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(170, 743)
 rotation = -2.87979
 
-[node name="XpOrb166" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb166" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(121, 747)
 rotation = -2.87979
 
-[node name="XpOrb167" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb167" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(174, 797)
 rotation = -2.87979
 
-[node name="XpOrb168" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb168" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(174, 797)
 rotation = -2.87979
 
-[node name="XpOrb169" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb169" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(141, 822)
 rotation = -2.87979
 
-[node name="XpOrb170" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb170" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(141, 822)
 rotation = -2.87979
 
-[node name="XpOrb171" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb171" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(421, 915)
 rotation = -2.87979
 
-[node name="XpOrb172" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb172" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(459, 895)
 rotation = -2.87979
 
-[node name="XpOrb173" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb173" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(517, 874)
 rotation = -2.87979
 
-[node name="XpOrb174" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb174" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(522, 830)
 rotation = -2.87979
 
-[node name="XpOrb175" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb175" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(508, 795)
 rotation = -2.87979
 
-[node name="XpOrb176" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb176" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(536, 761)
 rotation = -2.87979
 
-[node name="XpOrb177" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb177" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(495, 737)
 rotation = -2.87979
 
-[node name="XpOrb178" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb178" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(298, 1048)
 
-[node name="XpOrb179" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb179" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(875, 881)
 
-[node name="XpOrb180" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb180" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(921, 905)
 rotation = -2.87979
 
-[node name="XpOrb181" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb181" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(967, 920)
 rotation = -2.87979
 
-[node name="XpOrb182" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb182" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(407, 1035)
 rotation = -2.87979
 
-[node name="XpOrb183" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb183" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(467, 1049)
 rotation = -2.87979
 
-[node name="XpOrb184" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb184" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1037, 925)
 rotation = -2.87979
 
-[node name="XpOrb185" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb185" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(988, 969)
 rotation = -2.87979
 
-[node name="XpOrb186" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb186" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(911, 962)
 rotation = -2.87979
 
-[node name="XpOrb187" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb187" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(904, 1013)
 rotation = -2.87979
 
-[node name="XpOrb188" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb188" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(969, 1041)
 rotation = -2.87979
 
-[node name="XpOrb189" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb189" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1036, 1046)
 rotation = -2.87979
 
-[node name="XpOrb190" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb190" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1106, 1007)
 rotation = -2.87979
 
-[node name="XpOrb191" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb191" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1129, 970)
 rotation = -2.87979
 
-[node name="XpOrb192" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb192" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1129, 970)
 rotation = -2.87979
 
-[node name="XpOrb193" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb193" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1114, 930)
 rotation = -2.87979
 
-[node name="XpOrb215" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb215" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1356, 519)
 rotation = -2.87979
 
-[node name="XpOrb216" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb216" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1402, 534)
 rotation = -2.87979
 
-[node name="XpOrb217" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb217" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1394, 469)
 rotation = -2.87979
 
-[node name="XpOrb218" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb218" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1454, 483)
 rotation = -2.87979
 
-[node name="XpOrb219" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb219" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1472, 539)
 rotation = -2.87979
 
-[node name="XpOrb220" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb220" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1423, 583)
 rotation = -2.87979
 
-[node name="XpOrb221" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb221" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1346, 576)
 rotation = -2.87979
 
-[node name="XpOrb222" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb222" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1339, 627)
 rotation = -2.87979
 
-[node name="XpOrb223" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb223" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1404, 655)
 rotation = -2.87979
 
-[node name="XpOrb224" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb224" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1471, 660)
 rotation = -2.87979
 
-[node name="XpOrb225" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb225" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1541, 621)
 rotation = -2.87979
 
-[node name="XpOrb226" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb226" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1564, 584)
 rotation = -2.87979
 
-[node name="XpOrb227" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb227" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1564, 584)
 rotation = -2.87979
 
-[node name="XpOrb228" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb228" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1549, 544)
 rotation = -2.87979
 
-[node name="XpOrb229" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb229" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1496, 583)
 rotation = -2.87979
 
-[node name="XpOrb230" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb230" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1501, 517)
 rotation = -2.87979
 
-[node name="XpOrb231" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb231" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1502, 470)
 rotation = -2.87979
 
-[node name="XpOrb232" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb232" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1454, 439)
 rotation = -2.87979
 
-[node name="XpOrb233" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb233" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1385, 423)
 rotation = -2.87979
 
-[node name="XpOrb234" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb234" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1522, 692)
 rotation = -2.87979
 
-[node name="XpOrb235" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb235" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1560, 672)
 rotation = -2.87979
 
-[node name="XpOrb236" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb236" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1618, 651)
 rotation = -2.87979
 
-[node name="XpOrb237" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb237" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1623, 607)
 rotation = -2.87979
 
-[node name="XpOrb238" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb238" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1609, 572)
 rotation = -2.87979
 
-[node name="XpOrb239" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb239" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1637, 538)
 rotation = -2.87979
 
-[node name="XpOrb240" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb240" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1596, 514)
 rotation = -2.87979
 
-[node name="XpOrb241" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb241" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1344, 726)
 rotation = -2.87979
 
-[node name="XpOrb242" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb242" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1367, 689)
 rotation = -2.87979
 
-[node name="XpOrb243" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb243" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1367, 689)
 rotation = -2.87979
 
-[node name="XpOrb244" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb244" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1352, 649)
 rotation = -2.87979
 
-[node name="XpOrb245" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb245" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1474, 823)
 rotation = -2.87979
 
-[node name="XpOrb246" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb246" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1520, 838)
 rotation = -2.87979
 
-[node name="XpOrb247" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb247" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1512, 773)
 rotation = -2.87979
 
-[node name="XpOrb248" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb248" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1572, 787)
 rotation = -2.87979
 
-[node name="XpOrb249" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb249" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1590, 843)
 rotation = -2.87979
 
-[node name="XpOrb250" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb250" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1541, 887)
 rotation = -2.87979
 
-[node name="XpOrb251" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb251" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1464, 880)
 rotation = -2.87979
 
-[node name="XpOrb252" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb252" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1457, 931)
 rotation = -2.87979
 
-[node name="XpOrb253" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb253" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1522, 959)
 rotation = -2.87979
 
-[node name="XpOrb254" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb254" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1589, 964)
 rotation = -2.87979
 
-[node name="XpOrb255" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb255" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1659, 925)
 rotation = -2.87979
 
-[node name="XpOrb256" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb256" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1682, 888)
 rotation = -2.87979
 
-[node name="XpOrb257" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb257" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1682, 888)
 rotation = -2.87979
 
-[node name="XpOrb258" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb258" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1667, 848)
 rotation = -2.87979
 
-[node name="XpOrb259" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb259" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1614, 887)
 rotation = -2.87979
 
-[node name="XpOrb260" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb260" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1619, 821)
 rotation = -2.87979
 
-[node name="XpOrb261" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb261" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1620, 774)
 rotation = -2.87979
 
-[node name="XpOrb262" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb262" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1572, 743)
 rotation = -2.87979
 
-[node name="XpOrb263" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb263" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1503, 727)
 rotation = -2.87979
 
-[node name="XpOrb264" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb264" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1640, 996)
 rotation = -2.87979
 
-[node name="XpOrb265" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb265" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1678, 976)
 rotation = -2.87979
 
-[node name="XpOrb266" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb266" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1736, 955)
 rotation = -2.87979
 
-[node name="XpOrb267" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb267" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1741, 911)
 rotation = -2.87979
 
-[node name="XpOrb268" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb268" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1727, 876)
 rotation = -2.87979
 
-[node name="XpOrb269" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb269" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1755, 842)
 rotation = -2.87979
 
-[node name="XpOrb270" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb270" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1714, 818)
 rotation = -2.87979
 
-[node name="XpOrb271" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb271" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1462, 1030)
 rotation = -2.87979
 
-[node name="XpOrb272" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb272" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1485, 993)
 rotation = -2.87979
 
-[node name="XpOrb273" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb273" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1485, 993)
 rotation = -2.87979
 
-[node name="XpOrb274" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb274" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1470, 953)
 rotation = -2.87979
 
-[node name="XpOrb275" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb275" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1186, 724)
 rotation = -2.87979
 
-[node name="XpOrb276" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb276" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1232, 739)
 rotation = -2.87979
 
-[node name="XpOrb277" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb277" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1224, 674)
 rotation = -2.87979
 
-[node name="XpOrb278" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb278" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1284, 688)
 rotation = -2.87979
 
-[node name="XpOrb279" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb279" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1302, 744)
 rotation = -2.87979
 
-[node name="XpOrb280" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb280" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1253, 788)
 rotation = -2.87979
 
-[node name="XpOrb281" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb281" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1176, 781)
 rotation = -2.87979
 
-[node name="XpOrb282" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb282" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1169, 832)
 rotation = -2.87979
 
-[node name="XpOrb283" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb283" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1234, 860)
 rotation = -2.87979
 
-[node name="XpOrb284" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb284" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1301, 865)
 rotation = -2.87979
 
-[node name="XpOrb285" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb285" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1371, 826)
 rotation = -2.87979
 
-[node name="XpOrb286" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb286" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1394, 789)
 rotation = -2.87979
 
-[node name="XpOrb287" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb287" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1394, 789)
 rotation = -2.87979
 
-[node name="XpOrb288" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb288" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1379, 749)
 rotation = -2.87979
 
-[node name="XpOrb289" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb289" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1326, 788)
 rotation = -2.87979
 
-[node name="XpOrb290" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb290" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1331, 722)
 rotation = -2.87979
 
-[node name="XpOrb291" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb291" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1332, 675)
 rotation = -2.87979
 
-[node name="XpOrb292" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb292" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1284, 644)
 rotation = -2.87979
 
-[node name="XpOrb293" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb293" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1215, 628)
 rotation = -2.87979
 
-[node name="XpOrb294" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb294" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1352, 897)
 rotation = -2.87979
 
-[node name="XpOrb295" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb295" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1390, 877)
 rotation = -2.87979
 
-[node name="XpOrb296" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb296" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1448, 856)
 rotation = -2.87979
 
-[node name="XpOrb297" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb297" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1453, 812)
 rotation = -2.87979
 
-[node name="XpOrb298" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb298" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1439, 777)
 rotation = -2.87979
 
-[node name="XpOrb299" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb299" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1467, 743)
 rotation = -2.87979
 
-[node name="XpOrb300" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb300" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1426, 719)
 rotation = -2.87979
 
-[node name="XpOrb301" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb301" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1174, 931)
 rotation = -2.87979
 
-[node name="XpOrb302" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb302" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1197, 894)
 rotation = -2.87979
 
-[node name="XpOrb303" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb303" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1197, 894)
 rotation = -2.87979
 
-[node name="XpOrb304" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb304" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1182, 854)
 rotation = -2.87979
 
-[node name="XpOrb305" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb305" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1560, 492)
 rotation = -2.87979
 
-[node name="XpOrb306" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb306" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1606, 507)
 rotation = -2.87979
 
-[node name="XpOrb307" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb307" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1598, 442)
 rotation = -2.87979
 
-[node name="XpOrb308" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb308" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1658, 456)
 rotation = -2.87979
 
-[node name="XpOrb309" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb309" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1676, 512)
 rotation = -2.87979
 
-[node name="XpOrb310" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb310" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1627, 556)
 rotation = -2.87979
 
-[node name="XpOrb311" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb311" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1550, 549)
 rotation = -2.87979
 
-[node name="XpOrb312" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb312" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1543, 600)
 rotation = -2.87979
 
-[node name="XpOrb313" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb313" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1608, 628)
 rotation = -2.87979
 
-[node name="XpOrb314" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb314" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1675, 633)
 rotation = -2.87979
 
-[node name="XpOrb315" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb315" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1745, 594)
 rotation = -2.87979
 
-[node name="XpOrb316" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb316" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1768, 557)
 rotation = -2.87979
 
-[node name="XpOrb317" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb317" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1768, 557)
 rotation = -2.87979
 
-[node name="XpOrb318" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb318" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1753, 517)
 rotation = -2.87979
 
-[node name="XpOrb319" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb319" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1700, 556)
 rotation = -2.87979
 
-[node name="XpOrb320" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb320" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1705, 490)
 rotation = -2.87979
 
-[node name="XpOrb321" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb321" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1706, 443)
 rotation = -2.87979
 
-[node name="XpOrb322" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb322" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1658, 412)
 rotation = -2.87979
 
-[node name="XpOrb323" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb323" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1589, 396)
 rotation = -2.87979
 
-[node name="XpOrb324" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb324" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1726, 665)
 rotation = -2.87979
 
-[node name="XpOrb325" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb325" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1764, 645)
 rotation = -2.87979
 
-[node name="XpOrb326" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb326" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1822, 624)
 rotation = -2.87979
 
-[node name="XpOrb327" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb327" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1827, 580)
 rotation = -2.87979
 
-[node name="XpOrb328" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb328" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1813, 545)
 rotation = -2.87979
 
-[node name="XpOrb329" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb329" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1841, 511)
 rotation = -2.87979
 
-[node name="XpOrb330" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb330" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1800, 487)
 rotation = -2.87979
 
-[node name="XpOrb331" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb331" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1548, 699)
 rotation = -2.87979
 
-[node name="XpOrb332" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb332" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1571, 662)
 rotation = -2.87979
 
-[node name="XpOrb333" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb333" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1571, 662)
 rotation = -2.87979
 
-[node name="XpOrb334" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb334" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1556, 622)
 rotation = -2.87979
 
-[node name="XpOrb335" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb335" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1629, 693)
 rotation = -2.87979
 
-[node name="XpOrb336" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb336" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1675, 708)
 rotation = -2.87979
 
-[node name="XpOrb337" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb337" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1667, 643)
 rotation = -2.87979
 
-[node name="XpOrb338" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb338" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1727, 657)
 rotation = -2.87979
 
-[node name="XpOrb339" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb339" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1745, 713)
 rotation = -2.87979
 
-[node name="XpOrb340" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb340" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1696, 757)
 rotation = -2.87979
 
-[node name="XpOrb341" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb341" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1619, 750)
 rotation = -2.87979
 
-[node name="XpOrb342" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb342" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1612, 801)
 rotation = -2.87979
 
-[node name="XpOrb343" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb343" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1677, 829)
 rotation = -2.87979
 
-[node name="XpOrb344" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb344" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1744, 834)
 rotation = -2.87979
 
-[node name="XpOrb345" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb345" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1814, 795)
 rotation = -2.87979
 
-[node name="XpOrb346" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb346" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1837, 758)
 rotation = -2.87979
 
-[node name="XpOrb347" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb347" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1837, 758)
 rotation = -2.87979
 
-[node name="XpOrb348" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb348" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1822, 718)
 rotation = -2.87979
 
-[node name="XpOrb349" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb349" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1769, 757)
 rotation = -2.87979
 
-[node name="XpOrb350" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb350" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1774, 691)
 rotation = -2.87979
 
-[node name="XpOrb351" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb351" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1775, 644)
 rotation = -2.87979
 
-[node name="XpOrb352" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb352" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1727, 613)
 rotation = -2.87979
 
-[node name="XpOrb353" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb353" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1658, 597)
 rotation = -2.87979
 
-[node name="XpOrb354" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb354" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1795, 866)
 rotation = -2.87979
 
-[node name="XpOrb355" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb355" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1833, 846)
 rotation = -2.87979
 
-[node name="XpOrb356" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb356" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1891, 825)
 rotation = -2.87979
 
-[node name="XpOrb357" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb357" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1896, 781)
 rotation = -2.87979
 
-[node name="XpOrb358" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb358" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1882, 746)
 rotation = -2.87979
 
-[node name="XpOrb359" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb359" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1910, 712)
 rotation = -2.87979
 
-[node name="XpOrb360" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb360" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1869, 688)
 rotation = -2.87979
 
-[node name="XpOrb361" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb361" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1617, 900)
 rotation = -2.87979
 
-[node name="XpOrb362" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb362" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1640, 863)
 rotation = -2.87979
 
-[node name="XpOrb363" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb363" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1640, 863)
 rotation = -2.87979
 
-[node name="XpOrb364" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb364" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1625, 823)
 rotation = -2.87979
 
-[node name="XpOrb365" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb365" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1265, 239)
 rotation = -2.87979
 
-[node name="XpOrb366" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb366" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1311, 254)
 rotation = -2.87979
 
-[node name="XpOrb367" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb367" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1303, 189)
 rotation = -2.87979
 
-[node name="XpOrb368" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb368" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1363, 203)
 rotation = -2.87979
 
-[node name="XpOrb369" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb369" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1381, 259)
 rotation = -2.87979
 
-[node name="XpOrb370" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb370" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1332, 303)
 rotation = -2.87979
 
-[node name="XpOrb371" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb371" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1255, 296)
 rotation = -2.87979
 
-[node name="XpOrb372" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb372" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1248, 347)
 rotation = -2.87979
 
-[node name="XpOrb373" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb373" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1313, 375)
 rotation = -2.87979
 
-[node name="XpOrb374" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb374" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1380, 380)
 rotation = -2.87979
 
-[node name="XpOrb375" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb375" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1450, 341)
 rotation = -2.87979
 
-[node name="XpOrb376" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb376" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1473, 304)
 rotation = -2.87979
 
-[node name="XpOrb377" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb377" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1473, 304)
 rotation = -2.87979
 
-[node name="XpOrb378" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb378" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1458, 264)
 rotation = -2.87979
 
-[node name="XpOrb379" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb379" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1405, 303)
 rotation = -2.87979
 
-[node name="XpOrb380" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb380" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1410, 237)
 rotation = -2.87979
 
-[node name="XpOrb381" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb381" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1411, 190)
 rotation = -2.87979
 
-[node name="XpOrb382" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb382" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1363, 159)
 rotation = -2.87979
 
-[node name="XpOrb383" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb383" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1294, 143)
 rotation = -2.87979
 
-[node name="XpOrb384" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb384" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1431, 412)
 rotation = -2.87979
 
-[node name="XpOrb385" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb385" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1469, 392)
 rotation = -2.87979
 
-[node name="XpOrb386" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb386" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1527, 371)
 rotation = -2.87979
 
-[node name="XpOrb387" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb387" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1532, 327)
 rotation = -2.87979
 
-[node name="XpOrb388" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb388" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1518, 292)
 rotation = -2.87979
 
-[node name="XpOrb389" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb389" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1546, 258)
 rotation = -2.87979
 
-[node name="XpOrb390" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb390" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1505, 234)
 rotation = -2.87979
 
-[node name="XpOrb391" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb391" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1253, 446)
 rotation = -2.87979
 
-[node name="XpOrb392" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb392" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1276, 409)
 rotation = -2.87979
 
-[node name="XpOrb393" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb393" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1276, 409)
 rotation = -2.87979
 
-[node name="XpOrb394" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb394" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1261, 369)
 rotation = -2.87979
 
-[node name="XpOrb395" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb395" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1577, 206)
 rotation = -2.87979
 
-[node name="XpOrb396" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb396" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1623, 221)
 rotation = -2.87979
 
-[node name="XpOrb397" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb397" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1615, 156)
 rotation = -2.87979
 
-[node name="XpOrb398" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb398" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1675, 170)
 rotation = -2.87979
 
-[node name="XpOrb399" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb399" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1693, 226)
 rotation = -2.87979
 
-[node name="XpOrb400" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb400" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1644, 270)
 rotation = -2.87979
 
-[node name="XpOrb401" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb401" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1567, 263)
 rotation = -2.87979
 
-[node name="XpOrb402" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb402" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1560, 314)
 rotation = -2.87979
 
-[node name="XpOrb403" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb403" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1625, 342)
 rotation = -2.87979
 
-[node name="XpOrb404" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb404" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1692, 347)
 rotation = -2.87979
 
-[node name="XpOrb405" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb405" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1762, 308)
 rotation = -2.87979
 
-[node name="XpOrb406" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb406" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1785, 271)
 rotation = -2.87979
 
-[node name="XpOrb407" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb407" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1785, 271)
 rotation = -2.87979
 
-[node name="XpOrb408" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb408" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1770, 231)
 rotation = -2.87979
 
-[node name="XpOrb409" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb409" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1717, 270)
 rotation = -2.87979
 
-[node name="XpOrb410" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb410" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1722, 204)
 rotation = -2.87979
 
-[node name="XpOrb411" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb411" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1723, 157)
 rotation = -2.87979
 
-[node name="XpOrb412" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb412" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1675, 126)
 rotation = -2.87979
 
-[node name="XpOrb413" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb413" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1606, 110)
 rotation = -2.87979
 
-[node name="XpOrb414" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb414" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1743, 379)
 rotation = -2.87979
 
-[node name="XpOrb415" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb415" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1781, 359)
 rotation = -2.87979
 
-[node name="XpOrb416" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb416" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1839, 338)
 rotation = -2.87979
 
-[node name="XpOrb417" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb417" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1844, 294)
 rotation = -2.87979
 
-[node name="XpOrb418" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb418" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1830, 259)
 rotation = -2.87979
 
-[node name="XpOrb419" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb419" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1858, 225)
 rotation = -2.87979
 
-[node name="XpOrb420" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb420" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1817, 201)
 rotation = -2.87979
 
-[node name="XpOrb421" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb421" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1565, 413)
 rotation = -2.87979
 
-[node name="XpOrb422" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb422" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1588, 376)
 rotation = -2.87979
 
-[node name="XpOrb423" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb423" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1588, 376)
 rotation = -2.87979
 
-[node name="XpOrb424" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb424" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1573, 336)
 rotation = -2.87979
 
-[node name="XpOrb194" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb194" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1061, 969)
 rotation = -2.87979
 
-[node name="XpOrb195" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb195" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(1066, 903)
 rotation = -2.87979
 
-[node name="XpOrb196" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb196" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(515, 1036)
 rotation = -2.87979
 
-[node name="XpOrb197" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb197" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(467, 1005)
 rotation = -2.87979
 
-[node name="XpOrb198" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb198" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(398, 989)
 rotation = -2.87979
 
-[node name="XpOrb199" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb199" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(340, 987)
 rotation = -2.87979
 
-[node name="XpOrb200" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb200" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(836, 906)
 rotation = -2.87979
 
-[node name="XpOrb201" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb201" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(787, 910)
 rotation = -2.87979
 
-[node name="XpOrb202" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb202" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(840, 960)
 rotation = -2.87979
 
-[node name="XpOrb203" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb203" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(840, 960)
 rotation = -2.87979
 
-[node name="XpOrb204" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb204" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(807, 985)
 rotation = -2.87979
 
-[node name="XpOrb205" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb205" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(807, 985)
 rotation = -2.87979
 
-[node name="XpOrb206" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb206" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(639, 1009)
 rotation = -2.87979
 
-[node name="XpOrb207" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb207" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(639, 1009)
 rotation = -2.87979
 
-[node name="XpOrb208" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb208" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(696, 897)
 rotation = -2.87979
 
-[node name="XpOrb209" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb209" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(734, 877)
 rotation = -2.87979
 
-[node name="XpOrb210" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb210" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(240, 1036)
 rotation = -2.87979
 
-[node name="XpOrb211" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb211" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(245, 992)
 rotation = -2.87979
 
-[node name="XpOrb212" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb212" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(231, 957)
 rotation = -2.87979
 
-[node name="XpOrb213" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb213" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(259, 923)
 rotation = -2.87979
 
-[node name="XpOrb214" parent="." instance=ExtResource("2_q17pk")]
+[node name="XpOrb214" parent="Orbs" instance=ExtResource("2_q17pk")]
 position = Vector2(218, 899)
 rotation = -2.87979
-
-[node name="Slime" parent="." instance=ExtResource("3_vcgnq")]
-position = Vector2(639, 219)

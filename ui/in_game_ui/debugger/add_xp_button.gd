@@ -10,8 +10,8 @@ func _on_pressed() -> void:
 	if not player: return
 	
 	if amount < 0:
-		player._experience_component.add_experience(
-			player._experience_component.get_missing_to_next()
+		player.experience_component.add_experience(
+			player.experience_component.get_missing_to_next()
 		)
 	else:
-		player._experience_component.add_experience(amount)
+		player.experience_component.add_experience(amount)
