@@ -18,6 +18,7 @@ curve = SubResource("Curve2D_4nsai")
 
 [node name="SpawnLocation" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
+position = Vector2(-1010, -590)
 
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true

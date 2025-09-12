@@ -9,9 +9,17 @@ signal loading_progress_updated(percentage)
 
 var scene_path = null
 var loading_scene_instance = null
+var last_scenes = []
+
+
+func load_last_scene(caller: Node) -> void:
+	load_scene(caller, last_scenes[1])
+
 
 func load_scene(caller: Node, path: String) -> void:
 	scene_path = path
+	last_scenes.push_front(path)
+	last_scenes.resize(2)
 
 	loading_scene_instance = loading_scene.instantiate(); 
 	get_tree().root.add_child(loading_scene_instance)

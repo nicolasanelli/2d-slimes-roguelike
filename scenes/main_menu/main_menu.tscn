@@ -25,7 +25,24 @@ color = Color(0.21974, 0.648788, 0.485114, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PlayButton" type="Button" parent="CanvasLayer"]
+[node name="PlayButton1" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 90)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -569.0
+offset_top = -263.0
+offset_right = -69.0
+offset_bottom = -173.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+text = "Play Map 1"
+
+[node name="PlayButton2" type="Button" parent="CanvasLayer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 90)
 anchors_preset = 3
@@ -40,7 +57,7 @@ offset_bottom = -62.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
-text = "Play"
+text = "Play Map 2"
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 2
@@ -109,4 +126,5 @@ position = Vector2(1581, 254)
 [node name="PineTree6" parent="Trees" instance=ExtResource("5_1xjxm")]
 position = Vector2(1032, 169)
 
-[connection signal="pressed" from="CanvasLayer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlayButton1" to="." method="_on_play_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlayButton2" to="." method="_on_play_button_2_pressed"]

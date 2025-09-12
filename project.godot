@@ -75,7 +75,7 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="Slime Roguelike"
-config/version="1.0.5"
+config/version="1.0.6"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
@@ -112,7 +112,8 @@ folder_colors={
 "res://assets/": "orange",
 "res://scenes/": "green",
 "res://scripts/": "pink",
-"res://tilesets/": "yellow"
+"res://tilesets/": "yellow",
+"res://ui/": "blue"
 }
 
 [gui]

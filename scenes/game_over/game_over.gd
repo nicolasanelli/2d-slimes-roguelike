@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 
 func _on_replay_button_pressed() -> void:
 	AudioManager.play_click()
-	Loader.load_scene(self, "res://scenes/game_screen/game_screen.tscn")
+	Loader.load_last_scene(self)
 
 
 func _on_exit_button_pressed() -> void:

@@ -21,7 +21,7 @@ radius = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4cla"]
 radius = 200.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 9
 platform_floor_layers = 0
 script = ExtResource("1_1vwvb")
