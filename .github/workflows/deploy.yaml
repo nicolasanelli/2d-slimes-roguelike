@@ -30,7 +30,7 @@ jobs:
 
       - name: Download Godot Export Templates
         run: |
-          curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/$GODOT_VERSION/Godot_v$GODOT_VERSION-stable_export_templates.tpz
+          curl -L -o export_templates.zip https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_export_templates.tpz
           unzip export_templates.zip
 
       - name: Install Export Templates
