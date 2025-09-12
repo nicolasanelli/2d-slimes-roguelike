@@ -8,7 +8,7 @@ on: workflow_dispatch
 
 env:
   BUTLER_API_KEY: ${{secrets.ITCHIO_API_KEY}}
-  ITCHIO_USERNAME: ${{secrets.ITCHIO_USERNAME}}
+  ITCHIO_USERNAME: "nicolas-anelli"
   PROJECT_NAME: "2d-slimes-roguelike"
 
 jobs:
