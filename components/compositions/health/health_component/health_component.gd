@@ -33,9 +33,9 @@ func get_current_health() -> float:
 	return _current_health;
 
 func damage(value: float) -> void:
-	damaged.emit()
 	_current_health -= value
+	damaged.emit()
 
 func heal(value: float) -> void:
-	healed.emit()
 	_current_health += value
+	healed.emit()

@@ -23,6 +23,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	_animation_player.speed_scale = GlobalTimer.get_factor()
 
+
 func _physics_process(_delta: float) -> void:
 	if (not _target) or _absobed: return
 	if global_position.distance_to(_target.global_position) < DEATH_RADIUS_OFFSET: _absorv()
@@ -32,18 +33,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func set_experience_value(value: int) -> void:
-	_experience_value = value
-	if (_experience_value > 20):
-		$Sprite2D.modulate = Color(0.044, 0.0, 1.0)
-
-
 func set_target(target: Node2D) -> void:
 	_target = target
-
-
-func set_base_velocity(base_velocity: int) -> void:
-	_base_velocity = base_velocity
 
 
 func is_already_absorbed() -> bool:

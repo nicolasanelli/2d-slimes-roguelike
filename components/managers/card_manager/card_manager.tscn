@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctdmgnvdmlnlu"]
-
-[ext_resource type="Script" uid="uid://co77ejlcgt7s7" path="res://components/managers/card_manager/card_manager.gd" id="1_0j5lo"]
-
-[node name="CardManager" type="Node"]
-script = ExtResource("1_0j5lo")

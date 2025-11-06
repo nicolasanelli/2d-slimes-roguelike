@@ -75,28 +75,28 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="Slime Roguelike"
-config/version="1.1.0"
-run/main_scene="res://scenes/main_menu/main_menu.tscn"
+config/version="2.0.0-dev"
+run/main_scene="uid://dw1o8xkuoa6yn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.png"
 
 [autoload]
 
-Util="*res://scripts/globals/util.gd"
-PlayerInput="*res://scripts/globals/player_input.gd"
-GlobalTimer="*res://scripts/globals/global_timer.gd"
-Loader="*res://scripts/globals/loader.gd"
-CommandDispatcher="*res://scripts/globals/command_dispatcher.gd"
-Statistics="*res://scripts/globals/statistics.gd"
+Global="*res://scripts/global.gd"
+Loader="*res://scripts/loader.gd"
 AudioManager="*res://components/managers/audio_manager/audio_manager.tscn"
+CommandDispatcher="*res://scripts/command_dispatcher.gd"
+GlobalTimer="*res://scripts/global_timer.gd"
+PlayerInput="*res://scripts/player_input.gd"
+Statistics="*res://scripts/statistics.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 
 [dotnet]
 

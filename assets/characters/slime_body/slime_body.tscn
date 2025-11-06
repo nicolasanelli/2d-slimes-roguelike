@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ogik4s70pgwl"]
 
 [ext_resource type="Script" uid="uid://bej2f8ptceb36" path="res://assets/characters/slime_body/slime_body.gd" id="1_r83s6"]
-[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://assets/ground_shadow.png" id="2_fis11"]
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://assets/characters/ground_shadow.png" id="2_fis11"]
 [ext_resource type="Texture2D" uid="uid://br16qs4okt4ax" path="res://assets/characters/slime_body/slime_body.png" id="3_0yu6b"]
 [ext_resource type="Texture2D" uid="uid://c078jrp2yvc4s" path="res://assets/characters/slime_body/slime_face.png" id="5_bj75g"]
 [ext_resource type="Texture2D" uid="uid://cai2ijnbypqtr" path="res://assets/characters/slime_body/slime_hurt_eyes.png" id="6_wn67f"]
@@ -211,11 +211,10 @@ _data = {
 }
 
 [node name="SlimeBody" type="Node2D"]
-position = Vector2(0, 25)
 script = ExtResource("1_r83s6")
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
-modulate = Color(0.898039, 0.878431, 0.831373, 1)
+modulate = Color(0, 0, 0, 0.25490198)
 z_index = -1
 z_as_relative = false
 scale = Vector2(0.8, 0.8)

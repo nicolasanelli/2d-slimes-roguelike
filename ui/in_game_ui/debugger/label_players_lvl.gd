@@ -1,7 +1,7 @@
 extends Label
 
-func _process(_delta: float) -> void:
-	var player : Player = get_tree().get_first_node_in_group("Player")
-	if not player: return
-	
-	text = "Player LvL: %s" % player.find_child("ExperienceComponent").get_current_level()
+func _ready() -> void:
+	CommandDispatcher.player_leveled.connect(_player_leveled)
+
+func _player_leveled(component: ExperienceComponent) -> void:
+	text = "Player LvL: %s" % component.get_current_level()

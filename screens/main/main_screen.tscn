@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw1o8xkuoa6yn"]
+
+[ext_resource type="Script" uid="uid://dmqvpfoeqk7sl" path="res://screens/main/main_screen.gd" id="1_0fma5"]
+
+[node name="MainScreen" type="Node"]
+script = ExtResource("1_0fma5")
+
+[node name="Container" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Dummy" type="Node" parent="Container"]

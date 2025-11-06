@@ -1,15 +1,18 @@
-extends Node2D
+extends Node
 
+@onready var start_button: Button = %StartButton
+@onready var achievements_button: Button = %AchievementsButton
+@onready var options_button: Button = %OptionsButton
+@onready var credits_button: Button = %CreditsButton
+@onready var exit_button: Button = %ExitButton
 
 func _ready() -> void:
-	AudioManager.play_background_music()
+	start_button.pressed.connect(_on_start_button_pressed)
+	options_button.pressed.connect(_on_options_button_pressed)
 
 
-func _on_play_button_1_pressed() -> void:
-	AudioManager.play_click()
-	Loader.load_scene(self, "res://scenes/game_screen/game_screen.tscn")
+func _on_start_button_pressed() -> void:
+	Loader.load_scene("res://scenes/game_scene/game_scene.tscn")
 
-
-func _on_play_button_2_pressed() -> void:
-	AudioManager.play_click()
-	Loader.load_scene(self, "res://scenes/game_screen_v2/game_screen_v2.tscn")
+func _on_options_button_pressed() -> void:
+	Loader.load_scene("res://scenes/options_menu/options_menu.tscn")

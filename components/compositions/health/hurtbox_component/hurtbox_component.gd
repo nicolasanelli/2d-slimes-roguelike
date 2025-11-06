@@ -2,10 +2,6 @@ class_name HurtboxComponent
 extends Area2D
 
 
-#signal hit_by_bullet
-signal hit_by_hitbox
-
-
 @export var _health_component: HealthComponent
 
 
@@ -22,4 +18,3 @@ func _physics_process(delta: float) -> void:
 			damage += body.get_damage() * delta * GlobalTimer.get_factor()
 		
 		_health_component.damage(damage)
-		hit_by_hitbox.emit()

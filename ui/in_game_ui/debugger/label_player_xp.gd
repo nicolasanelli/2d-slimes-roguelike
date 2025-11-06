@@ -1,7 +1,7 @@
 extends Label
 
-func _process(_delta: float) -> void:
-	var player : Player = get_tree().get_first_node_in_group("Player")
-	if not player: return
-	
-	text = "Total XP: %.0f" % player.find_child("ExperienceComponent").get_total_experience()
+func _ready() -> void:
+	CommandDispatcher.player_experience_changed.connect(_experience_changed)
+
+func _experience_changed(component: ExperienceComponent) -> void:
+	text = "Total XP: %.0f" % component.get_total_experience()

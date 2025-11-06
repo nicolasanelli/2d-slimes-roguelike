@@ -1,14 +1,7 @@
 extends Node2D
 
-@onready var audio_player_music: AudioStreamPlayer2D = $AudioPlayerMusic
-@onready var sfx_group: Node2D = $SFXGroup
-
-
-var target: Node2D;
 
 var pistol_sfx = preload("res://assets/audio/sfx/pistol.mp3")
-var shotgun_sfx = preload("res://assets/audio/sfx/shotgun.mp3")
-var saw_sfx = preload("res://assets/audio/sfx/saw.mp3")
 var slime_squish_sfx = preload("res://assets/audio/sfx/slime-squish.mp3")
 var hurt_sfx = preload("res://assets/audio/sfx/hurt.mp3")
 var heal_sfx = preload("res://assets/audio/sfx/heal.mp3")
@@ -16,18 +9,19 @@ var pickup_sfx = preload("res://assets/audio/sfx/pickup.wav")
 var levelup_sfx = preload("res://assets/audio/sfx/levelup.mp3")
 var click_sfx = preload("res://assets/audio/sfx/click.ogg")
 var gameover_sfx = preload("res://assets/audio/sfx/gameover.mp3")
-var swing_sfx = preload("res://assets/audio/sfx/swing.mp3")
 
 
-@onready var saw_player: AudioStreamPlayer2D = $SFXFixed/SawPlayer
-@onready var hurt_player: AudioStreamPlayer2D = $SFXFixed/HurtPlayer
-@onready var pìckup_timer: Timer = $PìckupTimer
+@onready var hurt_player: AudioStreamPlayer2D = %HurtPlayer
+@onready var pìckup_timer: Timer = %PìckupTimer
+@onready var sfx_group: Node2D = %SFXGroup
+@onready var audio_player_music: AudioStreamPlayer2D = %AudioPlayerMusic
+
+
+var target: Node2D;
 
 
 func _ready() -> void:
-	saw_player.stream = saw_sfx
-	saw_player.bus = "SFX"
-	saw_player.volume_db = -10
+	pìckup_timer.timeout.connect(_on_pìckup_timer_timeout)
 
 
 func _process(_delta: float) -> void:
@@ -46,7 +40,6 @@ func play_background_music() -> void:
 
 func stop_all_sfx() -> void:
 	var sfxs = sfx_group.get_children()
-	saw_player.stop()
 	hurt_player.stop()
 	for sfx in sfxs:
 		sfx.free()
@@ -62,24 +55,6 @@ func play_pistol() -> void:
 	audio_player.pitch_scale += randf_range(0, 0.15)
 	audio_player.play()
 
-
-func play_shotgun() -> void:
-	var audio_player := AudioStreamPlayer2D.new()
-	sfx_group.add_child(audio_player)
-	
-	audio_player.stream = shotgun_sfx
-	audio_player.finished.connect(audio_player.queue_free)
-	audio_player.bus = "SFX"
-	audio_player.volume_db = 0
-	audio_player.pitch_scale += randf_range(0, 0.3)
-	audio_player.play()
-
-
-func play_saw() -> void:
-	saw_player.play()
-
-func stop_saw() -> void:
-	saw_player.stop()
 
 var slime_squishs = 0
 func play_slime_squish() -> void:
@@ -138,7 +113,8 @@ func play_gameover() -> void:
 	audio_player.bus = "SFX"
 	audio_player.volume_db = 0
 	audio_player.play()
-	
+
+
 func play_pickup() -> void:
 	pìckup_timer.start(1)
 	var audio_player := AudioStreamPlayer2D.new()
@@ -165,16 +141,5 @@ func play_click() -> void:
 	audio_player.finished.connect(audio_player.queue_free)
 	audio_player.bus = "SFX"
 	audio_player.volume_db = 15
-	audio_player.pitch_scale += randf_range(0, 0.15)
-	audio_player.play()
-
-func play_swing() -> void:
-	var audio_player := AudioStreamPlayer2D.new()
-	sfx_group.add_child(audio_player)
-	
-	audio_player.stream = swing_sfx
-	audio_player.finished.connect(audio_player.queue_free)
-	audio_player.bus = "SFX"
-	audio_player.volume_db = -5
 	audio_player.pitch_scale += randf_range(0, 0.15)
 	audio_player.play()

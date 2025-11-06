@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SlimeResource" load_steps=2 format=3 uid="uid://be0gaqwin0q8x"]
+
+[ext_resource type="Script" uid="uid://dmfvy3m5imwb6" path="res://data/enemies/slime/slime_resource.gd" id="1_l1rlg"]
+
+[resource]
+script = ExtResource("1_l1rlg")
+color = Color(0.7253835, 0.108901374, 0.54530793, 1)

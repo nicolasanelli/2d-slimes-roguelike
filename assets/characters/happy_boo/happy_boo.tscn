@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://pbmyh1qru7p"]
 
 [ext_resource type="Script" uid="uid://cxks5ckmp5c51" path="res://assets/characters/happy_boo/happy_boo.gd" id="1_kg7lb"]
-[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://assets/ground_shadow.png" id="2_62bos"]
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://assets/characters/ground_shadow.png" id="2_62bos"]
 [ext_resource type="Texture2D" uid="uid://ng8e5ot0dtpd" path="res://assets/characters/happy_boo/square_foot.png" id="3_186qq"]
 [ext_resource type="Texture2D" uid="uid://dhapxq8y8ow57" path="res://assets/characters/happy_boo/square_lower_leg.png" id="4_plnsd"]
 [ext_resource type="Texture2D" uid="uid://qmqpm6asge1i" path="res://assets/characters/happy_boo/square_upper_leg.png" id="5_q2t1e"]
@@ -586,12 +586,12 @@ script = ExtResource("1_kg7lb")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_wrcpu")
+&"": SubResource("AnimationLibrary_wrcpu")
 }
 playback_default_blend_time = 0.2
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
-modulate = Color(0.898039, 0.878431, 0.831373, 1)
+modulate = Color(0, 0, 0, 0.25490198)
 z_index = -1
 z_as_relative = false
 scale = Vector2(0.8, 0.8)

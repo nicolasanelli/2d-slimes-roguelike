@@ -1,38 +1,56 @@
-[gd_scene load_steps=36 format=3 uid="uid://21r0axu05w1"]
+[gd_scene load_steps=28 format=3 uid="uid://21r0axu05w1"]
 
-[ext_resource type="Script" uid="uid://sf2dc1w3psee" path="res://ui/in_game_ui/fps.gd" id="1_xi3sq"]
+[ext_resource type="Script" uid="uid://d7bljdw4cu2d" path="res://ui/in_game_ui/gameplay_ui.gd" id="1_4tbpe"]
 [ext_resource type="Script" uid="uid://dxfu2hmjkf6tg" path="res://ui/in_game_ui/debugger.gd" id="2_4axlx"]
-[ext_resource type="Script" uid="uid://bjfpbdglyxg4l" path="res://ui/in_game_ui/timer.gd" id="2_cyjxy"]
 [ext_resource type="Script" uid="uid://b4lgv6n4alwf1" path="res://ui/in_game_ui/debugger/label_mk.gd" id="3_1wkew"]
-[ext_resource type="Script" uid="uid://ju1ofp42ed6w" path="res://ui/in_game_ui/level_info.gd" id="3_7g84b"]
-[ext_resource type="PackedScene" uid="uid://ctalcx31t63w" path="res://ui/in_game_ui/stat_item/stat_item.tscn" id="3_bvo32"]
-[ext_resource type="Script" uid="uid://xlvp5jbbbrx3" path="res://ui/in_game_ui/pause_label.gd" id="3_wlei0"]
+[ext_resource type="Texture2D" uid="uid://cbbldwp4elr35" path="res://assets/Sem título-2025-04-07-1343.png" id="3_au4t0"]
 [ext_resource type="Script" uid="uid://cpxm0k3unn4rq" path="res://ui/in_game_ui/debugger/label_mc.gd" id="4_733bd"]
 [ext_resource type="Texture2D" uid="uid://7ughleeg5y14" path="res://components/drops/xp_orb/xp_orb_gray.png" id="4_sbbku"]
-[ext_resource type="Script" uid="uid://dnr1c5cn1aepp" path="res://ui/in_game_ui/stats_bar.gd" id="4_xvvhu"]
 [ext_resource type="Script" uid="uid://dj3kjnp12xljh" path="res://ui/in_game_ui/debugger/label_bs.gd" id="5_4gui6"]
 [ext_resource type="Script" uid="uid://cmnurdd3fhrgo" path="res://ui/in_game_ui/debugger/add_xp_button.gd" id="6_55mql"]
-[ext_resource type="Script" uid="uid://2pe34vwenmwc" path="res://ui/in_game_ui/level_label.gd" id="7_g27so"]
 [ext_resource type="Script" uid="uid://c34iea4t0dcrp" path="res://ui/in_game_ui/debugger/label_sf.gd" id="7_juxw1"]
 [ext_resource type="Script" uid="uid://ck3m48mqu4512" path="res://ui/in_game_ui/debugger/timer.gd" id="8_5kmr6"]
-[ext_resource type="Script" uid="uid://4yom1r4ck3tj" path="res://ui/in_game_ui/experience_bar.gd" id="8_cwf31"]
-[ext_resource type="Script" uid="uid://baighdieie5o" path="res://ui/in_game_ui/left_pad.gd" id="9_au4t0"]
 [ext_resource type="Script" uid="uid://bgxmcdllw7jl5" path="res://ui/in_game_ui/debugger/custom_timer.gd" id="9_fwjpc"]
-[ext_resource type="PackedScene" uid="uid://dr3kwla7uxs8c" path="res://ui/in_game_ui/joystick/joystick.tscn" id="9_pdvqd"]
-[ext_resource type="Script" uid="uid://bg36suxh56mdl" path="res://ui/in_game_ui/card_selector_ui.gd" id="10_ieksd"]
 [ext_resource type="Script" uid="uid://d2dh8deha201b" path="res://ui/in_game_ui/debugger/label_ms.gd" id="11_qp2xs"]
 [ext_resource type="Script" uid="uid://opg7w7ose45n" path="res://addons/c_timer/c_timer.gd" id="12_iw8ba"]
 [ext_resource type="Script" uid="uid://is5yhto7cxk5" path="res://ui/in_game_ui/debugger/label_player_pos.gd" id="14_ho704"]
 [ext_resource type="Script" uid="uid://bvx4cullprqul" path="res://ui/in_game_ui/debugger/label_player_xp.gd" id="15_t8nab"]
+[ext_resource type="Script" uid="uid://73oprmalwk2t" path="res://ui/in_game_ui/debugger/deal_healing.gd" id="16_ho704"]
 [ext_resource type="Script" uid="uid://dla2dx38mvy7g" path="res://ui/in_game_ui/debugger/change_factor.gd" id="18_4tbpe"]
-[ext_resource type="Script" uid="uid://bxef7pjf7gen4" path="res://ui/in_game_ui/debugger/game_over.gd" id="18_pgi80"]
+[ext_resource type="Script" uid="uid://bxef7pjf7gen4" path="res://ui/in_game_ui/debugger/deal_damage.gd" id="18_pgi80"]
 [ext_resource type="Script" uid="uid://dlw5alrn0kxvk" path="res://ui/in_game_ui/debugger/label_te.gd" id="18_uba84"]
 [ext_resource type="Script" uid="uid://cg74cbqwgepoy" path="res://ui/in_game_ui/debugger/label_players_lvl.gd" id="19_fx8rr"]
 [ext_resource type="Script" uid="uid://nifvkdbwvob0" path="res://ui/in_game_ui/pause_menu.gd" id="26_0wqi4"]
-[ext_resource type="Script" uid="uid://bbw2ubua76fci" path="res://ui/in_game_ui/debugger/stage.gd" id="26_au4t0"]
-[ext_resource type="Script" uid="uid://d2u76v8xoodnj" path="res://ui/in_game_ui/debugger/wave.gd" id="27_6itfw"]
-[ext_resource type="PackedScene" uid="uid://bqqdnrats34f5" path="res://components/action_card/action_card.tscn" id="31_fx8rr"]
-[ext_resource type="Resource" uid="uid://b7hiux714slls" path="res://data/cards/dummy_card.tres" id="32_2ilj7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_au4t0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6itfw"]
+bg_color = Color(0.4117647, 0.85882354, 0.4862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7g84b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fx8rr"]
+bg_color = Color(1, 0.6627451, 0.3019608, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ilj7"]
 
@@ -50,6 +68,7 @@ theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
+script = ExtResource("1_4tbpe")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameplayUI"]
 layout_mode = 2
@@ -58,35 +77,25 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FPS" type="Label" parent="GameplayUI/VBoxContainer/TopView"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
 text = "FPS: 60"
-script = ExtResource("1_xi3sq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameplayUI/VBoxContainer/TopView"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Timer" type="Label" parent="GameplayUI/VBoxContainer/TopView/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_type_variation = &"HeaderLarge"
 text = "99:99"
 horizontal_alignment = 1
-script = ExtResource("2_cyjxy")
-
-[node name="LevelInfo" type="Label" parent="GameplayUI/VBoxContainer/TopView/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-text = "Stage: x/n
-Wave:  y/m"
-horizontal_alignment = 1
-script = ExtResource("3_7g84b")
 
 [node name="PauseLabel" type="Label" parent="GameplayUI/VBoxContainer/TopView"]
 layout_mode = 2
@@ -95,100 +104,96 @@ size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
 text = "Press ESC to pause"
 horizontal_alignment = 2
-script = ExtResource("3_wlei0")
 
-[node name="BottomView" type="VBoxContainer" parent="GameplayUI/VBoxContainer"]
+[node name="Control" type="Control" parent="GameplayUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Bottom" type="MarginContainer" parent="GameplayUI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameplayUI/VBoxContainer/Bottom"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameplayUI/VBoxContainer/Bottom/HBoxContainer"]
+custom_minimum_size = Vector2(144, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameplayUI/VBoxContainer/Bottom/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_au4t0")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameplayUI/VBoxContainer/Bottom"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_constants/separation = 10
 
-[node name="StatsBar" type="HBoxContainer" parent="GameplayUI/VBoxContainer/BottomView"]
-custom_minimum_size = Vector2(0, 40)
+[node name="HBoxContainer" type="HBoxContainer" parent="GameplayUI/VBoxContainer/Bottom/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 8
-script = ExtResource("4_xvvhu")
-
-[node name="DummyItem1" parent="GameplayUI/VBoxContainer/BottomView/StatsBar" instance=ExtResource("3_bvo32")]
-layout_mode = 2
-
-[node name="DummyItem2" parent="GameplayUI/VBoxContainer/BottomView/StatsBar" instance=ExtResource("3_bvo32")]
-layout_mode = 2
-
-[node name="ExperienceView" type="HBoxContainer" parent="GameplayUI/VBoxContainer/BottomView"]
-layout_mode = 2
+theme_override_constants/separation = -16
 alignment = 1
 
-[node name="Level" type="Control" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView"]
-custom_minimum_size = Vector2(58, 58)
+[node name="Weapon" type="Control" parent="GameplayUI/VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(98, 98)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Overline" type="TextureRect" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView/Level"]
+[node name="Overline" type="TextureRect" parent="GameplayUI/VBoxContainer/Bottom/VBoxContainer/HBoxContainer/Weapon"]
 modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_left = -2.0
 offset_top = -2.0
 offset_right = 60.0
 offset_bottom = 60.0
 texture = ExtResource("4_sbbku")
+expand_mode = 1
 
-[node name="Background" type="TextureRect" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView/Level"]
+[node name="Background" type="TextureRect" parent="GameplayUI/VBoxContainer/Bottom/VBoxContainer/HBoxContainer/Weapon"]
+modulate = Color(0.8448639, 0.8448639, 0.8448639, 1)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 0
-offset_right = 58.0
-offset_bottom = 58.0
+offset_right = 96.0
+offset_bottom = 96.0
 texture = ExtResource("4_sbbku")
 
-[node name="LevelLabel" type="Label" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView/Level/Background"]
-custom_minimum_size = Vector2(58, 58)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -16.0
-offset_right = 15.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "99"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("7_g27so")
+[node name="TextureRect" type="TextureRect" parent="GameplayUI/VBoxContainer/Bottom/VBoxContainer/HBoxContainer/Weapon/Background"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 28.0
+offset_right = 74.0
+offset_bottom = 69.000015
+rotation = -0.5235988
+pivot_offset = Vector2(24, 24)
+expand_mode = 2
 
-[node name="ExperienceBar" type="ProgressBar" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView"]
-custom_minimum_size = Vector2(450, 45)
+[node name="VBoxContainer" type="VBoxContainer" parent="GameplayUI/VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-value = 63.0
-show_percentage = false
-script = ExtResource("8_cwf31")
 
-[node name="ExperienceLabel" type="Label" parent="GameplayUI/VBoxContainer/BottomView/ExperienceView/ExperienceBar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "63 / 100"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LeftPad" type="Control" parent="GameplayUI"]
-custom_minimum_size = Vector2(356, 356)
+[node name="HPBar" type="ProgressBar" parent="GameplayUI/VBoxContainer/Bottom/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 16)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-script = ExtResource("9_au4t0")
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_au4t0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6itfw")
+value = 100.0
+show_percentage = false
 
-[node name="Joystick" parent="GameplayUI/LeftPad" instance=ExtResource("9_pdvqd")]
-texture_filter = 1
+[node name="ExperienceBar" type="ProgressBar" parent="GameplayUI/VBoxContainer/Bottom/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 16)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_7g84b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fx8rr")
+value = 12.0
+show_percentage = false
 
 [node name="Debugger" type="MarginContainer" parent="."]
 visible = false
@@ -249,13 +254,13 @@ text = "Player XP: %s"
 script = ExtResource("15_t8nab")
 
 [node name="LabelPlayersLVL" type="Label" parent="Debugger/VBoxContainer"]
-visible = false
 layout_mode = 2
-text = "Player XP: %s"
+text = "Player LvL: -1"
 script = ExtResource("19_fx8rr")
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="Debugger/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="Add1LvLButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
@@ -264,11 +269,12 @@ text = "+1 LvL"
 script = ExtResource("6_55mql")
 amount = -1
 
-[node name="Add100XPButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer1"]
+[node name="Add1XPButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "+100 XP"
+text = "+1 XP"
 script = ExtResource("6_55mql")
+amount = 1
 
 [node name="Add1000XPButton" type="Button" parent="Debugger/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
@@ -289,6 +295,7 @@ script = ExtResource("7_juxw1")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Debugger/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="Decrease" type="Button" parent="Debugger/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -316,15 +323,26 @@ step = 0.3
 layout_mode = 2
 theme_override_constants/margin_top = 15
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Damage" type="Button" parent="Debugger/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage"
+script = ExtResource("18_pgi80")
+
+[node name="Heal" type="Button" parent="Debugger/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Heal"
+script = ExtResource("16_ho704")
+
 [node name="LabelTE" type="Label" parent="Debugger/VBoxContainer"]
 layout_mode = 2
 text = "Time elapsed: %.2fs"
 script = ExtResource("18_uba84")
-
-[node name="GameOver" type="Button" parent="Debugger/VBoxContainer"]
-layout_mode = 2
-text = "GameOver"
-script = ExtResource("18_pgi80")
 
 [node name="Timer" type="Label" parent="Debugger/VBoxContainer"]
 layout_mode = 2
@@ -351,21 +369,6 @@ autostart = true
 layout_mode = 2
 theme_override_constants/margin_top = 15
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Debugger/VBoxContainer"]
-layout_mode = 2
-
-[node name="Stage" type="Label" parent="Debugger/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Stage: %s"
-script = ExtResource("26_au4t0")
-
-[node name="Wave" type="Label" parent="Debugger/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Wave: %s"
-script = ExtResource("27_6itfw")
-
 [node name="CardSelectorUI" type="MarginContainer" parent="."]
 visible = false
 anchors_preset = 15
@@ -373,12 +376,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("10_ieksd")
 
 [node name="Overlay" type="ColorRect" parent="CardSelectorUI"]
 layout_mode = 2
 mouse_filter = 1
-color = Color(0, 0, 0, 0.392157)
+color = Color(0.5841794, 0.5841794, 0.5841794, 0.39215687)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardSelectorUI/Overlay"]
 layout_mode = 1
@@ -393,18 +395,19 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 64
 
-[node name="DummyCard1" parent="CardSelectorUI/Overlay/VBoxContainer/CardRow" instance=ExtResource("31_fx8rr")]
+[node name="Dummy1" type="ColorRect" parent="CardSelectorUI/Overlay/VBoxContainer/CardRow"]
+custom_minimum_size = Vector2(270, 340)
 layout_mode = 2
-resource = ExtResource("32_2ilj7")
 
-[node name="DummyCard2" parent="CardSelectorUI/Overlay/VBoxContainer/CardRow" instance=ExtResource("31_fx8rr")]
+[node name="Dummy2" type="ColorRect" parent="CardSelectorUI/Overlay/VBoxContainer/CardRow"]
+custom_minimum_size = Vector2(270, 340)
 layout_mode = 2
-resource = ExtResource("32_2ilj7")
 
-[node name="DummyCard3" parent="CardSelectorUI/Overlay/VBoxContainer/CardRow" instance=ExtResource("31_fx8rr")]
+[node name="Dummy3" type="ColorRect" parent="CardSelectorUI/Overlay/VBoxContainer/CardRow"]
+custom_minimum_size = Vector2(270, 340)
 layout_mode = 2
-resource = ExtResource("32_2ilj7")
 
 [node name="HSeparator" type="HSeparator" parent="CardSelectorUI/Overlay/VBoxContainer"]
 layout_mode = 2

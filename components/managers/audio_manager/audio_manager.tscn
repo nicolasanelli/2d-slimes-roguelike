@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dptjjbb83gt8"]
+[gd_scene load_steps=3 format=3 uid="uid://dy52bdchrq8u7"]
 
 [ext_resource type="Script" uid="uid://bg4ytreqo2lvc" path="res://components/managers/audio_manager/audio_manager.gd" id="1_lkccp"]
 [ext_resource type="AudioStream" uid="uid://b1mp76yfvnjox" path="res://assets/audio/music/background_music.mp3" id="2_f3adt"]
@@ -7,18 +7,18 @@
 script = ExtResource("1_lkccp")
 
 [node name="AudioPlayerMusic" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("2_f3adt")
 bus = &"Music"
 
 [node name="SFXGroup" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="SFXFixed" type="Node2D" parent="."]
 
-[node name="SawPlayer" type="AudioStreamPlayer2D" parent="SFXFixed"]
-
 [node name="HurtPlayer" type="AudioStreamPlayer2D" parent="SFXFixed"]
+unique_name_in_owner = true
 
 [node name="PìckupTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 autostart = true
-
-[connection signal="timeout" from="PìckupTimer" to="." method="_on_pìckup_timer_timeout"]

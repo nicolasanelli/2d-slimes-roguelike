@@ -1,0 +1,52 @@
+extends Node
+
+
+@export var loading_scene: PackedScene = preload("res://scenes/loading_screen/loading_screen.tscn")
+
+
+signal loading_progress_updated(percentage)
+
+var container: Node = null
+var scene_path = null
+var loading_scene_instance = null
+var last_scenes = []
+
+
+func set_container(node: Node) -> void:
+	container = node
+
+func load_last_scene(_caller: Node) -> void:
+	load_scene(last_scenes[1])
+
+
+func load_scene(path: String) -> void:
+	scene_path = path
+	last_scenes.push_front(path)
+	last_scenes.resize(2)
+
+	loading_scene_instance = loading_scene.instantiate(); 
+	get_tree().root.add_child.call_deferred(loading_scene_instance)
+	
+	ResourceLoader.load_threaded_request(scene_path)
+	loading_progress_updated.emit(0)
+	
+	for child in container.get_children():
+		child.queue_free()
+
+
+func _process(_delta: float) -> void:
+	if (!scene_path): return;
+	
+	var progress = []
+	var loader_status = ResourceLoader.load_threaded_get_status(scene_path, progress)
+		
+	loading_progress_updated.emit(progress[0] * 100)
+		
+	if (loader_status == ResourceLoader.THREAD_LOAD_LOADED):
+		var loaded_scene = (ResourceLoader.load_threaded_get(scene_path) as PackedScene).instantiate()
+		
+		get_tree().root.remove_child(loading_scene_instance)
+		loading_scene_instance.free()
+		container.add_child(loaded_scene)
+		
+		scene_path = null
