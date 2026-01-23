@@ -102,11 +102,8 @@ project/assembly_name="Getting started with Godot 4"
 [file_customization]
 
 folder_colors={
-"res://assets/": "orange",
-"res://scenes/": "green",
-"res://scripts/": "pink",
-"res://tilesets/": "yellow",
-"res://ui/": "blue"
+"res://_doc/": "gray",
+"res://tilesets/": "yellow"
 }
 
 [gui]

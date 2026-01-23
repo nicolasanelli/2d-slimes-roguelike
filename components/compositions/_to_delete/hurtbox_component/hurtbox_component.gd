@@ -2,7 +2,7 @@ class_name HurtboxComponent
 extends Area2D
 
 
-@export var _health_component: HealthComponent
+var _health_component: HealthComponent
 
 
 func _physics_process(delta: float) -> void:
