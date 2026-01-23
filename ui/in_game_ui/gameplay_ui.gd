@@ -1,5 +1,6 @@
 extends MarginContainer
 
+
 func _ready() -> void:
 	CommandDispatcher.player_health_changed.connect(_health_changed)
 	CommandDispatcher.player_experience_changed.connect(_experience_changed)
@@ -11,7 +12,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	%FPS.text = "FPS: %.0f" % Engine.get_frames_per_second()
-	%Timer.text = "%s" % Statistics.get_time_elapsed_as_string()
+	%Timer.text = "%s" % GameManager.run_stats.get_time_elapsed_as_string()
 
 
 func _experience_changed(component: ExperienceComponent) -> void:

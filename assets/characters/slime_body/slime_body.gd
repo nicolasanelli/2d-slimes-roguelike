@@ -21,7 +21,3 @@ func play_walk():
 
 func play_hurt():
 	_animation_player.play("hurt")
-
-
-func _physics_process(_delta: float) -> void:
-	_animation_player.speed_scale = GlobalTimer.get_factor()

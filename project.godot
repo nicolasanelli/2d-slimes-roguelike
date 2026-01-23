@@ -76,20 +76,17 @@ Settings/Show_Tooltips=true
 
 config/name="Slime Roguelike"
 config/version="2.0.0-dev"
-run/main_scene="uid://dw1o8xkuoa6yn"
+run/main_scene="uid://crg48bcj2rk2b"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://scripts/global.gd"
-Loader="*res://scripts/loader.gd"
-AudioManager="*res://components/managers/audio_manager/audio_manager.tscn"
-CommandDispatcher="*res://scripts/command_dispatcher.gd"
-GlobalTimer="*res://scripts/global_timer.gd"
-PlayerInput="*res://scripts/player_input.gd"
-Statistics="*res://scripts/statistics.gd"
+Constants="*res://scripts/autoloads/constants.gd"
+Loader="*res://scripts/autoloads/loader.gd"
+CommandDispatcher="*res://scripts/autoloads/command_dispatcher.gd"
+GameManager="*res://scripts/autoloads/game_manager.gd"
 
 [display]
 
@@ -101,10 +98,6 @@ window/stretch/aspect="keep_width"
 [dotnet]
 
 project/assembly_name="Getting started with Godot 4"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/c_timer/plugin.cfg")
 
 [file_customization]
 

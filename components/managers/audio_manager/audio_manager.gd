@@ -1,14 +1,14 @@
 extends Node2D
 
 
-var pistol_sfx = preload("res://assets/audio/sfx/pistol.mp3")
-var slime_squish_sfx = preload("res://assets/audio/sfx/slime-squish.mp3")
-var hurt_sfx = preload("res://assets/audio/sfx/hurt.mp3")
-var heal_sfx = preload("res://assets/audio/sfx/heal.mp3")
-var pickup_sfx = preload("res://assets/audio/sfx/pickup.wav")
-var levelup_sfx = preload("res://assets/audio/sfx/levelup.mp3")
-var click_sfx = preload("res://assets/audio/sfx/click.ogg")
+var pistol_sfx = preload(Constants.AUDIO_SFX.pistol_shot)
+var hurt_sfx = preload(Constants.AUDIO_SFX.hurt)
+var heal_sfx = preload(Constants.AUDIO_SFX.heal)
+var pickup_sfx = preload(Constants.AUDIO_SFX.pickup)
+var levelup_sfx = preload(Constants.AUDIO_SFX.levelup)
+var click_sfx = preload(Constants.AUDIO_SFX.click)
 var gameover_sfx = preload("res://assets/audio/sfx/gameover.mp3")
+var slime_squish_sfx = preload("res://assets/audio/sfx/slime-squish.mp3")
 
 
 @onready var hurt_player: AudioStreamPlayer2D = %HurtPlayer

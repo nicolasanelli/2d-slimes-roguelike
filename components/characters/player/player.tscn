@@ -1,20 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk48pihmbvji0"]
+[gd_scene load_steps=8 format=3 uid="uid://bk48pihmbvji0"]
 
 [ext_resource type="Script" uid="uid://b68yy1mdn4848" path="res://components/characters/player/player.gd" id="1_1vwvb"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://assets/characters/happy_boo/happy_boo.tscn" id="1_cmylc"]
-[ext_resource type="Script" uid="uid://1rwp55vwoatf" path="res://components/compositions/health/hurtbox_component/hurtbox_component.gd" id="6_6wffr"]
-[ext_resource type="PackedScene" uid="uid://dh26ec8mgg81e" path="res://components/compositions/health/health_component/health_component.tscn" id="6_oyvrj"]
-[ext_resource type="PackedScene" uid="uid://bdcrnqu1x8a5e" path="res://components/compositions/experience/experience_component/experience_component.tscn" id="7_bw0q3"]
-[ext_resource type="PackedScene" uid="uid://csauwjdnutwod" path="res://components/compositions/experience/experience_range_component/experience_range_component.tscn" id="8_ih1kw"]
+[ext_resource type="Script" uid="uid://o4iq7e24vu5q" path="res://components/characters/player/external_range.gd" id="3_dc6tm"]
+[ext_resource type="Script" uid="uid://drx2xhc6dghpc" path="res://components/characters/player/internal_range.gd" id="4_kkjo8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6535e"]
-radius = 29.0
+radius = 25.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m4cla"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_42y4n"]
 radius = 200.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6wffr"]
-radius = 50.64293
+[sub_resource type="CircleShape2D" id="CircleShape2D_dc6tm"]
+radius = 45.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.85, 0.85)
@@ -23,36 +21,28 @@ platform_floor_layers = 0
 script = ExtResource("1_1vwvb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_6535e")
 
 [node name="HappyBoo" parent="." instance=ExtResource("1_cmylc")]
 unique_name_in_owner = true
 scale = Vector2(1.0000001, 1.0000001)
 
-[node name="HealthComponent" parent="." instance=ExtResource("6_oyvrj")]
-unique_name_in_owner = true
+[node name="ExternalRange" type="Area2D" parent="." node_paths=PackedStringArray("parent")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_dc6tm")
+parent = NodePath("..")
 
-[node name="Experience" type="Node2D" parent="."]
-scale = Vector2(0.85, 0.85)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExternalRange"]
+shape = SubResource("CircleShape2D_42y4n")
+debug_color = Color(0.89326286, 0.514481, 3.2367046, 0)
 
-[node name="ExperienceRangeComponent" parent="Experience" node_paths=PackedStringArray("_experience_component") instance=ExtResource("8_ih1kw")]
-scale = Vector2(0.85, 0.85)
-_experience_component = NodePath("../ExperienceComponent")
+[node name="InternalRange" type="Area2D" parent="." node_paths=PackedStringArray("parent")]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("4_kkjo8")
+parent = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Experience/ExperienceRangeComponent"]
-shape = SubResource("CircleShape2D_m4cla")
-debug_color = Color(1, 0.847059, 0, 0.239216)
-
-[node name="ExperienceComponent" parent="Experience" instance=ExtResource("7_bw0q3")]
-unique_name_in_owner = true
-
-[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("_health_component")]
-collision_mask = 2
-script = ExtResource("6_6wffr")
-_health_component = NodePath("../HealthComponent")
-metadata/_custom_type_script = "uid://1rwp55vwoatf"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, -20)
-shape = SubResource("CircleShape2D_6wffr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InternalRange"]
+shape = SubResource("CircleShape2D_dc6tm")
+debug_color = Color(0.7021107, 0, 0.09985284, 0)

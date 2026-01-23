@@ -19,5 +19,5 @@ func _toggle_pause() -> void:
 		CommandDispatcher.game_paused.emit()
 
 func _on_exit_to_menu() -> void:
-	AudioManager.play_click()
+	#AudioManager.play_click()
 	CommandDispatcher.on_exit_game.emit()

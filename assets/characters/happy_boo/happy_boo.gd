@@ -10,7 +10,3 @@ func play_idle_animation():
 
 func play_walk_animation():
 	_animation_player.play("walk")
-
-
-func _physics_process(_delta: float) -> void:
-	_animation_player.speed_scale = GlobalTimer.get_factor()
