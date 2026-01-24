@@ -9,4 +9,4 @@ func _ready() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	Loader.load_scene(self, "res://scenes/main_menu/main_menu.tscn")
+	Loader.load_scene(self, Constants.SCENE_PATH.main_menu)

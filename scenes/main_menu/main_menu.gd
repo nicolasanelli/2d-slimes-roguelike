@@ -14,6 +14,8 @@ func _ready() -> void:
 	options_button.pressed.connect(_on_options_button_pressed)
 	credits_button.pressed.connect(_on_credits_button_pressed)
 	exit_button.pressed.connect(_on_exit_button_pressed)
+	
+	GameManager.fresh()
 
 
 func _on_start_button_pressed() -> void:

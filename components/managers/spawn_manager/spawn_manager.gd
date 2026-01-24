@@ -1,0 +1,31 @@
+class_name SpawnManager
+extends Node
+
+@export var max_mobs_alive := 30
+
+@export var spawners: Array[MobSpawner] = []
+var mobs_alive := 0
+
+#func _ready() -> void:
+	#spawners = get_tree().get_nodes_in_group("mob_spawners")
+
+func _process(_delta: float) -> void:
+	if mobs_alive >= max_mobs_alive:
+		return
+
+	_spawn_from_random_spawner()
+
+func _spawn_from_random_spawner() -> void:
+	if spawners.is_empty():
+		return
+
+	var spawner = spawners.pick_random()
+	spawner.spawn(self, _on_mob_died)
+	
+	GameManager.run_stats.add_spawned_mob()
+	mobs_alive += 1
+
+
+func _on_mob_died() -> void:
+	GameManager.run_stats.add_mob_killed()
+	mobs_alive -= 1

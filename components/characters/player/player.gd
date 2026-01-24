@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var hurtbox: Hurtbox = $Hurtbox
 
 
-var rundata: PlayerRundata
+var rundata: PlayerRundata# = PlayerRundata.new()
 var input: PlayerInput = PlayerInput.new()
 var state_machine: CallableStateMachine = CallableStateMachine.new()
 

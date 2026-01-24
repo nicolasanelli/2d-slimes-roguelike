@@ -37,7 +37,6 @@ func is_alive() -> bool:
 
 func damage(amount: float) -> void:
 	if amount <= 0.0 or !is_alive():
-		push_error("Can't damage bc it's already dead.")
 		return
 
 	_current_health -= amount
@@ -48,7 +47,6 @@ func damage(amount: float) -> void:
 
 func heal(amount: float) -> void:
 	if amount <= 0.0 or !is_alive():
-		push_error("Can't heal bc it's already dead.")
 		return
 
 	var previous_health := _current_health
