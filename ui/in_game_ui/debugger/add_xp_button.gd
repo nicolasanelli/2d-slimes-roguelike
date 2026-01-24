@@ -6,7 +6,6 @@ func _ready() -> void:
 	pressed.connect(_on_pressed)
 
 func _on_pressed() -> void:
-	var player : Player =  GameManager.player
-	if not player: return
+	var player_rundata : PlayerRundata =  GameManager.player_rundata
 	
-	print("Not Implemented 20")
+	player_rundata.experience_component.add_experience(amount)

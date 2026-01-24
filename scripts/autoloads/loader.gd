@@ -1,10 +1,11 @@
 extends Node
 
 
-@export var loading_scene: PackedScene = preload("res://scenes/loading_screen/loading_screen.tscn")
+var loading_scene: PackedScene = preload(Constants.SCENE_PATH.loading_screen)
 
 
 signal loading_progress_updated(percentage)
+
 
 var scene_path = null
 var loading_scene_instance = null

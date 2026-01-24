@@ -6,16 +6,23 @@ extends CharacterBody2D
 @onready var hurtbox: Hurtbox = $Hurtbox
 
 
-var state_machine: CallableStateMachine = CallableStateMachine.new()
+var rundata: PlayerRundata
 var input: PlayerInput = PlayerInput.new()
+var state_machine: CallableStateMachine = CallableStateMachine.new()
 
 
 func _ready() -> void:
+	assert(rundata != null, "Player.setup() must be called before using Player")
+	
 	hurtbox.damage_taken.connect(_on_damage_taken)
 	
 	state_machine.add_state(state_idle, enter_state_idle, Callable())
 	state_machine.add_state(state_walk, enter_state_walk, Callable())
 	state_machine.set_initial_state(state_idle)
+
+
+func setup(_rundata: PlayerRundata):
+	self.rundata = _rundata
 
 
 #region State Machine Region
@@ -47,4 +54,4 @@ func state_walk() -> void:
 
 
 func _on_damage_taken(amount: float, _source: Node) -> void:
-	print("Should take %s from Player health" % amount)
+	rundata.health_component.damage(amount)

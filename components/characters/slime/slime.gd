@@ -31,10 +31,6 @@ func _ready() -> void:
 	state_machine.set_initial_state(state_idle)
 
 
-## TODO Gambi temporária até criar o MobSpawn
-func _process(_delta: float) -> void:
-	target = GameManager.player
-
 #region State Machine Region
 func _physics_process(_delta: float) -> void:
 	state_machine.update()

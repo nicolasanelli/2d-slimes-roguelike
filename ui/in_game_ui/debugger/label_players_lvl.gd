@@ -1,7 +1,7 @@
 extends Label
 
 func _ready() -> void:
-	CommandDispatcher.player_leveled.connect(_player_leveled)
+	GameManager.player_rundata.experience_component.leveled_up.connect(_on_player_leveled)
 
-func _player_leveled(component: ExperienceComponent) -> void:
-	text = "Player LvL: %s" % component.get_current_level()
+func _on_player_leveled(new_level: int) -> void:
+	text = "Player LvL: %d" % new_level

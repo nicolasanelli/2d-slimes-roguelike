@@ -5,7 +5,6 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	var player : Player = GameManager.player
-	if not player: return
+	var player_rundata : PlayerRundata =  GameManager.player_rundata
 	
-	print("Not Implemented 22")
+	player_rundata.health_component.heal(25)

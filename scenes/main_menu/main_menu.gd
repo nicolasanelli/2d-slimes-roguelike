@@ -10,18 +10,27 @@ extends Node
 
 func _ready() -> void:
 	start_button.pressed.connect(_on_start_button_pressed)
-	achievements_button.pressed.connect(func (): print("Achievements Button Pressed"))
+	achievements_button.pressed.connect(_on_achievements_button_pressed)
 	options_button.pressed.connect(_on_options_button_pressed)
-	credits_button.pressed.connect(func (): print("Credits Button Pressed"))
+	credits_button.pressed.connect(_on_credits_button_pressed)
 	exit_button.pressed.connect(_on_exit_button_pressed)
 
 
 func _on_start_button_pressed() -> void:
+	GameManager.start_new_run()
 	Loader.load_scene(self, Constants.SCENE_PATH.stage_one)
 
 
+func _on_achievements_button_pressed() -> void:
+	print("Achievements Button Pressed")
+
+
 func _on_options_button_pressed() -> void:
-	Loader.load_scene(self, "res://scenes/options_menu/options_menu.tscn")
+	Loader.load_scene(self, Constants.SCENE_PATH.options_menu)
+
+
+func _on_credits_button_pressed() -> void:
+	print("Credits Button Pressed")
 
 
 func _on_exit_button_pressed() -> void:

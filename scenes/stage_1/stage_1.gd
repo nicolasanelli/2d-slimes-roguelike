@@ -1,23 +1,36 @@
 extends Node2D
 
 
-@onready var player: Player = %Player
+var player: Player
+var run_stats: RunStats
+@export var spawn_point: Vector2 = Vector2(960, 540)
 
 
 func _ready() -> void:
-	GameManager.start_new_run()
-	GameManager.player = player
-	#AudioManager.stick_to(player)
+	player = GameManager.player
+	run_stats = GameManager.run_stats
+	
+	spawn_player()
 	_connect_signals()
+
+
+func _process(delta: float) -> void:
+	run_stats.update_time_elapsed(delta)
 
 
 func _connect_signals() -> void:
 	CommandDispatcher.game_paused.connect(_on_game_paused)
 	CommandDispatcher.game_unpaused.connect(_on_game_unpaused)
 	CommandDispatcher.on_exit_game.connect(_on_exit_game)
+
+
+func spawn_player() -> void:
+	if player.get_parent():
+		player.get_parent().remove_child(player)
 	
-	CommandDispatcher.player_leveled.connect(_on_player_leveled)
-	CommandDispatcher.player_died.connect(_on_player_died)
+	#AudioManager.stick_to(player)
+	player.global_position = spawn_point
+	add_child(player)
 
 
 func _on_game_paused() -> void:
@@ -29,7 +42,8 @@ func _on_game_unpaused() -> void:
 
 
 func _on_exit_game() -> void:
-	Loader.load_scene(self, "res://scenes/main_menu/main_menu.tscn")
+	GameManager.end_run()
+	Loader.load_scene(self, Constants.SCENE_PATH.main_menu)
 
 
 func _on_player_died() -> void:

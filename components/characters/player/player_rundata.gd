@@ -1,5 +1,12 @@
 class_name PlayerRundata
-extends Resource
 
-var health = 100
-var experience = 0
+
+var health_component: HealthComponent
+var experience_component: ExperienceComponent
+var damage: float
+
+
+func _init() -> void:
+	health_component = HealthComponent.new(100)
+	experience_component = ExperienceComponent.new()
+	damage = 10

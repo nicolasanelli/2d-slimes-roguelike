@@ -1,10 +1,15 @@
 extends Node
 
 const SCENE_PATH: Dictionary = {
+	"player": "uid://bk48pihmbvji0",
+	
 	"stage_one": "uid://ddop2udfq826h",
 	"stage_two": "",
 	
 	"loading_screen": "uid://bxo36or4tco5i",
+	
+	"main_menu": "uid://crg48bcj2rk2b",
+	"options_menu": "uid://bk5rc3pvha0bn",
 	
 	"smoke_explosion": "uid://dhmhmrth6rdce"
 }

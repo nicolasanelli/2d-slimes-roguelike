@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk48pihmbvji0"]
+[gd_scene load_steps=8 format=3 uid="uid://bk48pihmbvji0"]
 
 [ext_resource type="Script" uid="uid://b68yy1mdn4848" path="res://components/characters/player/player.gd" id="1_1vwvb"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://assets/characters/happy_boo/happy_boo.tscn" id="1_cmylc"]
 [ext_resource type="Script" uid="uid://o4iq7e24vu5q" path="res://components/characters/player/external_range.gd" id="3_dc6tm"]
-[ext_resource type="Script" uid="uid://drx2xhc6dghpc" path="res://components/characters/player/internal_range.gd" id="4_kkjo8"]
 [ext_resource type="PackedScene" uid="uid://h44o4dykp4nq" path="res://components/compositions/hurtbox/hurtbox.tscn" id="5_k8mmp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6535e"]
@@ -11,9 +10,6 @@ radius = 25.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_42y4n"]
 radius = 200.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dc6tm"]
-radius = 45.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k8mmp"]
 radius = 42.352943
@@ -25,6 +21,9 @@ collision_mask = 8
 platform_floor_layers = 0
 script = ExtResource("1_1vwvb")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1.0000001, 1.0000001)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6535e")
 
@@ -35,7 +34,6 @@ scale = Vector2(1.0000001, 1.0000001)
 [node name="ExternalRange" type="Area2D" parent="." node_paths=PackedStringArray("parent")]
 collision_layer = 0
 collision_mask = 4
-monitoring = false
 monitorable = false
 script = ExtResource("3_dc6tm")
 parent = NodePath("..")
@@ -43,18 +41,6 @@ parent = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExternalRange"]
 shape = SubResource("CircleShape2D_42y4n")
 debug_color = Color(0.89326286, 0.514481, 3.2367046, 0)
-
-[node name="InternalRange" type="Area2D" parent="." node_paths=PackedStringArray("parent")]
-collision_layer = 0
-collision_mask = 3
-monitoring = false
-monitorable = false
-script = ExtResource("4_kkjo8")
-parent = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InternalRange"]
-shape = SubResource("CircleShape2D_dc6tm")
-debug_color = Color(0.7021107, 0, 0.09985284, 0)
 
 [node name="Hurtbox" parent="." instance=ExtResource("5_k8mmp")]
 collision_mask = 16

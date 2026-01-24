@@ -3,7 +3,7 @@ class_name HealthComponent
 
 signal healed(amount: float)
 signal damaged(amount: float)
-signal health_changed(current: float, max: float)
+signal health_changed(value: float, max_value: float)
 signal health_depleted
 
 
@@ -37,6 +37,7 @@ func is_alive() -> bool:
 
 func damage(amount: float) -> void:
 	if amount <= 0.0 or !is_alive():
+		push_error("Can't damage bc it's already dead.")
 		return
 
 	_current_health -= amount
@@ -47,6 +48,7 @@ func damage(amount: float) -> void:
 
 func heal(amount: float) -> void:
 	if amount <= 0.0 or !is_alive():
+		push_error("Can't heal bc it's already dead.")
 		return
 
 	var previous_health := _current_health
@@ -54,13 +56,3 @@ func heal(amount: float) -> void:
 
 	if _current_health > previous_health:
 		healed.emit(amount)
-
-
-#region getters
-func get_max_health() -> float:
-	return _max_health;
-
-
-func get_current_health() -> float:
-	return _current_health;
-#endregion
