@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpo62727264bd"]
+
+[ext_resource type="Script" uid="uid://bge808vx50owd" path="res://components/managers/drop_manager/drop_manager.gd" id="1_jdlnt"]
+
+[node name="DropManager" type="Node2D"]
+script = ExtResource("1_jdlnt")

@@ -11,7 +11,9 @@ const SCENE_PATH: Dictionary = {
 	"main_menu": "uid://crg48bcj2rk2b",
 	"options_menu": "uid://bk5rc3pvha0bn",
 	
-	"smoke_explosion": "uid://dhmhmrth6rdce"
+	"smoke_explosion": "uid://dhmhmrth6rdce",
+	
+	"xp_orb": "uid://gy66uxbq11u2"
 }
 
 const AUDIO_SFX: Dictionary = {

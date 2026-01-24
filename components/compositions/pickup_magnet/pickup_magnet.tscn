@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6lqxr3kf68as"]
+
+[ext_resource type="Script" uid="uid://o4iq7e24vu5q" path="res://components/compositions/pickup_magnet/pickup_magnet.gd" id="1_kli6h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_42y4n"]
+radius = 250.0
+
+[node name="PickupMagnet" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_kli6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_42y4n")
+debug_color = Color(0.89326286, 0.514481, 3.2367046, 0)

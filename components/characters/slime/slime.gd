@@ -7,8 +7,8 @@ extends CharacterBody2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 
-var _explosion_component: PackedScene = preload(Constants.SCENE_PATH.smoke_explosion)
 var _resource: SlimeResource = preload("res://data/enemies/slime/basic.tres")
+var _explosion_ps: PackedScene = preload(Constants.SCENE_PATH.smoke_explosion)
 
 
 var target: Node2D
@@ -72,7 +72,7 @@ func state_hurt() -> void:
 func enter_state_dead():
 	GameManager.run_stats.add_mob_killed()
 	
-	var smoke: Node2D = _explosion_component.instantiate()
+	var smoke: Node2D = _explosion_ps.instantiate()
 	smoke.global_position = global_position
 	add_sibling(smoke)
 	

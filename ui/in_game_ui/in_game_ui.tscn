@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b4lgv6n4alwf1" path="res://ui/in_game_ui/debugger/label_mk.gd" id="3_1wkew"]
 [ext_resource type="Texture2D" uid="uid://cbbldwp4elr35" path="res://assets/Sem título-2025-04-07-1343.png" id="3_au4t0"]
 [ext_resource type="Script" uid="uid://cpxm0k3unn4rq" path="res://ui/in_game_ui/debugger/label_mc.gd" id="4_733bd"]
-[ext_resource type="Texture2D" uid="uid://7ughleeg5y14" path="res://components/drops/xp_orb/xp_orb_gray.png" id="4_sbbku"]
+[ext_resource type="Texture2D" uid="uid://7ughleeg5y14" path="res://components/pickups/xp_orb/xp_orb_gray.png" id="4_sbbku"]
 [ext_resource type="Script" uid="uid://dj3kjnp12xljh" path="res://ui/in_game_ui/debugger/label_bs.gd" id="5_4gui6"]
 [ext_resource type="Script" uid="uid://cmnurdd3fhrgo" path="res://ui/in_game_ui/debugger/add_xp_button.gd" id="6_55mql"]
 [ext_resource type="Script" uid="uid://ck3m48mqu4512" path="res://ui/in_game_ui/debugger/timer.gd" id="8_5kmr6"]

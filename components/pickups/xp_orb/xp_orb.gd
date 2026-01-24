@@ -1,15 +1,20 @@
 class_name XpOrb
 extends CharacterBody2D
 
+
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+
 
 var _target: Node2D
 var _base_velocity := 550
 
+
 const DEATH_RADIUS_OFFSET: int = 50
+
 
 func _ready() -> void:
 	_animation_player.play("idle")
+
 
 func _physics_process(_delta: float) -> void:
 	if (not _target): return
@@ -21,8 +26,10 @@ func _physics_process(_delta: float) -> void:
 	velocity = direction * _base_velocity
 	move_and_slide()
 
+
 func set_target(target: Node2D) -> void:
 	_target = target
+
 
 func _absorv() -> void:
 	#AudioManager.play_pickup()
