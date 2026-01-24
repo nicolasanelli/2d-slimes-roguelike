@@ -1,15 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfjgdvoolqd4x"]
+[gd_scene load_steps=6 format=3 uid="uid://bfjgdvoolqd4x"]
 
 [ext_resource type="Script" uid="uid://bxpsf1ecw6q0y" path="res://components/characters/slime/slime.gd" id="1_otqjb"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://assets/characters/slime_body/slime_body.tscn" id="2_wou7s"]
+[ext_resource type="PackedScene" uid="uid://c8gu4urqa8d0f" path="res://components/compositions/hitbox/hitbox.tscn" id="3_3fyof"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llau4"]
 radius = 51.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fyof"]
+radius = 62.0
+
 [node name="Slime" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 platform_floor_layers = 0
 script = ExtResource("1_otqjb")
 
@@ -24,3 +28,12 @@ shape = SubResource("CircleShape2D_llau4")
 path_postprocessing = 1
 debug_enabled = true
 debug_path_custom_color = Color(0.6602124, 0.08869674, 0.08869674, 1)
+
+[node name="ContactHitbox" parent="." node_paths=PackedStringArray("source") instance=ExtResource("3_3fyof")]
+collision_layer = 16
+source = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactHitbox"]
+position = Vector2(0, -25)
+shape = SubResource("CircleShape2D_3fyof")
+debug_color = Color(0.61138725, 0.09985284, 0.13816993, 0.09900001)

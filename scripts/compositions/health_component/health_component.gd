@@ -52,7 +52,6 @@ func heal(amount: float) -> void:
 	var previous_health := _current_health
 	_current_health += amount
 
-	# Emit only if actual healing happened
 	if _current_health > previous_health:
 		healed.emit(amount)
 

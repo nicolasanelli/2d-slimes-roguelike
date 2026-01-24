@@ -31,6 +31,10 @@ func _ready() -> void:
 	state_machine.set_initial_state(state_idle)
 
 
+## TODO Gambi temporária até criar o MobSpawn
+func _process(_delta: float) -> void:
+	target = GameManager.player
+
 #region State Machine Region
 func _physics_process(_delta: float) -> void:
 	state_machine.update()
@@ -92,10 +96,6 @@ func _on_health_depleted() -> void:
 func _on_damage(_amount: float) -> void:
 	state_machine.change_state(state_hurt)
 #endregion
-
-
-func get_damage() -> float:
-	return _resource.damage
 
 
 func take_damage(amount: float = 1.0) -> void:
