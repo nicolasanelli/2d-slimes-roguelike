@@ -199,7 +199,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
+theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 script = ExtResource("2_4axlx")
@@ -208,6 +208,13 @@ script = ExtResource("2_4axlx")
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="Debugger/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "=== DEBUGGER ==="
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Separator1" type="MarginContainer" parent="Debugger/VBoxContainer"]
 layout_mode = 2
@@ -309,6 +316,7 @@ script = ExtResource("8_5kmr6")
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="Debugger/VBoxContainer/Timer"]
+process_mode = 1
 process_callback = 0
 wait_time = 100.0
 autostart = true

@@ -6,7 +6,8 @@ extends CharacterBody2D
 
 
 var _target: Node2D
-var _base_velocity := 550
+var _base_velocity: int = 550
+var _experience_value: float = 1
 
 
 const DEATH_RADIUS_OFFSET: int = 50
@@ -27,6 +28,10 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
+func set_experience_value(value: float) -> void:
+	_experience_value = value;
+
+
 func set_target(target: Node2D) -> void:
 	_target = target
 
@@ -34,5 +39,5 @@ func set_target(target: Node2D) -> void:
 func _absorv() -> void:
 	#AudioManager.play_pickup()
 	# TODO Gambi temporária
-	GameManager.player_rundata.experience_component.add_experience(1)
+	GameManager.player_rundata.experience_component.add_experience(_experience_value)
 	queue_free()

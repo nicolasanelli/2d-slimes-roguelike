@@ -2,7 +2,7 @@ class_name Slime
 extends CharacterBody2D
 
 
-signal died
+signal died(where: Vector2, xp_amount: float)
 
 
 @onready var _slime_body: SlimeBody = %SlimeBody
@@ -94,7 +94,7 @@ func enter_state_dead():
 	smoke.global_position = global_position
 	add_sibling(smoke)
 	
-	died.emit()
+	died.emit(global_position, _resource.experience_drop)
 	
 	queue_free()
 

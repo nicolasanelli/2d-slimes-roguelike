@@ -2,7 +2,7 @@ class_name SpawnManager
 extends Node
 
 @export var max_mobs_alive := 30
-
+@export var drop_manager: DropManager
 @export var spawners: Array[MobSpawner] = []
 var mobs_alive := 0
 
@@ -26,6 +26,7 @@ func _spawn_from_random_spawner() -> void:
 	mobs_alive += 1
 
 
-func _on_mob_died() -> void:
+func _on_mob_died(where: Vector2, xp_amount: float) -> void:
 	GameManager.run_stats.add_mob_killed()
+	drop_manager.spawn_xp(where, xp_amount)
 	mobs_alive -= 1
