@@ -27,9 +27,8 @@ tile_set = ExtResource("3_3bopi")
 
 [node name="DropManager" parent="." instance=ExtResource("5_rcicl")]
 
-[node name="SpawnManager" parent="." node_paths=PackedStringArray("drop_manager", "spawners") instance=ExtResource("5_3bopi")]
+[node name="SpawnManager" parent="." node_paths=PackedStringArray("drop_manager") instance=ExtResource("5_3bopi")]
 drop_manager = NodePath("../DropManager")
-spawners = [NodePath("../MobSpawner1"), NodePath("../MobSpawner2"), NodePath("../MobSpawner3"), NodePath("../MobSpawner4")]
 
 [node name="MobSpawner1" parent="." instance=ExtResource("6_rcicl")]
 position = Vector2(-84, 248)

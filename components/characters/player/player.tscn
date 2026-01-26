@@ -28,6 +28,7 @@ shape = SubResource("CircleShape2D_6535e")
 
 [node name="HappyBoo" parent="." instance=ExtResource("1_cmylc")]
 unique_name_in_owner = true
+z_index = 1
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="PickupMagnet" parent="." instance=ExtResource("3_kkjo8")]
