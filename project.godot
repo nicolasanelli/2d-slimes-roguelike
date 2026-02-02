@@ -72,12 +72,16 @@ Settings/Use_Shift_instead_of_Alt=false
 Settings/Surface_Placement_Collision_Mask=4294967295
 Settings/Show_Tooltips=true
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Slime Roguelike"
 config/version="2.0.0-dev"
 run/main_scene="uid://crg48bcj2rk2b"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.png"
 
