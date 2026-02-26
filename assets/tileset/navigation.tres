@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://b8ko0mn87xf3t"]
+[gd_resource type="TileSet" format=3 uid="uid://b8ko0mn87xf3t"]
 
 [ext_resource type="Texture2D" uid="uid://0fcfelw2883v" path="res://assets/tilesheet/NavMeshPainter.png" id="1_ryq8s"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d34c3t158r3fv"]
+[gd_scene format=3 uid="uid://d34c3t158r3fv"]
 
 [ext_resource type="Script" uid="uid://dsoi3cqar3ye3" path="res://components/weapons/aura/aura.gd" id="1_0btbb"]
 [ext_resource type="Texture2D" uid="uid://bnq27we0jwjxx" path="res://components/weapons/aura/aura.png" id="2_6ofmd"]
@@ -6,17 +6,18 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0btbb"]
 radius = 181.0
 
-[node name="Aura" type="Area2D"]
+[node name="Aura" type="Area2D" unique_id=650465014]
+scale = Vector2(1, 0.8)
 collision_layer = 0
 collision_mask = 32
 input_pickable = false
 monitoring = false
 script = ExtResource("1_0btbb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=388214041]
 shape = SubResource("CircleShape2D_0btbb")
 debug_color = Color(0.7021107, 0.62863654, 0, 0.238)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=304982113]
 modulate = Color(1, 1, 1, 0.41568628)
 texture = ExtResource("2_6ofmd")

@@ -1,19 +1,23 @@
 class_name SpawnManager
 extends Node
 
+
 @export var max_mobs_alive := 30
 @export var drop_manager: DropManager
 var spawners: Array = []
 var mobs_alive := 0
 
+
 func _ready() -> void:
 	spawners = get_tree().get_nodes_in_group("mob_spawners")
+
 
 func _process(_delta: float) -> void:
 	if mobs_alive >= max_mobs_alive:
 		return
 
 	_spawn_from_random_spawner()
+
 
 func _spawn_from_random_spawner() -> void:
 	if spawners.is_empty():

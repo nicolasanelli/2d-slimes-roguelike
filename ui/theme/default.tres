@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://w8p0of2trgs4"]
+[gd_resource type="Theme" format=3 uid="uid://w8p0of2trgs4"]
 
 [ext_resource type="Texture2D" uid="uid://ca8xspj5yykd" path="res://assets/ui/button_square_depth_line.png" id="1_h6go3"]
 [ext_resource type="FontFile" uid="uid://dou1mq1a2um30" path="res://assets/fonts/monogram-extended.ttf" id="1_v71op"]
