@@ -6,6 +6,6 @@ func _ready() -> void:
 	pressed.connect(_on_pressed)
 
 func _on_pressed() -> void:
-	var player_rundata : PlayerRundata =  GameManager.player_rundata
+	var player_run_data : PlayerRundata =  GameManager.player_run_data
 	
-	player_rundata.experience_component.add_experience(amount)
+	player_run_data.experience_component.add_experience(amount)

@@ -1,6 +1,7 @@
 class_name SpawnManager
 extends Node
 
+@onready var timer: Timer = $Timer
 
 @export var max_mobs_alive := 30
 @export var drop_manager: DropManager
@@ -10,9 +11,10 @@ var mobs_alive := 0
 
 func _ready() -> void:
 	spawners = get_tree().get_nodes_in_group("mob_spawners")
+	timer.timeout.connect(_on_timer_timeout)
 
 
-func _process(_delta: float) -> void:
+func _on_timer_timeout() -> void:
 	if mobs_alive >= max_mobs_alive:
 		return
 

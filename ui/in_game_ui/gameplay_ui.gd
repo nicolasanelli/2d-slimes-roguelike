@@ -12,7 +12,7 @@ var rundata: PlayerRundata
 
 
 func _ready() -> void:
-	rundata = GameManager.player_rundata
+	rundata = GameManager.player_run_data
 	
 	rundata.health_component.health_changed.connect(_health_changed)
 	rundata.experience_component.experience_changed.connect(_experience_changed)

@@ -28,16 +28,38 @@ tile_set = ExtResource("3_3bopi")
 [node name="DropManager" parent="." unique_id=2010635260 instance=ExtResource("5_rcicl")]
 
 [node name="SpawnManager" parent="." unique_id=2046030796 node_paths=PackedStringArray("drop_manager") instance=ExtResource("5_3bopi")]
+max_mobs_alive = 100
 drop_manager = NodePath("../DropManager")
 
 [node name="MobSpawner1" parent="." unique_id=964842165 instance=ExtResource("6_rcicl")]
-position = Vector2(-84, 248)
+position = Vector2(-1767, -1000)
 
 [node name="MobSpawner2" parent="." unique_id=310154115 instance=ExtResource("6_rcicl")]
-position = Vector2(1740, 952)
+position = Vector2(-1793, 2180)
 
 [node name="MobSpawner3" parent="." unique_id=1901455127 instance=ExtResource("6_rcicl")]
-position = Vector2(133, 1409)
+position = Vector2(1738, -705)
 
 [node name="MobSpawner4" parent="." unique_id=38505953 instance=ExtResource("6_rcicl")]
-position = Vector2(1339, 1651)
+position = Vector2(3673, 2179)
+
+[node name="MobSpawner5" parent="." unique_id=1129434387 instance=ExtResource("6_rcicl")]
+position = Vector2(-887, 1651)
+
+[node name="MobSpawner6" parent="." unique_id=1631266795 instance=ExtResource("6_rcicl")]
+position = Vector2(189, -526)
+
+[node name="MobSpawner7" parent="." unique_id=1810707942 instance=ExtResource("6_rcicl")]
+position = Vector2(1021, 2189)
+
+[node name="MobSpawner8" parent="." unique_id=58088296 instance=ExtResource("6_rcicl")]
+position = Vector2(2694, -18)
+
+[node name="MobSpawner9" parent="." unique_id=843895095 instance=ExtResource("6_rcicl")]
+position = Vector2(1481, 687)
+
+[node name="MobSpawner10" parent="." unique_id=1143772203 instance=ExtResource("6_rcicl")]
+position = Vector2(-1797, 623)
+
+[node name="MobSpawner11" parent="." unique_id=1785736955 instance=ExtResource("6_rcicl")]
+position = Vector2(3693, 794)

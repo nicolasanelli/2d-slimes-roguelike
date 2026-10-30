@@ -45,7 +45,7 @@ func enter_state_walk() -> void:
 
 func state_walk() -> void:
 	var direction = input.get_movement()
-	velocity = direction * 225
+	velocity = direction * 300
 	move_and_slide()
 	
 	if !input.is_movement():

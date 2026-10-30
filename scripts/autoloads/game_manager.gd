@@ -5,7 +5,7 @@ var player_ps = preload(Constants.SCENE_PATH.player)
 
 
 var player: Player
-var player_rundata: PlayerRundata
+var player_run_data: PlayerRundata
 var run_stats: RunStats
 
 
@@ -17,16 +17,16 @@ func _init() -> void:
 	## Usable only for DEV porpouses, IE running isolated scenes
 	## Can also use some custom pre-populated data for development
 	player = player_ps.instantiate()
-	player_rundata = PlayerRundata.new()
+	player_run_data = PlayerRundata.new()
 	run_stats = RunStats.new()
-	player.setup(player_rundata)
+	player.setup(player_run_data)
 
 
 func fresh() -> void:
 	if player:
 		player.queue_free()
 	player = null
-	player_rundata = null
+	player_run_data = null
 	run_stats = null
 
 
@@ -34,10 +34,10 @@ func start_new_run() -> void:
 	fresh()
 	
 	player = player_ps.instantiate()
-	player_rundata = PlayerRundata.new()
+	player_run_data = PlayerRundata.new()
 	run_stats = RunStats.new()
 	
-	player.setup(player_rundata)
+	player.setup(player_run_data)
 
 
 func end_run() -> void:

@@ -5,6 +5,6 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	var player_rundata : PlayerRundata =  GameManager.player_rundata
+	var player_run_data : PlayerRundata =  GameManager.player_run_data
 	
-	player_rundata.health_component.damage(10)
+	player_run_data.health_component.damage(10)

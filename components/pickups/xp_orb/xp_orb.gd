@@ -39,5 +39,5 @@ func set_target(target: Node2D) -> void:
 func _absorv() -> void:
 	#AudioManager.play_pickup()
 	# TODO Gambi temporária
-	GameManager.player_rundata.experience_component.add_experience(_experience_value)
+	GameManager.player_run_data.experience_component.add_experience(_experience_value)
 	queue_free()
