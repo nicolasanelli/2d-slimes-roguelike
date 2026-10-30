@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlimeResource" format=3 uid="uid://bvxub01py233w"]
+
+[ext_resource type="Script" uid="uid://dmfvy3m5imwb6" path="res://resources/slime_resource.gd" id="1_51ysv"]
+
+[resource]
+script = ExtResource("1_51ysv")
+color = Color(0.69411767, 0.105882354, 0.08627451, 1)
+hurt_color = Color(1, 0.647059, 0, 1)
+health = 20
+speed = 66
+damage = 10.0
+experience_drop = 1
+scale = Vector2(3, 3)

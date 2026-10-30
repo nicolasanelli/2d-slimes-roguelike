@@ -1,8 +1,0 @@
-{
-    "files.exclude": {
-        ".godot": true,
-        "**/*.import": true,
-        "**/*.tmp": true,
-        "**/*.uid": true,
-    }
-}
