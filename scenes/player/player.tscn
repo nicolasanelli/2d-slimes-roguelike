@@ -8,7 +8,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 radius = 5.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ukae"]
+radius = 150.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1493520235 groups=["Player"]]
+z_index = 99
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_gmlin")
@@ -29,3 +33,10 @@ offset = Vector2(0, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1863550993]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_dovo2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=721183659]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=681601941]
+shape = SubResource("CircleShape2D_3ukae")

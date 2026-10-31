@@ -8,5 +8,5 @@ script = ExtResource("1_jybml")
 basic_enemy = ExtResource("2_1w3g6")
 
 [node name="Timer" type="Timer" parent="." unique_id=686750047]
-wait_time = 0.109
+wait_time = 0.1
 autostart = true
