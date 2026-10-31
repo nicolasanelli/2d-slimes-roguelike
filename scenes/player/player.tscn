@@ -8,11 +8,14 @@
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1493520235 groups=["Player"]]
+collision_mask = 0
 script = ExtResource("1_gmlin")
+
+[node name="AbilityManager" type="Node" parent="." unique_id=1571344251]
 
 [node name="HappyBoo" parent="." unique_id=1978057716 instance=ExtResource("1_8afob")]
 position = Vector2(0, -1)
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.15, 0.15)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1162955692]
 visible = false
