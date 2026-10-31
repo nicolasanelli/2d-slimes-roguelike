@@ -89,6 +89,10 @@ config/icon="res://icon.png"
 
 buses/default_bus_layout=""
 
+[autoload]
+
+GameEvents="*uid://d2q7visll4l6n"
+
 [display]
 
 window/size/viewport_width=640
@@ -192,6 +196,8 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_2="Player"
 3d_physics/layer_2="player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="EnemyCollision"
+2d_physics/layer_5="Pickup"
 
 [rendering]
 
