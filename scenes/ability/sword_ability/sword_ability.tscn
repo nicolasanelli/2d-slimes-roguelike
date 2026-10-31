@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c4300lk4fkywe"]
 
+[ext_resource type="Script" uid="uid://0dmjl07wrvg4" path="res://scenes/ability/sword_ability/sword_ability.gd" id="1_t8g1f"]
 [ext_resource type="Texture2D" uid="uid://c0memwjnh8dk2" path="res://scenes/ability/sword_ability/sword.png" id="1_upg5g"]
+[ext_resource type="PackedScene" uid="uid://bsd0kt3qvj6d5" path="res://scenes/component/hitbox_component.tscn" id="2_abpad"]
 
 [sub_resource type="Animation" id="Animation_abpad"]
 length = 0.001
@@ -31,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -86,7 +88,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -102,10 +104,11 @@ _data = {
 &"swing": SubResource("Animation_upg5g")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_upg5g"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abpad"]
 size = Vector2(30, 30)
 
 [node name="SwordAbility" type="Node2D" unique_id=728650854]
+script = ExtResource("1_t8g1f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1220680330]
 libraries/ = SubResource("AnimationLibrary_abpad")
@@ -115,10 +118,8 @@ autoplay = &"swing"
 texture = ExtResource("1_upg5g")
 offset = Vector2(0, -4)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1097540758]
-collision_layer = 4
-collision_mask = 0
+[node name="HitboxComponent" parent="." unique_id=78476619 instance=ExtResource("2_abpad")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=180100659]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=342013238]
 position = Vector2(15, 0)
-shape = SubResource("RectangleShape2D_upg5g")
+shape = SubResource("RectangleShape2D_abpad")
