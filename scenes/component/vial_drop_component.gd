@@ -9,13 +9,18 @@ func _ready() -> void:
 
 
 func _on_died() -> void:
-	if vial_scene == null: return
+	if vial_scene == null:
+		push_warning("VialScene is not assigned to VialDropComponent")
+		return
 	
-	if not owner is Node2D: return
+	if not owner is Node2D:
+		push_warning("Owner is not a Node2D at VialDropComponent")
+		return
 	
-	if randf() > drop_percent: return
+	if randf() > drop_percent:
+		return
 	
-	var spawn_position = (owner as Node2D).global_position
-	var vial_instance = vial_scene.instantiate() as Node2D
-	owner.get_parent().add_child(vial_instance)
+	var spawn_position := (owner as Node2D).global_position
+	var vial_instance := vial_scene.instantiate() as Node2D
+	owner.get_parent().add_child(vial_instance) # TODO Set a better place/strategy to spawn items in the scene tree
 	vial_instance.global_position = spawn_position

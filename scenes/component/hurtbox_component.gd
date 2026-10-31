@@ -9,9 +9,13 @@ func _ready() -> void:
 
 
 func _on_area_entered(other_area: Area2D) -> void:
-	if not other_area is HitboxComponent: return
+	if not other_area is HitboxComponent:
+		push_warning("Area entered is not a HitboxComponent at HurtboxComponent")
+		return
 	
-	if health_component == null: return
+	if health_component == null:
+		push_warning("HurtboxComponent has no HealthComponent assigned")
+		return
 	
-	var hitbox_component = other_area as HitboxComponent
+	var hitbox_component: HitboxComponent = other_area
 	health_component.damage(hitbox_component.damage)

@@ -1,6 +1,6 @@
 extends Camera2D
 
-var target_position = Vector2.ZERO
+var target_position: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
@@ -15,7 +15,9 @@ func _process(delta: float) -> void:
 
 
 func acquire_target() -> void:
-	var player = get_tree().get_first_node_in_group("Player") as Player
-	if player == null: return
+	var player: Player = get_tree().get_first_node_in_group("Player")
+	if player == null:
+		push_warning("Player not found at GameCamera")
+		return
 	
 	target_position = player.global_position

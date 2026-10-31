@@ -7,9 +7,11 @@ extends CanvasLayer
 
 
 func _process(_delta: float) -> void:
-	if arena_time_manager == null: return
+	if arena_time_manager == null:
+		push_warning("ArenaTimeManager is not assigned to ArenaTimeUI")
+		return
 	
-	var time_elapsed = arena_time_manager.get_time_elapsed()
+	var time_elapsed := arena_time_manager.get_time_elapsed()
 	timer_label.text = format_seconds_to_string(time_elapsed)
 
 
