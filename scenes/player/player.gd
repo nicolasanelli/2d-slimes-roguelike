@@ -9,7 +9,7 @@ func _ready() -> void:
 	happy_boo.play_walk_animation()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var movement_vector = get_movement_vector();
 	var direction = movement_vector.normalized()
 	

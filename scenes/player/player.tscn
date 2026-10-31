@@ -3,15 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://scenes/player/happy_boo/happy_boo.tscn" id="1_8afob"]
 [ext_resource type="Script" uid="uid://d3ts4q1v6yi4v" path="res://scenes/player/player.gd" id="1_gmlin"]
 [ext_resource type="Texture2D" uid="uid://hbrvpaw0idm2" path="res://scenes/player/player.png" id="2_dovo2"]
+[ext_resource type="PackedScene" uid="uid://d36825jbbdtnk" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1493520235 groups=["Player"]]
-collision_mask = 0
+collision_layer = 2
 script = ExtResource("1_gmlin")
 
 [node name="AbilityManager" type="Node" parent="." unique_id=1571344251]
+
+[node name="SwordAbilityController" parent="AbilityManager" unique_id=1305994071 instance=ExtResource("2_lvxji")]
 
 [node name="HappyBoo" parent="." unique_id=1978057716 instance=ExtResource("1_8afob")]
 position = Vector2(0, -1)

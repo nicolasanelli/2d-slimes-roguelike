@@ -5,13 +5,15 @@ const DISTANCE_OFFSET = 3
 
 
 @onready var slime_body: SlimeBody = $SlimeBody
+@onready var area_2d: Area2D = $Area2D
 
 
 func _ready() -> void:
 	slime_body.play_walk()
+	area_2d.area_entered.connect(_on_area_entered)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var direction = get_direction_to_player()
 	
 	velocity = direction * MAX_SPEED
@@ -24,3 +26,7 @@ func get_direction_to_player() -> Vector2:
 		return Vector2.ZERO
 	
 	return (player.global_position - global_position).normalized()
+
+
+func _on_area_entered(_other_area: Node2D) -> void:
+	queue_free()

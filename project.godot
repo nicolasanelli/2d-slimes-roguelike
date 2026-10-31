@@ -80,7 +80,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Slime Roguelike"
 config/version="2.0.0-dev"
-run/main_scene="uid://cp230lxdmjck7"
+run/main_scene="uid://228qq4l3vdoa"
 config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.png"
@@ -111,6 +111,7 @@ folder_colors={
 [global_group]
 
 Player=""
+Enemy=""
 
 [input]
 
@@ -187,9 +188,10 @@ pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Mobs"
+2d_physics/layer_1="Terrain"
+2d_physics/layer_2="Player"
 3d_physics/layer_2="player"
+2d_physics/layer_3="Enemy"
 
 [rendering]
 
