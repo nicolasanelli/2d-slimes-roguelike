@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	acquire_target()
 	
 	# https://www.rorydriscoll.com/2016/03/07/frame-rate-independent-damping-using-lerp/
-	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * 10))
+	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * 20))
 
 
 func acquire_target() -> void:

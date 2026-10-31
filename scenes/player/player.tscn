@@ -10,6 +10,7 @@ radius = 5.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1493520235 groups=["Player"]]
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_gmlin")
 
 [node name="AbilityManager" type="Node" parent="." unique_id=1571344251]

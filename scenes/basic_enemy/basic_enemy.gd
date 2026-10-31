@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const MAX_SPEED = 75
+const MAX_SPEED = 40
 const DISTANCE_OFFSET = 3
 
 
@@ -14,15 +14,15 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	var direction = get_direction_to_player()
+	var direction := get_direction_to_player()
 	
 	velocity = direction * MAX_SPEED
 	move_and_slide()
 
 
 func get_direction_to_player() -> Vector2:
-	var player = get_tree().get_first_node_in_group("Player") as Player
-	if player == null || global_position.distance_to(player.global_position) < DISTANCE_OFFSET: 
+	var player := get_tree().get_first_node_in_group("Player") as Player
+	if player == null || global_position.distance_squared_to(player.global_position) < pow(DISTANCE_OFFSET, 2): 
 		return Vector2.ZERO
 	
 	return (player.global_position - global_position).normalized()

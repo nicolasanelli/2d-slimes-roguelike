@@ -22,14 +22,14 @@ func _on_timer_timeout() -> void:
 	
 	if enemies.size() == 0: return
 	
-	#enemies.sort_custom(func(a: Node2D, b: Node2D):
-		#var a_distance = a.global_position.distance_squared_to(player.global_position)
-		#var b_distance = b.global_position.distance_squared_to(player.global_position)	
-		#
-		#return a_distance < b_distance
-	#)
-	#var target_enemy = enemies[0]
-	var target_enemy = enemies.pick_random() as Node2D
+	enemies.sort_custom(func(a: Node2D, b: Node2D):
+		var a_distance = a.global_position.distance_squared_to(player.global_position)
+		var b_distance = b.global_position.distance_squared_to(player.global_position)	
+		
+		return a_distance < b_distance
+	)
+	var target_enemy = enemies[0]
+	#var target_enemy = enemies.pick_random() as Node2D
 	
 	var sword_instance = sword_ability.instantiate() as Node2D
 	player.add_sibling(sword_instance)
